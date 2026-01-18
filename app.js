@@ -5,7 +5,8 @@
 const CHANNELS_PATH = '/channels';
 const HLS_PATH = '/movies_hls';
 
-const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+// Python weekday: 0=Monday, 6=Sunday -> converter para JS
+const DAYS_FROM_PYTHON = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
 let currentChannel = null;
 let channelData = null;
@@ -13,7 +14,8 @@ let hls = null;
 let updateInterval = null;
 let isPlaying = false;
 let idleTimeout = null;
-const IDLE_DELAY = 3000; // 3 segundos
+let serverTimeOffset = 0; // diferença entre servidor e navegador em ms
+const IDLE_DELAY = 3000;
 
 // Elementos DOM
 const player = document.getElementById('player');
@@ -58,14 +60,35 @@ function formatTimeHHMM(seconds) {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
 }
 
-function getNowInTimezone(timezone) {
-  const now = new Date();
-  const str = now.toLocaleString('en-US', { timeZone: timezone });
-  return new Date(str);
+async function syncServerTime() {
+  try {
+    const res = await fetch('/api/time');
+    if (!res.ok) throw new Error('Failed to fetch server time');
+    const data = await res.json();
+
+    // Calcula offset: timestamp do servidor - timestamp do navegador
+    const serverTimestamp = data.timestamp * 1000; // converter para ms
+    const browserTimestamp = Date.now();
+    serverTimeOffset = serverTimestamp - browserTimestamp;
+
+    console.log(`Server time synced. Offset: ${Math.round(serverTimeOffset / 1000)}s`);
+    return data;
+  } catch (e) {
+    console.warn('Could not sync server time, using browser time:', e);
+    return null;
+  }
+}
+
+function getServerNow() {
+  // Retorna Date ajustado pelo offset do servidor
+  return new Date(Date.now() + serverTimeOffset);
 }
 
 function getDayName(date) {
-  return DAYS[date.getDay()];
+  // Converte de JS weekday (0=Sunday) para nome do dia
+  const jsDay = date.getDay(); // 0=Sunday, 1=Monday, ...
+  const pythonDay = jsDay === 0 ? 6 : jsDay - 1; // converter para 0=Monday
+  return DAYS_FROM_PYTHON[pythonDay];
 }
 
 function getSecondsOfDay(date) {
@@ -184,8 +207,7 @@ function loadVideo(videoId, startOffset) {
 function updateNowPlaying() {
   if (!channelData) return;
 
-  const timezone = channelData.timezone || 'America/Sao_Paulo';
-  const now = getNowInTimezone(timezone);
+  const now = getServerNow();
   const dayName = getDayName(now);
   const nowSeconds = getSecondsOfDay(now);
 
@@ -213,8 +235,7 @@ function updateNowPlaying() {
 function syncToSchedule() {
   if (!channelData) return;
 
-  const timezone = channelData.timezone || 'America/Sao_Paulo';
-  const now = getNowInTimezone(timezone);
+  const now = getServerNow();
   const dayName = getDayName(now);
   const nowSeconds = getSecondsOfDay(now);
 
@@ -252,8 +273,7 @@ function renderSchedule(dayOffset = 0) {
     return;
   }
 
-  const timezone = channelData.timezone || 'America/Sao_Paulo';
-  const now = getNowInTimezone(timezone);
+  const now = getServerNow();
   const targetDate = new Date(now);
   targetDate.setDate(targetDate.getDate() + dayOffset);
 
@@ -526,8 +546,14 @@ sidebar.addEventListener('mouseleave', () => idleTimeout = setTimeout(setIdle, I
 // ============ Inicialização ============
 
 async function init() {
+  // Sincroniza horário com o servidor
+  await syncServerTime();
+
   await loadChannelList();
   handleHashChange();
+
+  // Ressincroniza horário a cada 5 minutos
+  //setInterval(syncServerTime, 5 * 60 * 1000);
 
   setInterval(() => {
     if (!scheduleModal.classList.contains('hidden')) {
