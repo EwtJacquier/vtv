@@ -1,0 +1,26 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "monday": [],
+  "tuesday": [],
+  "wednesday": [],
+  "thursday": [],
+  "friday": [],
+  "saturday": [],
+  "sunday": [
+    {
+      "name": "Filmes",
+      "start": "13:22",
+      "end": "23:59",
+      "playlist": [
+        {
+          "id": "tartarugas_ninja_2",
+          "duration": 5303
+        },
+        {
+          "id": "batman_coracao_gelo",
+          "duration": 1340
+        }
+      ]
+    }
+  ]
+}

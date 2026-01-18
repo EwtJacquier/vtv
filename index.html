@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VTV</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <!-- Video de fundo -->
+  <video id="player" muted autoplay playsinline></video>
+
+  <!-- Overlay com botão play -->
+  <div id="overlay" class="overlay">
+    <h1>VTV</h1>
+    <p id="overlay-text">Selecione um canal</p>
+    <button id="btn-play" class="btn-play hidden">▶ Assistir</button>
+  </div>
+
+  <!-- Menu lateral de canais -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <button id="btn-close-sidebar" class="btn-close-sidebar">✕</button>
+      <h2>VTV</h2>
+    </div>
+
+    <!-- Now playing dentro do menu -->
+    <div id="now-playing" class="now-playing hidden">
+      <div class="now-playing-label">Agora</div>
+      <div id="now-playing-text" class="now-playing-text"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="section-title">Canais</div>
+      <ul id="channel-list"></ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="btn-schedule" class="btn-action">📅 Programação</button>
+    </div>
+  </nav>
+
+  <!-- Toggle do menu -->
+  <button id="btn-toggle-sidebar" class="btn-toggle">☰</button>
+
+  <!-- Controles fixos (volume e fullscreen) -->
+  <div id="player-controls" class="player-controls">
+    <input type="range" id="volume" min="0" max="100" value="50" title="Volume">
+    <button id="btn-fullscreen" class="btn-control" title="Tela Cheia">⛶</button>
+  </div>
+
+  <!-- Modal de programação -->
+  <div id="schedule-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Programação</h2>
+        <button id="btn-close-modal" class="btn-close">✕</button>
+      </div>
+      <div class="modal-tabs">
+        <button class="tab active" data-tab="today">Hoje</button>
+        <button class="tab" data-tab="tomorrow">Amanhã</button>
+      </div>
+      <div id="schedule-content" class="schedule-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

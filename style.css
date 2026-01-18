@@ -1,0 +1,473 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Video de fundo */
+#player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay quando não há canal ou aguardando play */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: opacity 0.5s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.overlay p {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+/* Botão Play */
+.btn-play {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-play:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-play.hidden {
+  display: none;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar-header h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+.btn-close-sidebar {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  transition: color 0.2s ease;
+}
+
+.btn-close-sidebar:hover {
+  color: #fff;
+}
+
+/* Now Playing no menu */
+.now-playing {
+  padding: 1rem 1.5rem;
+  background: rgba(102, 126, 234, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.now-playing.hidden {
+  display: none;
+}
+
+.now-playing-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #667eea;
+  margin-bottom: 0.3rem;
+}
+
+.now-playing-text {
+  font-size: 0.9rem;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* Section */
+.sidebar-section {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  padding: 1rem 1.5rem 0.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+#channel-list {
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+}
+
+#channel-list li {
+  padding: 0;
+}
+
+#channel-list a {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: #aaa;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+#channel-list a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+#channel-list a.active {
+  background: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+  border-left-color: #667eea;
+}
+
+/* Footer do sidebar */
+.sidebar-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.btn-action {
+  width: 100%;
+  padding: 0.7rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ccc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.btn-action:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* Controles fixos do player (volume + fullscreen) */
+.player-controls {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  z-index: 90;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.player-controls.visible {
+  opacity: 1;
+}
+
+.player-controls input[type="range"] {
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.player-controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.player-controls input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.btn-control {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.btn-control:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Botão toggle sidebar */
+.btn-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 99;
+  transition: all 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-toggle:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.btn-toggle.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-content {
+  background: #1a1a2e;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+  font-size: 1.3rem;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.btn-close:hover {
+  color: #fff;
+}
+
+.modal-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-tabs .tab {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.modal-tabs .tab:hover {
+  color: #fff;
+}
+
+.modal-tabs .tab.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.schedule-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.schedule-item {
+  display: flex;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.2s ease;
+}
+
+.schedule-item.current {
+  background: rgba(102, 126, 234, 0.2);
+  border-left: 3px solid #667eea;
+}
+
+.schedule-item .time {
+  width: 60px;
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.schedule-item .title {
+  flex: 1;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.schedule-item .duration {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.schedule-empty {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+/* Idle mode - esconde UI após inatividade */
+body.idle {
+  cursor: none;
+}
+
+body.idle .sidebar,
+body.idle .btn-toggle,
+body.idle .player-controls {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .overlay h1 {
+    font-size: 2.5rem;
+  }
+}
