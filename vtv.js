@@ -60,6 +60,13 @@ function formatTimeHHMM(seconds) {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
 }
 
+function formatCountdown(seconds) {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
 async function syncServerTime() {
   try {
     const res = await fetch('/api/time');
@@ -145,6 +152,44 @@ function findCurrentProgram(programs, nowSeconds) {
   return null;
 }
 
+function findNextProgram(channelData, now) {
+  const dayName = getDayName(now);
+  const nowSeconds = getSecondsOfDay(now);
+
+  // Procura no mesmo dia
+  const todayWindows = channelData[dayName] || [];
+  const todayPrograms = expandSchedule(todayWindows);
+
+  for (const prog of todayPrograms) {
+    if (prog.start > nowSeconds) {
+      return {
+        program: prog,
+        secondsUntil: prog.start - nowSeconds,
+        isToday: true
+      };
+    }
+  }
+
+  // Procura no próximo dia
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const tomorrowDayName = getDayName(tomorrow);
+  const tomorrowWindows = channelData[tomorrowDayName] || [];
+  const tomorrowPrograms = expandSchedule(tomorrowWindows);
+
+  if (tomorrowPrograms.length > 0) {
+    const firstProg = tomorrowPrograms[0];
+    const secondsUntilMidnight = 24 * 3600 - nowSeconds;
+    return {
+      program: firstProg,
+      secondsUntil: secondsUntilMidnight + firstProg.start,
+      isToday: false
+    };
+  }
+
+  return null;
+}
+
 // ============ Player HLS ============
 
 function destroyPlayer() {
@@ -219,7 +264,7 @@ function updateNowPlaying() {
     const { program, offset } = current;
     const remaining = program.duration - offset;
     const title = program.id.replace(/_/g, ' ');
-    nowPlayingText.textContent = `${title} • ${formatTime(remaining)} restante`;
+    nowPlayingText.textContent = `${title} • ${formatTime(remaining)} restantes`;
     nowPlaying.classList.remove('hidden');
 
     if (remaining <= 1) {
@@ -227,7 +272,24 @@ function updateNowPlaying() {
       setTimeout(() => syncToSchedule(), 2000);
     }
   } else {
-    nowPlayingText.textContent = 'Fora do ar';
+    // Verifica se há próximo programa e atualiza o timer
+    const nextProg = findNextProgram(channelData, now);
+    if (nextProg) {
+      nowPlayingText.textContent = `Próximo em ${formatCountdown(nextProg.secondsUntil)}`;
+
+      // Atualiza o countdown no h1 do overlay se visível
+      if (!overlay.classList.contains('hidden')) {
+        overlay.querySelector('h1').textContent = formatCountdown(nextProg.secondsUntil);
+      }
+
+      // Quando chegar a hora, sincroniza com a programação
+      if (nextProg.secondsUntil <= 1) {
+        console.log('Next program starting, syncing...');
+        setTimeout(() => syncToSchedule(), 1000);
+      }
+    } else {
+      nowPlayingText.textContent = 'Fora do ar';
+    }
     nowPlaying.classList.remove('hidden');
   }
 }
@@ -258,8 +320,17 @@ function syncToSchedule() {
     }
   } else {
     destroyPlayer();
-    overlay.querySelector('h1').textContent = currentChannel;
-    overlayText.textContent = 'Fora do ar no momento';
+
+    // Verifica se há próximo programa
+    const nextProg = findNextProgram(channelData, now);
+    if (nextProg) {
+      overlay.querySelector('h1').textContent = formatCountdown(nextProg.secondsUntil);
+      overlayText.textContent = 'Aguarde o início do próximo programa';
+    } else {
+      overlay.querySelector('h1').textContent = currentChannel;
+      overlayText.textContent = 'Fora do ar no momento';
+    }
+
     btnPlay.classList.add('hidden');
     overlay.classList.remove('hidden');
   }
@@ -311,12 +382,12 @@ function renderSchedule(dayOffset = 0) {
 
 async function loadChannelList() {
   try {
-    const knownChannels = ['anos90'];
+    const knownChannels = ['anos90','superhero','animetv'];
 
     const channels = [];
     for (const name of knownChannels) {
       try {
-        const res = await fetch(`${CHANNELS_PATH}/${name}.json`, { method: 'HEAD' });
+        const res = await fetch(`${CHANNELS_PATH}/${name}.json?v=` + Date.now(), { method: 'HEAD' });
         if (res.ok) channels.push(name);
       } catch (e) {
         // Ignora
@@ -358,12 +429,11 @@ async function loadChannel(name) {
   closeSidebar();
 
   try {
-    const res = await fetch(`${CHANNELS_PATH}/${name}.json`);
+    const res = await fetch(`${CHANNELS_PATH}/${name}.json?v=` + Date.now());
     if (!res.ok) throw new Error('Channel not found');
 
     channelData = await res.json();
     currentChannel = name;
-    isPlaying = false; // Reset play state for new channel
 
     updateActiveChannel();
     syncToSchedule();

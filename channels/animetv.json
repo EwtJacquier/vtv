@@ -1,0 +1,34 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "monday": [
+    {
+      "name": "filmes",
+      "start": "00:00",
+      "end": "03:00",
+      "playlist": [
+        {
+          "id": "pokemon_mewtwo_contra-ataca",
+          "duration": 4475
+        }
+      ]
+    }
+  ],
+  "tuesday": [],
+  "wednesday": [],
+  "thursday": [],
+  "friday": [],
+  "saturday": [],
+  "sunday": [
+    {
+      "name": "filmes",
+      "start": "22:39",
+      "end": "00:00",
+      "playlist": [
+        {
+          "id": "pokemon_2000",
+          "duration": 4845
+        }
+      ]
+    }
+  ]
+}

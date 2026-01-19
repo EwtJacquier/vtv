@@ -165,7 +165,7 @@ def guess_caps_by_resolution(w: int | None, h: int | None) -> tuple[str, str]:
     if pixels <= 1280 * 720:
         return ("3.5M", "7M")
     if pixels <= 1920 * 1080:
-        return ("3M", "6M")
+        return ("3.5M", "8M")
     if pixels <= 2560 * 1440:
         return ("8.5M", "17M")
     return ("16M", "32M")

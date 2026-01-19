@@ -1,6 +1,18 @@
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [],
+  "monday": [
+    {
+      "name": "filmes",
+      "start": "00:00",
+      "end": "04:00",
+      "playlist": [
+        {
+          "id": "street_fighter",
+          "duration": 6089
+        }
+      ]
+    }
+  ],
   "tuesday": [],
   "wednesday": [],
   "thursday": [],
@@ -8,17 +20,25 @@
   "saturday": [],
   "sunday": [
     {
-      "name": "Filmes",
-      "start": "15:00",
-      "end": "23:59",
+      "name": "filmes",
+      "start": "17:26",
+      "end": "00:00",
       "playlist": [
         {
           "id": "tartarugas_ninja_2",
           "duration": 5303
         },
         {
-          "id": "batman_coracao_gelo",
-          "duration": 1340
+          "id": "o_maskara",
+          "duration": 6075
+        },
+        {
+          "id": "mortal_kombat",
+          "duration": 6085
+        },
+        {
+          "id": "o_show_de_truman",
+          "duration": 6174
         }
       ]
     }

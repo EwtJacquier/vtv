@@ -27,7 +27,36 @@ PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
 
 class AuthHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, directory=None, **kwargs):
+        self.base_directory = directory or os.getcwd()
         super().__init__(*args, directory=directory, **kwargs)
+
+    def translate_path(self, path):
+        """Override to follow symlinks outside the base directory."""
+        # Decode URL and normalize
+        path = path.split('?', 1)[0]
+        path = path.split('#', 1)[0]
+
+        # Unquote URL-encoded characters
+        try:
+            from urllib.parse import unquote
+            path = unquote(path, errors='surrogatepass')
+        except (ValueError, UnicodeDecodeError):
+            path = unquote(path)
+
+        # Normalize path separators
+        path = path.replace('/', os.sep)
+
+        # Remove leading separator to make it relative
+        while path.startswith(os.sep):
+            path = path[1:]
+
+        # Build the full path from base directory
+        full_path = os.path.join(self.base_directory, path)
+
+        # Resolve symlinks to get the actual file path
+        resolved_path = os.path.realpath(full_path)
+
+        return resolved_path
 
     def do_HEAD(self):
         if self.check_auth():
@@ -62,7 +91,7 @@ class AuthHandler(SimpleHTTPRequestHandler):
         self.send_header("WWW-Authenticate", 'Basic realm="VTV"')
         self.send_header("Content-Type", "text/html")
         self.end_headers()
-        self.wfile.write(b"<h1>Usuario: vtv | Senha: @@assistir</h1>")
+        self.wfile.write(b"<h1>Acesso Bloqueado</h1>")
         return False
 
     def send_time(self):

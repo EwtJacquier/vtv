@@ -1,0 +1,53 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "monday": [
+    {
+      "name": "filmes",
+      "start": "00:00",
+      "end": "03:00",
+      "playlist": [
+        {
+          "id": "homem_aranha_3",
+          "duration": 8351
+        }
+      ]
+    },
+    {
+      "name": "filmes",
+      "start": "09:00",
+      "end": "23:59",
+      "playlist": [
+        {
+          "id": "x_men",
+          "duration": 6266
+        },
+        {
+          "id": "x_men_2",
+          "duration": 8027
+        }
+      ]
+    }
+  ],
+  "tuesday": [],
+  "wednesday": [],
+  "thursday": [],
+  "friday": [],
+  "saturday": [],
+  "sunday": [
+    {
+      "name": "filmes",
+      "start": "19:42",
+      "end": "00:00",
+      "playlist": [
+        {
+          "id": "homem_aranha",
+          "duration": 7272
+        },
+        {
+          "id": "homem_aranha_2",
+          "duration": 8148
+        }
+      ]
+    }
+  ]
+}
