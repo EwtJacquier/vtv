@@ -14,7 +14,7 @@
     },
     {
       "name": "filmes",
-      "start": "09:00",
+      "start": "16:00",
       "end": "23:59",
       "playlist": [
         {
@@ -24,6 +24,14 @@
         {
           "id": "x_men_2",
           "duration": 8027
+        },
+        {
+          "id": "homem_aranha",
+          "duration": 7272
+        },
+        {
+          "id": "homem_aranha_2",
+          "duration": 8148
         }
       ]
     }

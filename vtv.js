@@ -382,7 +382,7 @@ function renderSchedule(dayOffset = 0) {
 
 async function loadChannelList() {
   try {
-    const knownChannels = ['anos90','superhero','animetv'];
+    const knownChannels = ['nostalgia90','imaginarium','superhero','animetv','paradox','afterdark'];
 
     const channels = [];
     for (const name of knownChannels) {

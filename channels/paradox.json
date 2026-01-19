@@ -1,0 +1,42 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "monday": [
+    {
+      "name": "filmes",
+      "start": "17:30",
+      "end": "00:00",
+      "playlist": [
+        {
+          "id": "matrix",
+          "duration": 8179
+        },
+        {
+          "id": "matrix_reloaded",
+          "duration": 8297
+        },
+        {
+          "id": "matrix_revolutions",
+          "duration": 7752
+        }
+      ]
+    }
+  ],
+  "tuesday": [
+    {
+      "name": "filmes",
+      "start": "00:00",
+      "end": "03:00",
+      "playlist": [
+        {
+          "id": "constantine",
+          "duration": 7247
+        }
+      ]
+    }
+  ],
+  "wednesday": [],
+  "thursday": [],
+  "friday": [],
+  "saturday": [],
+  "sunday": []
+}

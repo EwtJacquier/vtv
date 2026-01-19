@@ -307,6 +307,12 @@ def main():
     # Áudio
     a_bitrate = input("\nBitrate do áudio AAC (ex: 128k/192k) [padrão 128k]: ").strip() or "128k"
 
+    # Forçar 8-bit (útil para vídeos 10-bit com encoders que não suportam)
+    force_8bit = False
+    if encode_mode in ("nvenc", "qsv", "amf"):
+        force_8bit_input = input("\nForçar conversão para 8-bit? (necessário se vídeo 10-bit) [s/N]: ").strip().lower()
+        force_8bit = force_8bit_input in ("s", "sim", "y", "yes")
+
     # Saídas HLS fMP4
     playlist_path = out_dir / "stream.m3u8"
     init_path = out_dir / "init.mp4"
@@ -343,14 +349,20 @@ def main():
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
     elif encode_mode == "nvenc":
         # NVENC: CQ + cap (senão explode fácil)
+        if force_8bit:
+            cmd += ["-pix_fmt", "yuv420p"]
         cmd += ["-c:v", "h264_nvenc", "-preset", "p4", "-cq", str(q),
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
     elif encode_mode == "qsv":
         # QSV: global_quality + cap
+        if force_8bit:
+            cmd += ["-pix_fmt", "yuv420p"]
         cmd += ["-c:v", "h264_qsv", "-global_quality", str(q),
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
     elif encode_mode == "amf":
         # AMF varia por driver; usa CQP simples + cap
+        if force_8bit:
+            cmd += ["-pix_fmt", "yuv420p"]
         cmd += ["-c:v", "h264_amf", "-quality", "quality"]
         # Nem sempre AMF aceita maxrate/bufsize do mesmo jeito; tentamos mesmo assim:
         cmd += ["-maxrate", str(maxrate), "-bufsize", str(bufsize)]
@@ -358,8 +370,8 @@ def main():
         cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", "25",
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
 
-    # Áudio: sempre AAC (compatível)
-    cmd += ["-c:a", "aac", "-b:a", a_bitrate]
+    # Áudio: sempre AAC estéreo (compatível com browsers/MSE)
+    cmd += ["-c:a", "aac", "-ac", "2", "-b:a", a_bitrate]
 
     # HLS fMP4 (menor overhead que TS)
     cmd += [

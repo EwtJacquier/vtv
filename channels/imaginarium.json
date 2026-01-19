@@ -1,0 +1,30 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "monday": [
+    {
+      "name": "filmes",
+      "start": "14:00",
+      "end": "23:59",
+      "playlist": [
+        {
+          "id": "harry_potter_e_a_pedra_filosofal",
+          "duration": 9150
+        },
+        {
+          "id": "harry_potter_e_a_camara_secreta",
+          "duration": 9655
+        },
+        {
+          "id": "harry_potter_e_o_prisioneiro_de_azkaban",
+          "duration": 8507
+        }
+      ]
+    }
+  ],
+  "tuesday": [],
+  "wednesday": [],
+  "thursday": [],
+  "friday": [],
+  "saturday": [],
+  "sunday": []
+}
