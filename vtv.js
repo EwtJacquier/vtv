@@ -10,6 +10,7 @@ const DAYS_FROM_PYTHON = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'
 
 let currentChannel = null;
 let channelData = null;
+let allChannelsData = {}; // cache de dados de todos os canais
 let hls = null;
 let updateInterval = null;
 let isPlaying = false;
@@ -67,6 +68,16 @@ function formatCountdown(seconds) {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
+function capitalize(str) {
+  if (!str) return '';
+  return str.split(' ').map((word, index) => {
+    if (word.length > 1 || index === 0 || ['w','x','y','z'].indexOf(word) > -1) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+    return word;
+  }).join(' ');
+}
+
 async function syncServerTime() {
   try {
     const res = await fetch('/api/time');
@@ -78,7 +89,6 @@ async function syncServerTime() {
     const browserTimestamp = Date.now();
     serverTimeOffset = serverTimestamp - browserTimestamp;
 
-    console.log(`Server time synced. Offset: ${Math.round(serverTimeOffset / 1000)}s`);
     return data;
   } catch (e) {
     console.warn('Could not sync server time, using browser time:', e);
@@ -190,6 +200,85 @@ function findNextProgram(channelData, now) {
   return null;
 }
 
+// Retorna status do canal: 'live' (transmitindo), 'soon' (em breve), 'offline' (fora do ar)
+function getChannelStatus(chData, now) {
+  if (!chData) return { status: 'offline', label: 'Fora do ar' };
+
+  const dayName = getDayName(now);
+  const nowSeconds = getSecondsOfDay(now);
+  const windows = chData[dayName] || [];
+  const programs = expandSchedule(windows);
+  const current = findCurrentProgram(programs, nowSeconds);
+
+  if (current) {
+    return { status: 'live', label: 'No ar' };
+  }
+
+  const next = findNextProgram(chData, now);
+  if (next) {
+    // Tem próximo programa agendado
+    return { status: 'soon', label: 'Em breve' };
+  }
+
+  // Sem próxima playlist
+  return { status: 'offline', label: 'Fora do ar' };
+}
+
+// Retorna lista dos próximos N vídeos (incluindo amanhã se necessário)
+function getUpcomingVideos(chData, now, count = 3) {
+  if (!chData) return [];
+
+  const dayName = getDayName(now);
+  const nowSeconds = getSecondsOfDay(now);
+  const windows = chData[dayName] || [];
+  const todayPrograms = expandSchedule(windows);
+
+  const upcoming = [];
+
+  // Encontra programa atual para saber o índice
+  const current = findCurrentProgram(todayPrograms, nowSeconds);
+  let startIndex = 0;
+
+  if (current) {
+    startIndex = current.index + 1; // começa do próximo
+  } else {
+    // Não há programa atual, procura o primeiro que ainda não começou
+    for (let i = 0; i < todayPrograms.length; i++) {
+      if (todayPrograms[i].start > nowSeconds) {
+        startIndex = i;
+        break;
+      }
+      startIndex = todayPrograms.length;
+    }
+  }
+
+  // Adiciona programas de hoje
+  for (let i = startIndex; i < todayPrograms.length && upcoming.length < count; i++) {
+    upcoming.push({
+      ...todayPrograms[i],
+      day: 'hoje'
+    });
+  }
+
+  // Se precisar de mais, pega de amanhã
+  if (upcoming.length < count) {
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const tomorrowDayName = getDayName(tomorrow);
+    const tomorrowWindows = chData[tomorrowDayName] || [];
+    const tomorrowPrograms = expandSchedule(tomorrowWindows);
+
+    for (let i = 0; i < tomorrowPrograms.length && upcoming.length < count; i++) {
+      upcoming.push({
+        ...tomorrowPrograms[i],
+        day: 'amanhã'
+      });
+    }
+  }
+
+  return upcoming;
+}
+
 // ============ Player HLS ============
 
 function destroyPlayer() {
@@ -205,7 +294,6 @@ function loadVideo(videoId, startOffset) {
   destroyPlayer();
 
   const m3u8Url = `${HLS_PATH}/${videoId}/stream.m3u8`;
-  console.log(`Loading: ${m3u8Url} at offset ${startOffset}s`);
 
   if (Hls.isSupported()) {
     hls = new Hls({
@@ -268,7 +356,6 @@ function updateNowPlaying() {
     nowPlaying.classList.remove('hidden');
 
     if (remaining <= 1) {
-      console.log('Program ending, will refresh...');
       setTimeout(() => syncToSchedule(), 2000);
     }
   } else {
@@ -284,13 +371,68 @@ function updateNowPlaying() {
 
       // Quando chegar a hora, sincroniza com a programação
       if (nextProg.secondsUntil <= 1) {
-        console.log('Next program starting, syncing...');
         setTimeout(() => syncToSchedule(), 1000);
       }
     } else {
       nowPlayingText.textContent = 'Fora do ar';
     }
     nowPlaying.classList.remove('hidden');
+  }
+}
+
+function renderUpcomingTable(upcoming) {
+  if (!upcoming || upcoming.length === 0) return '';
+
+  let html = '<div class="upcoming-table"><div class="upcoming-title">Próximos 3 Filmes</div>';
+  for (const prog of upcoming) {
+    const title = capitalize(prog.id.replace(/_/g, ' '));
+    const startTime = formatTimeHHMM(prog.start);
+    const dayLabel = prog.day === 'amanhã' ? '<span class="day-tag">amanhã</span>' : '';
+
+    html += `
+      <div class="upcoming-item">
+        <span class="upcoming-time">${startTime}</span>
+        <span class="upcoming-name">${title}</span>
+        ${dayLabel}
+      </div>
+    `;
+  }
+  html += '<a href="#" class="upcoming-link" id="btn-upcoming-schedule">Ver programação completa</a>';
+  html += '</div>';
+  return html;
+}
+
+function updateOverlayUpcoming() {
+  if (!channelData || overlay.classList.contains('hidden')) return;
+
+  const now = getServerNow();
+  const dayName = getDayName(now);
+  const nowSeconds = getSecondsOfDay(now);
+
+  const windows = channelData[dayName] || [];
+  const programs = expandSchedule(windows);
+  const current = findCurrentProgram(programs, nowSeconds);
+
+  // Só atualiza se não estiver transmitindo (timer ativo)
+  if (current) return;
+
+  const nextProg = findNextProgram(channelData, now);
+  if (nextProg) {
+    // Atualiza countdown
+    overlay.querySelector('h1').textContent = formatCountdown(nextProg.secondsUntil);
+
+    // Atualiza tabela de próximos
+    const existingTable = overlay.querySelector('.upcoming-table');
+    const upcoming = getUpcomingVideos(channelData, now, 3);
+
+    if (upcoming.length > 0) {
+      const newHtml = renderUpcomingTable(upcoming);
+      if (existingTable) {
+        existingTable.outerHTML = newHtml;
+      } else {
+        overlayText.insertAdjacentHTML('afterend', newHtml);
+      }
+    }
   }
 }
 
@@ -305,13 +447,19 @@ function syncToSchedule() {
   const programs = expandSchedule(windows);
   const current = findCurrentProgram(programs, nowSeconds);
 
+  // Remove elementos dinâmicos do overlay
+  const existingTable = overlay.querySelector('.upcoming-table');
+  if (existingTable) existingTable.remove();
+  const existingCards = overlay.querySelector('.home-channels');
+  if (existingCards) existingCards.remove();
+
   if (current) {
     const { program, offset } = current;
     loadVideo(program.id, offset);
 
     // Mostra overlay com botão play se ainda não clicou
     if (!isPlaying) {
-      overlay.querySelector('h1').textContent = currentChannel;
+      overlay.querySelector('h1').textContent = capitalize(currentChannel);
       overlayText.textContent = program.id.replace(/_/g, ' ');
       btnPlay.classList.remove('hidden');
       overlay.classList.remove('hidden');
@@ -325,10 +473,23 @@ function syncToSchedule() {
     const nextProg = findNextProgram(channelData, now);
     if (nextProg) {
       overlay.querySelector('h1').textContent = formatCountdown(nextProg.secondsUntil);
-      overlayText.textContent = 'Aguarde o início do próximo programa';
+      overlayText.textContent = capitalize(currentChannel) + ' volta já :)';
+
+      // Mostra tabela de próximos vídeos
+      const upcoming = getUpcomingVideos(channelData, now, 3);
+      if (upcoming.length > 0) {
+        overlayText.insertAdjacentHTML('afterend', renderUpcomingTable(upcoming));
+      }
     } else {
-      overlay.querySelector('h1').textContent = currentChannel;
+      overlay.querySelector('h1').textContent = capitalize(currentChannel);
       overlayText.textContent = 'Fora do ar no momento';
+    }
+
+    // Mostra lista de canais
+    const cardsHtml = renderHomeChannels();
+    if (cardsHtml) {
+      const lastElement = overlay.querySelector('.upcoming-table') || overlayText;
+      lastElement.insertAdjacentHTML('afterend', cardsHtml);
     }
 
     btnPlay.classList.add('hidden');
@@ -339,8 +500,10 @@ function syncToSchedule() {
 // ============ Programação (modal) ============
 
 function renderSchedule(dayOffset = 0) {
-  if (!channelData) {
-    scheduleContent.innerHTML = '<div class="schedule-empty">Selecione um canal primeiro</div>';
+  const channelNames = Object.keys(allChannelsData);
+
+  if (channelNames.length === 0) {
+    scheduleContent.innerHTML = '<div class="schedule-empty">Nenhum canal disponível</div>';
     return;
   }
 
@@ -351,30 +514,44 @@ function renderSchedule(dayOffset = 0) {
   const dayName = getDayName(targetDate);
   const nowSeconds = dayOffset === 0 ? getSecondsOfDay(now) : -1;
 
-  const windows = channelData[dayName] || [];
-  const programs = expandSchedule(windows);
+  let html = '<div class="schedule-grid">';
 
-  if (programs.length === 0) {
-    scheduleContent.innerHTML = '<div class="schedule-empty">Sem programação para este dia</div>';
-    return;
-  }
-
-  let html = '';
-  for (const prog of programs) {
-    const isCurrent = dayOffset === 0 && findCurrentProgram([prog], nowSeconds);
-    const title = prog.id.replace(/_/g, ' ');
-    const startTime = formatTimeHHMM(prog.start);
-    const duration = formatTime(prog.fullDuration);
+  for (const chName of channelNames) {
+    const chData = allChannelsData[chName];
+    const windows = chData[dayName] || [];
+    const programs = expandSchedule(windows);
+    const { status } = getChannelStatus(chData, now);
 
     html += `
-      <div class="schedule-item ${isCurrent ? 'current' : ''}">
-        <span class="time">${startTime}</span>
-        <span class="title">${title}</span>
-        <span class="duration">${duration}</span>
-      </div>
+      <div class="schedule-channel">
+        <div class="schedule-channel-header">
+          <span class="channel-title">${capitalize(chName)}</span>
+          <button class="btn-watch" data-channel="${chName}">Assistir</button>
+        </div>
+        <div class="schedule-channel-items">
     `;
+
+    if (programs.length === 0) {
+      html += '<div class="schedule-empty-mini">Sem programação</div>';
+    } else {
+      for (const prog of programs) {
+        const isCurrent = dayOffset === 0 && findCurrentProgram([prog], nowSeconds);
+        const title = capitalize(prog.id.replace(/_/g, ' '));
+        const startTime = formatTimeHHMM(prog.start);
+
+        html += `
+          <div class="schedule-item-mini ${isCurrent ? 'current' : ''}">
+            <span class="time">${startTime}</span>
+            <span class="title">${title}</span>
+          </div>
+        `;
+      }
+    }
+
+    html += '</div></div>';
   }
 
+  html += '</div>';
   scheduleContent.innerHTML = html;
 }
 
@@ -387,8 +564,11 @@ async function loadChannelList() {
     const channels = [];
     for (const name of knownChannels) {
       try {
-        const res = await fetch(`${CHANNELS_PATH}/${name}.json?v=` + Date.now(), { method: 'HEAD' });
-        if (res.ok) channels.push(name);
+        const res = await fetch(`${CHANNELS_PATH}/${name}.json?v=` + Date.now());
+        if (res.ok) {
+          channels.push(name);
+          allChannelsData[name] = await res.json();
+        }
       } catch (e) {
         // Ignora
       }
@@ -405,13 +585,41 @@ async function loadChannelList() {
 }
 
 function renderChannelList(channels) {
-  channelList.innerHTML = channels.map(name => `
-    <li>
-      <a href="#${name}" data-channel="${name}">${name}</a>
-    </li>
-  `).join('');
+  const now = getServerNow();
+
+  channelList.innerHTML = channels.map(name => {
+    const chData = allChannelsData[name];
+    const { status, label } = getChannelStatus(chData, now);
+
+    return `
+      <li>
+        <a href="#${name}" data-channel="${name}">
+          <span class="channel-name">${capitalize(name)}</span>
+          <span class="channel-status status-${status}">
+            <span class="status-dot"></span>
+            <span class="status-label">${label}</span>
+          </span>
+        </a>
+      </li>
+    `;
+  }).join('');
 
   updateActiveChannel();
+}
+
+function updateChannelStatuses() {
+  const now = getServerNow();
+  document.querySelectorAll('#channel-list a').forEach(a => {
+    const name = a.dataset.channel;
+    const chData = allChannelsData[name];
+    const { status, label } = getChannelStatus(chData, now);
+
+    const statusEl = a.querySelector('.channel-status');
+    if (statusEl) {
+      statusEl.className = `channel-status status-${status}`;
+      statusEl.querySelector('.status-label').textContent = label;
+    }
+  });
 }
 
 function updateActiveChannel() {
@@ -439,7 +647,11 @@ async function loadChannel(name) {
     syncToSchedule();
 
     if (updateInterval) clearInterval(updateInterval);
-    updateInterval = setInterval(updateNowPlaying, 1000);
+    updateInterval = setInterval(() => {
+      updateNowPlaying();
+      updateChannelStatuses();
+      updateOverlayUpcoming();
+    }, 1000);
     updateNowPlaying();
 
   } catch (e) {
@@ -507,6 +719,56 @@ function startPlayback() {
 
 // ============ Event Handlers ============
 
+function renderHomeChannels() {
+  const channelNames = Object.keys(allChannelsData);
+  if (channelNames.length === 0) return '';
+
+  const now = getServerNow();
+
+  let html = '<div class="home-channels">';
+  for (const chName of channelNames) {
+    const chData = allChannelsData[chName];
+    const { status, label } = getChannelStatus(chData, now);
+
+    // Pega filme atual ou próximo
+    const dayName = getDayName(now);
+    const nowSeconds = getSecondsOfDay(now);
+    const windows = chData[dayName] || [];
+    const programs = expandSchedule(windows);
+    const current = findCurrentProgram(programs, nowSeconds);
+
+    let filmInfo = '';
+    if (current) {
+      const title = capitalize(current.program.id.replace(/_/g, ' '));
+      filmInfo = `<span class="home-film-label">Agora:</span> ${title}`;
+    } else {
+      const next = findNextProgram(chData, now);
+      if (next) {
+        const title = capitalize(next.program.id.replace(/_/g, ' '));
+        const time = formatTimeHHMM(next.program.start);
+        filmInfo = `<span class="home-film-label">Próximo ${time}:</span> ${title}`;
+      } else {
+        filmInfo = 'Sem programação';
+      }
+    }
+
+    html += `
+      <button class="home-channel-card" data-channel="${chName}">
+        <div class="home-channel-top">
+          <span class="home-channel-name">${capitalize(chName)}</span>
+          <span class="home-channel-status status-${status}">
+            <span class="status-dot"></span>
+            <span class="status-label">${label}</span>
+          </span>
+        </div>
+        <div class="home-channel-film">${filmInfo}</div>
+      </button>
+    `;
+  }
+  html += '</div>';
+  return html;
+}
+
 function handleHashChange() {
   const hash = window.location.hash.slice(1);
   if (hash) {
@@ -519,13 +781,24 @@ function handleHashChange() {
     isPlaying = false;
     overlay.querySelector('h1').textContent = 'VTV';
     overlayText.textContent = 'Selecione um canal';
+
+    // Remove elementos dinâmicos do overlay
+    const existingTable = overlay.querySelector('.upcoming-table');
+    if (existingTable) existingTable.remove();
+    const existingCards = overlay.querySelector('.home-channels');
+    if (existingCards) existingCards.remove();
+
+    // Adiciona cards de canais
+    const cardsHtml = renderHomeChannels();
+    if (cardsHtml) {
+      overlayText.insertAdjacentHTML('afterend', cardsHtml);
+    }
+
     btnPlay.classList.add('hidden');
     overlay.classList.remove('hidden');
     nowPlaying.classList.add('hidden');
     updateActiveChannel();
     if (updateInterval) clearInterval(updateInterval);
-    // Menu aberto na home
-    openSidebar();
   }
 }
 
@@ -553,6 +826,23 @@ btnSchedule.addEventListener('click', () => {
   scheduleModal.classList.remove('hidden');
 });
 
+// Links e botões no overlay
+overlay.addEventListener('click', (e) => {
+  // Link "Ver programação completa"
+  if (e.target.id === 'btn-upcoming-schedule') {
+    e.preventDefault();
+    renderSchedule(0);
+    scheduleModal.classList.remove('hidden');
+  }
+
+  // Card de canal na home
+  const card = e.target.closest('.home-channel-card');
+  if (card) {
+    const channel = card.dataset.channel;
+    window.location.hash = channel;
+  }
+});
+
 btnCloseModal.addEventListener('click', () => {
   scheduleModal.classList.add('hidden');
 });
@@ -560,6 +850,15 @@ btnCloseModal.addEventListener('click', () => {
 scheduleModal.addEventListener('click', (e) => {
   if (e.target === scheduleModal) {
     scheduleModal.classList.add('hidden');
+  }
+});
+
+// Botão "Assistir" no modal de programação
+scheduleContent.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btn-watch')) {
+    const channel = e.target.dataset.channel;
+    scheduleModal.classList.add('hidden');
+    window.location.hash = channel;
   }
 });
 
@@ -629,7 +928,21 @@ async function init() {
     if (!scheduleModal.classList.contains('hidden')) {
       const activeTab = document.querySelector('.modal-tabs .tab.active');
       const dayOffset = activeTab?.dataset.tab === 'tomorrow' ? 1 : 0;
+
+      // Preserva posição do scroll de cada canal antes de atualizar
+      const scrollPositions = {};
+      document.querySelectorAll('.schedule-channel-items').forEach((el, i) => {
+        scrollPositions[i] = el.scrollTop;
+      });
+      const mainScroll = scheduleContent.scrollTop;
+
       renderSchedule(dayOffset);
+
+      // Restaura posição do scroll
+      scheduleContent.scrollTop = mainScroll;
+      document.querySelectorAll('.schedule-channel-items').forEach((el, i) => {
+        if (scrollPositions[i]) el.scrollTop = scrollPositions[i];
+      });
     }
   }, 1000);
 }

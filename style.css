@@ -40,6 +40,15 @@ body {
   transition: opacity 0.5s ease;
 }
 
+#overlay-text{
+  color: #FFF;
+}
+
+#overlay-text + .home-channels {
+  padding-top: 0;
+  margin-top: 0;
+}
+
 .overlay.hidden {
   opacity: 0;
   pointer-events: none;
@@ -181,7 +190,9 @@ body {
 }
 
 #channel-list a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.8rem 1.5rem;
   color: #aaa;
   text-decoration: none;
@@ -198,6 +209,52 @@ body {
   background: rgba(102, 126, 234, 0.15);
   color: #667eea;
   border-left-color: #667eea;
+}
+
+.channel-name {
+  flex: 1;
+}
+
+.channel-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-live .status-dot {
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+}
+
+.status-live .status-label {
+  color: #22c55e;
+}
+
+.status-soon .status-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+}
+
+.status-soon .status-label {
+  color: #f59e0b;
+}
+
+.status-offline .status-dot {
+  background: #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
+}
+
+.status-offline .status-label {
+  color: #ef4444;
 }
 
 /* Footer do sidebar */
@@ -341,9 +398,9 @@ body {
 .modal-content {
   background: #1a1a2e;
   border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
-  max-height: 80vh;
+  width: 95%;
+  max-width: 900px;
+  max-height: 85vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -444,6 +501,235 @@ body {
   color: #666;
 }
 
+/* Grade de canais no modal */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.schedule-channel {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.schedule-channel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  background: rgba(102, 126, 234, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.channel-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.btn-watch {
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-watch:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.schedule-channel-items {
+  padding: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.schedule-item-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.3rem;
+  transition: background 0.2s ease;
+}
+
+.schedule-item-mini:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.schedule-item-mini.current {
+  background: rgba(102, 126, 234, 0.2);
+  border-left: 3px solid #667eea;
+}
+
+.schedule-item-mini .time {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.8rem;
+  min-width: 45px;
+}
+
+.schedule-item-mini .title {
+  flex: 1;
+  color: #ccc;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.schedule-empty-mini {
+  padding: 1rem;
+  text-align: center;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* Tabela de próximos no overlay */
+.upcoming-table {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+.upcoming-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #667eea;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.upcoming-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.upcoming-item:last-child {
+  border-bottom: none;
+}
+
+.upcoming-time {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.9rem;
+  min-width: 50px;
+}
+
+.upcoming-name {
+  flex: 1;
+  color: #ddd;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  background: rgba(102, 126, 234, 0.3);
+  color: #667eea;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.upcoming-link {
+  display: block;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  color: #667eea;
+  text-decoration: none;
+  font-size: 0.65rem;
+  transition: color 0.2s ease;
+}
+
+.upcoming-link:hover {
+  color: #8b9fef;
+  text-decoration: underline;
+}
+
+/* Cards de canais na home */
+.home-channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.home-channel-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  color: #fff;
+}
+
+.home-channel-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px);
+}
+
+.home-channel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.home-channel-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.home-channel-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.home-channel-film {
+  font-size: 0.85rem;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-film-label {
+  color: #667eea;
+  font-weight: 500;
+}
+
 /* Idle mode - esconde UI após inatividade */
 body.idle {
   cursor: none;
@@ -467,7 +753,20 @@ body.idle .player-controls {
     max-height: 90vh;
   }
 
+  .overlay {
+    overflow-y: auto;
+    justify-content: flex-start;
+    padding: 2rem 0;
+  }
+
   .overlay h1 {
     font-size: 2.5rem;
+    margin-top: 1rem;
+  }
+
+  .home-channels {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
   }
 }
