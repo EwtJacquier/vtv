@@ -101,6 +101,19 @@ def print_movies(movies: list[dict]):
             print(f"[{i}] {m['id']} ({fmt_duration(m['duration'])})")
 
 
+def time_to_seconds(t: str) -> int:
+    """Converte HH:MM para segundos"""
+    h, m = int(t[:2]), int(t[3:])
+    return h * 3600 + m * 60
+
+
+def seconds_to_time(secs: int) -> str:
+    """Converte segundos para HH:MM"""
+    h = secs // 3600
+    m = (secs % 3600) // 60
+    return f"{h:02d}:{m:02d}"
+
+
 def print_windows(windows: list[dict]):
     print("\n=== JANELAS DO DIA ===")
     if not windows:
@@ -113,6 +126,24 @@ def print_windows(windows: list[dict]):
         pl = w.get("playlist", [])
         total = sum(p.get("duration", 0) for p in pl)
         print(f"[{i}] {name} | {start}-{end} | {len(pl)} itens | {fmt_duration(total)}")
+        # Mostra todos os filmes com horários
+        if pl:
+            current_secs = time_to_seconds(start)
+            for p in pl:
+                dur = p.get("duration", 0)
+                print(f"      {seconds_to_time(current_secs)} - {p['id']} ({fmt_duration(dur)})")
+                current_secs += dur
+
+
+def calc_start_before_midnight(total_seconds: int) -> str:
+    """Calcula horário de início para terminar antes da meia-noite (24:00 - duração)"""
+    midnight = 24 * 3600  # 24:00 em segundos
+    start_seconds = midnight - total_seconds
+    if start_seconds < 0:
+        start_seconds = 0
+    h = start_seconds // 3600
+    m = (start_seconds % 3600) // 60
+    return f"{h:02d}:{m:02d}"
 
 
 def print_playlist(playlist: list[dict]):
@@ -125,7 +156,8 @@ def print_playlist(playlist: list[dict]):
         dur = p.get("duration", 0)
         total += dur
         print(f"  {i+1}. {p['id']} ({fmt_duration(dur)})")
-    print(f"  Total: {fmt_duration(total)}")
+    suggested_start = calc_start_before_midnight(total)
+    print(f"  Total: {fmt_duration(total)} | Sugestão início: {suggested_start} (termina às 24:00)")
 
 
 def edit_playlist(movies: list[dict], playlist: list[dict]) -> list[dict]:
@@ -312,12 +344,22 @@ def main():
         print(f"Timezone: {data.get('timezone', 'America/Sao_Paulo')}")
         print(f"HLS: {hls_dir}")
 
-        # Resumo dos dias
+        # Resumo dos dias com todos os filmes e horários
         print("\nDias:")
         for i, d in enumerate(DAYS):
             windows = data.get(d, [])
             total_items = sum(len(w.get("playlist", [])) for w in windows)
             print(f"  [{i}] {DAYS_PT[i]:10} - {len(windows)} janelas, {total_items} itens")
+            # Mostra todos os filmes do dia com horários
+            for w in windows:
+                pl = w.get("playlist", [])
+                if pl:
+                    start = w.get("start", "00:00")
+                    current_secs = time_to_seconds(start)
+                    for p in pl:
+                        dur = p.get("duration", 0)
+                        print(f"        {seconds_to_time(current_secs)} - {p['id']} ({fmt_duration(dur)})")
+                        current_secs += dur
 
         print("\nMenu: d=editar dia | c=copiar dia | t=timezone | r=refresh | s=salvar | q=sair")
         cmd = input("> ").strip().lower()

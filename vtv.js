@@ -75,7 +75,7 @@ function capitalize(str) {
       return word.charAt(0).toUpperCase() + word.slice(1);
     }
     return word;
-  }).join(' ');
+  }).join(' ').replace('tv','TV');
 }
 
 async function syncServerTime() {
@@ -293,7 +293,7 @@ function destroyPlayer() {
 function loadVideo(videoId, startOffset) {
   destroyPlayer();
 
-  const m3u8Url = `${HLS_PATH}/${videoId}/stream.m3u8`;
+  const m3u8Url = `${HLS_PATH}/${videoId}/stream.m3u8?v=`+Date.now();
 
   if (Hls.isSupported()) {
     hls = new Hls({
@@ -351,7 +351,7 @@ function updateNowPlaying() {
   if (current) {
     const { program, offset } = current;
     const remaining = program.duration - offset;
-    const title = program.id.replace(/_/g, ' ');
+    const title = capitalize(program.id.replace(/_/g, ' '));
     nowPlayingText.textContent = `${title} • ${formatTime(remaining)} restantes`;
     nowPlaying.classList.remove('hidden');
 
@@ -460,7 +460,7 @@ function syncToSchedule() {
     // Mostra overlay com botão play se ainda não clicou
     if (!isPlaying) {
       overlay.querySelector('h1').textContent = capitalize(currentChannel);
-      overlayText.textContent = program.id.replace(/_/g, ' ');
+      overlayText.textContent = capitalize(program.id.replace(/_/g, ' '));
       btnPlay.classList.remove('hidden');
       overlay.classList.remove('hidden');
     } else {
@@ -531,10 +531,15 @@ function renderSchedule(dayOffset = 0) {
         <div class="schedule-channel-items">
     `;
 
-    if (programs.length === 0) {
+    // Filtra programas que já passaram (apenas para hoje)
+    const filteredPrograms = dayOffset === 0
+      ? programs.filter(prog => (prog.start + prog.duration) > nowSeconds)
+      : programs;
+
+    if (filteredPrograms.length === 0) {
       html += '<div class="schedule-empty-mini">Sem programação</div>';
     } else {
-      for (const prog of programs) {
+      for (const prog of filteredPrograms) {
         const isCurrent = dayOffset === 0 && findCurrentProgram([prog], nowSeconds);
         const title = capitalize(prog.id.replace(/_/g, ' '));
         const startTime = formatTimeHHMM(prog.start);
@@ -922,7 +927,7 @@ async function init() {
   handleHashChange();
 
   // Ressincroniza horário a cada 5 minutos
-  //setInterval(syncServerTime, 5 * 60 * 1000);
+  setInterval(syncServerTime, 5 * 60 * 1000);
 
   setInterval(() => {
     if (!scheduleModal.classList.contains('hidden')) {

@@ -14,7 +14,7 @@
     },
     {
       "name": "filmes2",
-      "start": "11:30",
+      "start": "14:30",
       "end": "00:00",
       "playlist": [
         {
@@ -63,14 +63,92 @@
           "duration": 7573
         }
       ]
+    },
+    {
+      "name": "filmes2",
+      "start": "14:30",
+      "end": "00:00",
+      "playlist": [
+        {
+          "id": "dragon_ball_a_lenda_de_shen_long",
+          "duration": 3014
+        },
+        {
+          "id": "pokemon_2000",
+          "duration": 4845
+        },
+        {
+          "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
+          "duration": 4487
+        },
+        {
+          "id": "dragon_ball_z_o_retorno_da_fusao",
+          "duration": 3042
+        },
+        {
+          "id": "pokemon_mewtwo_contra-ataca",
+          "duration": 4475
+        },
+        {
+          "id": "inu_yasha_o_castelo_das_ilusoes",
+          "duration": 5945
+        },
+        {
+          "id": "dragon_ball_z_o_pai_de_goku",
+          "duration": 2865
+        },
+        {
+          "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
+          "duration": 5010
+        }
+      ]
     }
   ],
   "wednesday": [
     {
       "name": "filmes",
-      "start": "22:39",
+      "start": "00:00",
+      "end": "03:00",
+      "playlist": [
+        {
+          "id": "angels_egg",
+          "duration": 4266
+        }
+      ]
+    },
+    {
+      "name": "filmes2",
+      "start": "14:30",
       "end": "00:00",
       "playlist": [
+        {
+          "id": "dragon_ball_a_lenda_de_shen_long",
+          "duration": 3014
+        },
+        {
+          "id": "pokemon_2000",
+          "duration": 4845
+        },
+        {
+          "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
+          "duration": 4487
+        },
+        {
+          "id": "dragon_ball_z_o_retorno_da_fusao",
+          "duration": 3042
+        },
+        {
+          "id": "pokemon_mewtwo_contra-ataca",
+          "duration": 4475
+        },
+        {
+          "id": "inu_yasha_o_castelo_das_ilusoes",
+          "duration": 5945
+        },
+        {
+          "id": "dragon_ball_z_o_pai_de_goku",
+          "duration": 2865
+        },
         {
           "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
           "duration": 5010
@@ -85,8 +163,8 @@
       "end": "03:00",
       "playlist": [
         {
-          "id": "angels_egg",
-          "duration": 4266
+          "id": "steamboy",
+          "duration": 7573
         }
       ]
     }

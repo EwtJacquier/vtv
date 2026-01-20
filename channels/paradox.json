@@ -3,7 +3,7 @@
   "monday": [
     {
       "name": "filmes",
-      "start": "17:30",
+      "start": "19:25",
       "end": "00:00",
       "playlist": [
         {
@@ -13,10 +13,6 @@
         {
           "id": "matrix_reloaded",
           "duration": 8297
-        },
-        {
-          "id": "matrix_revolutions",
-          "duration": 7752
         }
       ]
     }
@@ -25,17 +21,71 @@
     {
       "name": "filmes",
       "start": "00:00",
-      "end": "03:00",
+      "end": "05:00",
       "playlist": [
         {
-          "id": "constantine",
-          "duration": 7247
+          "id": "matrix_revolutions",
+          "duration": 7752
+        }
+      ]
+    },
+    {
+      "name": "filmes",
+      "start": "19:58",
+      "end": "05:00",
+      "playlist": [
+        {
+          "id": "corpo_fechado",
+          "duration": 6400
+        },
+        {
+          "id": "anjos_da_noite",
+          "duration": 8017
         }
       ]
     }
   ],
-  "wednesday": [],
-  "thursday": [],
+  "wednesday": [
+    {
+      "name": "filmes",
+      "start": "00:00",
+      "end": "03:00",
+      "playlist": [
+        {
+          "id": "anjos_da_noite_a_evolucao",
+          "duration": 6383
+        }
+      ]
+    },
+    {
+      "name": "filmes",
+      "start": "19:25",
+      "end": "00:00",
+      "playlist": [
+        {
+          "id": "matrix",
+          "duration": 8179
+        },
+        {
+          "id": "matrix_reloaded",
+          "duration": 8297
+        }
+      ]
+    }
+  ],
+  "thursday": [
+    {
+      "name": "filmes",
+      "start": "00:00",
+      "end": "05:00",
+      "playlist": [
+        {
+          "id": "matrix_revolutions",
+          "duration": 7752
+        }
+      ]
+    }
+  ],
   "friday": [],
   "saturday": [],
   "sunday": []

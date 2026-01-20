@@ -22,7 +22,7 @@ from zoneinfo import ZoneInfo
 USERNAME = "vtv"
 PASSWORD = "@@assistir"
 TIMEZONE = "America/Sao_Paulo"
-PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
+PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8099
 
 
 class AuthHandler(SimpleHTTPRequestHandler):
@@ -135,7 +135,7 @@ def main():
     directory = os.getcwd()
     handler = partial(AuthHandler, directory=directory)
 
-    server = HTTPServer(("0.0.0.0", PORT), handler)
+    server = HTTPServer(("127.0.0.1", PORT), handler)
     print(f"VTV Server rodando em http://localhost:{PORT}")
     print(f"Usuário: {USERNAME}")
     print(f"Senha: {PASSWORD}")
