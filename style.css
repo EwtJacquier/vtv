@@ -138,29 +138,40 @@ body {
   color: #fff;
 }
 
-/* Now Playing no menu */
-.now-playing {
-  padding: 1rem 1.5rem;
-  background: rgba(102, 126, 234, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* Now Playing fixo no canto superior direito */
+.now-playing-fixed {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.6rem 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  z-index: 99;
+  max-width: 280px;
+  transition: opacity 0.3s ease;
 }
 
-.now-playing.hidden {
-  display: none;
+.now-playing-fixed.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .now-playing-label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #667eea;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 
 .now-playing-text {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #fff;
-  line-height: 1.4;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Section */
@@ -737,7 +748,8 @@ body.idle {
 
 body.idle .sidebar,
 body.idle .btn-toggle,
-body.idle .player-controls {
+body.idle .player-controls,
+body.idle .now-playing-fixed {
   opacity: 0 !important;
   pointer-events: none;
 }

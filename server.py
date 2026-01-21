@@ -11,18 +11,29 @@ Senha: @@assistir
 """
 
 import base64
+import hashlib
+import http.cookies
 import json
 import os
+import secrets
 import sys
 from datetime import datetime
 from functools import partial
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+from urllib.parse import parse_qs, urlparse
 from zoneinfo import ZoneInfo
 
 USERNAME = "vtv"
 PASSWORD = "@@assistir"
 TIMEZONE = "America/Sao_Paulo"
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8099
+
+# Token de acesso via URL (pode gerar um novo com: python -c "import secrets; print(secrets.token_urlsafe(32))")
+AUTH_TOKEN = "vtv_acesso_secreto_2024"
+# Nome do cookie de sessão
+COOKIE_NAME = "vtv_session"
+# Valor do cookie quando autenticado (derivado do token)
+COOKIE_VALUE = hashlib.sha256(AUTH_TOKEN.encode()).hexdigest()[:32]
 
 
 class AuthHandler(SimpleHTTPRequestHandler):
@@ -74,8 +85,29 @@ class AuthHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def check_auth(self):
-        auth_header = self.headers.get("Authorization")
+        # 1. Verificar cookie de sessão
+        cookie_header = self.headers.get("Cookie")
+        if cookie_header:
+            cookies = http.cookies.SimpleCookie()
+            try:
+                cookies.load(cookie_header)
+                if COOKIE_NAME in cookies and cookies[COOKIE_NAME].value == COOKIE_VALUE:
+                    return True
+            except Exception:
+                pass
 
+        # 2. Verificar token na URL (?auth=TOKEN)
+        parsed = urlparse(self.path)
+        query_params = parse_qs(parsed.query)
+        auth_param = query_params.get("auth", [None])[0]
+
+        if auth_param == AUTH_TOKEN:
+            # Token válido - marcar para setar cookie na resposta
+            self._set_auth_cookie = True
+            return True
+
+        # 3. Verificar autenticação Basic
+        auth_header = self.headers.get("Authorization")
         if auth_header and auth_header.startswith("Basic "):
             try:
                 encoded = auth_header[6:]
@@ -83,6 +115,7 @@ class AuthHandler(SimpleHTTPRequestHandler):
                 if ":" in decoded:
                     user, password = decoded.split(":", 1)
                     if user == USERNAME and password == PASSWORD:
+                        self._set_auth_cookie = True
                         return True
             except Exception:
                 pass
@@ -120,6 +153,13 @@ class AuthHandler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def end_headers(self):
+        # Setar cookie de autenticação se necessário
+        if getattr(self, "_set_auth_cookie", False):
+            # Cookie válido por 30 dias
+            cookie = f"{COOKIE_NAME}={COOKIE_VALUE}; Path=/; Max-Age=2592000; HttpOnly; SameSite=Strict"
+            self.send_header("Set-Cookie", cookie)
+            self._set_auth_cookie = False
+
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Authorization, Range")
@@ -137,9 +177,10 @@ def main():
 
     server = HTTPServer(("127.0.0.1", PORT), handler)
     print(f"VTV Server rodando em http://localhost:{PORT}")
-    print(f"Usuário: {USERNAME}")
-    print(f"Senha: {PASSWORD}")
-    print(f"Timezone: {TIMEZONE}")
+    print(f"\nAutenticação:")
+    print(f"  Usuário/Senha: {USERNAME} / {PASSWORD}")
+    print(f"  URL direta: http://localhost:{PORT}/?auth={AUTH_TOKEN}")
+    print(f"\nTimezone: {TIMEZONE}")
     print(f"Diretório: {directory}")
     print("\nAPI: /api/time - retorna horário do servidor")
     print("\nPressione Ctrl+C para parar")

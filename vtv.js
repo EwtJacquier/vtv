@@ -598,7 +598,7 @@ function renderChannelList(channels) {
 
     return `
       <li>
-        <a href="#${name}" data-channel="${name}">
+        <a href="?channel=${name}" data-channel="${name}">
           <span class="channel-name">${capitalize(name)}</span>
           <span class="channel-status status-${status}">
             <span class="status-dot"></span>
@@ -774,10 +774,25 @@ function renderHomeChannels() {
   return html;
 }
 
-function handleHashChange() {
-  const hash = window.location.hash.slice(1);
-  if (hash) {
-    loadChannel(hash);
+function getChannelFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('channel');
+}
+
+function setChannelInUrl(channelName) {
+  const url = new URL(window.location);
+  if (channelName) {
+    url.searchParams.set('channel', channelName);
+  } else {
+    url.searchParams.delete('channel');
+  }
+  window.history.pushState({}, '', url);
+}
+
+function handleChannelChange() {
+  const channel = getChannelFromUrl();
+  if (channel) {
+    loadChannel(channel);
   } else {
     // Home - sem canal selecionado
     destroyPlayer();
@@ -844,7 +859,8 @@ overlay.addEventListener('click', (e) => {
   const card = e.target.closest('.home-channel-card');
   if (card) {
     const channel = card.dataset.channel;
-    window.location.hash = channel;
+    setChannelInUrl(channel);
+    handleChannelChange();
   }
 });
 
@@ -863,7 +879,8 @@ scheduleContent.addEventListener('click', (e) => {
   if (e.target.classList.contains('btn-watch')) {
     const channel = e.target.dataset.channel;
     scheduleModal.classList.add('hidden');
-    window.location.hash = channel;
+    setChannelInUrl(channel);
+    handleChannelChange();
   }
 });
 
@@ -877,15 +894,17 @@ tabs.forEach(tab => {
   });
 });
 
-// Hash change
-window.addEventListener('hashchange', handleHashChange);
+// URL change (popstate for back/forward navigation)
+window.addEventListener('popstate', handleChannelChange);
 
 // Channel click
 channelList.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A') {
+  const link = e.target.closest('a');
+  if (link) {
     e.preventDefault();
-    const channel = e.target.dataset.channel;
-    window.location.hash = channel;
+    const channel = link.dataset.channel;
+    setChannelInUrl(channel);
+    handleChannelChange();
   }
 });
 
@@ -924,7 +943,7 @@ async function init() {
   await syncServerTime();
 
   await loadChannelList();
-  handleHashChange();
+  handleChannelChange();
 
   // Ressincroniza horário a cada 5 minutos
   setInterval(syncServerTime, 5 * 60 * 1000);

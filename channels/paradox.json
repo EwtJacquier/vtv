@@ -59,16 +59,16 @@
     },
     {
       "name": "filmes",
-      "start": "19:25",
+      "start": "19:38",
       "end": "00:00",
       "playlist": [
         {
-          "id": "matrix",
-          "duration": 8179
+          "id": "o_predestinado",
+          "duration": 5869
         },
         {
-          "id": "matrix_reloaded",
-          "duration": 8297
+          "id": "blade_runner_2049",
+          "duration": 9807
         }
       ]
     }

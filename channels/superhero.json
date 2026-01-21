@@ -173,7 +173,31 @@
       ]
     }
   ],
-  "saturday": [],
+  "saturday": [
+    {
+      "name": "filmes",
+      "start": "12:00",
+      "end": "00:00",
+      "playlist": [
+        {
+          "id": "o_homem_de_aco",
+          "duration": 8583
+        },
+        {
+          "id": "batman_vs_superman",
+          "duration": 10952
+        },
+        {
+          "id": "liga_da_justica",
+          "duration": 14528
+        },
+        {
+          "id": "the_flash",
+          "duration": 8643
+        }
+      ]
+    }
+  ],
   "sunday": [
     {
       "name": "filmes",
