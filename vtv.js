@@ -1,12 +1,14 @@
 /**
  * VTV - Sistema de TV por streaming
+ * Formato: ciclo de X dias (dia_1, dia_2, etc.)
  */
 
 const CHANNELS_PATH = '/channels';
 const HLS_PATH = '/movies_hls';
 
-// Python weekday: 0=Monday, 6=Sunday -> converter para JS
-const DAYS_FROM_PYTHON = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+// Horário de início e fim da programação diária
+const SCHEDULE_START_HOUR = 7;  // 07:00
+const SCHEDULE_END_HOUR = 3;    // 03:00 (do próximo dia)
 
 let currentChannel = null;
 let channelData = null;
@@ -17,6 +19,7 @@ let isPlaying = false;
 let idleTimeout = null;
 let serverTimeOffset = 0; // diferença entre servidor e navegador em ms
 const IDLE_DELAY = 3000;
+let isHoveringUI = false; // flag para indicar hover em elementos da UI
 
 // Elementos DOM
 const player = document.getElementById('player');
@@ -28,15 +31,25 @@ const channelList = document.getElementById('channel-list');
 const btnToggle = document.getElementById('btn-toggle-sidebar');
 const btnCloseSidebar = document.getElementById('btn-close-sidebar');
 const btnSchedule = document.getElementById('btn-schedule');
+const btnResize = document.getElementById('btn-resize');
 const btnFullscreen = document.getElementById('btn-fullscreen');
 const btnCloseModal = document.getElementById('btn-close-modal');
 const scheduleModal = document.getElementById('schedule-modal');
-const scheduleContent = document.getElementById('schedule-content');
 const nowPlaying = document.getElementById('now-playing');
 const nowPlayingText = document.getElementById('now-playing-text');
 const volumeSlider = document.getElementById('volume');
 const playerControls = document.getElementById('player-controls');
-const tabs = document.querySelectorAll('.modal-tabs .tab');
+
+// EPG Elements
+const epgTimeline = document.getElementById('epg-timeline');
+const epgTimelineHeaderScroll = document.getElementById('epg-timeline-header-scroll');
+const epgChannels = document.getElementById('epg-channels');
+const epgPrograms = document.getElementById('epg-programs');
+const epgProgramsScroll = document.getElementById('epg-programs-scroll');
+
+// EPG scroll position persistence
+let epgScrollPosition = { x: 0, y: 0 };
+const EPG_PIXELS_PER_HOUR = 280;
 
 // ============ Utilitários de tempo ============
 
@@ -56,8 +69,10 @@ function formatTime(seconds) {
 }
 
 function formatTimeHHMM(seconds) {
-  const h = Math.floor(seconds / 3600) % 24;
-  const m = Math.floor((seconds % 3600) / 60);
+  // Normaliza para 0-24h (segundos pode ser > 24h para horários após meia-noite)
+  const normalizedSecs = seconds % (24 * 3600);
+  const h = Math.floor(normalizedSecs / 3600);
+  const m = Math.floor((normalizedSecs % 3600) / 60);
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
 }
 
@@ -101,98 +116,182 @@ function getServerNow() {
   return new Date(Date.now() + serverTimeOffset);
 }
 
-function getDayName(date) {
-  // Converte de JS weekday (0=Sunday) para nome do dia
-  const jsDay = date.getDay(); // 0=Sunday, 1=Monday, ...
-  const pythonDay = jsDay === 0 ? 6 : jsDay - 1; // converter para 0=Monday
-  return DAYS_FROM_PYTHON[pythonDay];
-}
-
 function getSecondsOfDay(date) {
   return date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
 }
 
-// ============ Lógica de programação ============
+// ============ Lógica de ciclo de dias ============
 
-function expandSchedule(windows) {
-  const programs = [];
-
-  for (const window of windows) {
-    if (!window.playlist || window.playlist.length === 0) continue;
-
-    const startSec = parseTime(window.start);
-    let currentTime = startSec;
-
-    // Sem loop - cada item da playlist toca uma vez
-    for (const item of window.playlist) {
-      programs.push({
-        id: item.id,
-        start: currentTime % (24 * 3600),
-        duration: item.duration,
-        fullDuration: item.duration,
-        windowName: window.name
-      });
-
-      currentTime += item.duration;
+/**
+ * Retorna o número máximo de dias no ciclo do canal
+ */
+function getCycleDays(chData) {
+  let maxDay = 0;
+  for (const key of Object.keys(chData)) {
+    if (key.startsWith('dia_')) {
+      const num = parseInt(key.split('_')[1], 10);
+      if (!isNaN(num) && num > maxDay) {
+        maxDay = num;
+      }
     }
   }
-
-  return programs;
+  return maxDay;
 }
 
-function findCurrentProgram(programs, nowSeconds) {
+/**
+ * Calcula qual dia do ciclo estamos baseado em cycle_start
+ * Considera que o "dia de programação" vai de 7h às 3h do próximo dia
+ */
+function getCurrentCycleDay(chData, now) {
+  const cycleStart = chData.cycle_start;
+  const totalDays = getCycleDays(chData);
+
+  if (!cycleStart || totalDays === 0) {
+    return null;
+  }
+
+  // Ajusta a hora para considerar que o dia vai de 7h às 3h
+  // Se são antes das 7h (ex: 2h da manhã), ainda conta como dia anterior
+  let adjustedDate = new Date(now);
+  if (now.getHours() < SCHEDULE_START_HOUR) {
+    // Antes das 7h, ainda é o dia de programação anterior
+    adjustedDate.setDate(adjustedDate.getDate() - 1);
+  }
+
+  // Calcula dias desde o início do ciclo
+  const startDate = new Date(cycleStart + 'T00:00:00');
+  const diffTime = adjustedDate.getTime() - startDate.getTime();
+  const diffDays = Math.floor(diffTime / (24 * 60 * 60 * 1000));
+
+  // Calcula dia do ciclo (1-indexed, com loop)
+  let cycleDay = (diffDays % totalDays) + 1;
+  if (cycleDay <= 0) {
+    cycleDay += totalDays;
+  }
+
+  return cycleDay;
+}
+
+/**
+ * Retorna a programação do dia atual do ciclo
+ */
+function getTodayPrograms(chData, now) {
+  const cycleDay = getCurrentCycleDay(chData, now);
+  if (!cycleDay) return [];
+
+  const dayKey = `dia_${cycleDay}`;
+  return chData[dayKey] || [];
+}
+
+/**
+ * Expande a programação do dia, calculando horários de início
+ * Retorna lista de { id, start, duration, fullDuration }
+ *
+ * O "dia de programação" vai de 07:00 às 03:00 (próximo dia calendário)
+ * Horários entre 00:00-03:00 são tratados como 24:00-27:00 para ordenação
+ */
+function expandSchedule(programs) {
+  const result = [];
+  let currentTime = SCHEDULE_START_HOUR * 3600; // começa às 07:00
+
   for (let i = 0; i < programs.length; i++) {
     const prog = programs[i];
-    const progEnd = (prog.start + prog.duration) % (24 * 3600);
 
-    if (prog.start <= progEnd) {
-      if (nowSeconds >= prog.start && nowSeconds < progEnd) {
-        const offset = nowSeconds - prog.start;
-        return { program: prog, offset, index: i };
+    // Se tem start definido, usa ele
+    if (prog.start) {
+      let startSecs = parseTime(prog.start);
+      // Se o horário é entre 00:00 e 03:00, é na verdade após meia-noite
+      // do dia de programação (24:00-27:00)
+      if (startSecs < SCHEDULE_START_HOUR * 3600) {
+        startSecs += 24 * 3600;
       }
-    } else {
-      if (nowSeconds >= prog.start || nowSeconds < progEnd) {
-        const offset = nowSeconds >= prog.start
-          ? nowSeconds - prog.start
-          : (24 * 3600 - prog.start) + nowSeconds;
-        return { program: prog, offset, index: i };
-      }
+      currentTime = startSecs;
+    } else if (i === 0) {
+      // Primeiro programa sem start: começa às 07:00
+      currentTime = SCHEDULE_START_HOUR * 3600;
+    }
+    // Senão: começa após o anterior (currentTime já está correto)
+
+    result.push({
+      id: prog.id,
+      start: currentTime, // pode ser > 24h para programas após meia-noite
+      duration: prog.duration,
+      fullDuration: prog.duration
+    });
+
+    currentTime += prog.duration;
+  }
+
+  return result;
+}
+
+/**
+ * Encontra o programa atual baseado nos segundos do dia
+ * nowSeconds pode ser ajustado para +24h se estiver entre 00:00-07:00
+ */
+function findCurrentProgram(programs, nowSeconds) {
+  // Se estamos entre 00:00 e 07:00, ajusta para comparar com programas após meia-noite
+  let adjustedNowSeconds = nowSeconds;
+  if (nowSeconds < SCHEDULE_START_HOUR * 3600) {
+    adjustedNowSeconds = nowSeconds + 24 * 3600;
+  }
+
+  for (let i = 0; i < programs.length; i++) {
+    const prog = programs[i];
+    const progStart = prog.start;
+    const progEnd = prog.start + prog.duration;
+
+    if (adjustedNowSeconds >= progStart && adjustedNowSeconds < progEnd) {
+      const offset = adjustedNowSeconds - progStart;
+      return { program: prog, offset, index: i };
     }
   }
   return null;
 }
 
-function findNextProgram(channelData, now) {
-  const dayName = getDayName(now);
+/**
+ * Encontra o próximo programa (hoje ou amanhã no ciclo)
+ */
+function findNextProgram(chData, now) {
   const nowSeconds = getSecondsOfDay(now);
+  const todayPrograms = expandSchedule(getTodayPrograms(chData, now));
 
-  // Procura no mesmo dia
-  const todayWindows = channelData[dayName] || [];
-  const todayPrograms = expandSchedule(todayWindows);
+  // Ajusta nowSeconds para comparação (se entre 00:00-07:00, adiciona 24h)
+  let adjustedNowSeconds = nowSeconds;
+  if (nowSeconds < SCHEDULE_START_HOUR * 3600) {
+    adjustedNowSeconds = nowSeconds + 24 * 3600;
+  }
 
+  // Procura no mesmo dia de programação
   for (const prog of todayPrograms) {
-    if (prog.start > nowSeconds) {
+    if (prog.start > adjustedNowSeconds) {
+      // Calcula segundos até o programa
+      let secondsUntil = prog.start - adjustedNowSeconds;
       return {
         program: prog,
-        secondsUntil: prog.start - nowSeconds,
+        secondsUntil: secondsUntil,
         isToday: true
       };
     }
   }
 
-  // Procura no próximo dia
+  // Procura no próximo dia do ciclo
   const tomorrow = new Date(now);
   tomorrow.setDate(tomorrow.getDate() + 1);
-  const tomorrowDayName = getDayName(tomorrow);
-  const tomorrowWindows = channelData[tomorrowDayName] || [];
-  const tomorrowPrograms = expandSchedule(tomorrowWindows);
+  // Ajusta para ser após as 7h do próximo dia
+  tomorrow.setHours(SCHEDULE_START_HOUR, 0, 0, 0);
+
+  const tomorrowPrograms = expandSchedule(getTodayPrograms(chData, tomorrow));
 
   if (tomorrowPrograms.length > 0) {
     const firstProg = tomorrowPrograms[0];
-    const secondsUntilMidnight = 24 * 3600 - nowSeconds;
+    // Calcula segundos até o primeiro programa de amanhã
+    // firstProg.start é relativo ao início do dia de programação (07:00)
+    const secondsUntil7am = (SCHEDULE_START_HOUR * 3600 - nowSeconds + 24 * 3600) % (24 * 3600);
+    const secondsAfter7am = firstProg.start - SCHEDULE_START_HOUR * 3600;
     return {
       program: firstProg,
-      secondsUntil: secondsUntilMidnight + firstProg.start,
+      secondsUntil: secondsUntil7am + secondsAfter7am,
       isToday: false
     };
   }
@@ -200,14 +299,18 @@ function findNextProgram(channelData, now) {
   return null;
 }
 
-// Retorna status do canal: 'live' (transmitindo), 'soon' (em breve), 'offline' (fora do ar)
+// ============ Status do canal ============
+
 function getChannelStatus(chData, now) {
   if (!chData) return { status: 'offline', label: 'Fora do ar' };
 
-  const dayName = getDayName(now);
+  const totalDays = getCycleDays(chData);
+  if (totalDays === 0) {
+    return { status: 'offline', label: 'Fora do ar' };
+  }
+
   const nowSeconds = getSecondsOfDay(now);
-  const windows = chData[dayName] || [];
-  const programs = expandSchedule(windows);
+  const programs = expandSchedule(getTodayPrograms(chData, now));
   const current = findCurrentProgram(programs, nowSeconds);
 
   if (current) {
@@ -216,23 +319,20 @@ function getChannelStatus(chData, now) {
 
   const next = findNextProgram(chData, now);
   if (next) {
-    // Tem próximo programa agendado
     return { status: 'soon', label: 'Em breve' };
   }
 
-  // Sem próxima playlist
   return { status: 'offline', label: 'Fora do ar' };
 }
 
-// Retorna lista dos próximos N vídeos (incluindo amanhã se necessário)
+/**
+ * Retorna lista dos próximos N vídeos
+ */
 function getUpcomingVideos(chData, now, count = 3) {
   if (!chData) return [];
 
-  const dayName = getDayName(now);
   const nowSeconds = getSecondsOfDay(now);
-  const windows = chData[dayName] || [];
-  const todayPrograms = expandSchedule(windows);
-
+  const todayPrograms = expandSchedule(getTodayPrograms(chData, now));
   const upcoming = [];
 
   // Encontra programa atual para saber o índice
@@ -260,13 +360,12 @@ function getUpcomingVideos(chData, now, count = 3) {
     });
   }
 
-  // Se precisar de mais, pega de amanhã
+  // Se precisar de mais, pega do próximo dia do ciclo
   if (upcoming.length < count) {
     const tomorrow = new Date(now);
     tomorrow.setDate(tomorrow.getDate() + 1);
-    const tomorrowDayName = getDayName(tomorrow);
-    const tomorrowWindows = chData[tomorrowDayName] || [];
-    const tomorrowPrograms = expandSchedule(tomorrowWindows);
+    tomorrow.setHours(SCHEDULE_START_HOUR, 0, 0, 0);
+    const tomorrowPrograms = expandSchedule(getTodayPrograms(chData, tomorrow));
 
     for (let i = 0; i < tomorrowPrograms.length && upcoming.length < count; i++) {
       upcoming.push({
@@ -341,11 +440,8 @@ function updateNowPlaying() {
   if (!channelData) return;
 
   const now = getServerNow();
-  const dayName = getDayName(now);
   const nowSeconds = getSecondsOfDay(now);
-
-  const windows = channelData[dayName] || [];
-  const programs = expandSchedule(windows);
+  const programs = expandSchedule(getTodayPrograms(channelData, now));
   const current = findCurrentProgram(programs, nowSeconds);
 
   if (current) {
@@ -406,11 +502,8 @@ function updateOverlayUpcoming() {
   if (!channelData || overlay.classList.contains('hidden')) return;
 
   const now = getServerNow();
-  const dayName = getDayName(now);
   const nowSeconds = getSecondsOfDay(now);
-
-  const windows = channelData[dayName] || [];
-  const programs = expandSchedule(windows);
+  const programs = expandSchedule(getTodayPrograms(channelData, now));
   const current = findCurrentProgram(programs, nowSeconds);
 
   // Só atualiza se não estiver transmitindo (timer ativo)
@@ -440,11 +533,8 @@ function syncToSchedule() {
   if (!channelData) return;
 
   const now = getServerNow();
-  const dayName = getDayName(now);
   const nowSeconds = getSecondsOfDay(now);
-
-  const windows = channelData[dayName] || [];
-  const programs = expandSchedule(windows);
+  const programs = expandSchedule(getTodayPrograms(channelData, now));
   const current = findCurrentProgram(programs, nowSeconds);
 
   // Remove elementos dinâmicos do overlay
@@ -497,67 +587,334 @@ function syncToSchedule() {
   }
 }
 
-// ============ Programação (modal) ============
+// ============ Programação EPG (modal) ============
 
-function renderSchedule(dayOffset = 0) {
+function getEPGPrograms(chData, startHour, hoursCount = 48) {
+  // Retorna programas das próximas 48 horas a partir de startHour
+  const now = getServerNow();
+  const programs = [];
+
+  // Começa a partir da hora atual (arredondada para baixo)
+  const currentDate = new Date(now);
+  currentDate.setMinutes(0, 0, 0);
+  currentDate.setHours(startHour);
+
+  // Se estamos antes das 07:00, o dia de programação atual começou ontem
+  // Ajusta a data base para isso
+  let baseDateOffset = 0;
+  if (startHour < SCHEDULE_START_HOUR) {
+    baseDateOffset = -1;
+  }
+
+  // Coleta programas de hoje e dos próximos 2 dias no ciclo
+  for (let dayOffset = 0; dayOffset <= 2; dayOffset++) {
+    const targetDate = new Date(currentDate);
+    targetDate.setDate(targetDate.getDate() + dayOffset + baseDateOffset);
+    targetDate.setHours(SCHEDULE_START_HOUR, 0, 0, 0);
+
+    const dayPrograms = expandSchedule(getTodayPrograms(chData, targetDate));
+
+    for (const prog of dayPrograms) {
+      programs.push({
+        ...prog,
+        dayOffset: dayOffset,
+        absoluteStart: dayOffset * 24 * 3600 + prog.start
+      });
+    }
+  }
+
+  return programs;
+}
+
+function renderEPG() {
   const channelNames = Object.keys(allChannelsData);
 
   if (channelNames.length === 0) {
-    scheduleContent.innerHTML = '<div class="schedule-empty">Nenhum canal disponível</div>';
+    epgChannels.innerHTML = '<div style="padding: 2rem; color: #666;">Nenhum canal disponível</div>';
     return;
   }
 
   const now = getServerNow();
-  const targetDate = new Date(now);
-  targetDate.setDate(targetDate.getDate() + dayOffset);
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentSeconds = now.getSeconds();
+  const nowSeconds = getSecondsOfDay(now);
 
-  const dayName = getDayName(targetDate);
-  const nowSeconds = dayOffset === 0 ? getSecondsOfDay(now) : -1;
-
-  let html = '<div class="schedule-grid">';
+  // Coleta todos os programas de todos os canais para descobrir quais horas têm programação
+  const hoursWithContent = new Set();
+  // Se estamos antes das 07:00, ajusta startOfTimeline para +24h
+  // porque os programas do dia de programação atual têm start relativo ao dia anterior
+  let startOfTimeline = currentHour * 3600;
+  if (currentHour < SCHEDULE_START_HOUR) {
+    startOfTimeline += 24 * 3600;
+  }
+  const timelineEndSec = startOfTimeline + 48 * 3600;
 
   for (const chName of channelNames) {
     const chData = allChannelsData[chName];
-    const windows = chData[dayName] || [];
-    const programs = expandSchedule(windows);
-    const { status } = getChannelStatus(chData, now);
+    const programs = getEPGPrograms(chData, currentHour, 48);
 
-    html += `
-      <div class="schedule-channel">
-        <div class="schedule-channel-header">
-          <span class="channel-title">${capitalize(chName)}</span>
-          <button class="btn-watch" data-channel="${chName}">Assistir</button>
-        </div>
-        <div class="schedule-channel-items">
-    `;
+    for (const prog of programs) {
+      let progStartSec = prog.absoluteStart;
+      let progEndSec = progStartSec + prog.duration;
 
-    // Filtra programas que já passaram (apenas para hoje)
-    const filteredPrograms = dayOffset === 0
-      ? programs.filter(prog => (prog.start + prog.duration) > nowSeconds)
-      : programs;
+      // Ignora programas fora da janela de 24h
+      if (progEndSec <= startOfTimeline || progStartSec >= timelineEndSec) {
+        continue;
+      }
 
-    if (filteredPrograms.length === 0) {
-      html += '<div class="schedule-empty-mini">Sem programação</div>';
-    } else {
-      for (const prog of filteredPrograms) {
-        const isCurrent = dayOffset === 0 && findCurrentProgram([prog], nowSeconds);
-        const title = capitalize(prog.id.replace(/_/g, ' '));
-        const startTime = formatTimeHHMM(prog.start);
+      // Clipa ao início/fim da timeline
+      if (progStartSec < startOfTimeline) progStartSec = startOfTimeline;
+      if (progEndSec > timelineEndSec) progEndSec = timelineEndSec;
 
-        html += `
-          <div class="schedule-item-mini ${isCurrent ? 'current' : ''}">
-            <span class="time">${startTime}</span>
-            <span class="title">${title}</span>
-          </div>
-        `;
+      // Marca todas as horas que este programa cobre
+      const startHourOffset = Math.floor((progStartSec - startOfTimeline) / 3600);
+      const endHourOffset = Math.ceil((progEndSec - startOfTimeline) / 3600);
+      for (let h = startHourOffset; h < endHourOffset && h < 48; h++) {
+        hoursWithContent.add(h);
       }
     }
-
-    html += '</div></div>';
   }
 
-  html += '</div>';
-  scheduleContent.innerHTML = html;
+  // Converte para array ordenado de offsets de hora que têm conteúdo
+  const activeHours = Array.from(hoursWithContent).sort((a, b) => a - b);
+
+  // Se não há programação, mostra mensagem
+  if (activeHours.length === 0) {
+    epgTimeline.innerHTML = '<div class="epg-time-slot">Sem programação</div>';
+    epgChannels.innerHTML = '';
+    epgPrograms.innerHTML = '';
+    return;
+  }
+
+  // Cria mapeamento de offset de hora para posição na timeline
+  const hourToPosition = {};
+  activeHours.forEach((hourOffset, index) => {
+    hourToPosition[hourOffset] = index;
+  });
+
+  // Renderiza timeline (apenas horas com conteúdo)
+  let timelineHtml = '';
+  for (const hourOffset of activeHours) {
+    const hour = (currentHour + hourOffset) % 24;
+    const label = `${String(hour).padStart(2, '0')}:00`;
+    timelineHtml += `<div class="epg-time-slot">${label}</div>`;
+  }
+  epgTimeline.innerHTML = timelineHtml;
+
+  // Renderiza canais (coluna fixa)
+  let channelsHtml = '';
+  for (const chName of channelNames) {
+    const chData = allChannelsData[chName];
+    const { status, label } = getChannelStatus(chData, now);
+    const isActive = chName === currentChannel;
+
+    channelsHtml += `
+      <div class="epg-channel-row ${isActive ? 'active' : ''}" data-channel="${chName}">
+        <div class="epg-channel-name">${capitalize(chName)}</div>
+        <div class="epg-channel-status status-${status}">
+          <span class="status-dot"></span>
+          <span class="status-label">${label}</span>
+        </div>
+      </div>
+    `;
+  }
+  epgChannels.innerHTML = channelsHtml;
+
+  // Renderiza programação (grid horizontal)
+  let programsHtml = '';
+
+  // Offset em minutos da hora atual (para posicionar programas corretamente)
+  const minuteOffset = currentMinute + (currentSeconds / 60);
+
+  // Largura total da timeline (apenas horas com conteúdo)
+  const totalWidth = activeHours.length * EPG_PIXELS_PER_HOUR;
+
+  for (const chName of channelNames) {
+    const chData = allChannelsData[chName];
+    const programs = getEPGPrograms(chData, currentHour, 48);
+
+    programsHtml += '<div class="epg-program-row">';
+
+    // Calcula posição de cada programa
+    // Cada hora ativa tem 200px de largura
+
+    let lastEndPx = 0;
+
+    for (const prog of programs) {
+      // Calcula posição do programa relativa ao início da timeline
+      let progStartSec = prog.absoluteStart;
+      let progEndSec = progStartSec + prog.duration;
+
+      // Ignora programas fora da janela de 24h
+      if (progEndSec <= startOfTimeline || progStartSec >= timelineEndSec) {
+        continue;
+      }
+
+      // Clipa ao início/fim da timeline
+      if (progStartSec < startOfTimeline) {
+        progStartSec = startOfTimeline;
+      }
+      if (progEndSec > timelineEndSec) {
+        progEndSec = timelineEndSec;
+      }
+
+      // Calcula offset de hora do início e fim do programa
+      const progStartHourOffset = Math.floor((progStartSec - startOfTimeline) / 3600);
+      const progEndHourOffset = Math.ceil((progEndSec - startOfTimeline) / 3600);
+
+      // Verifica se este programa está em alguma hora ativa
+      let progInActiveHours = false;
+      for (let h = progStartHourOffset; h < progEndHourOffset; h++) {
+        if (hoursWithContent.has(h)) {
+          progInActiveHours = true;
+          break;
+        }
+      }
+      if (!progInActiveHours) continue;
+
+      // Calcula posição na timeline compactada
+      // Encontra a primeira hora ativa que este programa cobre
+      let startPx = 0;
+      const startHourOffset = Math.floor((progStartSec - startOfTimeline) / 3600);
+      if (hourToPosition[startHourOffset] !== undefined) {
+        const fractionInHour = ((progStartSec - startOfTimeline) % 3600) / 3600;
+        startPx = hourToPosition[startHourOffset] * EPG_PIXELS_PER_HOUR + fractionInHour * EPG_PIXELS_PER_HOUR;
+      } else {
+        // Programa começa numa hora sem conteúdo, encontra próxima hora ativa
+        for (let h = startHourOffset; h < 48; h++) {
+          if (hourToPosition[h] !== undefined) {
+            startPx = hourToPosition[h] * EPG_PIXELS_PER_HOUR;
+            break;
+          }
+        }
+      }
+
+      // Calcula largura baseada nas horas ativas que o programa cobre
+      let widthPx = 0;
+      for (let h = progStartHourOffset; h < progEndHourOffset && h < 48; h++) {
+        if (hourToPosition[h] !== undefined) {
+          // Calcula quanto deste programa está nesta hora
+          const hourStart = startOfTimeline + h * 3600;
+          const hourEnd = hourStart + 3600;
+          const overlapStart = Math.max(progStartSec, hourStart);
+          const overlapEnd = Math.min(progEndSec, hourEnd);
+          const overlapDuration = overlapEnd - overlapStart;
+          widthPx += (overlapDuration / 3600) * EPG_PIXELS_PER_HOUR;
+        }
+      }
+
+      if (widthPx <= 0) continue;
+
+      // Preenche espaço vazio se houver
+      if (startPx > lastEndPx + 1) {
+        const gapWidth = startPx - lastEndPx;
+        programsHtml += `<div class="epg-program-empty" style="width: ${gapWidth}px; min-width: ${gapWidth}px;"></div>`;
+      }
+
+      // Verifica se é o programa atual (ajusta nowSeconds se antes das 07:00)
+      let adjustedNow = nowSeconds;
+      if (nowSeconds < SCHEDULE_START_HOUR * 3600) {
+        adjustedNow = nowSeconds + 24 * 3600;
+      }
+      const isCurrent = prog.dayOffset === 0 &&
+        prog.start <= adjustedNow &&
+        (prog.start + prog.duration) > adjustedNow;
+
+      const title = capitalize(prog.id.replace(/_/g, ' '));
+      const startTime = formatTimeHHMM(prog.start);
+      const endTime = formatTimeHHMM((prog.start + prog.duration) % (24 * 3600));
+
+      programsHtml += `
+        <div class="epg-program ${isCurrent ? 'current' : ''}"
+             style="width: ${widthPx}px; min-width: ${widthPx}px;"
+             data-channel="${chName}"
+             title="${title} (${startTime} - ${endTime})">
+          <div class="epg-program-title">${title}</div>
+          <div class="epg-program-time">${startTime} - ${endTime}</div>
+        </div>
+      `;
+
+      lastEndPx = startPx + widthPx;
+    }
+
+    // Preenche o resto se necessário
+    if (lastEndPx < totalWidth) {
+      const remainingWidth = totalWidth - lastEndPx;
+      programsHtml += `<div class="epg-program-empty" style="width: ${remainingWidth}px; min-width: ${remainingWidth}px;"></div>`;
+    }
+
+    programsHtml += '</div>';
+  }
+
+  // Calcula posição do indicador NOW na timeline compactada
+  let nowIndicatorPx = -1;
+  const currentHourOffset = 0; // Hora atual é sempre offset 0
+  if (hourToPosition[currentHourOffset] !== undefined) {
+    nowIndicatorPx = hourToPosition[currentHourOffset] * EPG_PIXELS_PER_HOUR + (minuteOffset / 60) * EPG_PIXELS_PER_HOUR;
+  }
+
+  epgPrograms.innerHTML = programsHtml;
+
+  // Adiciona indicador NOW após renderizar (apenas se a hora atual está visível)
+  if (nowIndicatorPx >= 0) {
+    const nowIndicator = document.createElement('div');
+    nowIndicator.className = 'epg-now-indicator';
+    nowIndicator.style.left = `${nowIndicatorPx}px`;
+    epgPrograms.appendChild(nowIndicator);
+  }
+
+  // Restaura posição do scroll
+  epgProgramsScroll.scrollLeft = epgScrollPosition.x;
+  epgProgramsScroll.scrollTop = epgScrollPosition.y;
+  epgChannels.scrollTop = epgScrollPosition.y;
+  epgTimelineHeaderScroll.scrollLeft = epgScrollPosition.x;
+}
+
+function setupEPGScrollSync() {
+  // Sincroniza scroll horizontal entre timeline e programação
+  epgProgramsScroll.addEventListener('scroll', () => {
+    epgTimelineHeaderScroll.scrollLeft = epgProgramsScroll.scrollLeft;
+    epgChannels.scrollTop = epgProgramsScroll.scrollTop;
+
+    // Salva posição
+    epgScrollPosition.x = epgProgramsScroll.scrollLeft;
+    epgScrollPosition.y = epgProgramsScroll.scrollTop;
+  });
+
+  // Sincroniza scroll vertical da coluna de canais
+  epgChannels.addEventListener('scroll', () => {
+    epgProgramsScroll.scrollTop = epgChannels.scrollTop;
+    epgScrollPosition.y = epgChannels.scrollTop;
+  });
+
+  // Scroll horizontal com roda do mouse no EPG
+  epgProgramsScroll.addEventListener('wheel', (e) => {
+    // Se não estiver segurando Shift, converte scroll vertical em horizontal
+    if (!e.shiftKey) {
+      e.preventDefault();
+      epgProgramsScroll.scrollLeft += e.deltaY;
+    }
+  }, { passive: false });
+
+  // Também na timeline
+  epgTimelineHeaderScroll.addEventListener('wheel', (e) => {
+    if (!e.shiftKey) {
+      e.preventDefault();
+      epgProgramsScroll.scrollLeft += e.deltaY;
+    }
+  }, { passive: false });
+}
+
+function openEPG() {
+  renderEPG();
+  scheduleModal.classList.remove('hidden');
+
+  // Scroll para mostrar hora atual (um pouco antes)
+  if (epgScrollPosition.x === 0 && epgScrollPosition.y === 0) {
+    // Primeira vez abrindo, não faz scroll automático
+    // já que a timeline começa na hora atual
+  }
 }
 
 // ============ Carregamento de canais ============
@@ -692,6 +1049,35 @@ function toggleFullscreen() {
   }
 }
 
+// ============ Resize (object-fit) ============
+
+function loadResizePreference() {
+  const pref = localStorage.getItem('vtv-object-fit');
+  // Padrão é cover (sem classe), contain adiciona classe
+  if (pref === 'contain') {
+    player.classList.add('contain');
+    btnResize.textContent = '⊞';
+    btnResize.title = 'Preencher tela';
+  } else {
+    player.classList.remove('contain');
+    btnResize.textContent = '⊡';
+    btnResize.title = 'Ajustar ao vídeo';
+  }
+}
+
+function toggleResize() {
+  const isContain = player.classList.toggle('contain');
+  if (isContain) {
+    localStorage.setItem('vtv-object-fit', 'contain');
+    btnResize.textContent = '⊞';
+    btnResize.title = 'Preencher tela';
+  } else {
+    localStorage.setItem('vtv-object-fit', 'cover');
+    btnResize.textContent = '⊡';
+    btnResize.title = 'Ajustar ao vídeo';
+  }
+}
+
 // ============ Idle (esconde UI após inatividade) ============
 
 function setIdle() {
@@ -707,7 +1093,10 @@ function setActive() {
     playerControls.classList.add('visible');
   }
   clearTimeout(idleTimeout);
-  idleTimeout = setTimeout(setIdle, IDLE_DELAY);
+  // Só reinicia o timer se não estiver em hover sobre elementos da UI
+  if (!isHoveringUI) {
+    idleTimeout = setTimeout(setIdle, IDLE_DELAY);
+  }
 }
 
 // ============ Play ============
@@ -736,10 +1125,8 @@ function renderHomeChannels() {
     const { status, label } = getChannelStatus(chData, now);
 
     // Pega filme atual ou próximo
-    const dayName = getDayName(now);
     const nowSeconds = getSecondsOfDay(now);
-    const windows = chData[dayName] || [];
-    const programs = expandSchedule(windows);
+    const programs = expandSchedule(getTodayPrograms(chData, now));
     const current = findCurrentProgram(programs, nowSeconds);
 
     let filmInfo = '';
@@ -834,25 +1221,27 @@ btnCloseSidebar.addEventListener('click', closeSidebar);
 // Fullscreen
 btnFullscreen.addEventListener('click', toggleFullscreen);
 
+// Resize (object-fit)
+btnResize.addEventListener('click', toggleResize);
+
 // Volume
 volumeSlider.addEventListener('input', (e) => {
   player.volume = e.target.value / 100;
   player.muted = false;
 });
 
-// Schedule modal
-btnSchedule.addEventListener('click', () => {
-  renderSchedule(0);
-  scheduleModal.classList.remove('hidden');
-});
+// Schedule modal (EPG)
+btnSchedule.addEventListener('click', openEPG);
+
+// Now playing também abre EPG
+nowPlaying.addEventListener('click', openEPG);
 
 // Links e botões no overlay
 overlay.addEventListener('click', (e) => {
   // Link "Ver programação completa"
   if (e.target.id === 'btn-upcoming-schedule') {
     e.preventDefault();
-    renderSchedule(0);
-    scheduleModal.classList.remove('hidden');
+    openEPG();
   }
 
   // Card de canal na home
@@ -874,24 +1263,25 @@ scheduleModal.addEventListener('click', (e) => {
   }
 });
 
-// Botão "Assistir" no modal de programação
-scheduleContent.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btn-watch')) {
-    const channel = e.target.dataset.channel;
+// Click em canal ou programa no EPG
+epgChannels.addEventListener('click', (e) => {
+  const row = e.target.closest('.epg-channel-row');
+  if (row) {
+    const channel = row.dataset.channel;
     scheduleModal.classList.add('hidden');
     setChannelInUrl(channel);
     handleChannelChange();
   }
 });
 
-// Tabs
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    const dayOffset = tab.dataset.tab === 'tomorrow' ? 1 : 0;
-    renderSchedule(dayOffset);
-  });
+epgPrograms.addEventListener('click', (e) => {
+  const program = e.target.closest('.epg-program');
+  if (program) {
+    const channel = program.dataset.channel;
+    scheduleModal.classList.add('hidden');
+    setChannelInUrl(channel);
+    handleChannelChange();
+  }
 });
 
 // URL change (popstate for back/forward navigation)
@@ -930,45 +1320,48 @@ document.addEventListener('mousemove', setActive);
 document.addEventListener('mousedown', setActive);
 document.addEventListener('keydown', setActive);
 
-// Mantém ativo enquanto hover nos controles ou sidebar
-playerControls.addEventListener('mouseenter', () => clearTimeout(idleTimeout));
-playerControls.addEventListener('mouseleave', () => idleTimeout = setTimeout(setIdle, IDLE_DELAY));
-sidebar.addEventListener('mouseenter', () => clearTimeout(idleTimeout));
-sidebar.addEventListener('mouseleave', () => idleTimeout = setTimeout(setIdle, IDLE_DELAY));
+// Mantém ativo enquanto hover nos controles, sidebar, nowPlaying ou btnToggle
+function handleUIMouseEnter() {
+  isHoveringUI = true;
+  clearTimeout(idleTimeout);
+}
+function handleUIMouseLeave() {
+  isHoveringUI = false;
+  idleTimeout = setTimeout(setIdle, IDLE_DELAY);
+}
+playerControls.addEventListener('mouseenter', handleUIMouseEnter);
+playerControls.addEventListener('mouseleave', handleUIMouseLeave);
+sidebar.addEventListener('mouseenter', handleUIMouseEnter);
+sidebar.addEventListener('mouseleave', handleUIMouseLeave);
+nowPlaying.addEventListener('mouseenter', handleUIMouseEnter);
+nowPlaying.addEventListener('mouseleave', handleUIMouseLeave);
+btnToggle.addEventListener('mouseenter', handleUIMouseEnter);
+btnToggle.addEventListener('mouseleave', handleUIMouseLeave);
 
 // ============ Inicialização ============
 
 async function init() {
+  // Carrega preferência de resize
+  loadResizePreference();
+
   // Sincroniza horário com o servidor
   await syncServerTime();
 
   await loadChannelList();
   handleChannelChange();
 
+  // Configura sincronização de scroll do EPG
+  setupEPGScrollSync();
+
   // Ressincroniza horário a cada 5 minutos
   setInterval(syncServerTime, 5 * 60 * 1000);
 
+  // Atualiza EPG a cada 30 segundos se estiver aberto
   setInterval(() => {
     if (!scheduleModal.classList.contains('hidden')) {
-      const activeTab = document.querySelector('.modal-tabs .tab.active');
-      const dayOffset = activeTab?.dataset.tab === 'tomorrow' ? 1 : 0;
-
-      // Preserva posição do scroll de cada canal antes de atualizar
-      const scrollPositions = {};
-      document.querySelectorAll('.schedule-channel-items').forEach((el, i) => {
-        scrollPositions[i] = el.scrollTop;
-      });
-      const mainScroll = scheduleContent.scrollTop;
-
-      renderSchedule(dayOffset);
-
-      // Restaura posição do scroll
-      scheduleContent.scrollTop = mainScroll;
-      document.querySelectorAll('.schedule-channel-items').forEach((el, i) => {
-        if (scrollPositions[i]) el.scrollTop = scrollPositions[i];
-      });
+      renderEPG();
     }
-  }, 1000);
+  }, 30000);
 }
 
 init();

@@ -1,187 +1,74 @@
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [
+  "cycle_start": "2026-01-20",
+  "dia_1": [
     {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "angels_egg",
-          "duration": 4266
-        }
-      ]
+      "start": "12:00",
+      "id": "pokemon_2000",
+      "duration": 4845
     },
     {
-      "name": "filmes2",
-      "start": "14:30",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "dragon_ball_a_lenda_de_shen_long",
-          "duration": 3014
-        },
-        {
-          "id": "pokemon_2000",
-          "duration": 4845
-        },
-        {
-          "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
-          "duration": 4487
-        },
-        {
-          "id": "dragon_ball_z_o_retorno_da_fusao",
-          "duration": 3042
-        },
-        {
-          "id": "pokemon_mewtwo_contra-ataca",
-          "duration": 4475
-        },
-        {
-          "id": "inu_yasha_o_castelo_das_ilusoes",
-          "duration": 5945
-        },
-        {
-          "id": "dragon_ball_z_o_pai_de_goku",
-          "duration": 2865
-        },
-        {
-          "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
-          "duration": 5010
-        }
-      ]
-    }
-  ],
-  "tuesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "steamboy",
-          "duration": 7573
-        }
-      ]
+      "id": "fullmetal_alchemist_mae",
+      "duration": 1433
     },
     {
-      "name": "filmes2",
-      "start": "14:30",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "dragon_ball_a_lenda_de_shen_long",
-          "duration": 3014
-        },
-        {
-          "id": "pokemon_2000",
-          "duration": 4845
-        },
-        {
-          "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
-          "duration": 4487
-        },
-        {
-          "id": "dragon_ball_z_o_retorno_da_fusao",
-          "duration": 3042
-        },
-        {
-          "id": "pokemon_mewtwo_contra-ataca",
-          "duration": 4475
-        },
-        {
-          "id": "inu_yasha_o_castelo_das_ilusoes",
-          "duration": 5945
-        },
-        {
-          "id": "dragon_ball_z_o_pai_de_goku",
-          "duration": 2865
-        },
-        {
-          "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
-          "duration": 5010
-        }
-      ]
-    }
-  ],
-  "wednesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "angels_egg",
-          "duration": 4266
-        }
-      ]
+      "id": "fullmetal_alchemist_aco_contra_chamas",
+      "duration": 1432
     },
     {
-      "name": "filmes2",
-      "start": "14:30",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "dragon_ball_a_lenda_de_shen_long",
-          "duration": 3014
-        },
-        {
-          "id": "pokemon_2000",
-          "duration": 4845
-        },
-        {
-          "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
-          "duration": 4487
-        },
-        {
-          "id": "dragon_ball_z_o_retorno_da_fusao",
-          "duration": 3042
-        },
-        {
-          "id": "pokemon_mewtwo_contra-ataca",
-          "duration": 4475
-        },
-        {
-          "id": "inu_yasha_o_castelo_das_ilusoes",
-          "duration": 5945
-        },
-        {
-          "id": "dragon_ball_z_o_pai_de_goku",
-          "duration": 2865
-        },
-        {
-          "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
-          "duration": 5010
-        }
-      ]
+      "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
+      "duration": 4487
+    },
+    {
+      "id": "pokemon_mewtwo_contra-ataca",
+      "duration": 4475
+    },
+    {
+      "id": "inu_yasha_o_castelo_das_ilusoes",
+      "duration": 5945
+    },
+    {
+      "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
+      "duration": 5010
+    },
+    {
+      "id": "steamboy",
+      "duration": 7573
+    },
+    {
+      "id": "angels_egg",
+      "duration": 4266
     }
   ],
-  "thursday": [
+  "dia_2": [
     {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "steamboy",
-          "duration": 7573
-        }
-      ]
-    }
-  ],
-  "friday": [],
-  "saturday": [],
-  "sunday": [
+      "start": "12:00",
+      "id": "dragon_ball_a_lenda_de_shen_long",
+      "duration": 3014
+    },
     {
-      "name": "filmes",
-      "start": "22:39",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
-          "duration": 5010
-        }
-      ]
+      "id": "dragon_ball_z_o_pai_de_goku",
+      "duration": 2865
+    },
+    {
+      "id": "dragon_ball_z_broly_o_lendario_super_saiyajin",
+      "duration": 4314
+    },
+    {
+      "id": "dragon_ball_z_a_batalha_nos_dois_mundos",
+      "duration": 3024
+    },
+    {
+      "id": "dragon_ball_z_o_retorno_da_fusao",
+      "duration": 3042
+    },
+    {
+      "id": "dragon_ball_z_furia_do_dragao",
+      "duration": 3107
+    },
+    {
+      "id": "dragon_ball_super_broly",
+      "duration": 5983
     }
   ]
 }

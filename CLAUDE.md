@@ -17,11 +17,11 @@ VTV is a web-based TV streaming system that plays HLS videos according to schedu
 cd /home/ewerton/projects/vtv
 python -m http.server 8080
 ```
-Then access `http://localhost:8080/#anos90`
+Then access `http://localhost:8080/?channel=paradox`
 
 ### Edit channel schedules
 ```bash
-python playlist.py ./movies_hls ./channels/anos90.json
+python playlist.py ./movies_hls ./channels/paradox.json
 ```
 
 ### Convert video to HLS
@@ -35,9 +35,9 @@ python conversor.py <video_file> ./movies_hls/<output_name>
 vtv/
 ├── index.html         # Web frontend
 ├── style.css
-├── app.js
-├── channels/          # Channel JSON files (schedule per weekday)
-│   └── anos90.json
+├── vtv.js
+├── channels/          # Channel JSON files (cycle of X days)
+│   └── paradox.json
 ├── movies_hls/        # HLS video files (subfolders with stream.m3u8)
 ├── playlist.py        # Schedule editor CLI
 └── conversor.py       # Video to HLS converter
@@ -48,33 +48,35 @@ vtv/
 ```json
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [
-    {
-      "name": "filmes",
-      "start": "07:00",
-      "end": "16:00",
-      "playlist": [
-        { "id": "movie_folder_name", "duration": 5605 }
-      ]
-    }
+  "cycle_start": "2024-01-15",
+  "dia_1": [
+    { "start": "10:00", "id": "movie_folder_name", "duration": 5605 },
+    { "id": "another_movie", "duration": 6000 }
   ],
-  "tuesday": [],
+  "dia_2": [],
   ...
 }
 ```
 
-- Each day of the week has an array of time windows
-- Windows have start/end times (HH:MM) and a playlist of video IDs
-- Video IDs correspond to folder names in `movies_hls/`
-- Duration is in seconds (calculated from stream.m3u8 EXTINF tags)
+- **cycle_start**: Date when the cycle started (YYYY-MM-DD), used to calculate current cycle day
+- **dia_X**: Programming for day X of the cycle (1-indexed)
+- Each day has an array of movies with:
+  - `id`: Folder name in `movies_hls/`
+  - `duration`: Duration in seconds (from stream.m3u8 EXTINF tags)
+  - `start` (optional): Start time (HH:MM). If omitted:
+    - First movie of the day starts at 07:00
+    - Subsequent movies start immediately after the previous one
+- Programming day runs from 07:00 to 03:00 (next calendar day)
+- When all days in the cycle are complete, it loops back to dia_1
 
 ## Frontend Architecture
 
-- Uses hash routing (`/#channel_name`) for channel selection
+- Uses query param routing (`?channel=name`) for channel selection
 - Loads channel JSON once, calculates schedule client-side
+- Calculates current cycle day based on `cycle_start` date
 - Uses hls.js for HLS playback with automatic seek to current position
 - Real-time updates via setInterval (1s) without server polling
-- Playlists loop within their time windows
+- EPG (Electronic Program Guide) shows 24h of programming
 
 ## Dependencies
 

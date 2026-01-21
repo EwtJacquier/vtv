@@ -24,6 +24,10 @@ body {
   z-index: 0;
 }
 
+#player.contain {
+  object-fit: contain;
+}
+
 /* Overlay quando não há canal ou aguardando play */
 .overlay {
   position: fixed;
@@ -149,7 +153,12 @@ body {
   border-radius: 8px;
   z-index: 99;
   max-width: 280px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, background 0.2s ease;
+  cursor: pointer;
+}
+
+.now-playing-fixed:hover {
+  background: rgba(0, 0, 0, 0.95);
 }
 
 .now-playing-fixed.hidden {
@@ -287,7 +296,7 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  text-align: left;
+  text-align: center;
 }
 
 .btn-action:hover {
@@ -393,7 +402,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -404,29 +413,6 @@ body {
 .modal.hidden {
   opacity: 0;
   pointer-events: none;
-}
-
-.modal-content {
-  background: #1a1a2e;
-  border-radius: 12px;
-  width: 95%;
-  max-width: 900px;
-  max-height: 85vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.modal-header h2 {
-  font-size: 1.3rem;
 }
 
 .btn-close {
@@ -442,168 +428,275 @@ body {
   color: #fff;
 }
 
-.modal-tabs {
+/* EPG - Guia de Programação estilo TV a cabo */
+.epg-container {
+  background: #0d0d1a;
+  border-radius: 12px;
+  width: 95%;
+  max-width: 1200px;
+  height: 85vh;
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.epg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(102, 126, 234, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.modal-tabs .tab {
-  flex: 1;
-  padding: 1rem;
-  background: none;
-  border: none;
-  color: #888;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-bottom: 2px solid transparent;
-}
-
-.modal-tabs .tab:hover {
-  color: #fff;
-}
-
-.modal-tabs .tab.active {
-  color: #667eea;
-  border-bottom-color: #667eea;
-}
-
-.schedule-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem;
-}
-
-.schedule-item {
-  display: flex;
-  padding: 0.8rem;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  transition: background 0.2s ease;
-}
-
-.schedule-item.current {
-  background: rgba(102, 126, 234, 0.2);
-  border-left: 3px solid #667eea;
-}
-
-.schedule-item .time {
-  width: 60px;
+.epg-header h2 {
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #667eea;
-  font-size: 0.9rem;
 }
 
-.schedule-item .title {
+.epg-content {
   flex: 1;
-  color: #fff;
-  font-size: 0.9rem;
-}
-
-.schedule-item .duration {
-  color: #666;
-  font-size: 0.8rem;
-}
-
-.schedule-empty {
-  text-align: center;
-  padding: 2rem;
-  color: #666;
-}
-
-/* Grade de canais no modal */
-.schedule-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.schedule-channel {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.schedule-channel-header {
+/* Timeline header (horas) */
+.epg-timeline-header {
+  display: flex;
+  background: #1a1a2e;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.epg-channel-col-header {
+  width: 140px;
+  min-width: 140px;
+  background: #1a1a2e;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.epg-timeline-scroll {
+  flex: 1;
+  overflow: hidden;
+}
+
+.epg-timeline {
+  display: flex;
+  height: 40px;
+}
+
+.epg-time-slot {
+  width: 280px;
+  min-width: 280px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem 1rem;
-  background: rgba(102, 126, 234, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.channel-title {
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  font-size: 0.95rem;
-  color: #fff;
+  color: #667eea;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-watch {
-  padding: 0.4rem 0.8rem;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  border-radius: 6px;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.epg-time-slot:first-child {
+  border-left: none;
 }
 
-.btn-watch:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-.schedule-channel-items {
-  padding: 0.5rem;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.schedule-item-mini {
+/* EPG Body */
+.epg-body {
+  flex: 1;
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 6px;
-  margin-bottom: 0.3rem;
+  overflow: hidden;
+}
+
+/* Coluna de canais (fixa) */
+.epg-channels-col {
+  width: 140px;
+  min-width: 140px;
+  background: #12121f;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.epg-channels-col::-webkit-scrollbar {
+  display: none;
+}
+
+.epg-channel-row {
+  height: 82px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
   transition: background 0.2s ease;
 }
 
-.schedule-item-mini:hover {
-  background: rgba(255, 255, 255, 0.05);
+.epg-channel-row:hover {
+  background: rgba(102, 126, 234, 0.15);
 }
 
-.schedule-item-mini.current {
+.epg-channel-row.active {
   background: rgba(102, 126, 234, 0.2);
   border-left: 3px solid #667eea;
 }
 
-.schedule-item-mini .time {
+.epg-channel-name {
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #667eea;
-  font-size: 0.8rem;
-  min-width: 45px;
-}
-
-.schedule-item-mini .title {
-  flex: 1;
-  color: #ccc;
-  font-size: 0.8rem;
+  color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.schedule-empty-mini {
-  padding: 1rem;
-  text-align: center;
-  color: #666;
-  font-size: 0.8rem;
+.epg-channel-status {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Grid de programação (scroll horizontal) */
+.epg-programs-scroll {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.epg-programs-grid {
+  min-height: 100%;
+  position: relative;
+  display: table;
+}
+
+.epg-program-row {
+  height: 82px;
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+}
+
+.epg-program {
+  height: 100%;
+  padding: 0.5rem 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-sizing: border-box;
+}
+
+.epg-program:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.epg-program.current {
+  background: rgba(102, 126, 234, 0.25);
+  border-top: 2px solid #667eea;
+  border-bottom: 2px solid #667eea;
+}
+
+.epg-program.current:first-child,
+.epg-program.current:not(:first-child) {
+  border-left: 2px solid #667eea;
+}
+
+.epg-program-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  overflow: hidden;
+}
+
+.epg-program-time {
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+.epg-program-empty {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Indicador de hora atual */
+.epg-now-indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ef4444;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.epg-now-indicator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  background: #ef4444;
+  border-radius: 50%;
+}
+
+/* Scrollbar customizada para programação */
+.epg-programs-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.epg-programs-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.epg-programs-scroll::-webkit-scrollbar-thumb {
+  background: rgba(102, 126, 234, 0.5);
+  border-radius: 4px;
+}
+
+.epg-programs-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(102, 126, 234, 0.7);
+}
+
+/* EPG Responsivo */
+@media (max-width: 768px) {
+  .epg-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  .epg-channel-col-header,
+  .epg-channels-col {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .epg-channel-row {
+    padding: 0.5rem;
+  }
+
+  .epg-channel-name {
+    font-size: 0.8rem;
+  }
+
+  .epg-program-row,
+  .epg-channel-row {
+    height: 60px;
+  }
 }
 
 /* Tabela de próximos no overlay */
@@ -769,6 +862,7 @@ body.idle .now-playing-fixed {
     overflow-y: auto;
     justify-content: flex-start;
     padding: 2rem 0;
+    padding-top: 100px;
   }
 
   .overlay h1 {
@@ -780,5 +874,9 @@ body.idle .now-playing-fixed {
     grid-template-columns: 1fr;
     padding: 0 1rem;
     margin-bottom: 2rem;
+  } 
+
+  .now-playing-fixed{
+    max-width: 200px;
   }
 }

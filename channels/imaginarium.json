@@ -1,98 +1,72 @@
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [
+  "cycle_start": "2026-01-21",
+  "dia_1": [
     {
-      "name": "filmes",
-      "start": "13:45",
-      "end": "23:59",
-      "playlist": [
-        {
-          "id": "harry_potter_e_a_pedra_filosofal",
-          "duration": 9150
-        },
-        {
-          "id": "harry_potter_e_a_camara_secreta",
-          "duration": 9655
-        },
-        {
-          "id": "harry_potter_e_o_prisioneiro_de_azkaban",
-          "duration": 8507
-        },
-        {
-          "id": "harry_potter_e_o_calice_de_fogo",
-          "duration": 9425
-        }
-      ]
+      "start": "13:00",
+      "id": "harry_potter_e_a_pedra_filosofal",
+      "duration": 9150
+    },
+    {
+      "id": "harry_potter_e_a_camara_secreta",
+      "duration": 9655
+    },
+    {
+      "id": "harry_potter_e_o_prisioneiro_de_azkaban",
+      "duration": 8507
+    },
+    {
+      "id": "harry_potter_e_o_calice_de_fogo",
+      "duration": 9425
     }
   ],
-  "tuesday": [
+  "dia_2": [
     {
-      "name": "filmes",
-      "start": "14:30",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "harry_potter_e_a_ordem_da_fenix",
-          "duration": 8294
-        },
-        {
-          "id": "harry_potter_e_o_enigma_do_principe",
-          "duration": 9211
-        },
-        {
-          "id": "harry_potter_e_as_reliquias_da_morte_parte_1",
-          "duration": 8765
-        },
-        {
-          "id": "harry_potter_e_as_reliquias_da_morte_parte_2",
-          "duration": 7827
-        }
-      ]
+      "start": "13:00",
+      "id": "harry_potter_e_a_ordem_da_fenix",
+      "duration": 8294
+    },
+    {
+      "id": "harry_potter_e_o_enigma_do_principe",
+      "duration": 9211
+    },
+    {
+      "id": "harry_potter_e_as_reliquias_da_morte_parte_1",
+      "duration": 8765
+    },
+    {
+      "id": "harry_potter_e_as_reliquias_da_morte_parte_2",
+      "duration": 7827
     }
   ],
-  "wednesday": [
+  "dia_3": [
     {
-      "name": "filmes",
-      "start": "15:00",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "o_hobbit_uma_jornada_inesperada",
-          "duration": 10950
-        },
-        {
-          "id": "o_hobbit_a_desolacao_de_smaug",
-          "duration": 11195
-        },
-        {
-          "id": "o_hobbit_a_batalha_dos_cinco_exercitos",
-          "duration": 9843
-        }
-      ]
+      "start": "13:00",
+      "id": "o_hobbit_uma_jornada_inesperada",
+      "duration": 10950
+    },
+    {
+      "id": "o_hobbit_a_desolacao_de_smaug",
+      "duration": 11195
+    },
+    {
+      "id": "o_hobbit_a_batalha_dos_cinco_exercitos",
+      "duration": 9843
     }
   ],
-  "thursday": [
+  "dia_4": [
     {
-      "name": "filmes",
-      "start": "11:53",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "o_senhor_dos_aneis_a_sociedade_do_anel",
-          "duration": 13698
-        },
-        {
-          "id": "o_senhor_dos_aneis_as_duas_torres",
-          "duration": 14124
-        },
-        {
-          "id": "o_senhor_dos_aneis_o_retorno_do_rei",
-          "duration": 15797
-        }
-      ]
+      "start": "11:00",
+      "id": "o_senhor_dos_aneis_a_sociedade_do_anel",
+      "duration": 13698
+    },
+    {
+      "id": "o_senhor_dos_aneis_as_duas_torres",
+      "duration": 14124
+    },
+    {
+      "id": "o_senhor_dos_aneis_o_retorno_do_rei",
+      "duration": 15797
     }
-  ],
-  "friday": [],
-  "saturday": [],
-  "sunday": []
+  ]
 }

@@ -1,138 +1,50 @@
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [
+  "cycle_start": "2026-01-21",
+  "dia_1": [
     {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "a_bruxa",
-          "duration": 5547
-        }
-      ]
+      "start": "17:00",
+      "id": "o_chamado",
+      "duration": 6918
     },
     {
-      "name": "filmes",
-      "start": "20:14",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "o_chamado",
-          "duration": 6918
-        },
-        {
-          "id": "o_chamado_2",
-          "duration": 6602
-        }
-      ]
-    }
-  ],
-  "tuesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "a_vila",
-          "duration": 6466
-        }
-      ]
+      "id": "o_chamado_2",
+      "duration": 6602
     },
     {
-      "name": "filmes",
-      "start": "17:08",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "o_chamado",
-          "duration": 6918
-        },
-        {
-          "id": "o_chamado_2",
-          "duration": 6602
-        },
-        {
-          "id": "a_vila",
-          "duration": 6466
-        },
-        {
-          "id": "rec",
-          "duration": 4707
-        }
-      ]
-    }
-  ],
-  "wednesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "a_bruxa",
-          "duration": 5547
-        }
-      ]
+      "id": "a_vila",
+      "duration": 6466
     },
     {
-      "name": "filmes2",
-      "start": "20:24",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "o_sexto_sentido",
-          "duration": 6443
-        },
-        {
-          "id": "possuida",
-          "duration": 6489
-        }
-      ]
-    }
-  ],
-  "thursday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "a_primeira_profecia",
-          "duration": 7154
-        } 
-      ]
+      "id": "a_bruxa",
+      "duration": 5547
     },
     {
-      "name": "filmes2",
-      "start": "20:58",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "jogos_mortais",
-          "duration": 6172
-        },
-        {
-          "id": "rec",
-          "duration": 4707
-        }
-      ]
+      "id": "rec",
+      "duration": 4707
     }
   ],
-  "friday": [
+  "dia_2": [
     {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "a_bruxa_de_blair",
-          "duration": 4882
-        }
-      ]
+      "start": "17:00",
+      "id": "o_sexto_sentido",
+      "duration": 6443
+    },
+    {
+      "id": "possuida",
+      "duration": 6489
+    },
+    {
+      "id": "jogos_mortais",
+      "duration": 6172
+    },
+    {
+      "id": "a_primeira_profecia",
+      "duration": 7154
+    },
+    {
+      "id": "a_bruxa_de_blair",
+      "duration": 4882
     }
-  ],
-  "saturday": [],
-  "sunday": []
+  ]
 }

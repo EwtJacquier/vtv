@@ -1,218 +1,134 @@
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [
+  "cycle_start": "2026-01-21",
+  "dia_1": [
     {
-      "name": "filmes",
-      "start": "14:00",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "x_men",
-          "duration": 6266
-        },
-        {
-          "id": "x_men_2",
-          "duration": 8027
-        },
-        {
-          "id": "x_men_3_o_confronto_final",
-          "duration": 6245
-        },
-        {
-          "id": "homem_aranha",
-          "duration": 7272
-        },
-        {
-          "id": "homem_aranha_2",
-          "duration": 8148
-        }
-      ]
-    }
-  ],
-  "tuesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "homem_aranha_3",
-          "duration": 8351
-        }
-      ]
+      "start": "13:00",
+      "id": "x_men",
+      "duration": 6266
     },
     {
-      "name": "filmes2",
-      "start": "13:30",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "thor",
-          "duration": 6891
-        },
-        {
-          "id": "capitao_america_o_primeiro_vingador",
-          "duration": 7068
-        },
-        {
-          "id": "homem_de_ferro",
-          "duration": 7562
-        },
-        {
-          "id": "homem_de_ferro_2",
-          "duration": 7479
-        },
-        {
-          "id": "os_vingadores",
-          "duration": 8575
-        }
-      ]
-    }
-  ],
-  "wednesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "04:00",
-      "playlist": [
-        {
-          "id": "watchmen",
-          "duration": 9726
-        }
-      ]
+      "id": "x_men_2",
+      "duration": 8027
     },
     {
-      "name": "filmes2",
-      "start": "14:50",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "capitao_america_o_soldado_invernal",
-          "duration": 8154
-        },
-        {
-          "id": "guardioes_da_galaxia",
-          "duration": 7251
-        },
-        {
-          "id": "os_vingadores_era_de_ultron",
-          "duration": 8479
-        },
-        {
-          "id": "capitao_america_guerra_civil",
-          "duration": 8862
-        }
-      ]
-    }
-  ],
-  "thursday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "04:00",
-      "playlist": [
-        {
-          "id": "doutor_estranho",
-          "duration": 6899
-        }
-      ]
+      "id": "x_men_3_o_confronto_final",
+      "duration": 6245
     },
     {
-      "name": "filmes2",
-      "start": "14:00",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "guardioes_da_galaxia_vol_2",
-          "duration": 8146
-        },
-        {
-          "id": "thor_ragnarok",
-          "duration": 7831
-        },
-        {
-          "id": "os_vingadores_guerra_infinita",
-          "duration": 8961
-        },
-        {
-          "id": "os_vingadores_ultimato",
-          "duration": 10907
-        }
-      ]
-    }
-  ],
-  "friday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "04:00",
-      "playlist": [
-        {
-          "id": "guardioes_da_galaxia_vol_3",
-          "duration": 9002
-        }
-      ]
+      "id": "homem_aranha",
+      "duration": 7272
     },
     {
-      "name": "filmes2",
-      "start": "14:00",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "homem_aranha_de_volta_ao_lar",
-          "duration": 8008
-        },
-        {
-          "id": "homem_aranha_longe_de_casa",
-          "duration": 7764
-        },
-        {
-          "id": "homem_aranha_sem_volta_para_casa",
-          "duration": 9416
-        }
-      ]
+      "id": "homem_aranha_2",
+      "duration": 8148
+    },
+    {
+      "id": "homem_aranha_3",
+      "duration": 8351
     }
   ],
-  "saturday": [
+  "dia_2": [
     {
-      "name": "filmes",
-      "start": "12:00",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "o_homem_de_aco",
-          "duration": 8583
-        },
-        {
-          "id": "batman_vs_superman",
-          "duration": 10952
-        },
-        {
-          "id": "liga_da_justica",
-          "duration": 14528
-        },
-        {
-          "id": "the_flash",
-          "duration": 8643
-        }
-      ]
+      "start": "13:00",
+      "id": "thor",
+      "duration": 6891
+    },
+    {
+      "id": "capitao_america_o_primeiro_vingador",
+      "duration": 7068
+    },
+    {
+      "id": "homem_de_ferro",
+      "duration": 7562
+    },
+    {
+      "id": "homem_de_ferro_2",
+      "duration": 7479
+    },
+    {
+      "id": "os_vingadores",
+      "duration": 8575
     }
   ],
-  "sunday": [
+  "dia_3": [
     {
-      "name": "filmes",
-      "start": "19:42",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "homem_aranha",
-          "duration": 7272
-        },
-        {
-          "id": "homem_aranha_2",
-          "duration": 8148
-        }
-      ]
+      "start": "13:00",
+      "id": "capitao_america_o_soldado_invernal",
+      "duration": 8154
+    },
+    {
+      "id": "guardioes_da_galaxia",
+      "duration": 7251
+    },
+    {
+      "id": "os_vingadores_era_de_ultron",
+      "duration": 8479
+    },
+    {
+      "id": "capitao_america_guerra_civil",
+      "duration": 8862
+    },
+    {
+      "id": "doutor_estranho",
+      "duration": 6899
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "13:00",
+      "id": "guardioes_da_galaxia_vol_2",
+      "duration": 8146
+    },
+    {
+      "id": "thor_ragnarok",
+      "duration": 7831
+    },
+    {
+      "id": "os_vingadores_guerra_infinita",
+      "duration": 8961
+    },
+    {
+      "id": "os_vingadores_ultimato",
+      "duration": 10907
+    },
+    {
+      "id": "guardioes_da_galaxia_vol_3",
+      "duration": 9002
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "17:00",
+      "id": "homem_aranha_de_volta_ao_lar",
+      "duration": 8008
+    },
+    {
+      "id": "homem_aranha_longe_de_casa",
+      "duration": 7764
+    },
+    {
+      "id": "homem_aranha_sem_volta_para_casa",
+      "duration": 9416
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "13:00",
+      "id": "o_homem_de_aco",
+      "duration": 8583
+    },
+    {
+      "id": "batman_vs_superman",
+      "duration": 10952
+    },
+    {
+      "id": "liga_da_justica",
+      "duration": 14528
+    },
+    {
+      "id": "the_flash",
+      "duration": 8643
     }
   ]
 }

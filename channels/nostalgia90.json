@@ -1,250 +1,35 @@
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [
+  "cycle_start": "2026-01-21",
+  "dia_1": [
     {
-      "name": "filmes",
-      "start": "11:40",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "tartarugas_ninja_2",
-          "duration": 5303
-        },
-        {
-          "id": "street_fighter",
-          "duration": 6089
-        },
-        {
-          "id": "o_maskara",
-          "duration": 6075
-        },
-        {
-          "id": "mortal_kombat",
-          "duration": 6085
-        },
-        {
-          "id": "o_show_de_truman",
-          "duration": 6174
-        },
-        {
-          "id": "o_exterminador_do_futuro",
-          "duration": 6442
-        },
-        {
-          "id": "o_exterminador_do_futuro_2",
-          "duration": 8228
-        }
-      ]
-    }
-  ],
-  "tuesday": [
+      "start": "11:00",
+      "id": "tartarugas_ninja_2",
+      "duration": 5303
+    },
     {
-      "name": "filmes",
-      "start": "11:40",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "tartarugas_ninja_2",
-          "duration": 5303
-        },
-        {
-          "id": "street_fighter",
-          "duration": 6089
-        },
-        {
-          "id": "o_maskara",
-          "duration": 6075
-        },
-        {
-          "id": "mortal_kombat",
-          "duration": 6085
-        },
-        {
-          "id": "o_show_de_truman",
-          "duration": 6174
-        },
-        {
-          "id": "o_exterminador_do_futuro",
-          "duration": 6442
-        },
-        {
-          "id": "o_exterminador_do_futuro_2",
-          "duration": 8228
-        }
-      ]
-    }
-  ],
-  "wednesday": [
+      "id": "street_fighter",
+      "duration": 6089
+    },
     {
-      "name": "filmes",
-      "start": "11:40",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "tartarugas_ninja_2",
-          "duration": 5303
-        },
-        {
-          "id": "street_fighter",
-          "duration": 6089
-        },
-        {
-          "id": "o_maskara",
-          "duration": 6075
-        },
-        {
-          "id": "mortal_kombat",
-          "duration": 6085
-        },
-        {
-          "id": "o_show_de_truman",
-          "duration": 6174
-        },
-        {
-          "id": "o_exterminador_do_futuro",
-          "duration": 6442
-        },
-        {
-          "id": "o_exterminador_do_futuro_2",
-          "duration": 8228
-        }
-      ]
-    }
-  ],
-  "thursday": [
+      "id": "o_maskara",
+      "duration": 6075
+    },
     {
-      "name": "filmes",
-      "start": "11:40",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "tartarugas_ninja_2",
-          "duration": 5303
-        },
-        {
-          "id": "street_fighter",
-          "duration": 6089
-        },
-        {
-          "id": "o_maskara",
-          "duration": 6075
-        },
-        {
-          "id": "mortal_kombat",
-          "duration": 6085
-        },
-        {
-          "id": "o_show_de_truman",
-          "duration": 6174
-        },
-        {
-          "id": "o_exterminador_do_futuro",
-          "duration": 6442
-        },
-        {
-          "id": "o_exterminador_do_futuro_2",
-          "duration": 8228
-        }
-      ]
-    }
-  ],
-  "friday": [
+      "id": "mortal_kombat",
+      "duration": 6085
+    },
     {
-      "name": "filmes",
-      "start": "11:40",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "tartarugas_ninja_2",
-          "duration": 5303
-        },
-        {
-          "id": "street_fighter",
-          "duration": 6089
-        },
-        {
-          "id": "o_maskara",
-          "duration": 6075
-        },
-        {
-          "id": "mortal_kombat",
-          "duration": 6085
-        },
-        {
-          "id": "o_show_de_truman",
-          "duration": 6174
-        },
-        {
-          "id": "o_exterminador_do_futuro",
-          "duration": 6442
-        },
-        {
-          "id": "o_exterminador_do_futuro_2",
-          "duration": 8228
-        }
-      ]
-    }
-  ],
-  "saturday": [
+      "id": "o_show_de_truman",
+      "duration": 6174
+    },
     {
-      "name": "filmes",
-      "start": "11:40",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "tartarugas_ninja_2",
-          "duration": 5303
-        },
-        {
-          "id": "street_fighter",
-          "duration": 6089
-        },
-        {
-          "id": "o_maskara",
-          "duration": 6075
-        },
-        {
-          "id": "mortal_kombat",
-          "duration": 6085
-        },
-        {
-          "id": "o_show_de_truman",
-          "duration": 6174
-        },
-        {
-          "id": "o_exterminador_do_futuro",
-          "duration": 6442
-        },
-        {
-          "id": "o_exterminador_do_futuro_2",
-          "duration": 8228
-        }
-      ]
-    }
-  ],
-  "sunday": [
+      "id": "o_exterminador_do_futuro",
+      "duration": 6442
+    },
     {
-      "name": "filmes",
-      "start": "17:26",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "tartarugas_ninja_2",
-          "duration": 5303
-        },
-        {
-          "id": "o_maskara",
-          "duration": 6075
-        },
-        {
-          "id": "mortal_kombat",
-          "duration": 6085
-        },
-        {
-          "id": "o_show_de_truman",
-          "duration": 6174
-        }
-      ]
+      "id": "o_exterminador_do_futuro_2",
+      "duration": 8228
     }
   ]
 }

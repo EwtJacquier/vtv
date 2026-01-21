@@ -1,32 +1,32 @@
 #!/usr/bin/env python3
 """
-playlist.py - Editor de canais VTV
+playlist.py - Editor de canais VTV (formato ciclo de X dias)
 
 Edita arquivos JSON de canais no formato:
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [ { "name": "...", "start": "HH:MM", "end": "HH:MM", "playlist": [...] } ],
-  "tuesday": [],
+  "cycle_start": "2024-01-15",
+  "dia_1": [
+    { "start": "10:00", "id": "filme1", "duration": 6383 },
+    { "id": "filme2", "duration": 6900 }
+  ],
+  "dia_2": [],
   ...
 }
 
 Uso:
   python playlist.py <pasta_hls> [arquivo_canal.json]
-  # Ex: python playlist.py ./movies_hls ./channels/anos90.json
-
-Comandos principais:
-  l  listar dias da semana
-  d  selecionar dia para editar
-  s  salvar
-  q  sair sem salvar
+  # Ex: python playlist.py ./movies_hls ./channels/paradox.json
 """
 
 import json
 import sys
 from pathlib import Path
+from datetime import datetime, date
 
-DAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-DAYS_PT = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+# Horário padrão de início e fim da programação
+DEFAULT_START_HOUR = 7   # 07:00
+DEFAULT_END_HOUR = 3     # 03:00 (do próximo dia)
 
 
 def parse_m3u8_duration(m3u8_path: Path) -> float:
@@ -89,6 +89,20 @@ def validate_time(t: str) -> bool:
         return False
 
 
+def time_to_seconds(t: str) -> int:
+    """Converte HH:MM para segundos"""
+    h, m = int(t[:2]), int(t[3:])
+    return h * 3600 + m * 60
+
+
+def seconds_to_time(secs: int) -> str:
+    """Converte segundos para HH:MM (com suporte para horários > 24h)"""
+    secs = secs % (24 * 3600)  # normaliza para 24h
+    h = secs // 3600
+    m = (secs % 3600) // 60
+    return f"{h:02d}:{m:02d}"
+
+
 def print_movies(movies: list[dict]):
     print("\n=== FILMES DISPONÍVEIS ===")
     if not movies:
@@ -101,209 +115,209 @@ def print_movies(movies: list[dict]):
             print(f"[{i}] {m['id']} ({fmt_duration(m['duration'])})")
 
 
-def time_to_seconds(t: str) -> int:
-    """Converte HH:MM para segundos"""
-    h, m = int(t[:2]), int(t[3:])
-    return h * 3600 + m * 60
+def get_day_numbers(data: dict) -> list[int]:
+    """Retorna lista de números de dias existentes no canal"""
+    days = []
+    for key in data.keys():
+        if key.startswith("dia_"):
+            try:
+                num = int(key.split("_")[1])
+                days.append(num)
+            except ValueError:
+                pass
+    return sorted(days)
 
 
-def seconds_to_time(secs: int) -> str:
-    """Converte segundos para HH:MM"""
-    h = secs // 3600
-    m = (secs % 3600) // 60
-    return f"{h:02d}:{m:02d}"
+def calc_program_times(programs: list[dict]) -> list[tuple[str, str, dict]]:
+    """
+    Calcula horários de início e fim de cada programa.
+    Retorna lista de (start_time, end_time, program)
+    """
+    result = []
+    current_secs = DEFAULT_START_HOUR * 3600  # começa às 07:00
+
+    for i, prog in enumerate(programs):
+        # Se tem start definido, usa ele
+        if "start" in prog and prog["start"]:
+            current_secs = time_to_seconds(prog["start"])
+        elif i == 0:
+            # Primeiro programa sem start: começa às 07:00
+            current_secs = DEFAULT_START_HOUR * 3600
+        # Senão: começa após o anterior (current_secs já está correto)
+
+        start_time = seconds_to_time(current_secs)
+        end_secs = current_secs + prog.get("duration", 0)
+        end_time = seconds_to_time(end_secs)
+
+        result.append((start_time, end_time, prog))
+        current_secs = end_secs
+
+    return result
 
 
-def print_windows(windows: list[dict]):
-    print("\n=== JANELAS DO DIA ===")
-    if not windows:
-        print("(nenhuma)")
+def print_day_programs(programs: list[dict]):
+    """Mostra programas do dia com horários calculados"""
+    print("\n--- Programas do Dia ---")
+    if not programs:
+        print("(vazio)")
         return
-    for i, w in enumerate(windows):
-        name = w.get("name", "sem nome")
-        start = w.get("start", "??:??")
-        end = w.get("end", "??:??")
-        pl = w.get("playlist", [])
-        total = sum(p.get("duration", 0) for p in pl)
-        print(f"[{i}] {name} | {start}-{end} | {len(pl)} itens | {fmt_duration(total)}")
-        # Mostra todos os filmes com horários
-        if pl:
-            current_secs = time_to_seconds(start)
-            for p in pl:
-                dur = p.get("duration", 0)
-                print(f"      {seconds_to_time(current_secs)} - {p['id']} ({fmt_duration(dur)})")
-                current_secs += dur
+
+    timed = calc_program_times(programs)
+    total_duration = 0
+
+    for i, (start, end, prog) in enumerate(timed):
+        dur = prog.get("duration", 0)
+        total_duration += dur
+        has_custom_start = "start" in prog and prog["start"]
+        start_marker = "*" if has_custom_start else " "
+        print(f"  {i+1}.{start_marker} {start} - {end} | {prog['id']} ({fmt_duration(dur)})")
+
+    # Calcula horário de término
+    if timed:
+        last_end_secs = time_to_seconds(timed[-1][1])
+        print(f"\n  Total: {fmt_duration(total_duration)}")
+        print(f"  Término: {timed[-1][1]}")
+
+        # Aviso se passar das 03:00
+        end_limit = (DEFAULT_END_HOUR + 24) * 3600  # 03:00 = 27:00 em segundos relativos às 07:00
+        first_start = time_to_seconds(timed[0][0])
+        if first_start < DEFAULT_START_HOUR * 3600:
+            first_start += 24 * 3600
+        relative_end = last_end_secs
+        if relative_end < first_start:
+            relative_end += 24 * 3600
+
+        if relative_end > end_limit:
+            print("  ⚠️  Programação passa das 03:00!")
+
+    print("\n  * = horário de início definido manualmente")
 
 
-def calc_start_before_midnight(total_seconds: int) -> str:
-    """Calcula horário de início para terminar antes da meia-noite (24:00 - duração)"""
-    midnight = 24 * 3600  # 24:00 em segundos
-    start_seconds = midnight - total_seconds
-    if start_seconds < 0:
-        start_seconds = 0
-    h = start_seconds // 3600
-    m = (start_seconds % 3600) // 60
-    return f"{h:02d}:{m:02d}"
-
-
-def print_playlist(playlist: list[dict]):
-    print("\n--- Playlist ---")
-    if not playlist:
-        print("(vazia)")
-        return
-    total = 0
-    for i, p in enumerate(playlist):
-        dur = p.get("duration", 0)
-        total += dur
-        print(f"  {i+1}. {p['id']} ({fmt_duration(dur)})")
-    suggested_start = calc_start_before_midnight(total)
-    print(f"  Total: {fmt_duration(total)} | Sugestão início: {suggested_start} (termina às 24:00)")
-
-
-def edit_playlist(movies: list[dict], playlist: list[dict]) -> list[dict]:
-    """Editor interativo de playlist"""
+def edit_day_programs(movies: list[dict], programs: list[dict]) -> list[dict]:
+    """Editor de programas de um dia"""
     while True:
         print_movies(movies)
-        print_playlist(playlist)
-        print("\nComandos: <num>=adicionar | u=remover último | c=limpar | b=voltar")
-        cmd = input("> ").strip().lower()
+        print_day_programs(programs)
+        print("\nComandos:")
+        print("  <num>        = adicionar filme por índice")
+        print("  <num> HH:MM  = adicionar filme com horário específico")
+        print("  u            = remover último")
+        print("  r <pos>      = remover programa na posição")
+        print("  t <pos> HH:MM= alterar horário de início")
+        print("  c            = limpar tudo")
+        print("  b            = voltar")
 
-        if cmd == "b":
-            return playlist
-        if cmd == "u":
-            if playlist:
-                removed = playlist.pop()
+        cmd = input("> ").strip()
+
+        if cmd.lower() == "b":
+            return programs
+
+        if cmd.lower() == "u":
+            if programs:
+                removed = programs.pop()
                 print(f"Removido: {removed['id']}")
             else:
-                print("Já está vazia.")
-        elif cmd == "c":
-            playlist.clear()
-            print("Playlist limpa.")
-        elif cmd.isdigit():
-            idx = int(cmd)
+                print("Já está vazio.")
+            continue
+
+        if cmd.lower() == "c":
+            programs.clear()
+            print("Programação limpa.")
+            continue
+
+        # Remover por posição: r <pos>
+        if cmd.lower().startswith("r "):
+            try:
+                pos = int(cmd.split()[1]) - 1
+                if 0 <= pos < len(programs):
+                    removed = programs.pop(pos)
+                    print(f"Removido: {removed['id']}")
+                else:
+                    print("Posição inválida.")
+            except (ValueError, IndexError):
+                print("Use: r <posição>")
+            continue
+
+        # Alterar horário: t <pos> HH:MM
+        if cmd.lower().startswith("t "):
+            parts = cmd.split()
+            if len(parts) >= 3:
+                try:
+                    pos = int(parts[1]) - 1
+                    time_str = parts[2]
+                    if 0 <= pos < len(programs):
+                        if validate_time(time_str):
+                            programs[pos]["start"] = time_str
+                            print(f"Horário alterado para {time_str}")
+                        else:
+                            print("Horário inválido. Use HH:MM")
+                    else:
+                        print("Posição inválida.")
+                except (ValueError, IndexError):
+                    print("Use: t <posição> HH:MM")
+            else:
+                print("Use: t <posição> HH:MM")
+            continue
+
+        # Adicionar filme: <num> [HH:MM]
+        parts = cmd.split()
+        if parts and parts[0].isdigit():
+            idx = int(parts[0])
             if 0 <= idx < len(movies):
                 m = movies[idx]
                 if m.get("error") or m.get("duration", 0) <= 0:
                     print("Filme com erro, não pode adicionar.")
-                else:
-                    playlist.append({"id": m["id"], "duration": m["duration"]})
-                    print(f"Adicionado: {m['id']}")
+                    continue
+
+                new_prog = {"id": m["id"], "duration": m["duration"]}
+
+                # Verifica se tem horário específico
+                if len(parts) >= 2:
+                    time_str = parts[1]
+                    if validate_time(time_str):
+                        new_prog["start"] = time_str
+                    else:
+                        print("Horário inválido, ignorando.")
+
+                programs.append(new_prog)
+                print(f"Adicionado: {m['id']}")
             else:
                 print("Índice inválido.")
+            continue
+
+        print("Comando inválido.")
+
+
+def print_all_days(data: dict):
+    """Mostra resumo de todos os dias"""
+    day_nums = get_day_numbers(data)
+
+    print("\n=== DIAS DO CICLO ===")
+    if not day_nums:
+        print("(nenhum dia criado)")
+        return
+
+    for num in day_nums:
+        key = f"dia_{num}"
+        programs = data.get(key, [])
+
+        if programs:
+            timed = calc_program_times(programs)
+            total = sum(p.get("duration", 0) for p in programs)
+            first_start = timed[0][0] if timed else "07:00"
+            last_end = timed[-1][1] if timed else "07:00"
+            print(f"\n[{num}] Dia {num} | {len(programs)} filmes | {first_start}-{last_end} | {fmt_duration(total)}")
+
+            for start, end, prog in timed:
+                print(f"      {start} - {prog['id']} ({fmt_duration(prog['duration'])})")
         else:
-            print("Comando inválido.")
-
-
-def edit_day(movies: list[dict], windows: list[dict]) -> list[dict]:
-    """Editor de janelas de um dia"""
-    while True:
-        print_windows(windows)
-        print("\nComandos: n=nova janela | e=editar playlist | d=deletar | b=voltar")
-        cmd = input("> ").strip().lower()
-
-        if cmd == "b":
-            return windows
-
-        if cmd == "n":
-            name = input("Nome da janela: ").strip() or "programa"
-            start = input("Início (HH:MM): ").strip()
-            if not validate_time(start):
-                print("Horário inválido.")
-                continue
-            end = input("Fim (HH:MM): ").strip()
-            if not validate_time(end):
-                print("Horário inválido.")
-                continue
-            windows.append({
-                "name": name,
-                "start": start,
-                "end": end,
-                "playlist": []
-            })
-            print("Janela criada.")
-
-        elif cmd == "e":
-            if not windows:
-                print("Não há janelas.")
-                continue
-            print_windows(windows)
-            try:
-                idx = int(input("Qual janela? ").strip())
-                if 0 <= idx < len(windows):
-                    windows[idx]["playlist"] = edit_playlist(
-                        movies,
-                        windows[idx].get("playlist", [])
-                    )
-                else:
-                    print("Índice inválido.")
-            except ValueError:
-                print("Entrada inválida.")
-
-        elif cmd == "d":
-            if not windows:
-                print("Não há janelas.")
-                continue
-            print_windows(windows)
-            try:
-                idx = int(input("Qual deletar? ").strip())
-                if 0 <= idx < len(windows):
-                    removed = windows.pop(idx)
-                    print(f"Deletado: {removed.get('name')}")
-                else:
-                    print("Índice inválido.")
-            except ValueError:
-                print("Entrada inválida.")
-
-        else:
-            print("Comando inválido.")
-
-
-def copy_day(data: dict):
-    """Copia programação de um dia para outros"""
-    print("\n=== COPIAR DIA ===")
-    print("Dias disponíveis:")
-    for i, d in enumerate(DAYS):
-        windows = data.get(d, [])
-        print(f"[{i}] {DAYS_PT[i]} ({d}) - {len(windows)} janelas")
-
-    try:
-        src_idx = int(input("\nCopiar DE qual dia? [0-6]: ").strip())
-        if not 0 <= src_idx <= 6:
-            print("Índice inválido.")
-            return
-
-        dest_input = input("Copiar PARA quais dias? (ex: 1,2,3 ou 'todos'): ").strip().lower()
-
-        if dest_input == "todos":
-            dest_indices = [i for i in range(7) if i != src_idx]
-        else:
-            dest_indices = [int(x.strip()) for x in dest_input.split(",") if x.strip().isdigit()]
-            dest_indices = [i for i in dest_indices if 0 <= i <= 6 and i != src_idx]
-
-        if not dest_indices:
-            print("Nenhum destino válido.")
-            return
-
-        src_day = DAYS[src_idx]
-        src_windows = data.get(src_day, [])
-
-        # Deep copy
-        import copy
-        for idx in dest_indices:
-            dest_day = DAYS[idx]
-            data[dest_day] = copy.deepcopy(src_windows)
-            print(f"Copiado para {DAYS_PT[idx]}")
-
-        print("Cópia concluída.")
-
-    except ValueError:
-        print("Entrada inválida.")
+            print(f"\n[{num}] Dia {num} | (vazio)")
 
 
 def main():
     if len(sys.argv) < 2:
         print("Uso: python playlist.py <pasta_hls> [arquivo_canal.json]")
-        print("  Ex: python playlist.py ./movies_hls ./channels/anos90.json")
+        print("  Ex: python playlist.py ./movies_hls ./channels/paradox.json")
         sys.exit(1)
 
     hls_dir = Path(sys.argv[1]).resolve()
@@ -322,15 +336,10 @@ def main():
         data = json.loads(channel_file.read_text(encoding="utf-8"))
         print(f"Carregado: {channel_file}")
     else:
+        # Novo canal com estrutura de ciclo
         data = {
             "timezone": "America/Sao_Paulo",
-            "monday": [],
-            "tuesday": [],
-            "wednesday": [],
-            "thursday": [],
-            "friday": [],
-            "saturday": [],
-            "sunday": []
+            "cycle_start": date.today().isoformat(),
         }
         print(f"Novo canal: {channel_file}")
 
@@ -339,29 +348,30 @@ def main():
     print(f"Filmes encontrados: {len(movies)}")
 
     while True:
-        print(f"\n{'='*40}")
+        print(f"\n{'='*50}")
         print(f"Canal: {channel_file.name}")
         print(f"Timezone: {data.get('timezone', 'America/Sao_Paulo')}")
+        print(f"Início do ciclo: {data.get('cycle_start', 'não definido')}")
         print(f"HLS: {hls_dir}")
 
-        # Resumo dos dias com todos os filmes e horários
-        print("\nDias:")
-        for i, d in enumerate(DAYS):
-            windows = data.get(d, [])
-            total_items = sum(len(w.get("playlist", [])) for w in windows)
-            print(f"  [{i}] {DAYS_PT[i]:10} - {len(windows)} janelas, {total_items} itens")
-            # Mostra todos os filmes do dia com horários
-            for w in windows:
-                pl = w.get("playlist", [])
-                if pl:
-                    start = w.get("start", "00:00")
-                    current_secs = time_to_seconds(start)
-                    for p in pl:
-                        dur = p.get("duration", 0)
-                        print(f"        {seconds_to_time(current_secs)} - {p['id']} ({fmt_duration(dur)})")
-                        current_secs += dur
+        day_nums = get_day_numbers(data)
+        total_days = len(day_nums)
+        print(f"Total de dias no ciclo: {total_days}")
 
-        print("\nMenu: d=editar dia | c=copiar dia | t=timezone | r=refresh | s=salvar | q=sair")
+        print_all_days(data)
+
+        print("\n" + "="*50)
+        print("Menu:")
+        print("  n         = novo dia")
+        print("  d <num>   = editar dia")
+        print("  x <num>   = deletar dia")
+        print("  cp <de> <para> = copiar dia")
+        print("  cs        = definir cycle_start")
+        print("  t         = alterar timezone")
+        print("  r         = refresh filmes")
+        print("  s         = salvar")
+        print("  q         = sair")
+
         cmd = input("> ").strip().lower()
 
         if cmd == "q":
@@ -378,20 +388,78 @@ def main():
                 data["timezone"] = tz
                 print(f"Timezone: {tz}")
 
-        elif cmd == "c":
-            copy_day(data)
+        elif cmd == "cs":
+            current = data.get("cycle_start", date.today().isoformat())
+            new_date = input(f"Data início do ciclo [{current}] (YYYY-MM-DD): ").strip()
+            if new_date:
+                try:
+                    # Valida formato
+                    datetime.strptime(new_date, "%Y-%m-%d")
+                    data["cycle_start"] = new_date
+                    print(f"Cycle start: {new_date}")
+                except ValueError:
+                    print("Formato inválido. Use YYYY-MM-DD")
 
-        elif cmd == "d":
+        elif cmd == "n":
+            # Encontra próximo número disponível
+            existing = get_day_numbers(data)
+            next_num = 1
+            if existing:
+                next_num = max(existing) + 1
+
+            key = f"dia_{next_num}"
+            data[key] = []
+            print(f"Criado: Dia {next_num}")
+
+            # Já entra no editor
+            data[key] = edit_day_programs(movies, data[key])
+
+        elif cmd.startswith("d "):
             try:
-                idx = int(input("Qual dia? [0-6]: ").strip())
-                if 0 <= idx <= 6:
-                    day = DAYS[idx]
-                    print(f"\n=== {DAYS_PT[idx].upper()} ({day}) ===")
-                    data[day] = edit_day(movies, data.get(day, []))
+                num = int(cmd.split()[1])
+                key = f"dia_{num}"
+                if key in data:
+                    print(f"\n=== EDITANDO DIA {num} ===")
+                    data[key] = edit_day_programs(movies, data.get(key, []))
                 else:
-                    print("Índice inválido.")
-            except ValueError:
-                print("Entrada inválida.")
+                    print(f"Dia {num} não existe.")
+            except (ValueError, IndexError):
+                print("Use: d <número do dia>")
+
+        elif cmd.startswith("x "):
+            try:
+                num = int(cmd.split()[1])
+                key = f"dia_{num}"
+                if key in data:
+                    confirm = input(f"Deletar dia {num}? (s/n): ").strip().lower()
+                    if confirm == "s":
+                        del data[key]
+                        print(f"Dia {num} deletado.")
+                else:
+                    print(f"Dia {num} não existe.")
+            except (ValueError, IndexError):
+                print("Use: x <número do dia>")
+
+        elif cmd.startswith("cp "):
+            parts = cmd.split()
+            if len(parts) >= 3:
+                try:
+                    from_num = int(parts[1])
+                    to_num = int(parts[2])
+                    from_key = f"dia_{from_num}"
+                    to_key = f"dia_{to_num}"
+
+                    if from_key not in data:
+                        print(f"Dia {from_num} não existe.")
+                        continue
+
+                    import copy
+                    data[to_key] = copy.deepcopy(data[from_key])
+                    print(f"Copiado dia {from_num} para dia {to_num}")
+                except (ValueError, IndexError):
+                    print("Use: cp <dia_origem> <dia_destino>")
+            else:
+                print("Use: cp <dia_origem> <dia_destino>")
 
         elif cmd == "s":
             # Garante que o diretório existe

@@ -1,92 +1,45 @@
 {
   "timezone": "America/Sao_Paulo",
-  "monday": [
+  "cycle_start": "2026-01-21",
+  "dia_1": [
     {
-      "name": "filmes",
-      "start": "19:25",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "matrix",
-          "duration": 8179
-        },
-        {
-          "id": "matrix_reloaded",
-          "duration": 8297
-        }
-      ]
-    }
-  ],
-  "tuesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "05:00",
-      "playlist": [
-        {
-          "id": "matrix_revolutions",
-          "duration": 7752
-        }
-      ]
+      "start": "19:00",
+      "id": "matrix",
+      "duration": 8179
     },
     {
-      "name": "filmes",
-      "start": "19:58",
-      "end": "05:00",
-      "playlist": [
-        {
-          "id": "corpo_fechado",
-          "duration": 6400
-        },
-        {
-          "id": "anjos_da_noite",
-          "duration": 8017
-        }
-      ]
-    }
-  ],
-  "wednesday": [
-    {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "03:00",
-      "playlist": [
-        {
-          "id": "anjos_da_noite_a_evolucao",
-          "duration": 6383
-        }
-      ]
+      "id": "matrix_reloaded",
+      "duration": 8297
     },
     {
-      "name": "filmes",
-      "start": "19:38",
-      "end": "00:00",
-      "playlist": [
-        {
-          "id": "o_predestinado",
-          "duration": 5869
-        },
-        {
-          "id": "blade_runner_2049",
-          "duration": 9807
-        }
-      ]
+      "id": "matrix_revolutions",
+      "duration": 7752
     }
   ],
-  "thursday": [
+  "dia_2": [
     {
-      "name": "filmes",
-      "start": "00:00",
-      "end": "05:00",
-      "playlist": [
-        {
-          "id": "matrix_revolutions",
-          "duration": 7752
-        }
-      ]
+      "start": "19:00",
+      "id": "corpo_fechado",
+      "duration": 6400
+    },
+    {
+      "id": "anjos_da_noite",
+      "duration": 8017
+    },
+    {
+      "id": "anjos_da_noite_a_evolucao",
+      "duration": 6383
     }
   ],
-  "friday": [],
-  "saturday": [],
-  "sunday": []
+  "dia_3": [
+    {
+      "start": "19:00",
+      "id": "o_predestinado",
+      "duration": 5869
+    },
+    {
+      "id": "blade_runner_2049",
+      "duration": 9807
+    }
+  ]
 }
