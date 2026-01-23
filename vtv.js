@@ -921,7 +921,7 @@ function openEPG() {
 
 async function loadChannelList() {
   try {
-    const knownChannels = ['nostalgia90','imaginarium','superhero','animetv','paradox','afterdark'];
+    const knownChannels = ['nostalgia90','imaginarium','superhero','animetv','neverland','paradox','afterdark'];
 
     const channels = [];
     for (const name of knownChannels) {
@@ -1052,27 +1052,35 @@ function toggleFullscreen() {
 // ============ Resize (object-fit) ============
 
 function loadResizePreference() {
-  const pref = localStorage.getItem('vtv-object-fit');
-  // Padrão é cover (sem classe), contain adiciona classe
-  if (pref === 'contain') {
-    player.classList.add('contain');
-    btnResize.textContent = '⊞';
-    btnResize.title = 'Preencher tela';
-  } else {
+  const pref = localStorage.getItem('vtv-video-object-fit');
+  // Padrão é contain (com classe), cover remove classe
+  if (pref === 'cover') {
     player.classList.remove('contain');
     btnResize.textContent = '⊡';
     btnResize.title = 'Ajustar ao vídeo';
+  } else {
+    player.classList.add('contain');
+    btnResize.textContent = '⊞';
+    btnResize.title = 'Preencher tela';
+  }
+}
+
+function loadVolumePreference() {
+  const savedVolume = localStorage.getItem('vtv-volume');
+  if (savedVolume !== null) {
+    volumeSlider.value = savedVolume;
+    player.volume = savedVolume / 100;
   }
 }
 
 function toggleResize() {
   const isContain = player.classList.toggle('contain');
   if (isContain) {
-    localStorage.setItem('vtv-object-fit', 'contain');
+    localStorage.setItem('vtv-video-object-fit', 'contain');
     btnResize.textContent = '⊞';
     btnResize.title = 'Preencher tela';
   } else {
-    localStorage.setItem('vtv-object-fit', 'cover');
+    localStorage.setItem('vtv-video-object-fit', 'cover');
     btnResize.textContent = '⊡';
     btnResize.title = 'Ajustar ao vídeo';
   }
@@ -1228,6 +1236,7 @@ btnResize.addEventListener('click', toggleResize);
 volumeSlider.addEventListener('input', (e) => {
   player.volume = e.target.value / 100;
   player.muted = false;
+  localStorage.setItem('vtv-volume', e.target.value);
 });
 
 // Schedule modal (EPG)
@@ -1341,8 +1350,9 @@ btnToggle.addEventListener('mouseleave', handleUIMouseLeave);
 // ============ Inicialização ============
 
 async function init() {
-  // Carrega preferência de resize
+  // Carrega preferências salvas
   loadResizePreference();
+  loadVolumePreference();
 
   // Sincroniza horário com o servidor
   await syncServerTime();

@@ -36,6 +36,10 @@
       "duration": 7573
     },
     {
+      "id": "a_princesa_mononoke",
+      "duration": 8045
+    },
+    {
       "id": "angels_egg",
       "duration": 4266
     }
@@ -51,8 +55,16 @@
       "duration": 2865
     },
     {
+      "id": "dragon_ball_z_cooler_uma_vinganca_para_freeza",
+      "duration": 2817
+    },
+    {
       "id": "dragon_ball_z_broly_o_lendario_super_saiyajin",
       "duration": 4314
+    },
+    {
+      "id": "dragon_ball_z_guerreiros_do_futuro",
+      "duration": 2876
     },
     {
       "id": "dragon_ball_z_a_batalha_nos_dois_mundos",
@@ -69,6 +81,10 @@
     {
       "id": "dragon_ball_super_broly",
       "duration": 5983
+    },
+    {
+      "id": "o_tumulo_dos_vagalumes",
+      "duration": 5312
     }
   ]
 }

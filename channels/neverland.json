@@ -1,0 +1,115 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "cycle_start": "2026-01-22",
+  "dia_1": [
+    {
+      "start": "14:00",
+      "id": "branca_de_neve_e_os_sete_anoes",
+      "duration": 4991
+    },
+    {
+      "id": "peter_pan",
+      "duration": 4606
+    },
+    {
+      "id": "pinoquio",
+      "duration": 5264
+    },
+    {
+      "id": "a_dama_e_o_vagabundo",
+      "duration": 4584
+    },
+    {
+      "id": "o_corcunda_de_notre_dame",
+      "duration": 5450
+    }
+  ],
+  "dia_2": [
+    {
+      "start": "14:00",
+      "id": "o_cao_e_a_raposa",
+      "duration": 4975
+    },
+    {
+      "id": "o_rei_leao",
+      "duration": 5304
+    },
+    {
+      "id": "aladdin",
+      "duration": 5440
+    },
+    {
+      "id": "aladdin_e_os_40_ladroes",
+      "duration": 4894
+    },
+    {
+      "id": "hercules",
+      "duration": 5592
+    }
+  ],
+  "dia_3": [
+    {
+      "start": "14:00",
+      "id": "mulan",
+      "duration": 5270
+    },
+    {
+      "id": "a_nova_onda_do_imperador",
+      "duration": 4704
+    },
+    {
+      "id": "lilo_e_stitch",
+      "duration": 5113
+    },
+    {
+      "id": "tarzan",
+      "duration": 5302
+    },
+    {
+      "id": "planeta_do_tesouro",
+      "duration": 5724
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "14:00",
+      "id": "toy_story",
+      "duration": 4864
+    },
+    {
+      "id": "toy_story_2",
+      "duration": 5546
+    },
+    {
+      "id": "vida_de_inseto",
+      "duration": 5694
+    },
+    {
+      "id": "a_fuga_das_galinhas",
+      "duration": 5068
+    },
+    {
+      "id": "robos",
+      "duration": 5388
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "14:00",
+      "id": "megamente",
+      "duration": 5735
+    },
+    {
+      "id": "shrek",
+      "duration": 5406
+    },
+    {
+      "id": "scooby_doo",
+      "duration": 5189
+    },
+    {
+      "id": "a_fantastica_fabrica_de_chocolates",
+      "duration": 6923
+    }
+  ]
+}

@@ -130,5 +130,20 @@
       "id": "the_flash",
       "duration": 8643
     }
+  ],
+  "dia_7": [
+    {
+      "id": "batman_begins",
+      "duration": 8403,
+      "start": "14:00"
+    },
+    {
+      "id": "batman_o_cavaleiro_das_trevas",
+      "duration": 9133
+    },
+    {
+      "id": "batman_o_cavaleiro_das_trevas_ressurge",
+      "duration": 9873
+    }
   ]
 }

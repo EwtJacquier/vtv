@@ -307,11 +307,59 @@ def main():
     # Áudio
     a_bitrate = input("\nBitrate do áudio AAC (ex: 128k/192k) [padrão 128k]: ").strip() or "128k"
 
+    # Ajuste de volume (dB)
+    volume_db = input("\nAjuste de volume em dB (ex: 3 para +3dB, -5 para -5dB) [padrão 0]: ").strip() or "0"
+    try:
+        volume_db_val = float(volume_db)
+    except ValueError:
+        print("Valor inválido, usando 0dB")
+        volume_db_val = 0.0
+
     # Forçar 8-bit (útil para vídeos 10-bit com encoders que não suportam)
     force_8bit = False
     if encode_mode in ("nvenc", "qsv", "amf"):
         force_8bit_input = input("\nForçar conversão para 8-bit? (necessário se vídeo 10-bit) [s/N]: ").strip().lower()
         force_8bit = force_8bit_input in ("s", "sim", "y", "yes")
+
+    # Upscaling
+    upscale_res = None
+    if encode_mode != "copy":
+        print(f"\n== UPSCALING (resolução atual: {v_w}x{v_h}) ==")
+        print("[0] Manter resolução original")
+        print("[1] 1280x720 (720p)")
+        print("[2] 1920x1080 (1080p)")
+        print("[3] 2560x1440 (1440p)")
+        print("[4] 3840x2160 (4K)")
+        print("[5] Personalizado")
+        upscale_choice = input("Escolha [0-5] (padrão 0): ").strip() or "0"
+
+        resolutions = {
+            "1": (1280, 720),
+            "2": (1920, 1080),
+            "3": (2560, 1440),
+            "4": (3840, 2160),
+        }
+
+        if upscale_choice in resolutions:
+            upscale_res = resolutions[upscale_choice]
+        elif upscale_choice == "5":
+            custom = input("Digite a resolução (ex: 1920x1080): ").strip()
+            if "x" in custom:
+                try:
+                    cw, ch = custom.split("x")
+                    upscale_res = (int(cw), int(ch))
+                except ValueError:
+                    print("Formato inválido, mantendo original.")
+
+        if upscale_res:
+            # Verificar se é realmente upscale ou downscale
+            if upscale_res[0] * upscale_res[1] > v_w * v_h:
+                print(f"→ Upscale: {v_w}x{v_h} → {upscale_res[0]}x{upscale_res[1]}")
+            elif upscale_res[0] * upscale_res[1] < v_w * v_h:
+                print(f"→ Downscale: {v_w}x{v_h} → {upscale_res[0]}x{upscale_res[1]}")
+            else:
+                print("→ Mesma resolução, ignorando.")
+                upscale_res = None
 
     # Saídas HLS fMP4
     playlist_path = out_dir / "stream.m3u8"
@@ -325,6 +373,10 @@ def main():
     print("Modo:", encode_mode)
     if encode_mode != "copy":
         print("Qualidade:", q, "| cap:", maxrate, "/", bufsize)
+    if upscale_res:
+        print(f"Resolução: {v_w}x{v_h} → {upscale_res[0]}x{upscale_res[1]} (lanczos)")
+    if volume_db_val != 0.0:
+        print(f"Volume: {'+' if volume_db_val > 0 else ''}{volume_db_val}dB")
 
     # Montar comando ffmpeg
     cmd = ["ffmpeg", "-hide_banner", "-y", "-i", input_path]
@@ -335,10 +387,23 @@ def main():
     # remover streams de legenda do container (a gente só queima se escolher)
     cmd += ["-sn"]
 
-    # Se queimar legenda, aplica filter (isso roda CPU; ainda dá pra usar NVENC depois)
+    # Monta filtros de vídeo (scale + legendas se necessário)
+    vf_filters = []
+
+    # Upscaling/downscaling
+    if upscale_res:
+        target_w, target_h = upscale_res
+        # Usa lanczos para melhor qualidade em upscale
+        vf_filters.append(f"scale={target_w}:{target_h}:flags=lanczos")
+
+    # Queimar legenda (roda CPU; ainda dá pra usar NVENC depois)
     if burn_sub and chosen_sub is not None:
         sub_idx = chosen_sub["index"]
-        cmd += ["-vf", f"subtitles='{input_path}':si={sub_idx}"]
+        vf_filters.append(f"subtitles='{input_path}':si={sub_idx}")
+
+    # Aplica filtros de vídeo se houver
+    if vf_filters:
+        cmd += ["-vf", ",".join(vf_filters)]
 
     # Encoder vídeo
     if encode_mode == "copy":
@@ -371,6 +436,9 @@ def main():
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
 
     # Áudio: sempre AAC estéreo (compatível com browsers/MSE)
+    # Aplica filtro de volume se necessário
+    if volume_db_val != 0.0:
+        cmd += ["-af", f"volume={volume_db_val}dB"]
     cmd += ["-c:a", "aac", "-ac", "2", "-b:a", a_bitrate]
 
     # HLS fMP4 (menor overhead que TS)
