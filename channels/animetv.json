@@ -3,7 +3,7 @@
   "cycle_start": "2026-01-20",
   "dia_1": [
     {
-      "start": "12:00",
+      "start": "11:00",
       "id": "pokemon_2000",
       "duration": 4845
     },
@@ -46,7 +46,7 @@
   ],
   "dia_2": [
     {
-      "start": "12:00",
+      "start": "11:00",
       "id": "dragon_ball_a_lenda_de_shen_long",
       "duration": 3014
     },

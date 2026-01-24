@@ -1,9 +1,9 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-21",
+  "cycle_start": "2026-01-23",
   "dia_1": [
     {
-      "start": "17:50",
+      "start": "18:00",
       "id": "o_chamado",
       "duration": 6918
     },
@@ -18,15 +18,11 @@
     {
       "id": "a_bruxa",
       "duration": 5547
-    },
-    {
-      "id": "rec",
-      "duration": 4707
     }
   ],
   "dia_2": [
     {
-      "start": "17:00",
+      "start": "18:00",
       "id": "o_sexto_sentido",
       "duration": 6443
     },
@@ -41,17 +37,63 @@
     {
       "id": "a_primeira_profecia",
       "duration": 7154
-    },
-    {
-      "id": "a_bruxa_de_blair",
-      "duration": 4882
     }
   ],
   "dia_3": [
     {
+      "start": "18:00",
+      "id": "ringu",
+      "duration": 5726
+    },
+    {
+      "id": "ringu_2",
+      "duration": 5718
+    },
+    {
+      "id": "ringu_0",
+      "duration": 5926
+    },
+    {
+      "id": "poltergeist",
+      "duration": 6866
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "18:00",
+      "id": "alien_o_oitavo_passageiro",
+      "duration": 6950
+    },
+    {
+      "id": "IT_1990",
+      "duration": 11245
+    },
+    {
+      "id": "coracao_satanico",
+      "duration": 6792
+    },
+    {
       "id": "o_homem_de_palha_1972",
-      "duration": 5649,
-      "start": "21:00"
+      "duration": 5649
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "18:00",
+      "id": "rec",
+      "duration": 4707
+    },
+    {
+      "id": "a_bruxa_de_blair",
+      "duration": 4882
+    },
+    {
+      "id": "hora_do_pesadelo",
+      "duration": 5479
+    },
+    {
+      "id": "noite_do_espantalho",
+      "duration": 5815
     }
   ]
 }

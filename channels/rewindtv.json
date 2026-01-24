@@ -1,0 +1,87 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "cycle_start": "2026-01-23",
+  "dia_1": [
+    {
+      "start": "11:00",
+      "id": "tartarugas_ninja_2",
+      "duration": 5303
+    },
+    {
+      "id": "street_fighter",
+      "duration": 6089
+    },
+    {
+      "id": "conan",
+      "duration": 7825
+    },
+    {
+      "id": "o_maskara",
+      "duration": 6075
+    },
+    {
+      "id": "mortal_kombat",
+      "duration": 6085
+    }
+  ],
+  "dia_2": [
+    {
+      "start": "13:00",
+      "id": "de_volta_para_o_futuro",
+      "duration": 6962
+    },
+    {
+      "id": "de_volta_para_o_futuro_2",
+      "duration": 6483
+    },
+    {
+      "id": "de_voltar_para_o_futuro_3",
+      "duration": 7098
+    }
+  ],
+  "dia_3": [
+    {
+      "start": "13:00",
+      "id": "o_poderoso_chefao",
+      "duration": 10528
+    },
+    {
+      "id": "o_poderoso_chefao_parte_2",
+      "duration": 12034
+    },
+    {
+      "id": "o_poderoso_chefao_parte_3",
+      "duration": 9702
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "14:00",
+      "id": "o_show_de_truman",
+      "duration": 6174
+    },
+    {
+      "id": "mississipi_em_chamas",
+      "duration": 7620
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "11:00",
+      "id": "um_maluco_no_golfe",
+      "duration": 5516
+    },
+    {
+      "id": "todo_poderoso",
+      "duration": 6061
+    },
+    {
+      "id": "bater_ou_correr",
+      "duration": 6618
+    },
+    {
+      "id": "supercop_police_story_3",
+      "duration": 5790
+    }
+  ]
+}

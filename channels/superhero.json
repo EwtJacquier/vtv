@@ -1,9 +1,9 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-21",
+  "cycle_start": "2026-01-23",
   "dia_1": [
     {
-      "start": "13:00",
+      "start": "11:00",
       "id": "x_men",
       "duration": 6266
     },
@@ -30,7 +30,7 @@
   ],
   "dia_2": [
     {
-      "start": "13:00",
+      "start": "11:00",
       "id": "thor",
       "duration": 6891
     },
@@ -53,7 +53,7 @@
   ],
   "dia_3": [
     {
-      "start": "13:00",
+      "start": "11:00",
       "id": "capitao_america_o_soldado_invernal",
       "duration": 8154
     },
@@ -76,7 +76,7 @@
   ],
   "dia_4": [
     {
-      "start": "13:00",
+      "start": "11:00",
       "id": "guardioes_da_galaxia_vol_2",
       "duration": 8146
     },
@@ -99,7 +99,7 @@
   ],
   "dia_5": [
     {
-      "start": "17:00",
+      "start": "11:00",
       "id": "homem_aranha_de_volta_ao_lar",
       "duration": 8008
     },
@@ -114,7 +114,7 @@
   ],
   "dia_6": [
     {
-      "start": "13:00",
+      "start": "11:00",
       "id": "o_homem_de_aco",
       "duration": 8583
     },
@@ -135,7 +135,7 @@
     {
       "id": "batman_begins",
       "duration": 8403,
-      "start": "14:00"
+      "start": "11:00"
     },
     {
       "id": "batman_o_cavaleiro_das_trevas",

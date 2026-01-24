@@ -96,6 +96,102 @@ def human_bytes(n: int | None) -> str:
     return f"{x:.2f} {units[i]}"
 
 
+def parse_timestamp(ts: str) -> float | None:
+    """
+    Converte timestamp HH:MM:SS ou MM:SS para segundos.
+    Ex: "01:30:00" -> 5400.0, "10:30" -> 630.0
+    """
+    ts = ts.strip()
+    if not ts:
+        return None
+    parts = ts.split(":")
+    try:
+        if len(parts) == 3:
+            h, m, s = parts
+            return float(h) * 3600 + float(m) * 60 + float(s)
+        elif len(parts) == 2:
+            m, s = parts
+            return float(m) * 60 + float(s)
+        else:
+            return float(ts)
+    except ValueError:
+        return None
+
+
+def is_image_subtitle(codec_name: str | None) -> bool:
+    """
+    Retorna True se o codec de legenda é baseado em imagem (PGS, DVD, DVB).
+    Esses tipos precisam do filtro overlay ao invés de subtitles.
+    """
+    if not codec_name:
+        return False
+    codec_lower = codec_name.lower()
+    image_codecs = {
+        "hdmv_pgs_subtitle",  # Blu-ray PGS
+        "pgssub",
+        "pgs",
+        "dvd_subtitle",       # DVD VOBSub
+        "dvdsub",
+        "dvb_subtitle",       # DVB
+        "dvbsub",
+        "xsub",               # DivX XSUB
+    }
+    # Checa exato ou se contém "pgs" ou "dvd_sub" ou "dvb_sub"
+    if codec_lower in image_codecs:
+        return True
+    if "pgs" in codec_lower or "dvdsub" in codec_lower or "dvbsub" in codec_lower:
+        return True
+    return False
+
+
+def get_stream_start_time(s: dict) -> float:
+    """
+    Retorna o start_time da stream em segundos.
+    Se não existir, retorna 0.0.
+    """
+    st = s.get("start_time")
+    if st is None:
+        return 0.0
+    try:
+        return float(st)
+    except (ValueError, TypeError):
+        return 0.0
+
+
+def get_first_packet_time(input_path: str, stream_index: int) -> float | None:
+    """
+    Obtém o timestamp (dts_time) do primeiro packet de uma stream específica.
+    Isso é mais confiável que start_time para detectar quando a stream realmente começa.
+    """
+    cmd = [
+        "ffprobe",
+        "-hide_banner",
+        "-v", "error",
+        "-select_streams", str(stream_index),
+        "-show_packets",
+        "-read_intervals", "%+#1",  # Só o primeiro packet
+        "-print_format", "json",
+        input_path,
+    ]
+    p = run(cmd)
+    if p.returncode != 0:
+        return None
+    try:
+        data = json.loads(p.stdout)
+        packets = data.get("packets", [])
+        if packets:
+            # Preferir dts_time, fallback para pts_time
+            dts = packets[0].get("dts_time")
+            if dts is not None:
+                return float(dts)
+            pts = packets[0].get("pts_time")
+            if pts is not None:
+                return float(pts)
+    except (json.JSONDecodeError, ValueError, KeyError, IndexError):
+        pass
+    return None
+
+
 def stream_label(s: dict) -> str:
     idx = s.get("index")
     codec = s.get("codec_name")
@@ -105,6 +201,7 @@ def stream_label(s: dict) -> str:
     title = tags.get("title", "")
     br = s.get("bit_rate")
     br_i = int(br) if isinstance(br, str) and br.isdigit() else (br if isinstance(br, int) else None)
+    start_time = get_stream_start_time(s)
 
     info = [f"#{idx}", f"{ctype}/{codec}", f"lang={lang}"]
     if title:
@@ -126,6 +223,9 @@ def stream_label(s: dict) -> str:
             info.append(f"hz={sr}")
     if br_i:
         info.append(f"bitrate={human_bps(br_i)}")
+    # Mostrar start_time se não for zero
+    if start_time > 0.1:
+        info.append(f"start={start_time:.2f}s")
     return " | ".join(info)
 
 
@@ -269,10 +369,38 @@ def main():
     chosen_audio = pick_stream(audio_streams, "Escolha o AUDIO [0..]: ")
     assert chosen_audio is not None
 
+    # Detectar diferença de start_time entre vídeo e áudio usando timestamps reais dos packets
+    print("\nAnalisando timestamps das streams...")
+    video_start = get_first_packet_time(input_path, v0["index"])
+    audio_start = get_first_packet_time(input_path, chosen_audio["index"])
+
+    # Fallback para start_time da stream se não conseguir ler packets
+    if video_start is None:
+        video_start = get_stream_start_time(v0)
+    if audio_start is None:
+        audio_start = get_stream_start_time(chosen_audio)
+
+    cut_start_sec = 0.0  # Se > 0, corta o início do vídeo
+
+    if audio_start > video_start + 0.1:  # Áudio começa depois do vídeo (margem de 100ms)
+        delay_sec = audio_start - video_start
+        print(f"\nℹ INFO: O áudio escolhido começa {delay_sec:.2f}s depois do vídeo.")
+        print(f"        Video start: {video_start:.3f}s | Audio start: {audio_start:.3f}s")
+        print("        O resultado manterá o mesmo comportamento (áudio atrasado).")
+        print("  [0] Manter assim (padrão)")
+        print("  [1] Cortar o vídeo para sincronizar (perde início do vídeo)")
+        sync_choice = input("Escolha [0/1] (padrão 0): ").strip() or "0"
+
+        if sync_choice == "1":
+            cut_start_sec = delay_sec
+            print(f"→ O vídeo será cortado em {delay_sec:.2f}s para sincronizar")
+
     # Legenda: remover ou queimar
     print("\n== LEGENDA ==")
     burn_sub = False
     chosen_sub = None
+    sub_start_sec = None
+    sub_end_sec = None
     if sub_streams:
         mode = input("Legenda: [0] remover, [1] queimar (burn-in) uma faixa? (0/1): ").strip()
         if mode == "1":
@@ -281,6 +409,35 @@ def main():
             chosen_sub = pick_stream(sub_streams, "Escolha a LEGENDA [0..] (ou vazio/n para não): ", allow_none=True)
             if chosen_sub is None:
                 burn_sub = False
+            else:
+                # Detectar tipo de legenda
+                sub_codec = chosen_sub.get("codec_name", "")
+                if is_image_subtitle(sub_codec):
+                    print(f"→ Legenda de IMAGEM detectada ({sub_codec}) - será usada overlay")
+                else:
+                    print(f"→ Legenda de TEXTO detectada ({sub_codec}) - será usada subtitles")
+
+                # Perguntar se quer burn-in completo ou parcial
+                print("\nModo de burn-in:")
+                print("[0] Completo (vídeo inteiro)")
+                print("[1] Parcial (de XX:XX:XX até XX:XX:XX)")
+                burn_mode = input("Escolha [0/1] (padrão 0): ").strip() or "0"
+                if burn_mode == "1":
+                    print("\nDigite os timestamps no formato HH:MM:SS ou MM:SS")
+                    start_input = input("Início (ex: 00:05:00): ").strip()
+                    end_input = input("Fim (ex: 01:30:00): ").strip()
+                    sub_start_sec = parse_timestamp(start_input)
+                    sub_end_sec = parse_timestamp(end_input)
+                    if sub_start_sec is None or sub_end_sec is None:
+                        print("Timestamp inválido, usando burn-in completo.")
+                        sub_start_sec = None
+                        sub_end_sec = None
+                    elif sub_start_sec >= sub_end_sec:
+                        print("Início deve ser menor que fim, usando burn-in completo.")
+                        sub_start_sec = None
+                        sub_end_sec = None
+                    else:
+                        print(f"→ Legenda será queimada de {start_input} até {end_input} ({sub_end_sec - sub_start_sec:.0f}s)")
     else:
         print("Nenhuma faixa de legenda detectada. (ok)")
 
@@ -379,16 +536,24 @@ def main():
         print(f"Volume: {'+' if volume_db_val > 0 else ''}{volume_db_val}dB")
 
     # Montar comando ffmpeg
-    cmd = ["ffmpeg", "-hide_banner", "-y", "-i", input_path]
+    cmd = ["ffmpeg", "-hide_banner", "-y"]
 
-    # map: primeiro vídeo + audio escolhido
-    cmd += ["-map", "0:v:0", "-map", f"0:{chosen_audio['index']}"]
+    # Aumentar analyzeduration e probesize para legendas PGS
+    cmd += ["-analyzeduration", "100M", "-probesize", "100M"]
 
-    # remover streams de legenda do container (a gente só queima se escolher)
-    cmd += ["-sn"]
+    # Se opção de corte foi escolhida, adicionar -ss antes do input
+    if cut_start_sec > 0:
+        cmd += ["-ss", str(cut_start_sec)]
+
+    cmd += ["-i", input_path]
 
     # Monta filtros de vídeo (scale + legendas se necessário)
     vf_filters = []
+    use_filter_complex = False
+    filter_complex_str = ""
+
+    # Detectar se legenda é de imagem (PGS, DVD, etc.)
+    sub_is_image = burn_sub and chosen_sub is not None and is_image_subtitle(chosen_sub.get("codec_name"))
 
     # Upscaling/downscaling
     if upscale_res:
@@ -396,14 +561,60 @@ def main():
         # Usa lanczos para melhor qualidade em upscale
         vf_filters.append(f"scale={target_w}:{target_h}:flags=lanczos")
 
-    # Queimar legenda (roda CPU; ainda dá pra usar NVENC depois)
+    # Queimar legenda
     if burn_sub and chosen_sub is not None:
-        sub_idx = chosen_sub["index"]
-        vf_filters.append(f"subtitles='{input_path}':si={sub_idx}")
+        sub_abs_idx = chosen_sub["index"]  # índice absoluto no arquivo
+        # Calcular índice relativo dentro das streams de legenda
+        sub_rel_idx = 0
+        for s in sub_streams:
+            if s["index"] < sub_abs_idx:
+                sub_rel_idx += 1
 
-    # Aplica filtros de vídeo se houver
-    if vf_filters:
-        cmd += ["-vf", ",".join(vf_filters)]
+        if sub_is_image:
+            # Legendas de imagem (PGS, DVD): usar filter_complex com overlay
+            use_filter_complex = True
+
+            # Montar enable se for parcial
+            enable_str = ""
+            if sub_start_sec is not None and sub_end_sec is not None:
+                enable_str = f"=enable='between(t\\,{sub_start_sec}\\,{sub_end_sec})'"
+
+            # Montar filter_complex
+            if vf_filters:
+                # Com scale: [0:v]scale[v];[v][0:s:X]overlay[out]
+                scale_filter = ",".join(vf_filters)
+                filter_complex_str = f"[0:v]{scale_filter}[v];[v][0:s:{sub_rel_idx}]overlay{enable_str}[out]"
+            else:
+                # Sem scale: [0:v][0:s:X]overlay[out]
+                filter_complex_str = f"[0:v][0:s:{sub_rel_idx}]overlay{enable_str}[out]"
+        else:
+            # Legendas de texto (SRT, ASS, etc.): usar filtro subtitles
+            # Escapar caracteres especiais no path para o filtro subtitles
+            escaped_path = input_path.replace("\\", "\\\\").replace("'", "\\'").replace(":", "\\:")
+            if sub_start_sec is not None and sub_end_sec is not None:
+                # Burn-in parcial: usa enable para ativar apenas no trecho
+                vf_filters.append(f"subtitles='{escaped_path}':si={sub_rel_idx}:enable='between(t,{sub_start_sec},{sub_end_sec})'")
+            else:
+                # Burn-in completo
+                vf_filters.append(f"subtitles='{escaped_path}':si={sub_rel_idx}")
+
+    # Aplica filtros e mapeamento
+    if use_filter_complex:
+        cmd += ["-filter_complex", filter_complex_str]
+        cmd += ["-map", "[out]", "-map", f"0:{chosen_audio['index']}"]
+    else:
+        # Mapeamento normal: vídeo + áudio
+        cmd += ["-map", "0:v:0", "-map", f"0:{chosen_audio['index']}"]
+        # Só adiciona -vf se houver filtros (scale, subtitles)
+        if vf_filters:
+            cmd += ["-vf", ",".join(vf_filters)]
+
+    # Filtros de áudio (apenas volume se necessário)
+    if volume_db_val != 0.0:
+        cmd += ["-af", f"volume={volume_db_val}dB"]
+
+    # remover streams de legenda do container (a gente só queima se escolher)
+    cmd += ["-sn"]
 
     # Encoder vídeo
     if encode_mode == "copy":
@@ -436,13 +647,11 @@ def main():
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
 
     # Áudio: sempre AAC estéreo (compatível com browsers/MSE)
-    # Aplica filtro de volume se necessário
-    if volume_db_val != 0.0:
-        cmd += ["-af", f"volume={volume_db_val}dB"]
     cmd += ["-c:a", "aac", "-ac", "2", "-b:a", a_bitrate]
 
     # HLS fMP4 (menor overhead que TS)
     cmd += [
+        "-movflags", "+delay_moov",
         "-f", "hls",
         "-hls_time", str(segment_time),
         "-hls_playlist_type", "vod",

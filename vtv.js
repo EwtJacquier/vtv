@@ -8,7 +8,7 @@ const HLS_PATH = '/movies_hls';
 
 // Horário de início e fim da programação diária
 const SCHEDULE_START_HOUR = 7;  // 07:00
-const SCHEDULE_END_HOUR = 3;    // 03:00 (do próximo dia)
+const SCHEDULE_END_HOUR = 4;    // 04:00 (do próximo dia)
 
 let currentChannel = null;
 let channelData = null;
@@ -276,9 +276,12 @@ function findNextProgram(chData, now) {
   }
 
   // Procura no próximo dia do ciclo
+  // Se estamos antes das 07:00, o "próximo dia de programação" é o mesmo dia calendário às 07:00
+  // Senão, é o próximo dia calendário às 07:00
   const tomorrow = new Date(now);
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  // Ajusta para ser após as 7h do próximo dia
+  if (now.getHours() >= SCHEDULE_START_HOUR) {
+    tomorrow.setDate(tomorrow.getDate() + 1);
+  }
   tomorrow.setHours(SCHEDULE_START_HOUR, 0, 0, 0);
 
   const tomorrowPrograms = expandSchedule(getTodayPrograms(chData, tomorrow));
@@ -343,8 +346,13 @@ function getUpcomingVideos(chData, now, count = 3) {
     startIndex = current.index + 1; // começa do próximo
   } else {
     // Não há programa atual, procura o primeiro que ainda não começou
+    // Ajusta nowSeconds para comparação (se entre 00:00-07:00, adiciona 24h)
+    let adjustedNowSeconds = nowSeconds;
+    if (nowSeconds < SCHEDULE_START_HOUR * 3600) {
+      adjustedNowSeconds = nowSeconds + 24 * 3600;
+    }
     for (let i = 0; i < todayPrograms.length; i++) {
-      if (todayPrograms[i].start > nowSeconds) {
+      if (todayPrograms[i].start > adjustedNowSeconds) {
         startIndex = i;
         break;
       }
@@ -361,9 +369,12 @@ function getUpcomingVideos(chData, now, count = 3) {
   }
 
   // Se precisar de mais, pega do próximo dia do ciclo
+  // Se estamos antes das 07:00, o "próximo dia de programação" é o mesmo dia calendário às 07:00
   if (upcoming.length < count) {
     const tomorrow = new Date(now);
-    tomorrow.setDate(tomorrow.getDate() + 1);
+    if (now.getHours() >= SCHEDULE_START_HOUR) {
+      tomorrow.setDate(tomorrow.getDate() + 1);
+    }
     tomorrow.setHours(SCHEDULE_START_HOUR, 0, 0, 0);
     const tomorrowPrograms = expandSchedule(getTodayPrograms(chData, tomorrow));
 
@@ -510,6 +521,7 @@ function updateOverlayUpcoming() {
   if (current) return;
 
   const nextProg = findNextProgram(channelData, now);
+  
   if (nextProg) {
     // Atualiza countdown
     overlay.querySelector('h1').textContent = formatCountdown(nextProg.secondsUntil);
@@ -921,7 +933,7 @@ function openEPG() {
 
 async function loadChannelList() {
   try {
-    const knownChannels = ['nostalgia90','imaginarium','superhero','animetv','neverland','paradox','afterdark'];
+    const knownChannels = ['imaginarium','superhero','animetv','rewindtv','neverland','paradox','afterdark'];
 
     const channels = [];
     for (const name of knownChannels) {

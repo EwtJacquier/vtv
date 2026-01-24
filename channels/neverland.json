@@ -1,9 +1,9 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-22",
+  "cycle_start": "2026-01-23",
   "dia_1": [
     {
-      "start": "14:00",
+      "start": "11:00",
       "id": "branca_de_neve_e_os_sete_anoes",
       "duration": 4991
     },
@@ -26,13 +26,17 @@
   ],
   "dia_2": [
     {
-      "start": "14:00",
+      "start": "11:00",
       "id": "o_cao_e_a_raposa",
-      "duration": 4975
+      "duration": 4963
     },
     {
       "id": "o_rei_leao",
       "duration": 5304
+    },
+    {
+      "id": "hercules",
+      "duration": 5592
     },
     {
       "id": "aladdin",
@@ -41,15 +45,11 @@
     {
       "id": "aladdin_e_os_40_ladroes",
       "duration": 4894
-    },
-    {
-      "id": "hercules",
-      "duration": 5592
     }
   ],
   "dia_3": [
     {
-      "start": "14:00",
+      "start": "11:00",
       "id": "mulan",
       "duration": 5270
     },
@@ -72,7 +72,7 @@
   ],
   "dia_4": [
     {
-      "start": "14:00",
+      "start": "11:00",
       "id": "toy_story",
       "duration": 4864
     },
@@ -95,7 +95,7 @@
   ],
   "dia_5": [
     {
-      "start": "14:00",
+      "start": "11:00",
       "id": "megamente",
       "duration": 5735
     },
@@ -110,6 +110,17 @@
     {
       "id": "a_fantastica_fabrica_de_chocolates",
       "duration": 6923
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "11:00",
+      "id": "jumanji",
+      "duration": 6246
+    },
+    {
+      "id": "zathura_uma_aventura_espacial",
+      "duration": 6080
     }
   ]
 }

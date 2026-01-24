@@ -1,6 +1,6 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-21",
+  "cycle_start": "2026-01-23",
   "dia_1": [
     {
       "start": "19:00",
@@ -19,8 +19,12 @@
   "dia_2": [
     {
       "start": "19:00",
-      "id": "corpo_fechado",
-      "duration": 6400
+      "id": "van_helsing_o_cacador_de_monstros",
+      "duration": 7892
+    },
+    {
+      "id": "o_pacto_dos_lobos",
+      "duration": 8558
     },
     {
       "id": "anjos_da_noite",
@@ -34,8 +38,61 @@
   "dia_3": [
     {
       "start": "19:00",
+      "id": "corpo_fechado",
+      "duration": 6400
+    },
+    {
+      "id": "seven_os_sete_crimes_capitais",
+      "duration": 7610
+    },
+    {
+      "id": "fragmentado",
+      "duration": 7028
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "17:00",
+      "id": "o_exterminador_do_futuro",
+      "duration": 6442
+    },
+    {
+      "id": "o_exterminador_do_futuro_2",
+      "duration": 8228
+    },
+    {
+      "id": "contato",
+      "duration": 8981
+    },
+    {
       "id": "o_predestinado",
       "duration": 5869
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "19:00",
+      "id": "requiem_para_um_sonho",
+      "duration": 6091
+    },
+    {
+      "id": "constantine",
+      "duration": 7247
+    },
+    {
+      "id": "o_corvo",
+      "duration": 6116
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "19:00",
+      "id": "12_macacos",
+      "duration": 7767
+    },
+    {
+      "id": "ghost_in_the_shell_2017",
+      "duration": 6416
     },
     {
       "id": "blade_runner_2049",
