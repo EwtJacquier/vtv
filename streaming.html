@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTV Streaming - Catálogo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.2rem;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .search-container {
+            padding: 1.5rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #search {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        #search::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        #search:focus {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .enhanced-toggle {
+            display: none;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+        }
+
+        .enhanced-toggle input {
+            accent-color: #764ba2;
+        }
+
+        .enhanced-toggle > span {
+            color: #764ba2;
+            font-size: 0.9rem;
+        }
+
+        .enhanced-toggle > span span {
+            color: rgba(255, 255, 255, 0.5);
+            background: none;
+            display: block;
+            position: absolute;
+            margin-top: 3px;
+            font-size: 0.7rem;
+        }
+
+        .stats {
+            text-align: center;
+            padding: 0 2rem 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 2rem 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .movie-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .movie-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .movie-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-thumb.no-thumb {
+            background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+        }
+
+        .movie-thumb.no-thumb::after {
+            content: '🎬';
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .movie-info {
+            padding: 1rem;
+        }
+
+        .movie-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.4;
+            text-transform: capitalize;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .movie-thumb-container {
+            position: relative;
+        }
+
+        .movie-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            font-size: 2.5rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .error {
+            text-align: center;
+            padding: 3rem;
+            color: #764ba2;
+        }
+
+        @media (max-width: 600px) {
+            .movies-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+                letter-spacing: 0.3rem;
+            }
+
+            .movie-title {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VTV - CATÁLOGO</h1>
+        <p>Escolha um filme para assistir</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar filme...">
+        <label class="enhanced-toggle">
+            <input type="checkbox" id="useEnhanced">
+            <span>Melhoria de Imagem (Experimental)<span>Melhora filmes mas fica péssimo em animações 2D. Consome GPU</span></span>
+        </label>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="movies-grid" id="movies-grid">
+        <div class="loading">Carregando catálogo...</div>
+    </div>
+
+    <script>
+        const MOVIES_DIR = './movies_hls';
+
+        // Lista de filmes (será preenchida dinamicamente)
+        let movies = [];
+
+        // Formatar nome do filme para exibição
+        function formatTitle(id) {
+            return id
+                .replace(/_/g, ' ')
+                .replace(/\b\w/g, c => c.toUpperCase());
+        }
+
+        // Criar card de filme
+        function createMovieCard(movie) {
+            const useEnhanced = document.getElementById('useEnhanced').checked;
+            const playerPage = useEnhanced ? 'player_enhanced.html' : 'player.html';
+
+            const card = document.createElement('a');
+            card.className = 'movie-card';
+            card.href = `${playerPage}?movie=${encodeURIComponent(movie.id)}`;
+
+            const thumbUrl = `${MOVIES_DIR}/${movie.id}/thumb.jpg?v=`+Date.now();
+
+            card.innerHTML = `
+                <div class="movie-thumb-container">
+                    <div class="movie-thumb">
+                        <img src="${thumbUrl}" alt="${movie.title}" loading="lazy"
+                             onerror="this.parentElement.classList.add('no-thumb'); this.remove();">
+                    </div>
+                    <div class="play-overlay">
+                        <span class="play-icon">▶</span>
+                    </div>
+                </div>
+                <div class="movie-info">
+                    <div class="movie-title">${movie.title}</div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Renderizar grid de filmes
+        function renderMovies(moviesToRender) {
+            const grid = document.getElementById('movies-grid');
+            grid.innerHTML = '';
+
+            if (moviesToRender.length === 0) {
+                grid.innerHTML = '<div class="loading">Nenhum filme encontrado</div>';
+                return;
+            }
+
+            moviesToRender.forEach(movie => {
+                grid.appendChild(createMovieCard(movie));
+            });
+        }
+
+        // Normalizar texto: remover acentos, cedilha, converter para minúsculas
+        function normalizeText(text) {
+            return text
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '') // Remove acentos
+                .replace(/ç/g, 'c')              // Cedilha
+                .replace(/ñ/g, 'n');             // Ñ espanhol
+        }
+
+        // Filtrar filmes por busca
+        function filterMovies(query) {
+            const normalizedQuery = normalizeText(query.trim());
+            if (!normalizedQuery) {
+                return movies;
+            }
+
+            return movies.filter(movie =>
+                normalizeText(movie.title).includes(normalizedQuery) ||
+                normalizeText(movie.id).includes(normalizedQuery)
+            );
+        }
+
+        // Carregar lista de filmes via API simples (listando diretórios)
+        async function loadMovies() {
+            try {
+                // Tentar carregar lista de filmes de um arquivo JSON
+                // Se não existir, tenta método alternativo
+                let movieList = [];
+
+                try {
+                    const response = await fetch(`${MOVIES_DIR}/catalog.json`);
+                    if (response.ok) {
+                        movieList = await response.json();
+                    }
+                } catch (e) {
+                    // Arquivo não existe, usar fallback
+                }
+
+                if (movieList.length === 0) {
+                    // Fallback: tentar carregar index.html do diretório (se servidor permitir listing)
+                    // Ou usar lista hardcoded / gerada por script
+                    const response = await fetch(`${MOVIES_DIR}/`);
+                    const text = await response.text();
+
+                    // Tentar parsear links de diretório
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, 'text/html');
+                    const links = doc.querySelectorAll('a');
+
+                    links.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href && !href.startsWith('.') && !href.startsWith('/') && href.endsWith('/')) {
+                            const id = href.replace(/\/$/, '');
+                            if (id && id !== 'Parent Directory') {
+                                movieList.push({ id });
+                            }
+                        }
+                    });
+                }
+
+                // Formatar filmes (sem verificar thumbs - usa onerror no img)
+                movies = movieList.map((m) => {
+                    const id = typeof m === 'string' ? m : m.id;
+                    return {
+                        id,
+                        title: formatTitle(id)
+                    };
+                });
+
+                // Ordenar alfabeticamente
+                movies.sort((a, b) => a.title.localeCompare(b.title));
+
+                // Atualizar stats
+                document.getElementById('stats').textContent = `${movies.length} filmes disponíveis`;
+
+                renderMovies(movies);
+
+            } catch (error) {
+                console.error('Erro ao carregar filmes:', error);
+                document.getElementById('movies-grid').innerHTML =
+                    '<div class="error">Erro ao carregar catálogo. Gere o catalog.json com: python generate_catalog.py</div>';
+            }
+        }
+
+        // Event listener para busca
+        document.getElementById('search').addEventListener('input', (e) => {
+            const filtered = filterMovies(e.target.value);
+            document.getElementById('stats').textContent =
+                `${filtered.length} de ${movies.length} filmes`;
+            renderMovies(filtered);
+        });
+
+        // Event listener para toggle enhanced
+        document.getElementById('useEnhanced').addEventListener('change', () => {
+            const query = document.getElementById('search').value;
+            const filtered = filterMovies(query);
+            renderMovies(filtered);
+        });
+
+        // Carregar filmes ao iniciar
+        loadMovies();
+    </script>
+</body>
+</html>

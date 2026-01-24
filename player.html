@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTV Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        body.playing header {
+            opacity: 0;
+        }
+
+        body.playing header:hover {
+            opacity: 1;
+        }
+
+        .back-btn {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            font-weight: bold;
+        }
+
+        .movie-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: capitalize;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .player-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        video {
+            width: 100%;
+            height: 100vh;
+            background: #000;
+        }
+
+        .error {
+            text-align: center;
+            padding: 3rem;
+            color: #764ba2;
+        }
+
+        .error a {
+            color: #667eea;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="streaming.html" class="back-btn">&#60;</a>
+        <span class="movie-title" id="movie-title">Carregando...</span>
+    </header>
+
+    <div class="player-container">
+        <video id="video" controls autoplay></video>
+    </div>
+
+    <script>
+        const MOVIES_DIR = './movies_hls';
+
+        // Pegar parâmetro movie da URL
+        const params = new URLSearchParams(window.location.search);
+        const movieId = params.get('movie');
+
+        if (!movieId) {
+            document.querySelector('.player-container').innerHTML =
+                '<div class="error">Nenhum filme selecionado. <a href="streaming.html" style="color: #e94560">Voltar ao catálogo</a></div>';
+        } else {
+            // Formatar título
+            const title = movieId.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            document.getElementById('movie-title').textContent = title;
+            document.title = `${title} - VTV Player`;
+
+            // Configurar player
+            const video = document.getElementById('video');
+            const streamUrl = `${MOVIES_DIR}/${movieId}/stream.m3u8?v=`+Date.now();
+
+            if (Hls.isSupported()) {
+                const hls = new Hls({
+                    maxBufferLength: 30,
+                    maxMaxBufferLength: 60,
+                });
+
+                hls.loadSource(streamUrl);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play().catch(() => {});
+                });
+
+                hls.on(Hls.Events.ERROR, (event, data) => {
+                    if (data.fatal) {
+                        console.error('HLS Error:', data);
+                        if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+                            document.querySelector('.player-container').innerHTML =
+                                '<div class="error">Erro ao carregar o filme. Verifique se existe. <a href="streaming.html" style="color: #e94560">Voltar</a></div>';
+                        }
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Safari nativo
+                video.src = streamUrl;
+                video.play().catch(() => {});
+            } else {
+                document.querySelector('.player-container').innerHTML =
+                    '<div class="error">Seu navegador não suporta HLS. <a href="streaming.html" style="color: #e94560">Voltar</a></div>';
+            }
+
+            // Toggle header on play/pause
+            video.addEventListener('play', () => document.body.classList.add('playing'));
+            video.addEventListener('pause', () => document.body.classList.remove('playing'));
+        }
+    </script>
+</body>
+</html>

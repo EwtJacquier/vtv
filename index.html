@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VTV</title>
-  <link rel="stylesheet" href="style.css?v=1.6.9.1">
+  <link rel="stylesheet" href="style.css?v=1.7.0">
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
   <!-- Video de fundo -->
-  <video id="player" muted autoplay playsinline></video>
+  <video id="player" muted autoplay playsinline disablepictureinpicture></video>
 
   <!-- Overlay com botão play -->
   <div id="overlay" class="overlay">
@@ -32,6 +32,7 @@
 
     <div class="sidebar-footer">
       <button id="btn-schedule" class="btn-action">Programação</button>
+      <a href="/streaming.html" class="btn-action">Catálogo de Filmes</a>
     </div>
   </nav>
 
@@ -77,6 +78,6 @@
     </div>
   </div>
 
-  <script src="vtv.js?v=1.6.9.1"></script>
+  <script src="vtv.js?v=1.7.0"></script>
 </body>
 </html>

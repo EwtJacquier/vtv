@@ -295,6 +295,12 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
+  text-decoration: none;
+}
+
+.btn-action:visited, .btn-action:focus {
+  color: #fff;
+  text-decoration: none;
 }
 
 .btn-action:hover {
@@ -876,5 +882,9 @@ body.idle .now-playing-fixed {
 
   .now-playing-fixed{
     max-width: 200px;
+  }
+
+  .home-channel-film{
+    max-width: 280px;
   }
 }

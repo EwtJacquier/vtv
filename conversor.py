@@ -24,6 +24,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Importar função de thumbnail
+from thumbnail import generate_thumbnail
+
 
 def run(cmd: list[str]) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -265,7 +268,7 @@ def guess_caps_by_resolution(w: int | None, h: int | None) -> tuple[str, str]:
     if pixels <= 1280 * 720:
         return ("3.5M", "7M")
     if pixels <= 1920 * 1080:
-        return ("3.5M", "8M")
+        return ("5M", "12M")
     if pixels <= 2560 * 1440:
         return ("8.5M", "17M")
     return ("16M", "32M")
@@ -453,7 +456,7 @@ def main():
         q = input("\nQualidade CPU (CRF) [padrão 25]: ").strip() or "25"
     elif encode_mode in ("nvenc", "qsv", "amf"):
         # CQ/GQ mais alto = menor. 30 é bom.
-        q = input("\nQualidade GPU (CQ/GQ) [padrão 30]: ").strip() or "30"
+        q = input("\nQualidade GPU (CQ/GQ) [padrão 27]: ").strip() or "27"
     else:
         q = ""
 
@@ -680,6 +683,37 @@ def main():
 
     print("Pronto!")
     print(f"Tamanho gerado (aprox): {human_bytes(total_out)}")
+
+    # Gerar thumbnail automaticamente
+    print("\nGerando thumbnail (minuto 10)...")
+    if generate_thumbnail(out_dir):
+        print("Thumbnail gerado: thumb.jpg")
+    else:
+        print("Aviso: Não foi possível gerar thumbnail")
+
+    # Adicionar ao catalog.json se não existir
+    catalog_path = out_dir.parent / "catalog.json"
+    movie_id = out_dir.name
+    try:
+        if catalog_path.exists():
+            with open(catalog_path, "r", encoding="utf-8") as f:
+                catalog = json.load(f)
+        else:
+            catalog = []
+
+        # Verificar se já existe
+        existing_ids = {m["id"] for m in catalog if isinstance(m, dict) and "id" in m}
+        if movie_id not in existing_ids:
+            catalog.append({"id": movie_id})
+            catalog.sort(key=lambda m: m.get("id", ""))
+            with open(catalog_path, "w", encoding="utf-8") as f:
+                json.dump(catalog, f, indent=2, ensure_ascii=False)
+            print(f"Adicionado ao catálogo: {movie_id}")
+        else:
+            print(f"Já existe no catálogo: {movie_id}")
+    except Exception as e:
+        print(f"Aviso: Não foi possível atualizar catalog.json: {e}")
+
     print("\nTeste rápido local:")
     print(f"  cd {out_dir}")
     print("  python -m http.server 8080")
