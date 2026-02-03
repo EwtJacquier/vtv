@@ -1,0 +1,48 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "cycle_start": "2026-01-26",
+  "dia_1": [
+    {
+      "id": "gladiador",
+      "duration": 10259,
+      "start": "19:00"
+    },
+    {
+      "id": "django_livre",
+      "duration": 9923
+    }
+  ],
+  "dia_2": [
+    {
+      "start": "19:00",
+      "id": "o_pacto_dos_lobos",
+      "duration": 9053
+    },
+    {
+      "id": "troia",
+      "duration": 11763
+    }
+  ],
+  "dia_3": [
+    {
+      "start": "19:00",
+      "id": "van_helsing_o_cacador_de_monstros",
+      "duration": 7892
+    },
+    {
+      "id": "cruzada",
+      "duration": 8666
+    }
+  ],
+  "dia_4": [
+    {
+      "id": "duna_parte_1",
+      "duration": 9325,
+      "start": "19:00"
+    },
+    {
+      "id": "duna_parte_2",
+      "duration": 9947
+    }
+  ]
+}

@@ -1,3 +1,4 @@
 movies_hls/
 movies_hls/*
 movies/*
+__pycache__/*

@@ -215,6 +215,20 @@
             border-radius: 3px;
             width: 0%;
             transition: width 0.1s;
+            position: relative;
+        }
+
+        .progress-bar-fill::after{
+            content: '';
+            display: block;
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -8px;
+            background-color: #FFF;
         }
 
         .controls-row {

@@ -887,4 +887,14 @@ body.idle .now-playing-fixed {
   .home-channel-film{
     max-width: 280px;
   }
+
+  .modal {
+    max-height: 80vh;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .epg-container{
+    height: 100%;
+  }
 }

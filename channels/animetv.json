@@ -8,6 +8,37 @@
       "duration": 4845
     },
     {
+      "id": "digimon_o_filme_2000",
+      "duration": 5076
+    },
+    {
+      "id": "sakura_card_captors_viagem_a_hong_kong",
+      "duration": 4892
+    },
+    {
+      "id": "fullmetal_alchemist_mae",
+      "duration": 1433
+    },
+    {
+      "id": "fullmetal_alchemist_aco_contra_chamas",
+      "duration": 1432
+    }
+  ],
+  "dia_2": [
+    {
+      "start": "11:00",
+      "id": "pokemon_2000",
+      "duration": 4845
+    },
+    {
+      "id": "digimon_o_filme_2000",
+      "duration": 5076
+    },
+    {
+      "id": "sakura_card_captors_viagem_a_hong_kong",
+      "duration": 4892
+    },
+    {
       "id": "fullmetal_alchemist_mae",
       "duration": 1433
     },
@@ -16,37 +47,26 @@
       "duration": 1432
     },
     {
-      "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
-      "duration": 4487
-    },
-    {
+      "start": "18:00",
       "id": "pokemon_mewtwo_contra-ataca",
       "duration": 4475
     },
     {
-      "id": "inu_yasha_o_castelo_das_ilusoes",
-      "duration": 5945
+      "id": "street_fighter_2_o_filme",
+      "duration": 6086
+    },
+    {
+      "id": "cavaleiros_do_zodiaco_os_defensores_de_atena",
+      "duration": 4487
     },
     {
       "id": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
-      "duration": 5010
-    },
-    {
-      "id": "steamboy",
-      "duration": 7573
-    },
-    {
-      "id": "a_princesa_mononoke",
-      "duration": 8045
-    },
-    {
-      "id": "angels_egg",
-      "duration": 4266
+      "duration": 5011
     }
   ],
-  "dia_2": [
+  "dia_3": [
     {
-      "start": "11:00",
+      "start": "13:00",
       "id": "dragon_ball_a_lenda_de_shen_long",
       "duration": 3014
     },
@@ -81,10 +101,126 @@
     {
       "id": "dragon_ball_super_broly",
       "duration": 5983
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "11:00",
+      "id": "pokemon_2000",
+      "duration": 4845
+    },
+    {
+      "id": "digimon_o_filme_2000",
+      "duration": 5076
+    },
+    {
+      "id": "sakura_card_captors_viagem_a_hong_kong",
+      "duration": 4892
+    },
+    {
+      "id": "fullmetal_alchemist_mae",
+      "duration": 1433
+    },
+    {
+      "id": "fullmetal_alchemist_aco_contra_chamas",
+      "duration": 1432
+    },
+    {
+      "start": "18:00",
+      "id": "yu_yu_hakusho_invasores_do_inferno",
+      "duration": 5588
+    },
+    {
+      "id": "naruto_a_grande_missao_salvar_a_princesa_da_neve",
+      "duration": 4958
+    },
+    {
+      "id": "inu_yasha_o_castelo_das_ilusoes",
+      "duration": 5945
+    },
+    {
+      "id": "ranma_meio_grande_a_aventura_na_china",
+      "duration": 4451
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "11:00",
+      "id": "pokemon_2000",
+      "duration": 4845
+    },
+    {
+      "id": "digimon_o_filme_2000",
+      "duration": 5076
+    },
+    {
+      "id": "sakura_card_captors_viagem_a_hong_kong",
+      "duration": 4892
+    },
+    {
+      "id": "fullmetal_alchemist_mae",
+      "duration": 1433
+    },
+    {
+      "id": "fullmetal_alchemist_aco_contra_chamas",
+      "duration": 1432
+    },
+    {
+      "start": "18:00",
+      "id": "cowboy_bebop_o_filme",
+      "duration": 6897
+    },
+    {
+      "id": "akira",
+      "duration": 7486
+    },
+    {
+      "id": "ghost_in_the_shell_1995",
+      "duration": 4975
+    },
+    {
+      "id": "neon_genesis_evangelion_the_end_of_evangelion",
+      "duration": 5226
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "11:00",
+      "id": "pokemon_2000",
+      "duration": 4845
+    },
+    {
+      "id": "digimon_o_filme_2000",
+      "duration": 5076
+    },
+    {
+      "id": "sakura_card_captors_viagem_a_hong_kong",
+      "duration": 4892
+    },
+    {
+      "id": "fullmetal_alchemist_mae",
+      "duration": 1433
+    },
+    {
+      "id": "fullmetal_alchemist_aco_contra_chamas",
+      "duration": 1432
+    },
+    {
+      "start": "18:00",
+      "id": "a_viagem_de_chihiro",
+      "duration": 7472
+    },
+    {
+      "id": "a_princesa_mononoke",
+      "duration": 8045
     },
     {
       "id": "o_tumulo_dos_vagalumes",
       "duration": 5312
+    },
+    {
+      "id": "steamboy",
+      "duration": 7573
     }
   ]
 }

@@ -3,7 +3,7 @@
   "cycle_start": "2026-01-23",
   "dia_1": [
     {
-      "start": "11:00",
+      "start": "13:00",
       "id": "x_men",
       "duration": 6266
     },
@@ -14,8 +14,11 @@
     {
       "id": "x_men_3_o_confronto_final",
       "duration": 6245
-    },
+    }
+  ],
+  "dia_2": [
     {
+      "start": "13:00",
       "id": "homem_aranha",
       "duration": 7272
     },
@@ -28,9 +31,9 @@
       "duration": 8351
     }
   ],
-  "dia_2": [
+  "dia_3": [
     {
-      "start": "11:00",
+      "start": "13:00",
       "id": "thor",
       "duration": 6891
     },
@@ -45,19 +48,30 @@
     {
       "id": "homem_de_ferro_2",
       "duration": 7479
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "13:00",
+      "id": "homem_de_ferro_2",
+      "duration": 7479
     },
     {
       "id": "os_vingadores",
       "duration": 8575
-    }
-  ],
-  "dia_3": [
+    },
     {
-      "start": "11:00",
       "id": "capitao_america_o_soldado_invernal",
       "duration": 8154
     },
     {
+      "id": "guardioes_da_galaxia",
+      "duration": 7251
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "13:00",
       "id": "guardioes_da_galaxia",
       "duration": 7251
     },
@@ -74,9 +88,9 @@
       "duration": 6899
     }
   ],
-  "dia_4": [
+  "dia_6": [
     {
-      "start": "11:00",
+      "start": "13:00",
       "id": "guardioes_da_galaxia_vol_2",
       "duration": 8146
     },
@@ -91,15 +105,30 @@
     {
       "id": "os_vingadores_ultimato",
       "duration": 10907
+    }
+  ],
+  "dia_7": [
+    {
+      "start": "13:00",
+      "id": "guardioes_da_galaxia",
+      "duration": 7251
+    },
+    {
+      "id": "guardioes_da_galaxia_vol_2",
+      "duration": 8146
     },
     {
       "id": "guardioes_da_galaxia_vol_3",
       "duration": 9002
     }
   ],
-  "dia_5": [
+  "dia_8": [
     {
-      "start": "11:00",
+      "start": "14:00",
+      "id": "doutor_estranho",
+      "duration": 6899
+    },
+    {
       "id": "homem_aranha_de_volta_ao_lar",
       "duration": 8008
     },
@@ -112,9 +141,13 @@
       "duration": 9416
     }
   ],
-  "dia_6": [
+  "dia_9": [
     {
       "start": "11:00",
+      "id": "the_flash",
+      "duration": 8643
+    },
+    {
       "id": "o_homem_de_aco",
       "duration": 8583
     },
@@ -125,17 +158,13 @@
     {
       "id": "liga_da_justica",
       "duration": 14528
-    },
-    {
-      "id": "the_flash",
-      "duration": 8643
     }
   ],
-  "dia_7": [
+  "dia_10": [
     {
+      "start": "14:00",
       "id": "batman_begins",
-      "duration": 8403,
-      "start": "11:00"
+      "duration": 8403
     },
     {
       "id": "batman_o_cavaleiro_das_trevas",

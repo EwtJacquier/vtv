@@ -1,9 +1,9 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-23",
+  "cycle_start": "2026-01-24",
   "dia_1": [
     {
-      "start": "11:00",
+      "start": "12:00",
       "id": "tartarugas_ninja_2",
       "duration": 5303
     },
@@ -12,8 +12,8 @@
       "duration": 6089
     },
     {
-      "id": "conan",
-      "duration": 7825
+      "id": "power_rangers_o_filme",
+      "duration": 5739
     },
     {
       "id": "o_maskara",
@@ -22,52 +22,38 @@
     {
       "id": "mortal_kombat",
       "duration": 6085
+    },
+    {
+      "id": "rambo_programado_para_matar",
+      "duration": 5605
     }
   ],
   "dia_2": [
     {
-      "start": "13:00",
-      "id": "de_volta_para_o_futuro",
-      "duration": 6962
+      "start": "12:00",
+      "id": "twister",
+      "duration": 6785
     },
     {
-      "id": "de_volta_para_o_futuro_2",
-      "duration": 6483
-    },
-    {
-      "id": "de_voltar_para_o_futuro_3",
-      "duration": 7098
-    }
-  ],
-  "dia_3": [
-    {
-      "start": "13:00",
-      "id": "o_poderoso_chefao",
-      "duration": 10528
-    },
-    {
-      "id": "o_poderoso_chefao_parte_2",
-      "duration": 12034
-    },
-    {
-      "id": "o_poderoso_chefao_parte_3",
-      "duration": 9702
-    }
-  ],
-  "dia_4": [
-    {
-      "start": "14:00",
       "id": "o_show_de_truman",
       "duration": 6174
     },
     {
       "id": "mississipi_em_chamas",
       "duration": 7620
+    },
+    {
+      "id": "tropas_estelares",
+      "duration": 7778
+    },
+    {
+      "id": "de_volta_para_o_futuro",
+      "duration": 6962
     }
   ],
-  "dia_5": [
+  "dia_3": [
     {
-      "start": "11:00",
+      "start": "12:00",
       "id": "um_maluco_no_golfe",
       "duration": 5516
     },
@@ -80,8 +66,62 @@
       "duration": 6618
     },
     {
+      "id": "bater_ou_correr_em_londres",
+      "duration": 6862
+    },
+    {
+      "id": "de_volta_para_o_futuro_2",
+      "duration": 6483
+    },
+    {
+      "id": "os_caca_fantasmas",
+      "duration": 6308
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "12:00",
       "id": "supercop_police_story_3",
       "duration": 5790
+    },
+    {
+      "id": "a_hora_do_acerto",
+      "duration": 7374
+    },
+    {
+      "id": "o_resgate_do_soldado_ryan",
+      "duration": 10167
+    },
+    {
+      "id": "jurassic_park",
+      "duration": 7588
+    },
+    {
+      "id": "de_voltar_para_o_futuro_3",
+      "duration": 7098
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "12:00",
+      "id": "conan",
+      "duration": 7825
+    },
+    {
+      "id": "o_exterminador_do_futuro_2",
+      "duration": 8228
+    },
+    {
+      "id": "predador",
+      "duration": 6394
+    },
+    {
+      "id": "ajuste_final",
+      "duration": 6892
+    },
+    {
+      "id": "o_poderoso_chefao",
+      "duration": 10528
     }
   ]
 }

@@ -71,10 +71,6 @@
     {
       "id": "coracao_satanico",
       "duration": 6792
-    },
-    {
-      "id": "o_homem_de_palha_1972",
-      "duration": 5649
     }
   ],
   "dia_5": [
@@ -94,6 +90,81 @@
     {
       "id": "noite_do_espantalho",
       "duration": 5815
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "18:00",
+      "id": "psicopata_americano",
+      "duration": 6122
+    },
+    {
+      "id": "a_chave_mestra",
+      "duration": 6237
+    },
+    {
+      "id": "os_outros",
+      "duration": 6256
+    },
+    {
+      "id": "o_corvo",
+      "duration": 6116
+    }
+  ],
+  "dia_7": [
+    {
+      "start": "18:00",
+      "id": "a_lenda_do_cavaleiro_sem_cabeca",
+      "duration": 6316
+    },
+    {
+      "id": "o_iluminado",
+      "duration": 8624
+    },
+    {
+      "id": "doutor_sono",
+      "duration": 9119
+    }
+  ],
+  "dia_8": [
+    {
+      "start": "18:00",
+      "id": "entrevista_com_o_vampiro",
+      "duration": 7346
+    },
+    {
+      "id": "it_a_coisa_capitulo_um",
+      "duration": 8082
+    },
+    {
+      "id": "it_a_coisa_capitulo_dois",
+      "duration": 10162
+    }
+  ],
+  "dia_9": [
+    {
+      "id": "feriado_sangrento",
+      "duration": 6357,
+      "start": "18:00"
+    },
+    {
+      "id": "o_exorcista",
+      "duration": 7364
+    },
+    {
+      "id": "o_homem_de_palha_1972",
+      "duration": 5649
+    }
+  ],
+  "dia_10": [
+    {
+      "id": "o_enigma_de_outro_mundo",
+      "duration": 6515,
+      "start": "18:00"
+    },
+    {
+      "id": "terror_em_silent_hill",
+      "duration": 7534
     }
   ]
 }

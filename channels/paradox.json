@@ -1,30 +1,26 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-23",
+  "cycle_start": "2026-01-24",
   "dia_1": [
     {
-      "start": "19:00",
-      "id": "matrix",
-      "duration": 8179
+      "start": "18:00",
+      "id": "contato",
+      "duration": 8981
     },
     {
-      "id": "matrix_reloaded",
-      "duration": 8297
+      "id": "o_predestinado",
+      "duration": 5869
     },
     {
-      "id": "matrix_revolutions",
-      "duration": 7752
+      "id": "ghost_in_the_shell_2017",
+      "duration": 6416
     }
   ],
   "dia_2": [
     {
-      "start": "19:00",
+      "start": "18:00",
       "id": "van_helsing_o_cacador_de_monstros",
       "duration": 7892
-    },
-    {
-      "id": "o_pacto_dos_lobos",
-      "duration": 8558
     },
     {
       "id": "anjos_da_noite",
@@ -37,7 +33,7 @@
   ],
   "dia_3": [
     {
-      "start": "19:00",
+      "start": "18:00",
       "id": "corpo_fechado",
       "duration": 6400
     },
@@ -52,51 +48,122 @@
   ],
   "dia_4": [
     {
-      "start": "17:00",
+      "start": "18:00",
       "id": "o_exterminador_do_futuro",
       "duration": 6442
     },
     {
-      "id": "o_exterminador_do_futuro_2",
-      "duration": 8228
+      "id": "predador_a_cacada",
+      "duration": 5974
     },
     {
-      "id": "contato",
-      "duration": 8981
-    },
-    {
-      "id": "o_predestinado",
-      "duration": 5869
+      "id": "matrix",
+      "duration": 8202
     }
   ],
   "dia_5": [
     {
-      "start": "19:00",
+      "start": "18:00",
       "id": "requiem_para_um_sonho",
       "duration": 6091
     },
     {
-      "id": "constantine",
-      "duration": 7247
+      "id": "efeito_borboleta",
+      "duration": 7177
     },
     {
-      "id": "o_corvo",
-      "duration": 6116
+      "id": "matrix_reloaded",
+      "duration": 8220
     }
   ],
   "dia_6": [
     {
-      "start": "19:00",
+      "start": "18:00",
       "id": "12_macacos",
       "duration": 7767
     },
     {
-      "id": "ghost_in_the_shell_2017",
-      "duration": 6416
-    },
-    {
       "id": "blade_runner_2049",
       "duration": 9807
+    },
+    {
+      "id": "matrix_revolutions",
+      "duration": 7752
+    }
+  ],
+  "dia_7": [
+    {
+      "start": "18:00",
+      "id": "constantine",
+      "duration": 7247
+    },
+    {
+      "id": "v_de_vinganca",
+      "duration": 7951
+    },
+    {
+      "id": "watchmen",
+      "duration": 9723
+    }
+  ],
+  "dia_8": [
+    {
+      "start": "18:00",
+      "id": "cidade_dos_sonhos",
+      "duration": 8787
+    },
+    {
+      "id": "donnie_darko",
+      "duration": 6791
+    },
+    {
+      "id": "o_show_de_truman",
+      "duration": 6174
+    }
+  ],
+  "dia_9": [
+    {
+      "start": "18:00",
+      "id": "o_jogo_da_imitacao",
+      "duration": 6854
+    },
+    {
+      "id": "ilha_do_medo",
+      "duration": 8285
+    },
+    {
+      "id": "a_origem",
+      "duration": 8888
+    }
+  ],
+  "dia_10": [
+    {
+      "start": "18:00",
+      "id": "os_suspeitos",
+      "duration": 9191
+    },
+    {
+      "id": "o_grande_truque",
+      "duration": 7819
+    },
+    {
+      "id": "brilho_eterno_de_uma_mente_sem_lembrancas",
+      "duration": 6469
+    }
+  ],
+  "dia_11": [
+    {
+      "start": "18:00",
+      "id": "tron_o_legado",
+      "duration": 7509
+    },
+    {
+      "id": "o_experimento_de_aprisionamento_de_stanford",
+      "duration": 7313
+    },
+    {
+      "id": "o_palido_olho_azul",
+      "duration": 7808
     }
   ]
 }

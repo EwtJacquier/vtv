@@ -1,0 +1,174 @@
+{
+  "timezone": "America/Sao_Paulo",
+  "cycle_start": "2026-01-21",
+  "dia_1": [
+    {
+      "start": "13:00",
+      "id": "harry_potter_e_a_pedra_filosofal",
+      "duration": 9150
+    },
+    {
+      "id": "harry_potter_e_a_camara_secreta",
+      "duration": 9655
+    },
+    {
+      "id": "harry_potter_e_o_prisioneiro_de_azkaban",
+      "duration": 8507
+    },
+    {
+      "id": "harry_potter_e_o_calice_de_fogo",
+      "duration": 9425
+    }
+  ],
+  "dia_2": [
+    {
+      "start": "13:00",
+      "id": "harry_potter_e_a_ordem_da_fenix",
+      "duration": 8294
+    },
+    {
+      "id": "harry_potter_e_o_enigma_do_principe",
+      "duration": 9211
+    },
+    {
+      "id": "harry_potter_e_as_reliquias_da_morte_parte_1",
+      "duration": 8765
+    },
+    {
+      "id": "harry_potter_e_as_reliquias_da_morte_parte_2",
+      "duration": 7827
+    }
+  ],
+  "dia_3": [
+    {
+      "start": "13:00",
+      "id": "o_hobbit_uma_jornada_inesperada",
+      "duration": 10950
+    },
+    {
+      "id": "o_hobbit_a_desolacao_de_smaug",
+      "duration": 11195
+    },
+    {
+      "id": "o_hobbit_a_batalha_dos_cinco_exercitos",
+      "duration": 9843
+    }
+  ],
+  "dia_4": [
+    {
+      "start": "12:00",
+      "id": "o_senhor_dos_aneis_a_sociedade_do_anel",
+      "duration": 13698
+    },
+    {
+      "id": "o_senhor_dos_aneis_as_duas_torres",
+      "duration": 14124
+    },
+    {
+      "id": "o_senhor_dos_aneis_o_retorno_do_rei",
+      "duration": 15797
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "13:00",
+      "id": "piratas_do_caribe_a_maldicao_do_perola_negra",
+      "duration": 8018
+    },
+    {
+      "id": "piratas_do_caribe_o_bau_da_morte",
+      "duration": 8493
+    },
+    {
+      "id": "piratas_do_caribe_no_fim_do_mundo",
+      "duration": 9541
+    },
+    {
+      "id": "piratas_do_caribe_navegando_em_aguas_misteriosas",
+      "duration": 7674
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "13:00",
+      "id": "o_poderoso_chefao",
+      "duration": 10528
+    },
+    {
+      "id": "o_poderoso_chefao_parte_2",
+      "duration": 12034
+    },
+    {
+      "id": "o_poderoso_chefao_parte_3",
+      "duration": 9702
+    }
+  ],
+  "dia_7": [
+    {
+      "start": "13:00",
+      "id": "de_volta_para_o_futuro",
+      "duration": 6962
+    },
+    {
+      "id": "de_volta_para_o_futuro_2",
+      "duration": 6483
+    },
+    {
+      "id": "de_voltar_para_o_futuro_3",
+      "duration": 7098
+    }
+  ],
+  "dia_8": [
+    {
+      "start": "15:00",
+      "id": "matrix",
+      "duration": 8202
+    },
+    {
+      "id": "matrix_reloaded",
+      "duration": 8220
+    },
+    {
+      "id": "matrix_revolutions",
+      "duration": 7752
+    }
+  ],
+  "dia_9": [
+    {
+      "id": "a_mumia",
+      "duration": 7488,
+      "start": "16:00"
+    },
+    {
+      "id": "o_retorno_da_mumia",
+      "duration": 7773
+    },
+    {
+      "id": "a_mumia_tumba_do_imperador_dragao",
+      "duration": 6700
+    }
+  ],
+  "dia_10": [
+    {
+      "id": "rocky_um_lutador",
+      "duration": 7176,
+      "start": "14:00"
+    },
+    {
+      "id": "rocky_II_a_revanche",
+      "duration": 7150
+    },
+    {
+      "id": "rocky_III_o_desafio_supremo",
+      "duration": 5975
+    },
+    {
+      "id": "rocky_IV",
+      "duration": 5490
+    },
+    {
+      "id": "rocky_V",
+      "duration": 6250
+    }
+  ]
+}

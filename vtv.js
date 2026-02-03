@@ -462,6 +462,12 @@ function updateNowPlaying() {
     nowPlayingText.textContent = `${title} • ${formatTime(remaining)} restantes`;
     nowPlaying.classList.remove('hidden');
 
+    // Se há programa no ar mas o player não tem vídeo carregado, sincroniza agora
+    if (!hls && !player.currentSrc) {
+      syncToSchedule();
+      return;
+    }
+
     if (remaining <= 1) {
       setTimeout(() => syncToSchedule(), 2000);
     }
@@ -933,7 +939,7 @@ function openEPG() {
 
 async function loadChannelList() {
   try {
-    const knownChannels = ['imaginarium','superhero','animetv','rewindtv','neverland','paradox','afterdark'];
+    const knownChannels = ['marathon','superHero','rewindtv','epictv','animetv','hokkaido','neverland','paradox','afterDark'];
 
     const channels = [];
     for (const name of knownChannels) {
@@ -981,6 +987,16 @@ function renderChannelList(channels) {
   updateActiveChannel();
 }
 
+function updateHomeCards() {
+  const existingCards = document.querySelector('.home-channels');
+  if (!existingCards) return;
+
+  const cardsHtml = renderHomeChannels();
+  if (cardsHtml) {
+    existingCards.outerHTML = cardsHtml;
+  }
+}
+
 function updateChannelStatuses() {
   const now = getServerNow();
   document.querySelectorAll('#channel-list a').forEach(a => {
@@ -1025,6 +1041,7 @@ async function loadChannel(name) {
       updateNowPlaying();
       updateChannelStatuses();
       updateOverlayUpcoming();
+      updateHomeCards();
     }, 1000);
     updateNowPlaying();
 
@@ -1225,7 +1242,13 @@ function handleChannelChange() {
     overlay.classList.remove('hidden');
     nowPlaying.classList.add('hidden');
     updateActiveChannel();
+
+    // Mantém interval para atualizar status dos canais na home
     if (updateInterval) clearInterval(updateInterval);
+    updateInterval = setInterval(() => {
+      updateChannelStatuses();
+      updateHomeCards();
+    }, 1000);
   }
 }
 

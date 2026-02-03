@@ -268,7 +268,7 @@ def guess_caps_by_resolution(w: int | None, h: int | None) -> tuple[str, str]:
     if pixels <= 1280 * 720:
         return ("3.5M", "7M")
     if pixels <= 1920 * 1080:
-        return ("5M", "12M")
+        return ("4.5M", "11M")
     if pixels <= 2560 * 1440:
         return ("8.5M", "17M")
     return ("16M", "32M")
@@ -311,15 +311,27 @@ def main():
     require_bin("ffprobe")
 
     if len(sys.argv) < 2:
-        print("Uso: python hlsify.py <arquivo_video> [pasta_saida]")
+        print("Uso: python hlsify.py <arquivo_video> [pasta_saida] [--sub legenda.srt]")
         sys.exit(1)
 
-    input_path = sys.argv[1]
-    if not os.path.isfile(input_path):
+    # Parsear --sub do argv
+    cli_sub_path = None
+    argv_clean = []
+    i = 1
+    while i < len(sys.argv):
+        if sys.argv[i] == "--sub" and i + 1 < len(sys.argv):
+            cli_sub_path = sys.argv[i + 1]
+            i += 2
+        else:
+            argv_clean.append(sys.argv[i])
+            i += 1
+
+    input_path = argv_clean[0] if argv_clean else None
+    if not input_path or not os.path.isfile(input_path):
         print("ERRO: arquivo não existe:", input_path)
         sys.exit(1)
 
-    out_dir = Path(sys.argv[2]) if len(sys.argv) >= 3 else Path("hls_out")
+    out_dir = Path(argv_clean[1]) if len(argv_clean) >= 2 else Path("hls_out")
     ensure_dir(out_dir)
 
     meta = ffprobe_meta(input_path)
@@ -398,74 +410,160 @@ def main():
             cut_start_sec = delay_sec
             print(f"→ O vídeo será cortado em {delay_sec:.2f}s para sincronizar")
 
+    # Opção de cortar início do vídeo manualmente
+    if cut_start_sec == 0:
+        print("\n== CORTAR INÍCIO DO VÍDEO ==")
+        print("[0] Não cortar (padrão)")
+        print("[1] Cortar um trecho do início")
+        cut_choice = input("Escolha [0/1] (padrão 0): ").strip() or "0"
+
+        if cut_choice == "1":
+            cut_input = input("Cortar quanto do início? (ex: 10, 1:30, 00:02:15): ").strip()
+            cut_val = parse_timestamp(cut_input)
+            if cut_val is not None and cut_val > 0:
+                cut_start_sec = cut_val
+                print(f"→ Os primeiros {cut_val:.2f}s serão cortados")
+            else:
+                print("Valor inválido, não será cortado.")
+
     # Legenda: remover ou queimar
     print("\n== LEGENDA ==")
     burn_sub = False
     chosen_sub = None
+    external_sub_path = None  # Caminho para legenda externa SRT
     sub_start_sec = None
     sub_end_sec = None
-    if sub_streams:
-        mode = input("Legenda: [0] remover, [1] queimar (burn-in) uma faixa? (0/1): ").strip()
-        if mode == "1":
+    sub_margin_pct = 0
+
+    external_sub_charenc = None  # Encoding da legenda externa
+
+    if cli_sub_path:
+        # Legenda externa passada por --sub
+        if os.path.isfile(cli_sub_path):
+            burn_sub = True
+            external_sub_path = cli_sub_path
+            print(f"→ Legenda externa (via --sub): {cli_sub_path}")
+            # Perguntar encoding
+            print("\nEncoding do arquivo de legenda:")
+            print("[0] UTF-8 (padrão)")
+            print("[1] Latin-1 / ISO-8859-1 (comum em legendas BR/PT)")
+            print("[2] CP1252 / Windows-1252")
+            print("[3] Outro (digitar)")
+            enc_choice = input("Escolha [0/1/2/3] (padrão 0): ").strip() or "0"
+            if enc_choice == "1":
+                external_sub_charenc = "latin1"
+            elif enc_choice == "2":
+                external_sub_charenc = "cp1252"
+            elif enc_choice == "3":
+                external_sub_charenc = input("Digite o encoding: ").strip()
+        else:
+            print(f"ERRO: legenda não encontrada: {cli_sub_path}")
+            sys.exit(1)
+    else:
+        # Menu interativo
+        print("[0] Sem legenda / remover legendas embutidas")
+        print("[1] Queimar legenda EMBUTIDA (do arquivo de vídeo)")
+        print("[2] Queimar legenda EXTERNA (arquivo .srt)")
+        sub_mode = input("Escolha [0/1/2] (padrão 0): ").strip() or "0"
+
+        if sub_mode == "2":
+            # Legenda externa
+            burn_sub = True
+            ext_path = input("Caminho do arquivo .srt: ").strip()
+            if ext_path and os.path.isfile(ext_path):
+                external_sub_path = ext_path
+                print(f"→ Legenda externa: {ext_path}")
+                # Perguntar encoding
+                print("\nEncoding do arquivo de legenda:")
+                print("[0] UTF-8 (padrão)")
+                print("[1] Latin-1 / ISO-8859-1 (comum em legendas BR/PT)")
+                print("[2] CP1252 / Windows-1252")
+                print("[3] Outro (digitar)")
+                enc_choice = input("Escolha [0/1/2/3] (padrão 0): ").strip() or "0"
+                if enc_choice == "1":
+                    external_sub_charenc = "latin1"
+                elif enc_choice == "2":
+                    external_sub_charenc = "cp1252"
+                elif enc_choice == "3":
+                    external_sub_charenc = input("Digite o encoding: ").strip()
+            else:
+                print("Arquivo não encontrado, cancelando legenda.")
+                burn_sub = False
+
+        elif sub_mode == "1" and sub_streams:
             burn_sub = True
             print("\nEscolha qual faixa de legenda quer QUEIMAR no vídeo:")
             chosen_sub = pick_stream(sub_streams, "Escolha a LEGENDA [0..] (ou vazio/n para não): ", allow_none=True)
             if chosen_sub is None:
                 burn_sub = False
-            else:
-                # Detectar tipo de legenda
-                sub_codec = chosen_sub.get("codec_name", "")
-                if is_image_subtitle(sub_codec):
-                    print(f"→ Legenda de IMAGEM detectada ({sub_codec}) - será usada overlay")
-                else:
-                    print(f"→ Legenda de TEXTO detectada ({sub_codec}) - será usada subtitles")
 
-                # Perguntar se quer burn-in completo ou parcial
-                print("\nModo de burn-in:")
-                print("[0] Completo (vídeo inteiro)")
-                print("[1] Parcial (de XX:XX:XX até XX:XX:XX)")
-                burn_mode = input("Escolha [0/1] (padrão 0): ").strip() or "0"
-                if burn_mode == "1":
-                    print("\nDigite os timestamps no formato HH:MM:SS ou MM:SS")
-                    start_input = input("Início (ex: 00:05:00): ").strip()
-                    end_input = input("Fim (ex: 01:30:00): ").strip()
-                    sub_start_sec = parse_timestamp(start_input)
-                    sub_end_sec = parse_timestamp(end_input)
-                    if sub_start_sec is None or sub_end_sec is None:
-                        print("Timestamp inválido, usando burn-in completo.")
-                        sub_start_sec = None
-                        sub_end_sec = None
-                    elif sub_start_sec >= sub_end_sec:
-                        print("Início deve ser menor que fim, usando burn-in completo.")
-                        sub_start_sec = None
-                        sub_end_sec = None
-                    else:
-                        print(f"→ Legenda será queimada de {start_input} até {end_input} ({sub_end_sec - sub_start_sec:.0f}s)")
-    else:
-        print("Nenhuma faixa de legenda detectada. (ok)")
+        elif sub_mode == "1" and not sub_streams:
+            print("Nenhuma legenda embutida encontrada no arquivo.")
+            burn_sub = False
+
+    if burn_sub and (chosen_sub is not None or external_sub_path is not None):
+        # Detectar tipo de legenda (externa é sempre texto)
+        if chosen_sub is not None:
+            sub_codec = chosen_sub.get("codec_name", "")
+            if is_image_subtitle(sub_codec):
+                print(f"→ Legenda de IMAGEM detectada ({sub_codec}) - será usada overlay")
+            else:
+                print(f"→ Legenda de TEXTO detectada ({sub_codec}) - será usada subtitles")
+
+        # Perguntar se quer burn-in completo ou parcial
+        print("\nModo de burn-in:")
+        print("[0] Completo (vídeo inteiro)")
+        print("[1] Parcial (de XX:XX:XX até XX:XX:XX)")
+        burn_mode = input("Escolha [0/1] (padrão 0): ").strip() or "0"
+        if burn_mode == "1":
+            print("\nDigite os timestamps no formato HH:MM:SS ou MM:SS")
+            start_input = input("Início (ex: 00:05:00): ").strip()
+            end_input = input("Fim (ex: 01:30:00): ").strip()
+            sub_start_sec = parse_timestamp(start_input)
+            sub_end_sec = parse_timestamp(end_input)
+            if sub_start_sec is None or sub_end_sec is None:
+                print("Timestamp inválido, usando burn-in completo.")
+                sub_start_sec = None
+                sub_end_sec = None
+            elif sub_start_sec >= sub_end_sec:
+                print("Início deve ser menor que fim, usando burn-in completo.")
+                sub_start_sec = None
+                sub_end_sec = None
+            else:
+                print(f"→ Legenda será queimada de {start_input} até {end_input} ({sub_end_sec - sub_start_sec:.0f}s)")
+
+        # Perguntar sobre posição vertical da legenda
+        print("\nPosição vertical da legenda:")
+        print("[0] Padrão (posição original)")
+        print("[1] Subir legenda (evita corte na parte inferior)")
+        pos_choice = input("Escolha [0/1] (padrão 0): ").strip() or "0"
+        if pos_choice == "1":
+            margin_input = input("Subir quantos % da altura do vídeo? (ex: 10, 20) [padrão 10]: ").strip() or "10"
+            try:
+                sub_margin_pct = int(margin_input)
+                if sub_margin_pct < 0 or sub_margin_pct > 50:
+                    print("Valor deve ser entre 0 e 50%, usando 10%")
+                    sub_margin_pct = 10
+                print(f"→ Legenda será movida {sub_margin_pct}% para cima")
+            except ValueError:
+                print("Valor inválido, usando posição padrão")
+                sub_margin_pct = 0
 
     # Segment time
-    segment_time = input("\nDuração do segmento (segundos) [padrão 4]: ").strip() or "4"
+    segment_time = "4"
 
-    # Encode mode
-    encode_mode = choose_encode_mode(v_codec)
+    # Encode mode: GPU NVENC como padrão
+    encode_mode = "nvenc"
 
-    # Qualidade defaults otimizados pra tamanho
-    if encode_mode == "cpu":
-        # CRF mais alto = menor. 25 é um bom “TV”
-        q = input("\nQualidade CPU (CRF) [padrão 25]: ").strip() or "25"
-    elif encode_mode in ("nvenc", "qsv", "amf"):
-        # CQ/GQ mais alto = menor. 30 é bom.
-        q = input("\nQualidade GPU (CQ/GQ) [padrão 27]: ").strip() or "27"
-    else:
-        q = ""
+    # Qualidade GPU (CQ) padrão
+    q = "28"
 
-    # Maxrate/bufsize (cap)
-    maxrate = input(f"\nmaxrate (ex: 5.5M) [padrão {maxrate_def}]: ").strip() or maxrate_def
-    bufsize = input(f"bufsize (ex: 11M) [padrão {bufsize_def}]: ").strip() or bufsize_def
+    # Maxrate/bufsize (cap) - usar valores calculados por resolução
+    maxrate = maxrate_def
+    bufsize = bufsize_def
 
-    # Áudio
-    a_bitrate = input("\nBitrate do áudio AAC (ex: 128k/192k) [padrão 128k]: ").strip() or "128k"
+    # Áudio - bitrate padrão
+    a_bitrate = "128k"
 
     # Ajuste de volume (dB)
     volume_db = input("\nAjuste de volume em dB (ex: 3 para +3dB, -5 para -5dB) [padrão 0]: ").strip() or "0"
@@ -475,11 +573,8 @@ def main():
         print("Valor inválido, usando 0dB")
         volume_db_val = 0.0
 
-    # Forçar 8-bit (útil para vídeos 10-bit com encoders que não suportam)
-    force_8bit = False
-    if encode_mode in ("nvenc", "qsv", "amf"):
-        force_8bit_input = input("\nForçar conversão para 8-bit? (necessário se vídeo 10-bit) [s/N]: ").strip().lower()
-        force_8bit = force_8bit_input in ("s", "sim", "y", "yes")
+    # Forçar 8-bit (padrão para GPU - necessário para vídeos 10-bit)
+    force_8bit = True
 
     # Upscaling
     upscale_res = None
@@ -565,7 +660,30 @@ def main():
         vf_filters.append(f"scale={target_w}:{target_h}:flags=lanczos")
 
     # Queimar legenda
-    if burn_sub and chosen_sub is not None:
+    if burn_sub and external_sub_path is not None:
+        # Legenda externa (arquivo SRT separado)
+        escaped_path = external_sub_path.replace("\\", "\\\\").replace("'", "\\'").replace(":", "\\:")
+
+        # Montar opções do filtro subtitles
+        sub_opts = [f"'{escaped_path}'"]
+
+        # Encoding (para legendas não-UTF8)
+        if external_sub_charenc:
+            sub_opts.append(f"charenc={external_sub_charenc}")
+
+        # Ajuste de margem vertical (force_style com MarginV)
+        if sub_margin_pct > 0:
+            margin_pixels = int(1080 * sub_margin_pct / 100)
+            sub_opts.append(f"force_style='MarginV={margin_pixels}'")
+
+        if sub_start_sec is not None and sub_end_sec is not None:
+            # Burn-in parcial: usa enable para ativar apenas no trecho
+            sub_opts.append(f"enable='between(t,{sub_start_sec},{sub_end_sec})'")
+
+        vf_filters.append(f"subtitles={':'.join(sub_opts)}")
+
+    elif burn_sub and chosen_sub is not None:
+        # Legenda embutida no arquivo de vídeo
         sub_abs_idx = chosen_sub["index"]  # índice absoluto no arquivo
         # Calcular índice relativo dentro das streams de legenda
         sub_rel_idx = 0
@@ -577,29 +695,52 @@ def main():
             # Legendas de imagem (PGS, DVD): usar filter_complex com overlay
             use_filter_complex = True
 
+            # Montar opções do overlay
+            overlay_opts = []
+
+            # Ajuste de posição vertical (offset negativo para subir)
+            # Legendas PGS já vêm com posição, aplicamos offset em pixels
+            if sub_margin_pct > 0:
+                # Calcula offset em pixels baseado na altura do vídeo principal
+                # y=0 mantém posição original, y=-N sobe N pixels
+                offset_expr = f"-main_h*{sub_margin_pct}/100"
+                overlay_opts.append(f"y={offset_expr}")
+
             # Montar enable se for parcial
-            enable_str = ""
             if sub_start_sec is not None and sub_end_sec is not None:
-                enable_str = f"=enable='between(t\\,{sub_start_sec}\\,{sub_end_sec})'"
+                overlay_opts.append(f"enable='between(t\\,{sub_start_sec}\\,{sub_end_sec})'")
+
+            overlay_filter = f"overlay={':'.join(overlay_opts)}" if overlay_opts else "overlay"
 
             # Montar filter_complex
             if vf_filters:
                 # Com scale: [0:v]scale[v];[v][0:s:X]overlay[out]
                 scale_filter = ",".join(vf_filters)
-                filter_complex_str = f"[0:v]{scale_filter}[v];[v][0:s:{sub_rel_idx}]overlay{enable_str}[out]"
+                filter_complex_str = f"[0:v]{scale_filter}[v];[v][0:s:{sub_rel_idx}]{overlay_filter}[out]"
             else:
                 # Sem scale: [0:v][0:s:X]overlay[out]
-                filter_complex_str = f"[0:v][0:s:{sub_rel_idx}]overlay{enable_str}[out]"
+                filter_complex_str = f"[0:v][0:s:{sub_rel_idx}]{overlay_filter}[out]"
         else:
             # Legendas de texto (SRT, ASS, etc.): usar filtro subtitles
             # Escapar caracteres especiais no path para o filtro subtitles
             escaped_path = input_path.replace("\\", "\\\\").replace("'", "\\'").replace(":", "\\:")
+
+            # Montar opções do filtro subtitles
+            sub_opts = [f"'{escaped_path}'", f"si={sub_rel_idx}"]
+
+            # Ajuste de margem vertical (force_style com MarginV)
+            # MarginV em pixels - usamos altura de referência 1080p e escalamos
+            if sub_margin_pct > 0:
+                # Calcula margem em pixels baseado em 1080p como referência
+                # Para 20% de 1080 = 216 pixels
+                margin_pixels = int(1080 * sub_margin_pct / 100)
+                sub_opts.append(f"force_style='MarginV={margin_pixels}'")
+
             if sub_start_sec is not None and sub_end_sec is not None:
                 # Burn-in parcial: usa enable para ativar apenas no trecho
-                vf_filters.append(f"subtitles='{escaped_path}':si={sub_rel_idx}:enable='between(t,{sub_start_sec},{sub_end_sec})'")
-            else:
-                # Burn-in completo
-                vf_filters.append(f"subtitles='{escaped_path}':si={sub_rel_idx}")
+                sub_opts.append(f"enable='between(t,{sub_start_sec},{sub_end_sec})'")
+
+            vf_filters.append(f"subtitles={':'.join(sub_opts)}")
 
     # Aplica filtros e mapeamento
     if use_filter_complex:
