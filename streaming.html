@@ -482,7 +482,11 @@
 
         document.getElementById('search').addEventListener('input', updateView);
 
-        document.getElementById('useEnhanced').addEventListener('change', () => {
+        const enhancedCheckbox = document.getElementById('useEnhanced');
+        enhancedCheckbox.checked = localStorage.getItem('vtv_useEnhanced') === 'true';
+
+        enhancedCheckbox.addEventListener('change', () => {
+            localStorage.setItem('vtv_useEnhanced', enhancedCheckbox.checked);
             updateView();
         });
 

@@ -108,6 +108,7 @@
 
         /* Painel de filtros */
         .filters-panel {
+            display: none;
             position: fixed;
             right: 0;
             top: 50%;
@@ -308,17 +309,25 @@
         <div class="filter-control">
             <label>
                 <span>Nitidez (Sharpen)</span>
-                <span id="sharpenValue">0.3</span>
+                <span id="sharpenValue">0.2</span>
             </label>
-            <input type="range" id="sharpen" min="0" max="2" step="0.1" value="0.3">
+            <input type="range" id="sharpen" min="0" max="2" step="0.1" value="0.2">
         </div>
 
         <div class="filter-control">
             <label>
                 <span>Deblocking</span>
-                <span id="deblockValue">0.2</span>
+                <span id="deblockValue">4</span>
             </label>
-            <input type="range" id="deblock" min="0" max="3" step="0.1" value="0.2">
+            <input type="range" id="deblock" min="0" max="4" step="0.1" value="4">
+        </div>
+
+        <div class="filter-control">
+            <label>
+                <span>Limiar Escuro</span>
+                <span id="darkThreshValue">0.1</span>
+            </label>
+            <input type="range" id="darkThresh" min="0.05" max="1.0" step="0.05" value="0.1">
         </div>
 
         <div class="filter-control">
@@ -384,6 +393,7 @@
             uniform vec2 u_textureSize;
             uniform float u_sharpen;
             uniform float u_deblock;
+            uniform float u_darkThresh;
             uniform float u_contrast;
             uniform float u_saturation;
             uniform float u_grain;
@@ -434,17 +444,35 @@
                 vec3 br = texture2D(u_texture, v_texCoord + vec2(texel.x, texel.y)).rgb;
 
                 // DEBLOCKING BILATERAL: roda ANTES do sharpen pra limpar artefatos
-                // Filtro bilateral: suaviza cores parecidas (bordas de blocos)
-                // e preserva cores diferentes (bordas reais da imagem)
+                // Só atua em áreas planas (cores próximas) e escuras
                 if (u_deblock > 0.0) {
                     float luma = dot(color, vec3(0.2126, 0.7152, 0.0722));
-                    float darkFactor = smoothstep(0.35, 0.05, luma);
 
-                    // Range threshold ESCALA com o slider:
-                    // slider baixo = só pega diferenças minúsculas (blocos sutis)
-                    // slider alto = pega diferenças maiores (blocos grosseiros)
-                    // darkFactor amplia pra compensar artefatos mais visíveis no escuro
-                    float rt = u_deblock * (0.04 + darkFactor * 0.04) + 0.02;
+                    // darkGate: controlado pelo slider, corta áreas mais claras que o limiar
+                    float fadeW = max(u_darkThresh * 0.3, 0.02);
+                    float darkGate = 1.0 - smoothstep(u_darkThresh - fadeW, u_darkThresh, luma);
+
+                    // darkBoost: reforço extra em áreas muito escuras (blocos piores)
+                    float darkBoost = smoothstep(0.3, 0.05, luma);
+
+                    // Detectar planura local: variância baixa = área plana (blocos)
+                    // variância alta = detalhe real (não mexer)
+                    vec3 nMean = (tl + tc + tr + ml + color + mr + bl + bc + br) / 9.0;
+                    float localVar = (
+                        dot(tl - nMean, tl - nMean) + dot(tc - nMean, tc - nMean) +
+                        dot(tr - nMean, tr - nMean) + dot(ml - nMean, ml - nMean) +
+                        dot(color - nMean, color - nMean) + dot(mr - nMean, mr - nMean) +
+                        dot(bl - nMean, bl - nMean) + dot(bc - nMean, bc - nMean) +
+                        dot(br - nMean, br - nMean)
+                    ) / 9.0;
+
+                    // flatness: 1.0 em áreas uniformes, 0.0 em áreas detalhadas
+                    float varThresh = 0.003 + u_deblock * 0.002;
+                    float flatness = 1.0 - smoothstep(varThresh * 0.3, varThresh, localVar);
+
+                    // Range threshold APERTADO: só cores realmente próximas
+                    // Slider controla força e multi-escala, não tolerância de cor
+                    float rt = 0.04 + darkBoost * 0.03 + u_deblock * 0.005;
                     float rtHalf = rt * 0.5;
 
                     // Peso bilateral por vizinho: cor similar = peso alto
@@ -467,12 +495,12 @@
                         bl * w_bl + bc * w_bc + br * w_br
                     ) / totalW;
 
-                    // Mix escala gradualmente com dark boost
-                    float strength = min(u_deblock * (0.35 + darkFactor * 0.15), 1.0);
+                    // Força = slider * boost escuro * planura * gate de escuridão
+                    float strength = min(u_deblock * (0.4 + darkBoost * 0.2), 1.0) * flatness * darkGate;
                     color = mix(color, filtered, strength);
 
                     // MULTI-ESCALA: kernel cresce com o slider
-                    // Cada escala entra suavemente e usa bilateral pra não borrar bordas
+                    // Cada escala gateada por flatness pra não borrar áreas detalhadas
 
                     // Escala 2px (deblock > 0.3): blocos pequenos
                     if (u_deblock > 0.3) {
@@ -491,7 +519,7 @@
                         float tw2 = 4.0 + w2t + w2l + w2r + w2b;
                         vec3 f2 = (color * 4.0 + s2_t * w2t + s2_l * w2l + s2_r * w2r + s2_b * w2b) / tw2;
 
-                        float fade2 = smoothstep(0.3, 1.0, u_deblock) * (0.3 + darkFactor * 0.15);
+                        float fade2 = smoothstep(0.3, 1.0, u_deblock) * (0.3 + darkBoost * 0.15) * flatness * darkGate;
                         color = mix(color, f2, fade2);
                     }
 
@@ -512,7 +540,7 @@
                         float tw4 = 4.0 + w4t + w4l + w4r + w4b;
                         vec3 f4 = (color * 4.0 + s4_t * w4t + s4_l * w4l + s4_r * w4r + s4_b * w4b) / tw4;
 
-                        float fade4 = smoothstep(1.0, 2.0, u_deblock) * (0.25 + darkFactor * 0.15);
+                        float fade4 = smoothstep(1.0, 2.0, u_deblock) * (0.25 + darkBoost * 0.15) * flatness * darkGate;
                         color = mix(color, f4, fade4);
                     }
 
@@ -533,7 +561,7 @@
                         float tw8 = 4.0 + w8t + w8l + w8r + w8b;
                         vec3 f8 = (color * 4.0 + s8_t * w8t + s8_l * w8l + s8_r * w8r + s8_b * w8b) / tw8;
 
-                        float fade8 = smoothstep(2.0, 3.0, u_deblock) * (0.2 + darkFactor * 0.15);
+                        float fade8 = smoothstep(2.0, 3.0, u_deblock) * (0.2 + darkBoost * 0.15) * flatness * darkGate;
                         color = mix(color, f8, fade8);
                     }
                 }
@@ -580,11 +608,12 @@
 
         const filterValues = {
             enabled: true,
-            sharpen: 0.3,
-            deblock: 0.0,
+            sharpen: 0.2,
+            deblock: 4,
             contrast: 1.0,
             saturation: 1.2,
-            grain: 0.01
+            grain: 0.01,
+            darkThresh: 0.1
         };
 
         function initWebGL(canvas, video) {
@@ -677,6 +706,7 @@
             gl.uniform2f(gl.getUniformLocation(program, 'u_textureSize'), video.videoWidth, video.videoHeight);
             gl.uniform1f(gl.getUniformLocation(program, 'u_sharpen'), filterValues.sharpen);
             gl.uniform1f(gl.getUniformLocation(program, 'u_deblock'), filterValues.deblock);
+            gl.uniform1f(gl.getUniformLocation(program, 'u_darkThresh'), filterValues.darkThresh);
             gl.uniform1f(gl.getUniformLocation(program, 'u_contrast'), filterValues.contrast);
             gl.uniform1f(gl.getUniformLocation(program, 'u_saturation'), filterValues.saturation);
             gl.uniform1f(gl.getUniformLocation(program, 'u_grain'), filterValues.grain);
@@ -705,7 +735,7 @@
                 filterValues.enabled = e.target.checked;
             });
 
-            ['sharpen', 'deblock', 'contrast', 'saturation', 'grain'].forEach(name => {
+            ['sharpen', 'deblock', 'darkThresh', 'contrast', 'saturation', 'grain'].forEach(name => {
                 const slider = document.getElementById(name);
                 const valueDisplay = document.getElementById(name + 'Value');
 
