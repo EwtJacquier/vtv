@@ -108,7 +108,6 @@
 
         /* Painel de filtros */
         .filters-panel {
-            display: none;
             position: fixed;
             right: 0;
             top: 50%;
@@ -214,7 +213,6 @@
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
             border-radius: 3px;
             width: 0%;
-            transition: width 0.1s;
             position: relative;
         }
 
@@ -318,17 +316,17 @@
         <div class="filter-control">
             <label>
                 <span>Deblocking</span>
-                <span id="deblockValue">0.0</span>
+                <span id="deblockValue">0.2</span>
             </label>
-            <input type="range" id="deblock" min="0" max="1.5" step="0.1" value="0.2">
+            <input type="range" id="deblock" min="0" max="3" step="0.1" value="0.2">
         </div>
 
         <div class="filter-control">
             <label>
                 <span>Granulação (Grain)</span>
-                <span id="grainValue">0.0</span>
+                <span id="grainValue">0.01</span>
             </label>
-            <input type="range" id="grain" min="0" max="0.5" step="0.02" value="0">
+            <input type="range" id="grain" min="0" max="0.5" step="0.01" value="0.01">
         </div>
 
         <div class="filter-control">
@@ -342,9 +340,9 @@
         <div class="filter-control">
             <label>
                 <span>Saturação</span>
-                <span id="saturationValue">1.0</span>
+                <span id="saturationValue">1.2</span>
             </label>
-            <input type="range" id="saturation" min="0" max="2" step="0.05" value="1.0">
+            <input type="range" id="saturation" min="0" max="2" step="0.05" value="1.2">
         </div>
     </div>
 
@@ -409,9 +407,11 @@
                 return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
             }
 
-            // Função de ruído para granulação
-            float random(vec2 co) {
-                return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+            // Hash sem padrões lineares (evita riscos do sin-dot)
+            float hash(vec2 p) {
+                p = fract(p * vec2(443.8975, 397.2973));
+                p += dot(p, p.yx + 19.19);
+                return fract(p.x * p.y);
             }
 
             void main() {
@@ -433,38 +433,116 @@
                 vec3 bc = texture2D(u_texture, v_texCoord + vec2(0.0, texel.y)).rgb;
                 vec3 br = texture2D(u_texture, v_texCoord + vec2(texel.x, texel.y)).rgb;
 
-                // SHARPEN: Kernel laplaciano agressivo
-                // Kernel: [-1,-1,-1; -1,9,-1; -1,-1,-1] com intensidade ajustável
-                if (u_sharpen > 0.0) {
-                    vec3 laplacian = color * 9.0 - tl - tc - tr - ml - mr - bl - bc - br;
-                    // Mistura entre original e sharpened
-                    color = mix(color, laplacian, u_sharpen);
-                    color = clamp(color, 0.0, 1.0);
+                // DEBLOCKING BILATERAL: roda ANTES do sharpen pra limpar artefatos
+                // Filtro bilateral: suaviza cores parecidas (bordas de blocos)
+                // e preserva cores diferentes (bordas reais da imagem)
+                if (u_deblock > 0.0) {
+                    float luma = dot(color, vec3(0.2126, 0.7152, 0.0722));
+                    float darkFactor = smoothstep(0.35, 0.05, luma);
+
+                    // Range threshold ESCALA com o slider:
+                    // slider baixo = só pega diferenças minúsculas (blocos sutis)
+                    // slider alto = pega diferenças maiores (blocos grosseiros)
+                    // darkFactor amplia pra compensar artefatos mais visíveis no escuro
+                    float rt = u_deblock * (0.04 + darkFactor * 0.04) + 0.02;
+                    float rtHalf = rt * 0.5;
+
+                    // Peso bilateral por vizinho: cor similar = peso alto
+                    float w_tl = (1.0 - smoothstep(rtHalf, rt, length(tl - color)));
+                    float w_tc = (1.0 - smoothstep(rtHalf, rt, length(tc - color))) * 2.0;
+                    float w_tr = (1.0 - smoothstep(rtHalf, rt, length(tr - color)));
+                    float w_ml = (1.0 - smoothstep(rtHalf, rt, length(ml - color))) * 2.0;
+                    float w_mr = (1.0 - smoothstep(rtHalf, rt, length(mr - color))) * 2.0;
+                    float w_bl = (1.0 - smoothstep(rtHalf, rt, length(bl - color)));
+                    float w_bc = (1.0 - smoothstep(rtHalf, rt, length(bc - color))) * 2.0;
+                    float w_br = (1.0 - smoothstep(rtHalf, rt, length(br - color)));
+
+                    float centerW = 4.0;
+                    float totalW = centerW + w_tl + w_tc + w_tr + w_ml + w_mr + w_bl + w_bc + w_br;
+
+                    vec3 filtered = (
+                        color * centerW +
+                        tl * w_tl + tc * w_tc + tr * w_tr +
+                        ml * w_ml + mr * w_mr +
+                        bl * w_bl + bc * w_bc + br * w_br
+                    ) / totalW;
+
+                    // Mix escala gradualmente com dark boost
+                    float strength = min(u_deblock * (0.35 + darkFactor * 0.15), 1.0);
+                    color = mix(color, filtered, strength);
+
+                    // MULTI-ESCALA: kernel cresce com o slider
+                    // Cada escala entra suavemente e usa bilateral pra não borrar bordas
+
+                    // Escala 2px (deblock > 0.3): blocos pequenos
+                    if (u_deblock > 0.3) {
+                        vec2 t2 = texel * 2.0;
+                        vec3 s2_t = texture2D(u_texture, v_texCoord + vec2(0.0, -t2.y)).rgb;
+                        vec3 s2_l = texture2D(u_texture, v_texCoord + vec2(-t2.x, 0.0)).rgb;
+                        vec3 s2_r = texture2D(u_texture, v_texCoord + vec2(t2.x, 0.0)).rgb;
+                        vec3 s2_b = texture2D(u_texture, v_texCoord + vec2(0.0, t2.y)).rgb;
+
+                        float rt2 = rt * 1.3;
+                        float rt2h = rt2 * 0.5;
+                        float w2t = 1.0 - smoothstep(rt2h, rt2, length(s2_t - color));
+                        float w2l = 1.0 - smoothstep(rt2h, rt2, length(s2_l - color));
+                        float w2r = 1.0 - smoothstep(rt2h, rt2, length(s2_r - color));
+                        float w2b = 1.0 - smoothstep(rt2h, rt2, length(s2_b - color));
+                        float tw2 = 4.0 + w2t + w2l + w2r + w2b;
+                        vec3 f2 = (color * 4.0 + s2_t * w2t + s2_l * w2l + s2_r * w2r + s2_b * w2b) / tw2;
+
+                        float fade2 = smoothstep(0.3, 1.0, u_deblock) * (0.3 + darkFactor * 0.15);
+                        color = mix(color, f2, fade2);
+                    }
+
+                    // Escala 4px (deblock > 1.0): macroblocos médios
+                    if (u_deblock > 1.0) {
+                        vec2 t4 = texel * 4.0;
+                        vec3 s4_t = texture2D(u_texture, v_texCoord + vec2(0.0, -t4.y)).rgb;
+                        vec3 s4_l = texture2D(u_texture, v_texCoord + vec2(-t4.x, 0.0)).rgb;
+                        vec3 s4_r = texture2D(u_texture, v_texCoord + vec2(t4.x, 0.0)).rgb;
+                        vec3 s4_b = texture2D(u_texture, v_texCoord + vec2(0.0, t4.y)).rgb;
+
+                        float rt4 = rt * 1.6;
+                        float rt4h = rt4 * 0.5;
+                        float w4t = 1.0 - smoothstep(rt4h, rt4, length(s4_t - color));
+                        float w4l = 1.0 - smoothstep(rt4h, rt4, length(s4_l - color));
+                        float w4r = 1.0 - smoothstep(rt4h, rt4, length(s4_r - color));
+                        float w4b = 1.0 - smoothstep(rt4h, rt4, length(s4_b - color));
+                        float tw4 = 4.0 + w4t + w4l + w4r + w4b;
+                        vec3 f4 = (color * 4.0 + s4_t * w4t + s4_l * w4l + s4_r * w4r + s4_b * w4b) / tw4;
+
+                        float fade4 = smoothstep(1.0, 2.0, u_deblock) * (0.25 + darkFactor * 0.15);
+                        color = mix(color, f4, fade4);
+                    }
+
+                    // Escala 8px (deblock > 2.0): macroblocos grandes (H.264 16x16)
+                    if (u_deblock > 2.0) {
+                        vec2 t8 = texel * 8.0;
+                        vec3 s8_t = texture2D(u_texture, v_texCoord + vec2(0.0, -t8.y)).rgb;
+                        vec3 s8_l = texture2D(u_texture, v_texCoord + vec2(-t8.x, 0.0)).rgb;
+                        vec3 s8_r = texture2D(u_texture, v_texCoord + vec2(t8.x, 0.0)).rgb;
+                        vec3 s8_b = texture2D(u_texture, v_texCoord + vec2(0.0, t8.y)).rgb;
+
+                        float rt8 = rt * 2.0;
+                        float rt8h = rt8 * 0.5;
+                        float w8t = 1.0 - smoothstep(rt8h, rt8, length(s8_t - color));
+                        float w8l = 1.0 - smoothstep(rt8h, rt8, length(s8_l - color));
+                        float w8r = 1.0 - smoothstep(rt8h, rt8, length(s8_r - color));
+                        float w8b = 1.0 - smoothstep(rt8h, rt8, length(s8_b - color));
+                        float tw8 = 4.0 + w8t + w8l + w8r + w8b;
+                        vec3 f8 = (color * 4.0 + s8_t * w8t + s8_l * w8l + s8_r * w8r + s8_b * w8b) / tw8;
+
+                        float fade8 = smoothstep(2.0, 3.0, u_deblock) * (0.2 + darkFactor * 0.15);
+                        color = mix(color, f8, fade8);
+                    }
                 }
 
-                // DEBLOCKING: Suavização seletiva baseada em gradiente
-                // Detecta regiões com baixo gradiente (áreas planas com blocking) e suaviza
-                if (u_deblock > 0.0) {
-                    // Calcular gradiente local (edge detection)
-                    float gradX = length(mr - ml);
-                    float gradY = length(bc - tc);
-                    float gradient = gradX + gradY;
-
-                    // Em áreas com baixo gradiente, aplicar blur
-                    // Em áreas com alto gradiente (bordas), manter original
-                    float edgeThreshold = 0.1;
-                    float blurAmount = smoothstep(edgeThreshold, 0.0, gradient) * u_deblock;
-
-                    if (blurAmount > 0.01) {
-                        // Blur gaussiano 3x3
-                        vec3 blurred = (
-                            tl + tr + bl + br +          // cantos: peso 1
-                            (tc + ml + mr + bc) * 2.0 +  // cruz: peso 2
-                            color * 4.0                   // centro: peso 4
-                        ) / 16.0;
-
-                        color = mix(color, blurred, blurAmount);
-                    }
+                // SHARPEN: Kernel laplaciano (roda depois do deblock)
+                if (u_sharpen > 0.0) {
+                    vec3 laplacian = color * 9.0 - tl - tc - tr - ml - mr - bl - bc - br;
+                    color = mix(color, laplacian, u_sharpen);
+                    color = clamp(color, 0.0, 1.0);
                 }
 
                 // Contraste
@@ -483,9 +561,9 @@
 
                 // Granulação (Film Grain)
                 if (u_grain > 0.0) {
-                    // Ruído que varia com tempo e posição
-                    float noise = random(v_texCoord * u_textureSize + u_time) * 2.0 - 1.0;
-                    // Aplicar granulação
+                    // Seed 2D com offsets diferentes por eixo (evita riscos diagonais)
+                    vec2 seed = v_texCoord * u_textureSize + vec2(u_time * 13.7, u_time * 7.3);
+                    float noise = hash(seed) * 2.0 - 1.0;
                     color += noise * u_grain;
                     color = clamp(color, 0.0, 1.0);
                 }
@@ -497,6 +575,8 @@
         // WebGL setup
         let gl, program, texture;
         let animationId;
+        let grainTime = 0;
+        let lastRenderTime = 0;
 
         const filterValues = {
             enabled: true,
@@ -504,7 +584,7 @@
             deblock: 0.0,
             contrast: 1.0,
             saturation: 1.2,
-            grain: 0.02
+            grain: 0.01
         };
 
         function initWebGL(canvas, video) {
@@ -582,6 +662,13 @@
                 gl.viewport(0, 0, canvas.width, canvas.height);
             }
 
+            // Grain time só avança quando o vídeo está tocando
+            const now = performance.now() * 0.001;
+            if (!video.paused) {
+                grainTime += now - lastRenderTime;
+            }
+            lastRenderTime = now;
+
             // Atualizar textura com frame do vídeo
             gl.bindTexture(gl.TEXTURE_2D, texture);
             gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
@@ -593,7 +680,7 @@
             gl.uniform1f(gl.getUniformLocation(program, 'u_contrast'), filterValues.contrast);
             gl.uniform1f(gl.getUniformLocation(program, 'u_saturation'), filterValues.saturation);
             gl.uniform1f(gl.getUniformLocation(program, 'u_grain'), filterValues.grain);
-            gl.uniform1f(gl.getUniformLocation(program, 'u_time'), performance.now() * 0.001);
+            gl.uniform1f(gl.getUniformLocation(program, 'u_time'), grainTime);
             gl.uniform1i(gl.getUniformLocation(program, 'u_enableFilters'), filterValues.enabled ? 1 : 0);
 
             // Desenhar
@@ -685,16 +772,45 @@
             });
 
             // Progress
+            let isDragging = false;
+            let wasPlayingBeforeDrag = false;
+
+            function scrubToPosition(e) {
+                const rect = progressBar.getBoundingClientRect();
+                const pos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                progressFill.style.width = (pos * 100) + '%';
+                timeDisplay.textContent = `${formatTime(pos * video.duration)} / ${formatTime(video.duration || 0)}`;
+                return pos;
+            }
+
             video.addEventListener('timeupdate', () => {
+                if (isDragging) return;
                 const progress = (video.currentTime / video.duration) * 100;
                 progressFill.style.width = progress + '%';
                 timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration || 0)}`;
             });
 
-            progressBar.addEventListener('click', (e) => {
-                const rect = progressBar.getBoundingClientRect();
-                const pos = (e.clientX - rect.left) / rect.width;
+            progressBar.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                wasPlayingBeforeDrag = !video.paused;
+                video.pause();
+                scrubToPosition(e);
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                scrubToPosition(e);
+            });
+
+            document.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
+                const pos = scrubToPosition(e);
                 video.currentTime = pos * video.duration;
+                isDragging = false;
+                if (wasPlayingBeforeDrag) {
+                    video.play();
+                }
             });
 
             // Fullscreen
@@ -775,6 +891,7 @@
 
                     hls.on(Hls.Events.MANIFEST_PARSED, () => {
                         video.play().catch(() => {});
+                        lastRenderTime = performance.now() * 0.001;
                         render(video, canvas);
                     });
 
@@ -787,6 +904,7 @@
                     video.src = streamUrl;
                     video.addEventListener('loadedmetadata', () => {
                         video.play().catch(() => {});
+                        lastRenderTime = performance.now() * 0.001;
                         render(video, canvas);
                     });
                 }

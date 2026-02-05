@@ -170,5 +170,16 @@
       "id": "rocky_V",
       "duration": 6250
     }
+  ],
+  "dia_11": [
+    {
+      "start": "17:00",
+      "id": "duna_parte_1",
+      "duration": 9325
+    },
+    {
+      "id": "duna_parte_2",
+      "duration": 9947
+    }
   ]
 }

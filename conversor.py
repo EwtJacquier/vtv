@@ -660,8 +660,10 @@ def main():
     # Upscaling/downscaling
     if upscale_res:
         target_w, target_h = upscale_res
-        # Usa lanczos para melhor qualidade em upscale
-        vf_filters.append(f"scale={target_w}:{target_h}:flags=lanczos")
+        if use_cuda_decode:
+            vf_filters.append(f"scale_cuda={target_w}:{target_h}")
+        else:
+            vf_filters.append(f"scale={target_w}:{target_h}:flags=lanczos")
 
     # Queimar legenda
     if burn_sub and external_sub_path is not None:
@@ -746,6 +748,18 @@ def main():
 
             vf_filters.append(f"subtitles={':'.join(sub_opts)}")
 
+    # Com CUDA decode + force_8bit, garantir conversão de formato na GPU
+    if use_cuda_decode and force_8bit and not use_filter_complex:
+        has_scale_cuda = any("scale_cuda" in f for f in vf_filters)
+        if has_scale_cuda:
+            # Já tem scale_cuda (de upscale), adicionar format=yuv420p nele
+            vf_filters = [
+                f.replace("scale_cuda=", "scale_cuda=format=yuv420p:") if "scale_cuda" in f else f
+                for f in vf_filters
+            ]
+        else:
+            vf_filters.append("scale_cuda=format=yuv420p")
+
     # Aplica filtros e mapeamento
     if use_filter_complex:
         cmd += ["-filter_complex", filter_complex_str]
@@ -773,7 +787,7 @@ def main():
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
     elif encode_mode == "nvenc":
         # NVENC: CQ + cap (senão explode fácil)
-        if force_8bit:
+        if force_8bit and not use_cuda_decode:
             cmd += ["-pix_fmt", "yuv420p"]
         cmd += ["-c:v", "h264_nvenc", "-preset", "p4", "-cq", str(q),
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]

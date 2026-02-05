@@ -2,3 +2,5 @@ movies_hls/
 movies_hls/*
 movies/*
 __pycache__/*
+*.srt
+*.sup

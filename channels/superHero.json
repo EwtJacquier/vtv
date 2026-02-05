@@ -174,5 +174,54 @@
       "id": "batman_o_cavaleiro_das_trevas_ressurge",
       "duration": 9873
     }
+  ],
+  "dia_11": [
+    {
+      "start": "14:00",
+      "id": "x_men_primeira_classe",
+      "duration": 7903
+    },
+    {
+      "id": "x_men_dias_de_um_futuro_esquecido",
+      "duration": 8926
+    },
+    {
+      "id": "x_men_apocalipse",
+      "duration": 8637
+    }
+  ],
+  "dia_12": [
+    {
+      "start": "14:00",
+      "id": "batman_2022",
+      "duration": 10551
+    },
+    {
+      "id": "superman_2025",
+      "duration": 7763
+    },
+    {
+      "id": "batman_a_mascara_do_fantasma",
+      "duration": 4587
+    },
+    {
+      "id": "batman_do_futuro_o_retorno_do_coringa",
+      "duration": 4604
+    }
+  ],
+  "dia_13": [
+    {
+      "start": "17:00",
+      "id": "logan",
+      "duration": 8243
+    },
+    {
+      "id": "dead_pool_e_wolverine",
+      "duration": 7667
+    },
+    {
+      "id": "watchmen",
+      "duration": 9723
+    }
   ]
 }

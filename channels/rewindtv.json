@@ -76,6 +76,10 @@
     {
       "id": "os_caca_fantasmas",
       "duration": 6308
+    },
+    {
+      "id": "a_espera_de_um_milagre",
+      "duration": 11316
     }
   ],
   "dia_4": [
@@ -120,8 +124,8 @@
       "duration": 6892
     },
     {
-      "id": "o_poderoso_chefao",
-      "duration": 10528
+      "id": "rocky_um_lutador",
+      "duration": 7176
     }
   ]
 }
