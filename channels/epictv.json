@@ -3,6 +3,15 @@
   "cycle_start": "2026-01-26",
   "dia_1": [
     {
+      "id": "duna_parte_1",
+      "duration": 9325,
+      "start": "11:00"
+    },
+    {
+      "id": "duna_parte_2",
+      "duration": 9947
+    },
+    {
       "id": "gladiador",
       "duration": 10259,
       "start": "19:00"
@@ -13,6 +22,15 @@
     }
   ],
   "dia_2": [
+    {
+      "id": "gladiador",
+      "duration": 10259,
+      "start": "11:00"
+    },
+    {
+      "id": "django_livre",
+      "duration": 9923
+    },
     {
       "start": "19:00",
       "id": "o_pacto_dos_lobos",
@@ -25,6 +43,15 @@
   ],
   "dia_3": [
     {
+      "start": "11:00",
+      "id": "o_pacto_dos_lobos",
+      "duration": 9053
+    },
+    {
+      "id": "troia",
+      "duration": 11763
+    },
+    {
       "start": "19:00",
       "id": "van_helsing_o_cacador_de_monstros",
       "duration": 7892
@@ -35,6 +62,15 @@
     }
   ],
   "dia_4": [
+    {
+      "start": "11:00",
+      "id": "van_helsing_o_cacador_de_monstros",
+      "duration": 7892
+    },
+    {
+      "id": "cruzada",
+      "duration": 8666
+    },
     {
       "id": "duna_parte_1",
       "duration": 9325,

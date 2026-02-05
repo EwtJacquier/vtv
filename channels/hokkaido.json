@@ -29,7 +29,7 @@
       "duration": 1743
     },
     {
-      "id": "jujutsu_kaizen_0",
+      "id": "jujutsu_kaisen_0",
       "duration": 6295,
       "start": "19:20"
     },
@@ -45,6 +45,19 @@
   ],
   "dia_2": [
     {
+      "start": "11:00",
+      "id": "jujutsu_kaisen_inventario_oculto_e_morte_prematura",
+      "duration": 6613
+    },
+    {
+      "id": "alita_parte_1",
+      "duration": 1741
+    },
+    {
+      "id": "alita_parte_2",
+      "duration": 1743
+    },
+    {
       "start": "14:00",
       "id": "fatal_fury_a_vinganca",
       "duration": 4268
@@ -58,9 +71,13 @@
       "duration": 5777
     },
     {
-      "start": "18:20",
+      "start": "18:00",
       "id": "air_o_filme",
       "duration": 5489
+    },
+    {
+      "id": "slayers_o_filme",
+      "duration": 3884
     },
     {
       "start": "21:00",
@@ -73,6 +90,15 @@
     }
   ],
   "dia_3": [
+    {
+      "start": "11:00",
+      "id": "air_o_filme",
+      "duration": 5489
+    },
+    {
+      "id": "slayers_o_filme",
+      "duration": 3884
+    },
     {
       "start": "14:00",
       "id": "casshan_parte_1",
@@ -112,6 +138,15 @@
   ],
   "dia_4": [
     {
+      "start": "11:00",
+      "id": "final_fantasy_7_last_order",
+      "duration": 1524
+    },
+    {
+      "id": "final_fantasy_7_advent_children",
+      "duration": 7594
+    },
+    {
       "start": "14:00",
       "id": "spriggan",
       "duration": 5431
@@ -126,14 +161,130 @@
       "duration": 5398
     },
     {
-      "start": "19:00",
+      "start": "19:20",
+      "id": "samurai_x_o_filme",
+      "duration": 5455
+    },
+    {
+      "id": "persona_3_parte_1",
+      "duration": 5912
+    },
+    {
+      "id": "persona_3_parte_2",
+      "duration": 5898
+    }
+  ],
+  "dia_5": [
+    {
+      "start": "11:00",
+      "id": "mobile_suit_gundam_thunderbolt_december_sky",
+      "duration": 4183
+    },
+    {
+      "id": "mobile_suit_gundam_thunderbolt_bandit_flower",
+      "duration": 5398
+    },
+    {
+      "start": "14:00",
+      "id": "nausicaa_do_vale_do_vento",
+      "duration": 7045
+    },
+    {
+      "id": "patlabor_o_filme",
+      "duration": 5944
+    },
+    {
+      "id": "patlabor_2_o_filme",
+      "duration": 6811
+    },
+    {
+      "start": "18:00",
+      "id": "chainsaw_man_filme_1",
+      "duration": 7179
+    },
+    {
+      "id": "chainsaw_man_filme_2",
+      "duration": 5712
+    },
+    {
+      "id": "persona_3_parte_3",
+      "duration": 5228
+    },
+    {
+      "id": "persona_3_parte_4",
+      "duration": 6328
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "11:00",
+      "id": "patlabor_o_filme",
+      "duration": 5944
+    },
+    {
+      "id": "patlabor_2_o_filme",
+      "duration": 6811
+    },
+    {
+      "start": "14:00",
+      "id": "fate_stay_night_heavens_feel_I",
+      "duration": 7255
+    },
+    {
+      "id": "fate_stay_night_heavens_feel_II",
+      "duration": 7044
+    },
+    {
+      "id": "fate_stay_night_heavens_feel_III",
+      "duration": 7343
+    },
+    {
+      "id": "one_piece_barao_omatsuri_e_a_ilha_secreta",
+      "duration": 5485
+    },
+    {
       "id": "chainsaw_man_arco_da_reze",
       "duration": 6016
     },
     {
-      "start": "22:00",
-      "id": "samurai_x_o_filme",
-      "duration": 5455
+      "id": "memories_magnetic_rose",
+      "duration": 2661
+    }
+  ],
+  "dia_7": [
+    {
+      "start": "11:00",
+      "id": "one_piece_barao_omatsuri_e_a_ilha_secreta",
+      "duration": 5485
+    },
+    {
+      "id": "chainsaw_man_arco_da_reze",
+      "duration": 6016
+    },
+    {
+      "start": "14:00",
+      "id": "jujutsu_kaisen_inventario_oculto_e_morte_prematura",
+      "duration": 6613
+    },
+    {
+      "id": "jujutsu_kaisen_0",
+      "duration": 6295
+    },
+    {
+      "start": "18:00",
+      "id": "kuroko_no_basket_sombra_e_luz",
+      "duration": 5258
+    },
+    {
+      "id": "kuroko_no_basket_alem_das_lagrimas",
+      "duration": 5255
+    }
+  ],
+  "dia_8": [
+    {
+      "start": "18:00",
+      "id": "kuroko_no_basket_atravessando_a_porta",
+      "duration": 5279
     }
   ]
 }

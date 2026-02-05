@@ -633,8 +633,12 @@ def main():
     if volume_db_val != 0.0:
         print(f"Volume: {'+' if volume_db_val > 0 else ''}{volume_db_val}dB")
 
-    # Montar comando ffmpeg
+    use_cuda_decode = (encode_mode == "nvenc") and (not burn_sub)
     cmd = ["ffmpeg", "-hide_banner", "-y"]
+    if use_cuda_decode:
+        cmd += ["-hwaccel", "cuda", "-hwaccel_output_format", "cuda"]
+
+    #cmd += ["-threads", "6"]
 
     # Aumentar analyzeduration e probesize para legendas PGS
     cmd += ["-analyzeduration", "100M", "-probesize", "100M"]

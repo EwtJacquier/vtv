@@ -103,6 +103,55 @@
             font-size: 0.85rem;
         }
 
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            padding: 0 2rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .channel-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+
+        .channel-tag {
+            font-size: 0.65rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 8px;
+            background: rgba(102, 126, 234, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .movies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -234,6 +283,8 @@
         </label>
     </div>
 
+    <div class="filters-container" id="filters"></div>
+
     <div class="stats" id="stats"></div>
 
     <div class="movies-grid" id="movies-grid">
@@ -242,18 +293,31 @@
 
     <script>
         const MOVIES_DIR = './movies_hls';
+        const CHANNELS_DIR = './channels';
 
-        // Lista de filmes (será preenchida dinamicamente)
+        const CHANNEL_FILES = [
+            'afterDark', 'animetv', 'epictv', 'hokkaido',
+            'marathon', 'neverland', 'paradox', 'rewindtv', 'superHero'
+        ];
+
         let movies = [];
+        let allChannels = [];
+        let activeFilter = null;
 
-        // Formatar nome do filme para exibição
         function formatTitle(id) {
             return id
                 .replace(/_/g, ' ')
                 .replace(/\b\w/g, c => c.toUpperCase());
         }
 
-        // Criar card de filme
+        function formatChannelName(filename) {
+            return filename
+                .replace(/([A-Z])/g, ' $1')
+                .replace(/^\s/, '')
+                .replace(/\b\w/g, c => c.toUpperCase())
+                .trim();
+        }
+
         function createMovieCard(movie) {
             const useEnhanced = document.getElementById('useEnhanced').checked;
             const playerPage = useEnhanced ? 'player_enhanced.html' : 'player.html';
@@ -262,7 +326,10 @@
             card.className = 'movie-card';
             card.href = `${playerPage}?movie=${encodeURIComponent(movie.id)}`;
 
-            const thumbUrl = `${MOVIES_DIR}/${movie.id}/thumb.jpg?v=`+Date.now();
+            const thumbUrl = `${MOVIES_DIR}/${movie.id}/thumb.jpg`;
+            const tagsHtml = movie.channels.map(ch =>
+                `<span class="channel-tag">${formatChannelName(ch)}</span>`
+            ).join('');
 
             card.innerHTML = `
                 <div class="movie-thumb-container">
@@ -276,13 +343,13 @@
                 </div>
                 <div class="movie-info">
                     <div class="movie-title">${movie.title}</div>
+                    <div class="channel-tags">${tagsHtml}</div>
                 </div>
             `;
 
             return card;
         }
 
-        // Renderizar grid de filmes
         function renderMovies(moviesToRender) {
             const grid = document.getElementById('movies-grid');
             grid.innerHTML = '';
@@ -297,107 +364,128 @@
             });
         }
 
-        // Normalizar texto: remover acentos, cedilha, converter para minúsculas
         function normalizeText(text) {
             return text
                 .toLowerCase()
                 .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '') // Remove acentos
-                .replace(/ç/g, 'c')              // Cedilha
-                .replace(/ñ/g, 'n');             // Ñ espanhol
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/ç/g, 'c')
+                .replace(/ñ/g, 'n');
         }
 
-        // Filtrar filmes por busca
-        function filterMovies(query) {
+        function getFilteredMovies() {
+            const query = document.getElementById('search').value;
             const normalizedQuery = normalizeText(query.trim());
-            if (!normalizedQuery) {
-                return movies;
+
+            let filtered = movies;
+
+            if (activeFilter) {
+                filtered = filtered.filter(m => m.channels.includes(activeFilter));
             }
 
-            return movies.filter(movie =>
-                normalizeText(movie.title).includes(normalizedQuery) ||
-                normalizeText(movie.id).includes(normalizedQuery)
-            );
+            if (normalizedQuery) {
+                filtered = filtered.filter(movie =>
+                    normalizeText(movie.title).includes(normalizedQuery) ||
+                    normalizeText(movie.id).includes(normalizedQuery)
+                );
+            }
+
+            return filtered;
         }
 
-        // Carregar lista de filmes via API simples (listando diretórios)
+        function updateView() {
+            const filtered = getFilteredMovies();
+            document.getElementById('stats').textContent =
+                filtered.length === movies.length
+                    ? `${movies.length} filmes disponíveis`
+                    : `${filtered.length} de ${movies.length} filmes`;
+            renderMovies(filtered);
+        }
+
+        function renderFilters() {
+            const container = document.getElementById('filters');
+            container.innerHTML = '';
+
+            const allBtn = document.createElement('button');
+            allBtn.className = 'filter-btn' + (activeFilter === null ? ' active' : '');
+            allBtn.textContent = `Todos (${movies.length})`;
+            allBtn.addEventListener('click', () => {
+                activeFilter = null;
+                renderFilters();
+                updateView();
+            });
+            container.appendChild(allBtn);
+
+            allChannels.forEach(ch => {
+                const count = movies.filter(m => m.channels.includes(ch)).length;
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn' + (activeFilter === ch ? ' active' : '');
+                btn.textContent = `${formatChannelName(ch)} (${count})`;
+                btn.addEventListener('click', () => {
+                    activeFilter = activeFilter === ch ? null : ch;
+                    renderFilters();
+                    updateView();
+                });
+                container.appendChild(btn);
+            });
+        }
+
         async function loadMovies() {
             try {
-                // Tentar carregar lista de filmes de um arquivo JSON
-                // Se não existir, tenta método alternativo
-                let movieList = [];
+                const movieMap = {};
 
-                try {
-                    const response = await fetch(`${MOVIES_DIR}/catalog.json`);
-                    if (response.ok) {
-                        movieList = await response.json();
-                    }
-                } catch (e) {
-                    // Arquivo não existe, usar fallback
-                }
+                const fetches = CHANNEL_FILES.map(async (chName) => {
+                    try {
+                        const res = await fetch(`${CHANNELS_DIR}/${chName}.json?v=`+Date.now());
+                        if (!res.ok) return;
+                        const data = await res.json();
 
-                if (movieList.length === 0) {
-                    // Fallback: tentar carregar index.html do diretório (se servidor permitir listing)
-                    // Ou usar lista hardcoded / gerada por script
-                    const response = await fetch(`${MOVIES_DIR}/`);
-                    const text = await response.text();
-
-                    // Tentar parsear links de diretório
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(text, 'text/html');
-                    const links = doc.querySelectorAll('a');
-
-                    links.forEach(link => {
-                        const href = link.getAttribute('href');
-                        if (href && !href.startsWith('.') && !href.startsWith('/') && href.endsWith('/')) {
-                            const id = href.replace(/\/$/, '');
-                            if (id && id !== 'Parent Directory') {
-                                movieList.push({ id });
+                        for (const key of Object.keys(data)) {
+                            if (!key.startsWith('dia_')) continue;
+                            for (const entry of data[key]) {
+                                if (!entry.id) continue;
+                                if (!movieMap[entry.id]) {
+                                    movieMap[entry.id] = {
+                                        id: entry.id,
+                                        title: formatTitle(entry.id),
+                                        channels: []
+                                    };
+                                }
+                                if (!movieMap[entry.id].channels.includes(chName)) {
+                                    movieMap[entry.id].channels.push(chName);
+                                }
                             }
                         }
-                    });
-                }
-
-                // Formatar filmes (sem verificar thumbs - usa onerror no img)
-                movies = movieList.map((m) => {
-                    const id = typeof m === 'string' ? m : m.id;
-                    return {
-                        id,
-                        title: formatTitle(id)
-                    };
+                    } catch (e) {
+                        console.warn(`Erro ao carregar canal ${chName}:`, e);
+                    }
                 });
 
-                // Ordenar alfabeticamente
+                await Promise.all(fetches);
+
+                movies = Object.values(movieMap);
                 movies.sort((a, b) => a.title.localeCompare(b.title));
 
-                // Atualizar stats
-                document.getElementById('stats').textContent = `${movies.length} filmes disponíveis`;
+                allChannels = [...new Set(movies.flatMap(m => m.channels))].sort((a, b) =>
+                    formatChannelName(a).localeCompare(formatChannelName(b))
+                );
 
-                renderMovies(movies);
+                renderFilters();
+                updateView();
 
             } catch (error) {
                 console.error('Erro ao carregar filmes:', error);
                 document.getElementById('movies-grid').innerHTML =
-                    '<div class="error">Erro ao carregar catálogo. Gere o catalog.json com: python generate_catalog.py</div>';
+                    '<div class="error">Erro ao carregar catálogo dos canais.</div>';
             }
         }
 
-        // Event listener para busca
-        document.getElementById('search').addEventListener('input', (e) => {
-            const filtered = filterMovies(e.target.value);
-            document.getElementById('stats').textContent =
-                `${filtered.length} de ${movies.length} filmes`;
-            renderMovies(filtered);
-        });
+        document.getElementById('search').addEventListener('input', updateView);
 
-        // Event listener para toggle enhanced
         document.getElementById('useEnhanced').addEventListener('change', () => {
-            const query = document.getElementById('search').value;
-            const filtered = filterMovies(query);
-            renderMovies(filtered);
+            updateView();
         });
 
-        // Carregar filmes ao iniciar
         loadMovies();
     </script>
 </body>

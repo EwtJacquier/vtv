@@ -462,12 +462,6 @@ function updateNowPlaying() {
     nowPlayingText.textContent = `${title} • ${formatTime(remaining)} restantes`;
     nowPlaying.classList.remove('hidden');
 
-    // Se há programa no ar mas o player não tem vídeo carregado, sincroniza agora
-    if (!hls && !player.currentSrc) {
-      syncToSchedule();
-      return;
-    }
-
     if (remaining <= 1) {
       setTimeout(() => syncToSchedule(), 2000);
     }
@@ -987,16 +981,6 @@ function renderChannelList(channels) {
   updateActiveChannel();
 }
 
-function updateHomeCards() {
-  const existingCards = document.querySelector('.home-channels');
-  if (!existingCards) return;
-
-  const cardsHtml = renderHomeChannels();
-  if (cardsHtml) {
-    existingCards.outerHTML = cardsHtml;
-  }
-}
-
 function updateChannelStatuses() {
   const now = getServerNow();
   document.querySelectorAll('#channel-list a').forEach(a => {
@@ -1008,6 +992,50 @@ function updateChannelStatuses() {
     if (statusEl) {
       statusEl.className = `channel-status status-${status}`;
       statusEl.querySelector('.status-label').textContent = label;
+    }
+  });
+}
+
+function updateHomeChannels() {
+  const cards = document.querySelectorAll('.home-channel-card');
+  if (cards.length === 0) return;
+
+  const now = getServerNow();
+  const nowSeconds = getSecondsOfDay(now);
+
+  cards.forEach(card => {
+    const chName = card.dataset.channel;
+    const chData = allChannelsData[chName];
+    if (!chData) return;
+
+    const { status, label } = getChannelStatus(chData, now);
+
+    const statusEl = card.querySelector('.home-channel-status');
+    if (statusEl) {
+      statusEl.className = `home-channel-status status-${status}`;
+      statusEl.querySelector('.status-label').textContent = label;
+    }
+
+    const filmEl = card.querySelector('.home-channel-film');
+    if (filmEl) {
+      const programs = expandSchedule(getTodayPrograms(chData, now));
+      const current = findCurrentProgram(programs, nowSeconds);
+
+      let filmInfo = '';
+      if (current) {
+        const title = capitalize(current.program.id.replace(/_/g, ' '));
+        filmInfo = `<span class="home-film-label">Agora:</span> ${title}`;
+      } else {
+        const next = findNextProgram(chData, now);
+        if (next) {
+          const title = capitalize(next.program.id.replace(/_/g, ' '));
+          const time = formatTimeHHMM(next.program.start);
+          filmInfo = `<span class="home-film-label">Próximo ${time}:</span> ${title}`;
+        } else {
+          filmInfo = 'Sem programação';
+        }
+      }
+      filmEl.innerHTML = filmInfo;
     }
   });
 }
@@ -1041,7 +1069,7 @@ async function loadChannel(name) {
       updateNowPlaying();
       updateChannelStatuses();
       updateOverlayUpcoming();
-      updateHomeCards();
+      updateHomeChannels();
     }, 1000);
     updateNowPlaying();
 
@@ -1242,12 +1270,10 @@ function handleChannelChange() {
     overlay.classList.remove('hidden');
     nowPlaying.classList.add('hidden');
     updateActiveChannel();
-
-    // Mantém interval para atualizar status dos canais na home
     if (updateInterval) clearInterval(updateInterval);
     updateInterval = setInterval(() => {
       updateChannelStatuses();
-      updateHomeCards();
+      updateHomeChannels();
     }, 1000);
   }
 }
