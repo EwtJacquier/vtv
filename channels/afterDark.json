@@ -1,6 +1,6 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-23",
+  "cycle_start": "2026-02-04",
   "dia_1": [
     {
       "start": "18:00",
@@ -41,7 +41,7 @@
   ],
   "dia_3": [
     {
-      "start": "18:00",
+      "start": "18:45",
       "id": "ringu",
       "duration": 5726
     },
@@ -169,6 +169,17 @@
     {
       "id": "a_criada",
       "duration": 8706
+    }
+  ],
+  "dia_11": [
+    {
+      "id": "a_empregada",
+      "duration": 7882,
+      "start": "18:00"
+    },
+    {
+      "id": "a_substancia",
+      "duration": 8489
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-24",
+  "cycle_start": "2026-01-23",
   "dia_1": [
     {
       "start": "18:00",
@@ -102,8 +102,8 @@
       "duration": 7951
     },
     {
-      "id": "watchmen",
-      "duration": 9723
+      "id": "watchmen_o_filme",
+      "duration": 9726
     }
   ],
   "dia_8": [
@@ -164,6 +164,13 @@
     {
       "id": "o_palido_olho_azul",
       "duration": 7808
+    }
+  ],
+  "dia_12": [
+    {
+      "id": "o_farol",
+      "duration": 6550,
+      "start": "18:00"
     }
   ]
 }

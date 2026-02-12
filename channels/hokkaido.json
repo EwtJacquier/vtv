@@ -278,13 +278,71 @@
     {
       "id": "kuroko_no_basket_II_alem_das_lagrimas",
       "duration": 5255
+    },
+    {
+      "id": "psycho_pass_the_movie",
+      "duration": 6822
     }
   ],
   "dia_8": [
     {
+      "start": "11:00",
+      "id": "persona_3_parte_1",
+      "duration": 5912
+    },
+    {
+      "id": "persona_3_parte_2",
+      "duration": 5898
+    },
+    {
+      "start": "14:00",
+      "id": "attack_on_titan_I_arco_e_flecha_carmesin",
+      "duration": 7121
+    },
+    {
+      "id": "attack_on_titan_II_asas_da_liberdade",
+      "duration": 7203
+    },
+    {
       "start": "18:00",
       "id": "kuroko_no_basket_III_atravessando_a_porta",
       "duration": 5279
+    },
+    {
+      "id": "kuroko_no_basket_IV_o_ultimo_jogo",
+      "duration": 5438
+    },
+    {
+      "id": "psycho_pass_providence",
+      "duration": 7207
+    }
+  ],
+  "dia_9": [
+    {
+      "start": "11:00",
+      "id": "persona_3_parte_3",
+      "duration": 5228
+    },
+    {
+      "id": "persona_3_parte_4",
+      "duration": 6328
+    },
+    {
+      "start": "14:00",
+      "id": "code_geass_I_initiation",
+      "duration": 8101
+    },
+    {
+      "id": "code_geass_II_transgression",
+      "duration": 7992
+    },
+    {
+      "id": "code_geass_III_glorification",
+      "duration": 8446
+    },
+    {
+      "id": "code_geass_IV_ressurrection",
+      "duration": 6789
     }
   ]
 }

@@ -14,3 +14,6 @@ sudo mount -t ntfs-3g /dev/sdb1 /media/ewerton/Animes
 
 ## MY HDD
 python3 conversor.py /media/ewerton/HD\ EWERTON\ -\ 01/Animes/Fullmetal\ Alchemist/02\ -\ Corpos\ condenado.mkv movies_hls/full_metal_alchemist_
+
+## Remove SRT HTML REGEX
+<[^>]+>

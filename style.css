@@ -438,7 +438,7 @@ body {
   border-radius: 12px;
   width: 95%;
   max-width: 1200px;
-  height: 85vh;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -528,7 +528,7 @@ body {
 }
 
 .epg-channel-row {
-  height: 82px;
+  height: 52px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -580,7 +580,7 @@ body {
 }
 
 .epg-program-row {
-  height: 82px;
+  height: 52px;
   display: flex;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
@@ -620,12 +620,16 @@ body {
   font-weight: 500;
   color: #fff;
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .epg-program-time {
   font-size: 0.7rem;
   color: #888;
   margin-top: 0.2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .epg-program-empty {

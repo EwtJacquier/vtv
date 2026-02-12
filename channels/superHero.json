@@ -193,12 +193,16 @@
   "dia_12": [
     {
       "start": "14:00",
-      "id": "batman_2022",
-      "duration": 10551
+      "id": "quarteto_fantastico_primeiros_passos",
+      "duration": 6875
     },
     {
       "id": "superman_2025",
       "duration": 7763
+    },
+    {
+      "id": "batman_2022",
+      "duration": 10551
     },
     {
       "id": "batman_a_mascara_do_fantasma",
@@ -211,7 +215,11 @@
   ],
   "dia_13": [
     {
-      "start": "17:00",
+      "start": "14:00",
+      "id": "quarteto_fantastico",
+      "duration": 5999
+    },
+    {
       "id": "logan",
       "duration": 8243
     },
@@ -220,8 +228,8 @@
       "duration": 7667
     },
     {
-      "id": "watchmen",
-      "duration": 9723
+      "id": "watchmen_o_filme",
+      "duration": 9726
     }
   ]
 }
