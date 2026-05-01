@@ -1518,16 +1518,15 @@
     "_review": true
   },
   "jumanji": {
-    "name": "Jumanji: Próxima Fase",
+    "name": "Jumanji",
     "slug": "jumanji",
     "duration": 6246,
-    "synopsis": "A turma está de volta, mas o jogo mudou. Quando voltam para Jumanji para resgatar um amigo, descobrem que nada do que esperavam. Com mais ação e surpresas, os jogadores terão que desbravar partes desconhecidas e inexploradas, dos desertos áridos até montanhas de neve, para escapar.",
+    "synopsis": "Quando duas crianças encontram e jogam um jogo de tabuleiro mágico, elas soltam um homem preso por décadas - e uma série de perigos que só podem ser detidos ao terminar o jogo.",
     "tags": [
       "aventura",
-      "comedia",
+      "familia",
       "fantasia"
-    ],
-    "_review": true
+    ]
   },
   "juntos": {
     "name": "Juntos",
