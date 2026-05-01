@@ -1,9 +1,9 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-02-04",
+  "cycle_start": "2026-02-07",
   "dia_1": [
     {
-      "start": "18:00",
+      "start": "18:30",
       "id": "o_chamado",
       "duration": 6918
     },
@@ -18,17 +18,21 @@
     {
       "id": "a_bruxa",
       "duration": 5547
+    },
+    {
+      "id": "rua_do_medo_parte_2",
+      "duration": 6554
+    },
+    {
+      "id": "rua_do_medo_parte_3",
+      "duration": 6740
     }
   ],
   "dia_2": [
     {
-      "start": "18:00",
+      "start": "18:30",
       "id": "o_sexto_sentido",
       "duration": 6443
-    },
-    {
-      "id": "possuida",
-      "duration": 6489
     },
     {
       "id": "jogos_mortais",
@@ -37,30 +41,50 @@
     {
       "id": "a_primeira_profecia",
       "duration": 7154
+    },
+    {
+      "id": "coracao_satanico",
+      "duration": 6792
+    },
+    {
+      "id": "a_vila",
+      "duration": 6466
+    },
+    {
+      "id": "a_bruxa",
+      "duration": 5547
     }
   ],
   "dia_3": [
     {
-      "start": "18:45",
+      "start": "18:10",
       "id": "ringu",
       "duration": 5726
     },
     {
-      "id": "ringu_2",
-      "duration": 5718
+      "id": "os_outros",
+      "duration": 6256
     },
     {
-      "id": "ringu_0",
-      "duration": 5926
+      "id": "possuida",
+      "duration": 6489
     },
     {
-      "id": "poltergeist",
-      "duration": 6866
+      "id": "possuida_2",
+      "duration": 5654
+    },
+    {
+      "id": "a_primeira_profecia",
+      "duration": 7154
+    },
+    {
+      "id": "coracao_satanico",
+      "duration": 6792
     }
   ],
   "dia_4": [
     {
-      "start": "18:00",
+      "start": "18:30",
       "id": "alien_o_oitavo_passageiro",
       "duration": 6950
     },
@@ -69,13 +93,21 @@
       "duration": 11245
     },
     {
-      "id": "coracao_satanico",
-      "duration": 6792
+      "id": "poltergeist",
+      "duration": 6866
+    },
+    {
+      "id": "possuida",
+      "duration": 6489
+    },
+    {
+      "id": "possuida_2",
+      "duration": 5654
     }
   ],
   "dia_5": [
     {
-      "start": "18:00",
+      "start": "18:30",
       "id": "rec",
       "duration": 4707
     },
@@ -90,11 +122,19 @@
     {
       "id": "noite_do_espantalho",
       "duration": 5815
+    },
+    {
+      "id": "IT_1990",
+      "duration": 11245
+    },
+    {
+      "id": "poltergeist",
+      "duration": 6866
     }
   ],
   "dia_6": [
     {
-      "start": "18:00",
+      "start": "18:30",
       "id": "psicopata_americano",
       "duration": 6122
     },
@@ -109,11 +149,19 @@
     {
       "id": "o_corvo",
       "duration": 6116
+    },
+    {
+      "id": "hora_do_pesadelo",
+      "duration": 5479
+    },
+    {
+      "id": "noite_do_espantalho",
+      "duration": 5815
     }
   ],
   "dia_7": [
     {
-      "start": "18:00",
+      "start": "18:30",
       "id": "a_lenda_do_cavaleiro_sem_cabeca",
       "duration": 6316
     },
@@ -124,11 +172,19 @@
     {
       "id": "doutor_sono",
       "duration": 9119
+    },
+    {
+      "id": "os_outros",
+      "duration": 6256
+    },
+    {
+      "id": "o_corvo",
+      "duration": 6116
     }
   ],
   "dia_8": [
     {
-      "start": "18:00",
+      "start": "18:30",
       "id": "entrevista_com_o_vampiro",
       "duration": 7346
     },
@@ -139,13 +195,52 @@
     {
       "id": "it_a_coisa_capitulo_dois",
       "duration": 10162
+    },
+    {
+      "id": "o_iluminado",
+      "duration": 8624
+    },
+    {
+      "id": "doutor_sono",
+      "duration": 9119
     }
   ],
   "dia_9": [
     {
       "id": "feriado_sangrento",
       "duration": 6357,
-      "start": "18:00"
+      "start": "18:30"
+    },
+    {
+      "id": "o_exorcista",
+      "duration": 7364
+    },
+    {
+      "id": "o_homem_de_palha_1972",
+      "duration": 5649
+    },
+    {
+      "id": "it_a_coisa_capitulo_um",
+      "duration": 8082
+    },
+    {
+      "id": "it_a_coisa_capitulo_dois",
+      "duration": 10162
+    }
+  ],
+  "dia_10": [
+    {
+      "id": "o_enigma_de_outro_mundo",
+      "duration": 6515,
+      "start": "18:30"
+    },
+    {
+      "id": "terror_em_silent_hill",
+      "duration": 7534
+    },
+    {
+      "id": "a_criada",
+      "duration": 8706
     },
     {
       "id": "o_exorcista",
@@ -156,11 +251,19 @@
       "duration": 5649
     }
   ],
-  "dia_10": [
+  "dia_11": [
     {
-      "id": "o_enigma_de_outro_mundo",
-      "duration": 6515,
-      "start": "18:00"
+      "id": "a_empregada",
+      "duration": 7882,
+      "start": "18:30"
+    },
+    {
+      "id": "a_substancia",
+      "duration": 8489
+    },
+    {
+      "id": "de_olhos_bem_fechados",
+      "duration": 9551
     },
     {
       "id": "terror_em_silent_hill",
@@ -171,15 +274,46 @@
       "duration": 8706
     }
   ],
-  "dia_11": [
+  "dia_12": [
     {
-      "id": "a_empregada",
-      "duration": 7882,
-      "start": "18:00"
+      "id": "rua_do_medo_parte_1",
+      "duration": 6430,
+      "start": "18:30"
+    },
+    {
+      "id": "rua_do_medo_parte_2",
+      "duration": 6554
+    },
+    {
+      "id": "rua_do_medo_parte_3",
+      "duration": 6740
     },
     {
       "id": "a_substancia",
       "duration": 8489
+    },
+    {
+      "id": "de_olhos_bem_fechados",
+      "duration": 9551
+    }
+  ],
+  "dia_13": [
+    {
+      "id": "espiritos_a_morte_esta_ao_seu_lado",
+      "duration": 5482,
+      "start": "18:30"
+    },
+    {
+      "id": "a_propria_carne",
+      "duration": 5825
+    },
+    {
+      "id": "herege",
+      "duration": 6676
+    },
+    {
+      "id": "juntos",
+      "duration": 6096
     }
   ]
 }

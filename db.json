@@ -1,0 +1,3640 @@
+{
+  "12_macacos": {
+    "name": "Os 12 Macacos",
+    "slug": "12_macacos",
+    "duration": 7767,
+    "synopsis": "No ano de 2035, James Cole aceita a missão de voltar ao passado para tentar decifrar um mistério envolvendo um vírus mortal que atacou grande parte da população mundial. Tomado como louco, no passado, ele tenta provar a sua sanidade para a médica Kathryn Railly, sua única esperança de mudar o futuro.",
+    "tags": [
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "2001_uma_odisseia_no_espaco": {
+    "name": "2001: Uma Odisséia no Espaço",
+    "slug": "2001_uma_odisseia_no_espaco",
+    "duration": 8929,
+    "synopsis": "Desde a “Aurora do Homem” (a pré-história), um misterioso monólito negro parece emitir sinais de outra civilização, assim interferindo no nosso planeta. Quatro milhões de anos depois, no século XXI, uma equipe de astronautas liderados pelo experiente David Bowman e Frank Poole é enviada ao planeta Júpiter para investigar o enigmático monólito na nave Discovery, totalmente controlada pelo computador HAL-9000. Entretanto, no meio da viagem, HAL-9000 entra em pane e tenta assumir o controle da nave, eliminando um a um os tripulantes.",
+    "tags": [
+      "aventura",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "8_milimetros": {
+    "name": "8mm: Oito Milímetros",
+    "slug": "8_milimetros",
+    "duration": 7394,
+    "synopsis": "O detetive particular Tom Welles vive uma vida normal com sua esposa e sua filha até receber um caso novo surpreendente. Uma viúva de nome Sra. Christian encontra o que parece ser um filme entre os pertences de seu marido e ela quer que Welles investigue se o filme é real ou falso. Welles vai para a Califórnia, onde um empregado de uma loja de vídeo o ajuda a infiltrar-se no perigoso e depravado mundo dos filmes pornográficos ilegais.",
+    "tags": [
+      "suspense"
+    ]
+  },
+  "a_bela_e_a_fera": {
+    "name": "A Bela e a Fera",
+    "slug": "a_bela_e_a_fera",
+    "duration": 5505,
+    "synopsis": "Em uma pequena aldeia da França vive Belle, uma jovem inteligente que é considerada estranha pelo moradores da localidade, e seu pai, Maurice, um inventor que é visto como um louco. Ela é cortejada por Gaston, que quer casar com ela. Mas apesar de todas as jovens do lugarejo o acharem um homem bonito, Belle não o suporta, pois vê nele uma pessoa primitiva e convencida. Quando o pai de Belle vai para uma feira demonstrar sua nova invenção, ele acaba se perdendo na floresta e é atacado por lobos. Desesperado, Maurice procura abrigo em um castelo, mas acaba se tornando prisioneiro da Fera, o senhor do castelo, que na verdade é um príncipe que foi amaldiçoado por uma feiticeira quando negou abrigo a ela.",
+    "tags": [
+      "animacao",
+      "familia",
+      "fantasia",
+      "romance"
+    ]
+  },
+  "a_bruxa": {
+    "name": "A Bruxa",
+    "slug": "a_bruxa",
+    "duration": 5547,
+    "synopsis": "O casal William e Katherine leva uma vida cristã com suas cinco crianças em uma comunidade extremamente religiosa, até serem expulsos do local por sua fé diferente daquela permitida pelas autoridades. A família passa a morar num local isolado, à beira do bosque, sofrendo com a escassez de comida. Um dia, o bebê recém-nascido desaparece. Enquanto buscam respostas, cada membro da família descobre seus piores medos.",
+    "tags": [
+      "terror"
+    ],
+    "_review": true
+  },
+  "a_bruxa_de_blair": {
+    "name": "A Bruxa de Blair",
+    "slug": "a_bruxa_de_blair",
+    "duration": 4882,
+    "synopsis": "Três estudantes de cinema embrenham-se nas matas do estado de Maryland para fazer um documentário sobre a lenda da bruxa de Blair e desaparecem misteriosamente. Um ano depois, uma sacola cheia de rolos de filmes e fitas de vídeo é encontrada na mata. As imagens registradas pelo trio dão algumas pistas sobre seu macabro destino.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "a_chave_mestra": {
+    "name": "A Chave Mestra",
+    "slug": "a_chave_mestra",
+    "duration": 6237,
+    "synopsis": "Caroline aceita trabalhar como enfermeira para um casal de deficientes que vive em uma estranha mansão em Nova Orleans. Após encontrar objetos misteriosos, ela começa a desvendar o passado sinistro do casal.",
+    "tags": [
+      "drama",
+      "suspense",
+      "terror"
+    ]
+  },
+  "a_criada": {
+    "name": "A Criada",
+    "slug": "a_criada",
+    "duration": 8706,
+    "synopsis": "Coreia do Sul, anos 1930. Durante a ocupação japonesa, a jovem Sookee é contratada para trabalhar para uma herdeira nipônica, Hideko, que leva uma vida isolada ao lado do tio autoritário. Só que Sookee guarda um segredo: ela e um vigarista planejam desposar a herdeira, roubar sua fortuna e trancafiá-la em um sanatório. Tudo corre bem com o plano, até que Sookee aos poucos começa a compreender as motivações de Hideko.",
+    "tags": [
+      "drama",
+      "romance",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "a_dama_e_o_vagabundo": {
+    "name": "A Dama e o Vagabundo",
+    "slug": "a_dama_e_o_vagabundo",
+    "duration": 4584,
+    "synopsis": "A história de uma cachorrinha de classe chamada Lady que se sente abandonada pelos donos quando eles têm um bebê e acaba se envolvendo com um cachorro de rua conhecido como Vagabundo. Os dois terão que lidar com uma injusta tia que, com seus gatos de estimação, chegam na casa e acabam com o sossego de Lady.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "comedia",
+      "familia",
+      "romance"
+    ],
+    "_review": true
+  },
+  "a_empregada": {
+    "name": "A Empregada",
+    "slug": "a_empregada",
+    "duration": 7882,
+    "synopsis": "Millie é uma mulher passando por dificuldades que se sente aliviada com a chance de um novo começo como empregada doméstica de Nina e Andrew, um casal rico. Logo, ela descobre que os segredos da família são muito mais perigosos do que os seus.",
+    "tags": [
+      "suspense"
+    ],
+    "_review": true
+  },
+  "a_era_do_gelo": {
+    "name": "A Era do Gelo",
+    "slug": "a_era_do_gelo",
+    "duration": 4870,
+    "synopsis": "Vinte mil anos atrás, num mundo coberto de gelo, o mamute Manfred e a preguiça Sid resgatam um bebê humano órfão. Agora, os dois vão enfrentar muitas aventuras até devolver o filhote de gente à sua tribo, que migrou para um novo acampamento.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "comedia",
+      "familia"
+    ],
+    "_review": true
+  },
+  "a_espera_de_um_milagre": {
+    "name": "À Espera de um Milagre",
+    "slug": "a_espera_de_um_milagre",
+    "duration": 11316,
+    "synopsis": "Milagres acontecem em lugares inesperados, mesmo no bloco de celas para o corredor da morte na Penitenciária Cold Mountain. Lá, John Coffey, um gentil e gigante prisioneiro com poderes sobrenaturais, traz um senso de espírito e humanidade aos seus guardas e colegas de cela.",
+    "tags": [
+      "drama",
+      "fantasia",
+      "suspense"
+    ]
+  },
+  "a_fantastica_fabrica_de_chocolates": {
+    "name": "A Fantástica Fábrica de Chocolate",
+    "slug": "a_fantastica_fabrica_de_chocolates",
+    "duration": 6923,
+    "synopsis": "Willy Wonka é o excêntrico dono da maior fábrica de doces do planeta, que decide realizar um concurso mundial para escolher um herdeiro para seu império. Cinco crianças de sorte, entre elas Charlie Bucket, encontram um convite dourado em barras de chocolate Wonka e com isso ganham uma visita guiada pela lendária fábrica de chocolate, que não era visitada por ninguém há quinze anos.",
+    "tags": [
+      "aventura",
+      "comedia",
+      "familia",
+      "fantasia"
+    ]
+  },
+  "a_fuga_das_galinhas": {
+    "name": "A Fuga das Galinhas",
+    "slug": "a_fuga_das_galinhas",
+    "duration": 5068,
+    "synopsis": "No galinheiro de uma fazenda inglesa dos anos 1950, galinhas cumprem sua função e vivem pacatamente sonhando com uma vida melhor. Uma delas, Ginger, sonha com a liberdade e planeja sair voando dali junto com suas companheiras.",
+    "tags": [
+      "animacao",
+      "comedia",
+      "familia"
+    ],
+    "_review": true
+  },
+  "a_hora_do_acerto": {
+    "name": "A Hora do Acerto",
+    "slug": "a_hora_do_acerto",
+    "duration": 7374,
+    "synopsis": "Para a Gangue dos 5, tudo é um videogame: matar policiais, armar emboscadas e criar requintes de crueldade. Quem se torna vítima de suas armadilhas é o inspetor de polícia Wing e todo o seu time de policiais, que são brutalmente assassinados. Após a matança, um jovem novato cheio de energia é designado para ajudá-lo, mas a Gangue dos 5 volta a agir, iniciando uma aventura cheia de ação e vingança.",
+    "tags": [
+      "acao",
+      "drama",
+      "suspense"
+    ]
+  },
+  "a_lenda_do_cavaleiro_sem_cabeca": {
+    "name": "A Lenda do Cavaleiro Sem Cabeça",
+    "slug": "a_lenda_do_cavaleiro_sem_cabeca",
+    "duration": 6316,
+    "synopsis": "O jovem e cético detetive Ichabod Crane é transferido para a aldeia de Sleepy Hollow, em Nova Iorque, onde é encarregado de investigar as decapitações de três pessoas - assassinatos que os habitantes da cidade atribuem a um fantasma lendário, O Cavaleiro Sem Cabeça.",
+    "tags": [
+      "fantasia",
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "a_lenda_do_cavaleiro_verde": {
+    "name": "A Lenda do Cavaleiro Verde",
+    "slug": "a_lenda_do_cavaleiro_verde",
+    "duration": 7787,
+    "synopsis": "Gawain embarca em uma missão ousada para enfrentar o Cavaleiro Verde, um ser misterioso que apareceu em Camelot com um desafio enigmático. Arriscando sua cabeça, ele encontra fantasmas, gigantes, ladrões e enganadores em uma aventura épica.",
+    "tags": [
+      "aventura",
+      "drama",
+      "fantasia"
+    ]
+  },
+  "a_mumia": {
+    "name": "A Múmia",
+    "slug": "a_mumia",
+    "duration": 7488,
+    "synopsis": "Em 1926, um grupo de arqueólogos descobre uma tumba na cidade perdida de Hamunaptra. Dentro da tumba é encontrado o corpo de Imhotep, o sacerdote do Faraó Seti, que foi mumificado vivo além de ter recebido a mais terrível das maldições por ter dormido com a amante do faraó e, movido por ciúme doentio e amor, ter matado o Faraó. No entanto, quando um dos membros da expedição lê um manuscrito que foi encontrado pelo grupo e traz Imhotep de volta vida, ele ressurge cheio de ódio e só pensa em reencontrar sua amada e destruir todos que cruzem o seu caminho, trazendo consigo as dez pragas do Egito.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "a_mumia_tumba_do_imperador_dragao": {
+    "name": "A Múmia - Tumba do Imperador Dragão",
+    "slug": "a_mumia_tumba_do_imperador_dragao",
+    "duration": 6700,
+    "synopsis": "O imperador chinês Dragão e seu grande exército são enfeitiçados e enterrados por uma bruxa maldita. Quando o jovem arqueólogo Alex O' Connell é enganado para ressuscitar o imperador, ele e seus famosos parentes devem encontrar uma forma de mandar o mal de volta para a tumba antes que Dragão desperte seu grande exército.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "a_nova_onda_do_imperador": {
+    "name": "A Nova Onda do Imperador",
+    "slug": "a_nova_onda_do_imperador",
+    "duration": 4704,
+    "synopsis": "Divirta-se com o arrogante imperador Kuzco que é transformado em Ihama pela malvada conselheira Yzma e seu capanga bonitão Kronk, para governar o reino. Agora o imperador, que sempre teve o mundo a seus pés, tem de se aliar a um caipira simpático chamado Pacha. Mas será que essa realeza tão antipática conseguirá mudar, tornando-se uma pessoa mais bondosa e gentil?",
+    "tags": [
+      "animacao",
+      "aventura",
+      "comedia",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "a_origem": {
+    "name": "A Origem",
+    "slug": "a_origem",
+    "duration": 8888,
+    "synopsis": "Cobb é um ladrão habilidoso que comete espionagem corporativa infiltrando-se no subconsciente de seus alvos durante o estado de sono. Impedido de retornar para sua família, ele recebe a oportunidade de se redimir ao realizar uma tarefa aparentemente impossível: plantar uma ideia na mente do herdeiro de um império. Para realizar o crime perfeito, ele conta com a ajuda do parceiro Arthur, o discreto Eames e a arquiteta de sonhos Ariadne. Juntos, eles correm para que o inimigo não antecipe seus passos.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "a_pequena_sereia": {
+    "name": "A Pequena Sereia",
+    "slug": "a_pequena_sereia",
+    "duration": 4969,
+    "synopsis": "Ariel é a filha caçula do Rei Tritão, comandante dos sete mares, que está insatisfeita com sua vida. Ela deseja caminhar entre os humanos para conhecê-los melhor, mas sempre é proibida por seu pai, que considera os humanos como sendo \"bárbaros comedores de peixe\". Até que ela se apaixona por um jovem príncipe e, no intuito de conhecê-lo, resolve firmar um pacto com Úrsula, a bruxa do reino, que faz com que ela ganhe pernas e se torne uma verdadeira humana. Porém, Úrsula também tem seus planos e eles incluem a conquista do reino de Tritão.",
+    "tags": [
+      "animacao",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "a_primeira_profecia": {
+    "name": "A Primeira Profecia",
+    "slug": "a_primeira_profecia",
+    "duration": 7154,
+    "synopsis": "Uma mulher começa a questionar a sua própria fé quando descobre uma terrível conspiração para provocar o nascimento do mal encarnado em Roma.",
+    "tags": [
+      "terror"
+    ]
+  },
+  "a_princesa_mononoke": {
+    "name": "Princesa Mononoke",
+    "slug": "a_princesa_mononoke",
+    "duration": 8045,
+    "synopsis": "Um príncipe infectado por uma doença sabe que irá morrer, a menos que encontre a cura. Sendo a sua última esperança, segue para o leste e, durante o caminho, encontra animais da floresta lutando contra a sua exploração, liderados pela princesa Mononoke.",
+    "tags": [
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "a_propria_carne": {
+    "name": "A Própria Carne",
+    "slug": "a_propria_carne",
+    "duration": 5825,
+    "synopsis": "Três soldados desertores durante a Guerra do Paraguai, em 1870, cada um lutando pela sobrevivência à sua maneira, encontram uma casa isolada na fronteira, habitada apenas por um fazendeiro misterioso e uma jovem. O que parecia ser um refúgio seguro se transforma em um pesadelo aterrorizante quando os soldados descobrem que a casa esconde segredos macabros, confrontando-os com um destino ainda mais horrível do que a guerra da qual fugiram.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "a_substancia": {
+    "name": "A Substância",
+    "slug": "a_substancia",
+    "duration": 8489,
+    "synopsis": "Uma estrela em declínio descobre uma substância misteriosa que lhe permite criar uma versão mais jovem e perfeita de si mesma. No entanto, o que parece ser uma solução milagrosa para recuperar sua glória logo se transforma em um pesadelo perturbador quando as consequências desta decisão começam a se manifestar de formas sombrias e irreversíveis.",
+    "tags": [
+      "drama",
+      "ficcao_cientifica",
+      "terror"
+    ],
+    "_review": true
+  },
+  "a_viagem_de_chihiro": {
+    "name": "A Viagem de Chihiro",
+    "slug": "a_viagem_de_chihiro",
+    "duration": 7472,
+    "synopsis": "Chihiro e seus pais estão se mudando para uma cidade diferente. A caminho da nova casa, o pai decide pegar um atalho. Eles se deparam com uma mesa repleta de comida, embora ninguém esteja por perto. Chihiro sente o perigo, mas seus pais começam a comer. Quando anoitece, eles se transformam em porcos. Agora, apenas Chihiro pode salvá-los.",
+    "tags": [
+      "anime",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "a_vila": {
+    "name": "A Vila",
+    "slug": "a_vila",
+    "duration": 6466,
+    "synopsis": "Os habitantes de uma comunidade cercada por uma floresta temem que perigosas criaturas vivam lá. Eles pensam que se ficarem fora da floresta, eles serão deixados ilesos. Quando uma das moradoras da vila fica doente, o menino que a ama ignora os mais velhos da vila para ir à próxima cidade em busca de remédio.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "air_o_filme": {
+    "name": "Air: O Filme",
+    "slug": "air_o_filme",
+    "duration": 5489,
+    "synopsis": "Yukito, chega a uma pacata cidade uma semana antes do festival anual com esperanças de que ele pode fazer algum dinheiro. No entanto, quando ele conhece uma garota incomum chamada Misuzu, ele é lembrado de que sua mãe lhe disse uma vez - \"Quando você sai em sua jornada, se você encontrar a menina com asas de re-encarnação, você deve usar seu poder para libertá-la \".  Yukito e Misuzu logo começam a apaixonar-se. No entanto, quando Yukito percebe conexão Misuzu com o passado, ele deve decidir em sair da vida dela ou tentar quebrar a maldição que tem ligado Kanna em séculos de dor.",
+    "tags": [
+      "anime",
+      "fantasia",
+      "romance"
+    ],
+    "_review": true
+  },
+  "ajuste_final": {
+    "name": "Ajuste Final",
+    "slug": "ajuste_final",
+    "duration": 6892,
+    "synopsis": "Um gângster inglês e seu braço direito lutam contra os rivais pela disputa do controle do lado leste da cidade. A vida do gângster começa a desmoronar quando ele descobre que sua mulher está envolvida com seu grande rival.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "akira": {
+    "name": "Akira",
+    "slug": "akira",
+    "duration": 7486,
+    "synopsis": "Uma grande explosão fez com que Tóquio fosse destruída em 1988. Em seu lugar, foi construída Neo-Tóquio, que, em 2019, sofre com atentados terroristas por toda a cidade. Kaneda e Tetsuo são amigos que integram uma gangue de motoqueiros. Eles disputam rachas violentos com uma gangue rival, os Palhaços, até que um dia, Tetsuo encontra Takashi, uma estranha criança com poderes que fugiu do hospital onde era mantido como cobaia. Tetsuo é ferido no encontro e, antes de receber a ajuda dos amigos, é levado por integrantes do exército, liderados pelo coronel Shikishima. A partir de então, Tetsuo passa a desenvolver poderes inimagináveis, o que faz com que seja comparado ao lendário Akira, responsável pela explosão de 1988. Paralelamente, Kaneda se interessa por Kei, uma garota envolvida com espiões, que tenta decifrar o enigma por trás das cobaias controladas pelo exército.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "aladdin": {
+    "name": "Aladdin",
+    "slug": "aladdin",
+    "duration": 5440,
+    "synopsis": "Após o sultão ordenar que sua filha, a princesa Jasmine, ache um marido rapidamente, ela foge do palácio. Jasmine encontra um tipo meio malandro, Aladdin, que conquista seu coração. Porém ambos são achados pelos guardas de Jafar, o vizir do sultão. Jafar criou um feitiço para dominar o sultão, se casar com Jasmine e se tornar ele mesmo o sultão. Além disto finge que cometeu um engano e mandou decapitar Aladdin, que na verdade está vivo, pois Jafar precisa dele para conseguir uma lâmpada mágica, que é a morada de um poderoso gênio. Mas o plano de Jafar falha, pois Aladdin fica com a lâmpada graças a intervenção de um pequeno macaco, Abu, seu fiel mascote. Quando descobre que há na lâmpada um gênio poderoso, que pode se transformar em qualquer pessoa ou coisa e que lhe concederá três desejos, Aladdin planeja usá-los para conquistar Jasmine, sem imaginar que Jafar é um diabólico inimigo, que precisa ser detido.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "familia",
+      "fantasia",
+      "romance"
+    ],
+    "_review": true
+  },
+  "aladdin_e_os_40_ladroes": {
+    "name": "Aladdin e os 40 Ladrões",
+    "slug": "aladdin_e_os_40_ladroes",
+    "duration": 4894,
+    "synopsis": "Aladdin e Jasmine finalmente decidem se casar mas, antes, ele deverá impedir que os quarenta ladrões roubem um de seus presentes de casamento, um misterioso oráculo, que pode levar a riquezas muito além da imaginação. Aladdin, Jasmine, Abu, o Tapete Mágico e o Gênio enfrentam perigos e fugas arriscadas durante uma verdadeira caçada ao rei dos ladrões e seu bando.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "familia"
+    ]
+  },
+  "alien_o_oitavo_passageiro": {
+    "name": "Alien: O Oitavo Passageiro",
+    "slug": "alien_o_oitavo_passageiro",
+    "duration": 6950,
+    "synopsis": "Quando a tripulação da sonda espacial Nostromo responde a um pedido de socorro vindo de um planeta inóspito, eles descobrem uma forma de vida mortal que se reproduz dentro de humanos. Agora, a tripulação deve lutar para permanecer viva e impedir que a criatura chegue até a Terra.",
+    "tags": [
+      "ficcao_cientifica",
+      "terror"
+    ]
+  },
+  "angels_egg": {
+    "name": "Angel's Egg",
+    "slug": "angels_egg",
+    "duration": 4266,
+    "synopsis": "Em um mundo distópico e desolado, uma jovem misteriosa guarda um ovo gigante. Ela encontra um guerreiro silencioso que carrega uma arma em forma de cruz. Juntos, eles vagam pelas ruínas de uma cidade em decadência, questionando a realidade, a fé e a própria existência.",
+    "tags": [
+      "anime",
+      "fantasia",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "anjos_da_noite": {
+    "name": "Anjos da Noite",
+    "slug": "anjos_da_noite",
+    "duration": 8017,
+    "synopsis": "Na calada da noite, vampiros se envolvem em uma batalha antiga com seus inimigos, os Lycans, um grupo de lobisomens violentos. Selene, uma vampira que é órfã por conta de um ataque dos Lycan, trabalha para o clã dos vampiros como uma matadora treinada. Quando os Lycan se interessam misteriosamente por Michael Corvin, um doutor mortal excepcional, Selene luta para livrá-lo de Lucian, um cruel Lycan.",
+    "tags": [
+      "acao",
+      "fantasia",
+      "suspense"
+    ]
+  },
+  "anjos_da_noite_a_evolucao": {
+    "name": "Anjos da Noite: A Evolução",
+    "slug": "anjos_da_noite_a_evolucao",
+    "duration": 6383,
+    "synopsis": "Após o final do primeiro filme, a união de Selene a vampira e seu namorado Michael o vampiro-lobisomen terá de ser mais forte que o amor. Os dois terão de enfrentar uma legião de vampiros e lobisomen, e a evolução das espécies. Além disso, o centenário vampiro Marcus desperta de seu sono, pronto para matá-los.",
+    "tags": [
+      "acao",
+      "fantasia",
+      "suspense"
+    ]
+  },
+  "armadura_de_deus": {
+    "name": "Armadura de Deus",
+    "slug": "armadura_de_deus",
+    "duration": 5919,
+    "synopsis": "Vilões sequestraram a ex-namorada de Jackie e atual do seu amigo cantor, que não hesita em pedir sua ajuda para resgatá-la. Porém, eles devem primeiro encontrar a lendária Armadura de Deus, que torna invencível quem a usa.",
+    "tags": [
+      "acao",
+      "aventura",
+      "comedia"
+    ],
+    "_review": true
+  },
+  "as_branquelas": {
+    "name": "As Branquelas",
+    "slug": "as_branquelas",
+    "duration": 6890,
+    "synopsis": "O que acontece quando dois atrapalhados agentes do FBI se disfarçam de princesas mega-ricas para se infiltrarem na alta sociedade? O resultado é situações extremamente engraçadas e diversão total ao ver estes dois irmãos azarados transformando-se em duas senhoritas refinadas e com estilo!",
+    "tags": [
+      "comedia",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "attack_on_titan_II_asas_da_liberdade": {
+    "name": "Attack on Titan - Parte 2: Asas da Liberadade",
+    "slug": "attack_on_titan_II_asas_da_liberdade",
+    "duration": 7203,
+    "synopsis": "O filme recapitula os episódios do 14 ao 25 da 1ª Temporada do anime. Devido à recuperação do Distrito Trost aos Titãs, Eren é tomado sob a asa do Capitão Levi e sua equipe , que decidem tentar ensiná-lo a dominar suas habilidades misteriosas.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "bater_ou_correr": {
+    "name": "Bater ou Correr",
+    "slug": "bater_ou_correr",
+    "duration": 6618,
+    "synopsis": "Em 1800, uma princesa sequestrada na Cidade Proibida, na China, e levada até o Velho Oeste americano. Na tentativa de salvá-la parte Chon Wang, que se depara com uma cultura completamente diferente da sua. Ao ser atacado por cowboys armados, Wang responde com acrobáticos golpes de kung fu que deixam os americanos de cabelo em pé.",
+    "tags": [
+      "acao",
+      "aventura",
+      "comedia"
+    ],
+    "_review": true
+  },
+  "bater_ou_correr_em_londres": {
+    "name": "Bater ou Correr em Londres",
+    "slug": "bater_ou_correr_em_londres",
+    "duration": 6862,
+    "synopsis": "Dois amigos fazem uma viagem no tempo a Londres, no século 19, para recuperar o Selo Imperial da China, que foi roubado por um lorde inglês demoníaco. No caminho, eles conhecem Jack, o Estripador, Sir Arthur Conan Doyle e Charlie Chaplin ainda jovem. Tudo isso regado a muita ação e kung fu.",
+    "tags": [
+      "acao",
+      "aventura",
+      "comedia"
+    ]
+  },
+  "batman_2022": {
+    "name": "Batman",
+    "slug": "batman_2022",
+    "duration": 10551,
+    "synopsis": "Em seu segundo ano de combate ao crime, Batman descobre corrupção em Gotham City que se conecta à sua própria família enquanto enfrenta um serial killer conhecido como Charada.",
+    "tags": [
+      "super_herois",
+      "suspense"
+    ]
+  },
+  "batman_a_mascara_do_fantasma": {
+    "name": "Batman: A Máscara do Fantasma",
+    "slug": "batman_a_mascara_do_fantasma",
+    "duration": 4587,
+    "synopsis": "Sob a identidade secreta de Batman, o multimilionário Bruce Wayne combate perigosos criminosos que ameaçam Gotham City. Desta vez, além de enfrentar seu arqui-inimigo Coringa, o incansável homem-morcego encara outro terrível vilão: o Fantasma.",
+    "tags": [
+      "acao",
+      "animacao",
+      "drama",
+      "romance",
+      "super_herois",
+      "suspense"
+    ]
+  },
+  "batman_begins": {
+    "name": "Batman Begins",
+    "slug": "batman_begins",
+    "duration": 8403,
+    "synopsis": "Marcado pelo assassinato de seus pais quando ainda era criança, o milionário Bruce Wayne decide viajar pelo mundo em busca de encontrar meios que lhe permitam combater a injustiça e provocar medo em seus adversários. Após retornar a Gotham City, sua cidade-natal, ele idealiza seu alter-ego: Batman, um justiceiro mascarado que usa força, inteligência e um arsenal tecnológico para combater o crime.",
+    "tags": [
+      "acao",
+      "drama",
+      "super_herois",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "batman_do_futuro_o_retorno_do_coringa": {
+    "name": "Batman do Futuro: O Retorno do Coringa",
+    "slug": "batman_do_futuro_o_retorno_do_coringa",
+    "duration": 4604,
+    "synopsis": "Enquanto busca descobrir os segredos por trás do Coringa, Terry McGinnis, o novo Batman, descobre também a verdade por trás do maior mistério da carreira do Batman original: a verdadeira história em que Bruce Wayne e o Coringa se enfrentaram pela última vez. Mas quando o Coringa retorna à ativa e quase mata Wayne, é hora do novo Batman vingar seu mentor e acabar de uma vez por todas com a ameaça do palhaço assassino.",
+    "tags": [
+      "acao",
+      "animacao",
+      "ficcao_cientifica",
+      "super_herois",
+      "suspense"
+    ]
+  },
+  "batman_o_cavaleiro_das_trevas": {
+    "name": "Batman: O Cavaleiro das Trevas",
+    "slug": "batman_o_cavaleiro_das_trevas",
+    "duration": 9133,
+    "synopsis": "Após dois anos desde o surgimento do Batman, os criminosos de Gotham City têm muito o que temer. Com a ajuda do tenente James Gordon e do promotor público Harvey Dent, Batman luta contra o crime organizado. Acuados com o combate, os chefes do crime aceitam a proposta feita pelo Coringa e o contratam para combater o Homem-Morcego.",
+    "tags": [
+      "acao",
+      "super_herois",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "batman_o_cavaleiro_das_trevas_ressurge": {
+    "name": "Batman: O Cavaleiro das Trevas Ressurge",
+    "slug": "batman_o_cavaleiro_das_trevas_ressurge",
+    "duration": 9873,
+    "synopsis": "Após ser culpado pela morte de Harvey Dent e passar de herói a vilão, Batman desaparece. As coisas mudam com a chegada de uma ladra misteriosa, a Mulher-Gato, e Bane, um terrorista mascarado, que fazem Batman abandonar seu exílio forçado.",
+    "tags": [
+      "acao",
+      "drama",
+      "super_herois",
+      "suspense"
+    ]
+  },
+  "batman_vs_superman": {
+    "name": "Batman vs Superman: A Origem da Justiça",
+    "slug": "batman_vs_superman",
+    "duration": 10952,
+    "synopsis": "Temendo que as ações de um super-herói divino não tenham sido controladas, o formidável e vigoroso vigilante de Gotham City enfrenta o salvador mais reverenciado e moderno de Metrópolis, enquanto o mundo luta com o tipo de herói que realmente precisa. E com Batman e Superman em guerra um contra o outro, uma nova ameaça rapidamente surge, colocando a humanidade em maior perigo do que nunca antes.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "blade_runner_2049": {
+    "name": "Blade Runner 2049",
+    "slug": "blade_runner_2049",
+    "duration": 9807,
+    "synopsis": "Trinta anos após os acontecimentos do primeiro filme, um novo blade runner, o oficial K da polícia de Los Angeles, desenterra um segredo há muito enterrado que tem o potencial de mergulhar o que resta da sociedade no caos. A descoberta de K o leva a uma busca para encontrar Rick Deckard, um ex-blade runner do LAPD que está desaparecido há 30 anos.",
+    "tags": [
+      "drama",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "branca_de_neve_e_os_sete_anoes": {
+    "name": "Branca de Neve e os Sete Anões",
+    "slug": "branca_de_neve_e_os_sete_anoes",
+    "duration": 4991,
+    "synopsis": "A rainha malvada morre de ciúmes da beleza de Branca de Neve e manda mata-la. Logo, descobre que a jovem não morreu e está morando na floresta com sete amiguinhos. A princesa então é envenenada pela rainha e só o beijo de um príncipe pode salvá-la.",
+    "tags": [
+      "animacao",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "brilho_eterno_de_uma_mente_sem_lembrancas": {
+    "name": "Brilho Eterno de uma Mente sem Lembranças",
+    "slug": "brilho_eterno_de_uma_mente_sem_lembrancas",
+    "duration": 6469,
+    "synopsis": "Joel se surpreende ao saber que seu amor verdadeiro, Clementine, o apagou completamente de sua memória. Ele decide fazer o mesmo, mas muda de ideia. Preso dentro da própria mente enquanto os especialistas se mantêm ocupados em seu apartamento, Joel precisa avisá-los para parar.",
+    "tags": [
+      "drama",
+      "ficcao_cientifica",
+      "romance"
+    ]
+  },
+  "capitao_america_guerra_civil": {
+    "name": "Capitão América: Guerra Civil",
+    "slug": "capitao_america_guerra_civil",
+    "duration": 8862,
+    "synopsis": "Depois do ataque de Ultron, os políticos decidem controlar os Vingadores, já que suas ações afetam toda a humanidade. A decisão coloca o Capitão América em rota de colisão com o Homem de Ferro.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "capitao_america_o_primeiro_vingador": {
+    "name": "Capitão América: O Primeiro Vingador",
+    "slug": "capitao_america_o_primeiro_vingador",
+    "duration": 7068,
+    "synopsis": "Durante a Segunda Guerra Mundial, Steve Rogers é um homem doente, do Brooklyn, que se transforma no super soldado Capitão América para ajudar nos esforços de guerra. Rogers deve parar o Caveira Vermelha, o implacável chefe de armas de Adolf Hitler e líder de uma organização que pretende usar um misterioso mecanismo de incalculáveis poderes para dominar o mundo.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "capitao_america_o_soldado_invernal": {
+    "name": "Capitão América: O Soldado Invernal",
+    "slug": "capitao_america_o_soldado_invernal",
+    "duration": 8154,
+    "synopsis": "Após os eventos catastróficos em Nova York com Os Vingadores, Steve Rogers segue tentando se ajustar ao mundo moderno. Porém, quando um colega da agência S.H.I.E.L.D. é atacado, Steve se vê preso em uma rede de intrigas que ameaça colocar o mundo em risco. Em parceria com a Viúva Negra e Falcão, seu novo aliado, o Capitão América tem que enfrentar um misterioso e inesperado inimigo, o Soldado Invernal.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "cavaleiros_do_zodiaco_o_prologo_do_ceu": {
+    "name": "Os Cavaleiros do Zodíaco: Prólogo do Céu",
+    "slug": "cavaleiros_do_zodiaco_o_prologo_do_ceu",
+    "duration": 5011,
+    "synopsis": "Os defensores da deusa Atena ainda estão se recuperando de uma batalha contra Hades quando são obrigados a enfrentar um novo inimigo: Apolo, que lidera os cavaleiros celestiais e quer tomar o controle do santuário. Sem poder contar com a ajuda dos cavaleiros de ouro, cujas almas foram seladas para sempre pelos deuses, Seiya e os demais cavaleiros de bronze precisarão enfrentar sozinhos este desafio.",
+    "tags": [
+      "anime",
+      "fantasia"
+    ]
+  },
+  "cavaleiros_do_zodiaco_os_defensores_de_atena": {
+    "name": "Os Cavaleiros do Zodíaco: A Lenda dos Defensores de Atena",
+    "slug": "cavaleiros_do_zodiaco_os_defensores_de_atena",
+    "duration": 4487,
+    "synopsis": "O Deus Sol Abel retorna à vida, empenhado em punir os humanos e limpar a Terra de sua presença. Quando Atena se junta a ele, deixando os humanos entregues ao seu destino, os Cavaleiros de Bronze devem defender o mundo em sua maior batalha até agora.",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ]
+  },
+  "chainsaw_man_arco_da_reze": {
+    "name": "Chainsaw Man – O Filme: Arco da Reze",
+    "slug": "chainsaw_man_arco_da_reze",
+    "duration": 6016,
+    "synopsis": "Denji trabalhava como Caçador de Demônios para a yakuza, tentando pagar a dívida que herdou de seus pais, até que um dia, ele é traído e morre. Em seus últimos momentos de consciência, ele forma um pacto com Pochita e essa fusão cria o Homem-Motosserra. Agora, em uma guerra brutal contra demônios, caçadores e inimigos secretos, uma garota misteriosa chamada Reze entrou em seu universo e Denji precisa enfrentar sua batalha mais perigosa até hoje, movido pelo amor em um mundo onde a sobrevivência não conhece regras.",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia",
+      "romance"
+    ]
+  },
+  "cidade_dos_sonhos": {
+    "name": "Cidade dos Sonhos",
+    "slug": "cidade_dos_sonhos",
+    "duration": 8787,
+    "synopsis": "Uma jovem atriz viaja para Hollywood e se vê emaranhada numa intriga secreta com uma mulher que escapou por pouco de ser assassinada, e que agora se encontra com amnésia devido a um acidente de carro. Seu mundo se torna um pesadelo surreal.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "click": {
+    "name": "Click",
+    "slug": "click",
+    "duration": 6451,
+    "synopsis": "Um arquiteto casado e com filhos está cada vez mais frustrado por passar a maior parte de seu tempo trabalhando. Um dia, ele encontra um inventor excêntrico que lhe dá um controle remoto universal, com capacidade de acelerar o tempo.",
+    "tags": [
+      "comedia",
+      "drama",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "code_geass_III_glorification": {
+    "name": "Code Geass: Lelouch da Rebelião III - Glorificação",
+    "slug": "code_geass_III_glorification",
+    "duration": 8446,
+    "synopsis": "Esta é a terceira e última parte de uma compilação de três filmes do anime \"Code Geass: Lelouch of the Rebellion\".",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "ficcao_cientifica"
+    ]
+  },
+  "code_geass_II_transgression": {
+    "name": "Code Geass: Lelouch da Rebelião II - Transgressão",
+    "slug": "code_geass_II_transgression",
+    "duration": 7992,
+    "synopsis": "Tendo obtido vitórias milagrosas em uma série de batalhas contra o Exército Britânico, Lelouch Lamperouge levou os Cavaleiros Negros, sua organização paramilitar, a um estado mais poderoso do que nunca. Nada parece impossível para ele quando utiliza sua força militar, seu intelecto e o poder de seu Geass. No entanto, os obstáculos diante da revolta nunca cessam, as habilidades de combate de Kururugi Suzaku e o aparecimento de uma criança misteriosa chamada V.V. ameaçam acabar com a grande rebelião de Lelouch.",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "ficcao_cientifica"
+    ]
+  },
+  "code_geass_I_initiation": {
+    "name": "Code Geass: Lelouch da Rebelião I - Iniciação",
+    "slug": "code_geass_I_initiation",
+    "duration": 8101,
+    "synopsis": "Lelouch Lamperouge encontra uma mulher estranha que lhe concede um grande poder. Mas o poder do Geass: é uma bênção... ou uma maldição?",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "ficcao_cientifica"
+    ]
+  },
+  "conan": {
+    "name": "Conan, o Bárbaro",
+    "slug": "conan",
+    "duration": 7825,
+    "synopsis": "Há milhares de anos, Thulsa Doom, um demoníaco feiticeiro, comanda um ataque em uma aldeia por motivos até hoje não revelados, que poderia ser simplesmente pelo prazer de matar ou para descobrir o segredo do aço, que era guardado pelos moradores desta aldeia. Conan, um cimério, vê seus pais serem mortos na sua frente e seu povo ser massacrado, sendo que ele, ainda criança, é levado para um campo de escravos. Os anos passam e ele desenvolve uma enorme força física, o que faz Conan se tornar gladiador. Ele ainda se mantém determinado a vingar a morte dos pais e quando é libertado tenta alcançar seu objetivo. Conan descobre que Thulsa Doom lidera o misterioso Culto da Serpente e, tentando se aproximar do feiticeiro, faz amizade com dois ladrões, Valéria e Subotai. Ao trio é prometida uma vultosa recompensa pelo rei Osric, que quer que o trio de guerreiros resgate sua filha, que se tornou uma seguidora de Thulsa Doom.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "constantine": {
+    "name": "Constantine",
+    "slug": "constantine",
+    "duration": 7247,
+    "synopsis": "John Constantine (Keanu Reeves) é um experiente ocultista e exorcista, que literalmente chegou ao inferno. Juntamente com Angela Dodson (Rachel Weisz), uma policial cética, ele investiga o misterioso assassinato da irmã gêmea dela, Isabel. As investigações levam a dupla a um mundo sombrio, em que precisam lidar com demônios e anjos malvados.",
+    "tags": [
+      "acao",
+      "fantasia",
+      "terror"
+    ],
+    "_review": true
+  },
+  "contato": {
+    "name": "Contato",
+    "slug": "contato",
+    "duration": 8981,
+    "synopsis": "Desde quando era menina, Ellie Arroway tentou manter contato com vidas extraterrestres inteligentes. Deixou de lado sua vida particular e até mesmo o amor do teólogo Palmer Joss. Depois de anos seu sonho se tornou realidade. Com origem na distante estrela Vega, chega à Terra uma informação cifrada e Ellie é a primeira pessoa á captá-la e a única disposta a seguir cegamente a mensagem alienígena. Esta é a sua grande chance de fazer contato, mesmo que para isso tenha que correr risco de vida.",
+    "tags": [
+      "drama",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "coracao_satanico": {
+    "name": "Coração Satânico",
+    "slug": "coracao_satanico",
+    "duration": 6792,
+    "synopsis": "Nova York, 1955. Harry Angel, um detetive particular, é contratado por Louis Cyphre, um misterioso cliente para encontrar um cantor. Entretanto, quanto mais ele se aprofunda na investigação, mais distante fica da verdade. Envolve-se com figuras estranhas, que morrem violentamente e penetra em um mundo místico, que não entende.",
+    "tags": [
+      "suspense",
+      "terror"
+    ]
+  },
+  "coraline": {
+    "name": "Coraline e o Mundo Secreto",
+    "slug": "coraline",
+    "duration": 6032,
+    "synopsis": "Entediada em sua nova casa, a pequena Coraline descobre uma porta secreta que contém um mundo parecido com o dela, porém melhor em muitas maneiras. Coraline se encanta com a descoberta, mas logo descobre que há algo de errado quando seus pais alternativos tentam mantê-la eternamente nesse mundo paralelo.",
+    "tags": [
+      "animacao",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "corpo_fechado": {
+    "name": "Corpo Fechado",
+    "slug": "corpo_fechado",
+    "duration": 6400,
+    "synopsis": "Um espantoso desastre de trem deixa os Estados Unidos em choque. Todos os passageiros das locomotivas acabam mortos, exceto David Dunne, que sai completamente ileso do acidente, deixando todos, inclusive os médicos e ele próprio, em choque. Enquanto busca explicações sobre o que poderia ter salvado sua vida, David encontra Elijah Price, um desconhecido que apresenta uma explicação no mínimo bizarra para o fato.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "cowboy_bebop_o_filme": {
+    "name": "Cowboy Bebop: O Filme",
+    "slug": "cowboy_bebop_o_filme",
+    "duration": 6897,
+    "synopsis": "Em pleno ano de 2071 Spike e seus companheiros ciganos do Esquadrão Bebop estão passeando pela cidade de Tóquio, até que Faye presencia um ataque bioterrorista, que mata cerca de 500 pessoas. Em busca de maiores informações sobre os responsáveis pelo ataque, o governo local oferece uma alta recompensa a qualquer informação entregue. O Esquadrão Bebop se interessa pela oferta e passa a usar suas táticas para encontrar o culpado pelo ataque.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ]
+  },
+  "cruzada": {
+    "name": "Cruzada",
+    "slug": "cruzada",
+    "duration": 8666,
+    "synopsis": "Ainda em luto pela repentina morte de sua esposa, o ferreiro Balian junta-se ao seu distante pai, Baron Godfrey, nas cruzadas a caminho de Jerusalém. Após uma jornada muito difícil até à cidade santa, o jovem valente entra no séquito do rei leproso Balduíno IV, que deseja lutar contra os muçulmanos para seu próprio ganho político e pessoal.",
+    "tags": [
+      "acao",
+      "aventura",
+      "drama",
+      "guerra"
+    ],
+    "_review": true
+  },
+  "de_olhos_bem_fechados": {
+    "name": "De Olhos Bem Fechados",
+    "slug": "de_olhos_bem_fechados",
+    "duration": 9551,
+    "synopsis": "Alice, uma curadora de arte, é casada com o doutor Bill Harford. Juntos formam um casal perfeito, porém depois de participarem de uma festa, Alice confessa ter tido atração e fantasias sexuais com outro homem, que também estava na festa. Os dois começam a discutir e Bill passa a se perguntar o porquê disto estar acontecendo com ele, então ele vai procurar seu amigo Nick Nightingale, que irá lhe mostrar um mundo de fantasias e jogos sexuais.",
+    "tags": [
+      "drama",
+      "suspense"
+    ]
+  },
+  "de_volta_para_o_futuro": {
+    "name": "De Volta para o Futuro",
+    "slug": "de_volta_para_o_futuro",
+    "duration": 6962,
+    "synopsis": "Marty McFly, um típico adolescente americano dos anos 80, acidentalmente é enviado de volta ao ano de 1955 em um carro modificado para ser uma máquino do tempo, inventada por um cientista louco. Durante sua fantástica e maluca viagem no tempo, McFly tem que fazer com que seus futuros pais se encontrem e se apaixonem, para que assim ele possa ir de volta para o futuro.",
+    "tags": [
+      "aventura",
+      "comedia",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "de_volta_para_o_futuro_2": {
+    "name": "De Volta para o Futuro II",
+    "slug": "de_volta_para_o_futuro_2",
+    "duration": 6483,
+    "synopsis": "Uma despretensiosa visita de McFly e Doc ao ano de 2015 revela alguns problemas com a futura família de McFly. Mas quando os dois voltam para casa, logo descobrem que alguém alterou a linha temporal e criou uma terrível Hill Valley em 1985. A única esperança é poder voltar de novo para o ano de 1995 e salvar o futuro.",
+    "tags": [
+      "aventura",
+      "comedia",
+      "ficcao_cientifica"
+    ]
+  },
+  "death_note_visions_of_a_god": {
+    "name": "Death Note Relight 1: A Versão do Shinigami",
+    "slug": "death_note_visions_of_a_god",
+    "duration": 7809,
+    "synopsis": "Resumo dos episódios 1 ao 25 do anime original de Death Note, cobrindo todo o primeiro arco da história, porém reeditado da perspectiva de Ryuk, com novos diálogos, trilha sonora e cenas inéditas.",
+    "tags": [
+      "anime",
+      "drama",
+      "fantasia",
+      "suspense"
+    ]
+  },
+  "demon_slayer_mugen_train": {
+    "name": "Demon Slayer: Mugen Train - O Filme",
+    "slug": "demon_slayer_mugen_train",
+    "duration": 7008,
+    "synopsis": "Tanjiro, Inosuke e Zenitsu são enviados pelo comando do Esquadrão de Exterminadores para uma missão no Trem Infinito, onde devem se encontrar com o Pilar das Chamas, Rengoku, e impedir um oni que está fazendo inúmeras vítimas. Com este encontro, Tanjiro espera ainda descobrir mais sobre o Hinokami Kagura, a técnica que ele herdou de seu pai.",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "django_livre": {
+    "name": "Django Livre",
+    "slug": "django_livre",
+    "duration": 9923,
+    "synopsis": "Django é um escravo, comprado pelo caçador de recompensas alemão Dr. King Schultz para auxiliá-lo em uma missão. A dupla acaba fazendo amizade e, após resolver os problemas do caçador, parte em busca por Broomhilda, esposa de Django. Para isso, eles devem enfrentar o vilão Calvin Candie, proprietário da escrava.",
+    "tags": [
+      "drama"
+    ]
+  },
+  "donnie_darko": {
+    "name": "Donnie Darko",
+    "slug": "donnie_darko",
+    "duration": 6791,
+    "synopsis": "Quem vê Donnie Darko logo imagina se tratar de um adolescente desajustado. Na verdade, Donnie está à beira da loucura, devido a visões constantes de um coelho monstruoso, que tenta mantê-lo sob a sua sinistra influência. Incitado pela aparição, Donnie tem atuação antissocial, enquanto se submete à terapia, sobrevive às extravagâncias da vida e do romance no colégio e, por acaso, escapa a uma estranha morte devido à queda de um avião. Donnie luta contra os seus demônios, literal e figurativamente, numa intriga de histórias entrelaçadas que jogam com as viagens no tempo, gurus fundamentalistas, predestinação e os desígnios do universo.",
+    "tags": [
+      "drama",
+      "fantasia",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "doutor_estranho": {
+    "name": "Doutor Estranho",
+    "slug": "doutor_estranho",
+    "duration": 6899,
+    "synopsis": "Após sua carreira ser destruída, um brilhante, porém arrogante, cirurgião ganha uma nova chance em sua vida quando um feiticeiro o treina para se tornar o Mago Supremo.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "doutor_sono": {
+    "name": "Doutor Sono",
+    "slug": "doutor_sono",
+    "duration": 9119,
+    "synopsis": "Ainda marcado pelo trauma que sofreu quando criança no Overlook Hotel, Dan Torrance enfrenta os fantasmas do passado quando conhece Abra, uma adolescente corajosa que precisa desesperadamente de sua ajuda – e que possui uma poderosa capacidade extra-sensorial chamada \"brilho\".",
+    "tags": [
+      "fantasia",
+      "terror"
+    ]
+  },
+  "dragon_ball_a_lenda_de_shen_long": {
+    "name": "Dragon Ball: A Lenda de Shenlong",
+    "slug": "dragon_ball_a_lenda_de_shen_long",
+    "duration": 3014,
+    "synopsis": "O grande Rei Gurumes está em busca das Esferas do Dragão para acabar com sua fome sem fim. Uma jovem chamada Pansy, que mora na vila próxima, está farta de enganação e decide procurar o Mestre Kame em busca de ajuda. Conseguirão nossos heróis salvar a vila e deter o Exército Gurumes?",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "comedia",
+      "fantasia",
+      "ficcao_cientifica"
+    ]
+  },
+  "dragon_ball_super_broly": {
+    "name": "Dragon Ball Super: Broly",
+    "slug": "dragon_ball_super_broly",
+    "duration": 5983,
+    "synopsis": "A Terra está em paz depois do fim do Torneio do Poder. Goku não quer nada além de treinar, já que agora compreende quantas pessoas fortes existem nos universos que ele ainda não conheceu. Então, um dia, um Saiyajin desconhecido chamado Broly aparece diante de Goku e Vegeta. Como é possível que um Saiyajin esteja na Terra quando ele deveria ter sido destruído junto com o Planeta Vegeta? De volta do inferno mais uma vez, Freeza também aparece e os três Saiyajins que tiveram caminhos completamente diferentes se encontram em um intenso conflito.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "dragon_ball_z_a_batalha_nos_dois_mundos": {
+    "name": "Dragon Ball Z: A Batalha nos Dois Mundos",
+    "slug": "dragon_ball_z_a_batalha_nos_dois_mundos",
+    "duration": 3024,
+    "synopsis": "Após uma explosão. uma série de criminosos e mercenários espaciais foram libertados. O líder dos vilões, Bojack, vai então para a Terra participar de um torneio de artes marciais organizado por um ricaço muito poderoso da Terra. Trunks, Yamcha, Gohan, Piccolo e Tenshinham participam do torneio.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ]
+  },
+  "dragon_ball_z_broly_o_lendario_super_saiyajin": {
+    "name": "Dragon Ball Z: O Poder Invencível",
+    "slug": "dragon_ball_z_broly_o_lendario_super_saiyajin",
+    "duration": 4314,
+    "synopsis": "O Sr. Kaioh percebe que a Galáxia do Sul está sendo destruída por um Super Saiyajin. Logo, descobre que a Galáxia do Norte será o próximo alvo desse novo vilão. Ele decide, então, contatar Goku para rastrear o lendário Super Saiyajin e tentar salvar a Galáxia.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "dragon_ball_z_cooler_uma_vinganca_para_freeza": {
+    "name": "Dragon Ball Z: Uma Vingança Para Freeza",
+    "slug": "dragon_ball_z_cooler_uma_vinganca_para_freeza",
+    "duration": 2817,
+    "synopsis": "Cooler, irmão mais velho de Freeza, deseja matar Goku para exterminar todos os Saiyajins e vingar a morte de seu irmão.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ]
+  },
+  "dragon_ball_z_guerreiros_do_futuro": {
+    "name": "Dragon Ball Z: Gohan e Trunks, os Guerreiros do Futuro",
+    "slug": "dragon_ball_z_guerreiros_do_futuro",
+    "duration": 2876,
+    "synopsis": "Numa linha do tempo alternativa, Goku morre de uma doença. Todos os Guerreiros Z, exceto Gohan e Trunks são mortos pelos androides 17 e 18, e estes continuam matando os humanos e destruindo cidades. Gohan treina Trunks para ajudar na batalha mortal contra os androides.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ]
+  },
+  "dragon_ball_z_o_pai_de_goku": {
+    "name": "Dragon Ball Z: Bardock, O Pai de Goku",
+    "slug": "dragon_ball_z_o_pai_de_goku",
+    "duration": 2865,
+    "synopsis": "Este especial para TV mostra a história de Bardock, o pai de Goku, e também mostra a extinção dos Sayajins.",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "fantasia",
+      "ficcao_cientifica"
+    ]
+  },
+  "duna_parte_1": {
+    "name": "Duna",
+    "slug": "duna_parte_1",
+    "duration": 9325,
+    "synopsis": "Em um futuro distante, planetas são comandados por casas nobres que fazem parte de um império feudal intergalático. Paul Atreides é um jovem cuja família toma o controle do planeta deserto Arrakis, também conhecido como Duna. A única fonte da especiaria Melange, a substância mais importante do cosmos, Arrakis se mostra ser um planeta nem um pouco fácil de governar.",
+    "tags": [
+      "aventura",
+      "ficcao_cientifica"
+    ]
+  },
+  "duna_parte_2": {
+    "name": "Duna: Parte Dois",
+    "slug": "duna_parte_2",
+    "duration": 9947,
+    "synopsis": "A jornada de Paul Atreides continua. Ele está determinado a buscar vingança contra aqueles que destruíram sua família e seu lar. Com a ajuda de Chani e dos Fremen, ele embarca em uma jornada espiritual, mística e marcial. Se torna Muad'Dib, o líder messiânico dos Fremen, enquanto luta para evitar um futuro sombrio que ele testemunhou em visões. No entanto, suas ações inadvertidamente desencadeiam uma Guerra Santa em seu nome, que se espalha pelo universo conhecido. Enquanto enfrenta escolhas difíceis entre o amor por Chani e o destino de seu povo, Paul precisa usar suas habilidades e conhecimentos para evitar o terrível futuro que previu.",
+    "tags": [
+      "aventura",
+      "ficcao_cientifica"
+    ]
+  },
+  "efeito_borboleta": {
+    "name": "Efeito Borboleta",
+    "slug": "efeito_borboleta",
+    "duration": 7177,
+    "synopsis": "Evan é um jovem que luta para esquecer fatos de sua infância. Para isso, ele decide realizar uma regressão onde volta também fisicamente ao seu corpo de criança, tendo condições de alterar seu próprio passado. Porém, ao tentar consertar seus antigos problemas, ele acaba criando novos, já que toda mudança que realiza gera consequências em seu futuro.",
+    "tags": [
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "entrevista_com_o_vampiro": {
+    "name": "Entrevista com o Vampiro",
+    "slug": "entrevista_com_o_vampiro",
+    "duration": 7346,
+    "synopsis": "Na São Francisco dos anos 1990, um jornalista entrevista um jovem que afirma ser vampiro, narrando suas experiências dos últimos 200 anos. Em flash-back, conhecemos Louis de Pointe du Lac (Brad Pitt), um homem que perdeu a mulher, morta durante o parto, e também a vontade de viver. Com a ajuda de uma criatura da noite, Lestat de Lioncourt (Tom Cruise), ele se torna um vampiro e precisa aprender uma nova forma de vida.",
+    "tags": [
+      "drama",
+      "fantasia",
+      "terror"
+    ]
+  },
+  "espiritos_a_morte_esta_ao_seu_lado": {
+    "name": "Espíritos: A Morte Esta Ao Seu Lado",
+    "slug": "espiritos_a_morte_esta_ao_seu_lado",
+    "duration": 5482,
+    "synopsis": "Thun (Ananda Everingham), um jovem fotógrafo, e sua namorada Jane (Natthaweeranuch Thongmee) atropelam acidentalmente uma pedestre. Eles fogem da cena do crime e retornam às suas vidas normais, em Bangkok. A partir de então Jane passa a ser atormentada por estranhos pesadelos, enquanto que Thun nota que em suas fotos aparecem estranhas figuras, parecidas com fantasmas. O casal decide investigar o fenômeno e encontra outras fotografias com imagens sobrenaturais. Paralelamente os melhores amigos de Thun começam a morrer, um a um, de forma misteriosa.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "fantasia": {
+    "name": "Fantasia",
+    "slug": "fantasia",
+    "duration": 7468,
+    "synopsis": "A integração das grandes obras da música clássica com visuais extremamente criativos e originais da animação. São as seguintes composições que fazem parte do filme: \"Toccata e Fuga em Ré Menor\", de Johann Sebastian Bach; \"Suíte Quebra-Nozes\", de Peter Llich Tchaikovsky; \"O Aprendiz de Feiticeiro\", de Paul Dukas; \"Sagração da Primavera\", de Igor Stravinsky; \"Sinfonia Pastoral\", de Ludwing Van Beethoven; \"Dança das Horas\", de Almicare Ponchielli; \"Noite no Monte Calvo\", de Modest Mussorgsky; e \"Ave Maria\", de Franz Schubert.",
+    "tags": [
+      "animacao",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "fate_stay_night_heavens_feel_I": {
+    "name": "Fate/stay night: Heaven's Feel I. Presage Flower",
+    "slug": "fate_stay_night_heavens_feel_I",
+    "duration": 7255,
+    "synopsis": "Dez anos após a Quarta Guerra do Santo Graal, um conflito entre Mestres e Servos pelo cálice capaz de realizar desejos, uma nova guerra tem início na cidade de Fuyuki. Shirou Emiya, filho adotivo de Kiritsugu Emiya, que participou da guerra anterior, leva uma vida tranquila com pessoas queridas. Entre elas está sua colega de classe Sakura Matou, cuja gentileza ilumina sua rotina solitária. No entanto, essa paz é quebrada quando a Guerra do Santo Graal retorna, arrastando Shirou para um destino inevitável.",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "fantasia",
+      "romance"
+    ],
+    "_review": true
+  },
+  "fate_stay_night_heavens_feel_II": {
+    "name": "Fate/stay night: Heaven's Feel II. Lost Butterfly",
+    "slug": "fate_stay_night_heavens_feel_II",
+    "duration": 7044,
+    "synopsis": "Shirou perdeu sua Serva, Saber, e não é mais um Mestre na Guerra do Santo Graal. Apesar disso, ele se recusa a abandonar a batalha, determinado a proteger Sakura. Enquanto isso, uma sombra misteriosa envolve a cidade, matando Mestres e Servos um por um. Enquanto Shirou enfrenta novos perigos, Sakura é levada cada vez mais fundo em seu próprio destino como maga.",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "fantasia",
+      "romance"
+    ],
+    "_review": true
+  },
+  "fate_stay_night_heavens_feel_III": {
+    "name": "Fate/stay night: Heaven's Feel III. Spring Song",
+    "slug": "fate_stay_night_heavens_feel_III",
+    "duration": 7343,
+    "synopsis": "A batalha se intensifica enquanto Shirou continua a proteger Sakura, agora consumida pela escuridão. Ele une forças com Rin para acabar com a Guerra do Santo Graal, enquanto Illyasviel, que conhece a verdade por trás do conflito, enfrenta seu destino. Em meio ao caos, Zouken tenta manipular Sakura para satisfazer seus próprios desejos. A luta final está prestes a começar.",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "fantasia",
+      "romance"
+    ]
+  },
+  "feriado_sangrento": {
+    "name": "Feriado Sangrento",
+    "slug": "feriado_sangrento",
+    "duration": 6357,
+    "synopsis": "Depois que um motim da Black Friday termina em tragédia, um misterioso assassino inspirado no Dia de Ação de Graças aterroriza Plymouth, Massachusetts – o berço do infame feriado.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "final_fantasy_7_advent_children": {
+    "name": "Final Fantasy VII: Advent Children",
+    "slug": "final_fantasy_7_advent_children",
+    "duration": 7594,
+    "synopsis": "Advent Children começa dois anos após o término do jogo que lhe deu origem. A Shinra Inc., uma poderosa empresa, está a acabar com o planeta devido às suas explorações. O lendário guerreiro da força de elite SOLDIER, Sephiroth, descobre provir de uma experiência genética, e decide acabar com a terra invocando um meteoro. Porém, Cloud, um ex-SOLDIER, e os seus companheiros impedem o apocalíptico meteoro, sepultando Sephiroth após várias batalhas.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "fantasia",
+      "ficcao_cientifica"
+    ]
+  },
+  "final_fantasy_7_last_order": {
+    "name": "Final Fantasy VII: Last Order",
+    "slug": "final_fantasy_7_last_order",
+    "duration": 1524,
+    "synopsis": "No filme Final Fantasy – VII The Last Order, Last Order enreda dois momentos anteriores à acção em Final Fantasy VII. Um desses momentos centra-se em Nibelheim e nas personagens Zack Fair, Cloud Strife, Sephiroth e Tifa Lockhart. O outro centra-se na fuga de Zack e Cloud das forças da Shinra. A anime sofre várias analepses e prolepses trocando o dois principais momentos da acção como se fossem recordações e reflexões do comandante dos Turks, Tseng, sobre os eventos de Nibelheim.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "drama",
+      "fantasia",
+      "ficcao_cientifica"
+    ]
+  },
+  "fragmentado": {
+    "name": "Fragmentado",
+    "slug": "fragmentado",
+    "duration": 7028,
+    "synopsis": "Embora Kevin tenha revelado 23 personalidades a seu psiquiatra, uma ainda permanece submersa, pronta para se materializar e dominar todas as outras. Quando sua compulsão o força a raptar três adolescentes, Kevin vive uma guerra para sobreviver dentre os que habitam dentro dele, além dos outros  em tono dele, à medida que as divisões que separam seus compartimentos começam a se despedaçar.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "ghost_in_the_shell_1995": {
+    "name": "Ghost in the Shell: O Fantasma do Futuro",
+    "slug": "ghost_in_the_shell_1995",
+    "duration": 4975,
+    "synopsis": "Major Motoko Kusanagi, uma ciborgue do Setor de Segurança Pública 9, recebe a missão de capturar um hacker que está dominando a mente de humanos aperfeiçoados por computador. Mas ela acaba se envolvendo em uma trama de conspirações, que atinge interesses da alta cópula da política.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ]
+  },
+  "gladiador": {
+    "name": "Gladiador",
+    "slug": "gladiador",
+    "duration": 10259,
+    "synopsis": "Nos dias finais do reinado de Marcus Aurelius, o imperador desperta a ira de seu filho Commodus ao tornar pública sua predileção em deixar o trono para Maximus, o comandante do exército romano. Sedento pelo poder, Commodus mata seu pai, assume a coroa e ordena a morte de Maximus, que consegue fugir antes de ser pego e passa a se esconder sob a identidade de um escravo e gladiador do Império Romano.",
+    "tags": [
+      "acao",
+      "aventura",
+      "drama"
+    ],
+    "_review": true
+  },
+  "guardioes_da_galaxia": {
+    "name": "Guardiões da Galáxia",
+    "slug": "guardioes_da_galaxia",
+    "duration": 7251,
+    "synopsis": "Abduzido da Terra quando ainda era criança, Peter Quill fez carreira como saqueador e se auto denominou \"Senhor das Estrelas\". Quando rouba uma esfera, na qual o poderoso vilão Ronan, da raça kree, está interessado, passa a ser procurado por vários caçadores de recompensas. Para escapar do perigo, Quill une forças com quatro personagens fora do sistema: Groot, uma árvore humanóide (Vin Diesel), a sombria e perigosa Gamora, o guaxinim rápido no gatilho Rocket Racoon e o vingativo Drax, o Destruidor. A esfera roubada é capaz de mudar o destino de todo o universo.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "guardioes_da_galaxia_vol_2": {
+    "name": "Guardiões da Galáxia - Vol. 2",
+    "slug": "guardioes_da_galaxia_vol_2",
+    "duration": 7824,
+    "synopsis": "Os Guardiões precisam lutar para manter sua recém descoberta família unida, enquanto descobrem os mistérios sobre o verdadeiro pai de Peter Quill.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "guardioes_da_galaxia_vol_3": {
+    "name": "Guardiões da Galáxia: Vol. 3",
+    "slug": "guardioes_da_galaxia_vol_3",
+    "duration": 9002,
+    "synopsis": "Peter Quill, que ainda está se recuperando da perda de Gamora, tem que reunir a sua equipe para defender o universo e proteger um dos seus. Uma missão que, se não for concluída com sucesso, pode levar ao fim dos Guardiões como os conhecemos.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "harry_potter_e_a_camara_secreta": {
+    "name": "Harry Potter e a Câmara Secreta",
+    "slug": "harry_potter_e_a_camara_secreta",
+    "duration": 9655,
+    "synopsis": "Carros voadores, árvores que lutam e um misterioso elfo, com um aviso ainda mais misterioso. Harry Potter está pronto para dar início ao segundo ano de sua maravilhosa jornada no mundo da bruxaria. Em Hogwarts nesse ano, aranhas falam, cartas dão broncas e a habilidade de Harry para falar com cobras voltará contra ele. De clubes de duelo a jogadores de quadribol desonestos, esse será um ano de aventura e perigo para todos. Quando a mensagem sangrenta na parede anuncia que a Câmara Secreta foi aberta, Harry, Rony e Hermione percebem que para salvar Hogwarts será preciso muita mágica e coragem.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "harry_potter_e_a_ordem_da_fenix": {
+    "name": "Harry Potter e a Ordem da Fênix",
+    "slug": "harry_potter_e_a_ordem_da_fenix",
+    "duration": 8294,
+    "synopsis": "Lord Voldemort está de volta, mas o Ministério da Magia está fazendo tudo a seu alcance para impedir que a comunidade mundial de bruxos descubra isso – incluindo indicar a oficial do Ministério, Dolores Umbridge, como a nova professora de Defesa Contra as Artes das Trevas de Hogwarts. Quando Umbridge se recusa a ensinar a prática de mágica defensiva, Rony e Hermione convencem Harry a secretamente treinar um grupo de estudantes para a guerra de magia que está prestes a estourar.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "harry_potter_e_a_pedra_filosofal": {
+    "name": "Harry Potter e a Pedra Filosofal",
+    "slug": "harry_potter_e_a_pedra_filosofal",
+    "duration": 9150,
+    "synopsis": "Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursley. Em seu aniversário de 11 anos ele recebe uma carta que mudará sua vida: um convite para ingressar em Hogwarts.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "harry_potter_e_as_reliquias_da_morte_parte_1": {
+    "name": "Harry Potter e as Relíquias da Morte - Parte 1",
+    "slug": "harry_potter_e_as_reliquias_da_morte_parte_1",
+    "duration": 8765,
+    "synopsis": "Harry, Ron e Hermione estão determinados em sua missão de descobrir e acabar com o segredo da imortalidade e do poder de destruição de Voldemort – os Horcruxes. Fugitivos e sozinhos, os três amigos devem apenas contar uns com os outros, agora mas do que nunca... Mas as Forças das Trevas no caminho ameaçam separá-los para sempre.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "harry_potter_e_as_reliquias_da_morte_parte_2": {
+    "name": "Harry Potter e as Relíquias da Morte - Parte 2",
+    "slug": "harry_potter_e_as_reliquias_da_morte_parte_2",
+    "duration": 7827,
+    "synopsis": "No final épico, a batalha entre as forças do bem e do mal no mundo da bruxaria toma proporções de uma guerra mundial. As apostas nunca foram tão altas e ninguém está a salvo. Mas é harry que pode ser convocado para fazer um derradeiro sacrifício, à medida que ele se aproxima cada vez mais do confronto final com Lorde Voldemort. Tudo termina aqui.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "harry_potter_e_o_calice_de_fogo": {
+    "name": "Harry Potter e o Cálice de Fogo",
+    "slug": "harry_potter_e_o_calice_de_fogo",
+    "duration": 9425,
+    "synopsis": "Em seu 4º ano na Escola de Magia e Bruxaria de Hogwards, Harry Potter é misteriosamente selecionado para participar do Torneio Tribruxo, uma competição internacional em que precisará enfrentar alunos mais velhos e experientes de Hogwards e também de outras escolas de magia. Além disso a aparição da marca negra de Voldemort ao término da Copa Mundial de Quadribol põe a comunidade de bruxos em pânico, já que sinaliza que o temido bruxo está prestes a retornar.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "harry_potter_e_o_enigma_do_principe": {
+    "name": "Harry Potter e o Enigma do Príncipe",
+    "slug": "harry_potter_e_o_enigma_do_principe",
+    "duration": 9211,
+    "synopsis": "À medida que Lord Voldemort aumenta seu controle sobre o mundo Trouxa e bruxo, Hogwarts não é mais um local seguro. Harry suspeita que haja perigos dentro do castelo, mas Dumbledore está mais empenhado em prepará-lo para a batalha final que se aproxima rapidamente. Juntos, eles trabalham para encontrar a chave para desbloquear as defesas de Voldemort e, para esse fim, Dumbledore recruta seu velho amigo e colega Horácio Slughorn, que ele acredita possuir informações cruciais. Mesmo quando o confronto decisivo se aproxima, o romance floresce para Harry, Ron, Hermione e seus colegas de classe. O amor está no ar, mas o perigo está por vir e Hogwarts pode nunca mais ser a mesma.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "harry_potter_e_o_prisioneiro_de_azkaban": {
+    "name": "Harry Potter e o Prisioneiro de Azkaban",
+    "slug": "harry_potter_e_o_prisioneiro_de_azkaban",
+    "duration": 8507,
+    "synopsis": "É o início do terceiro ano na escola de magia e bruxaria de Hogwarts. Harry, Ron e Hermione têm muito o que aprender. Mas uma ameaça ronda a escola e ela se chama Sirius Black. Após doze anos encarcerado na prisão de Azkaban, ele consegue escapar e volta para vingar seu mestre, Lord Voldemort. Para piorar, os Dementores, guardas supostamente enviados para proteger Hogwarts e seguir os passos de Black, parecem ser ameaças ainda mais perigosas.",
+    "tags": [
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "hercules": {
+    "name": "Hércules",
+    "slug": "hercules",
+    "duration": 5592,
+    "synopsis": "Dono de uma força sobre-humana, o jovem mortal Hércules precisa provar que é um herói para seu pai, o grande Zeus. Junto com seus amigos Pégaso e Phil, ele é enganado pelo esquentadinho vilão Hades e agora terá que se decidir entre seus poderes e o verdadeiro amor.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "comedia",
+      "familia",
+      "fantasia",
+      "romance"
+    ],
+    "_review": true
+  },
+  "herege": {
+    "name": "Herege",
+    "slug": "herege",
+    "duration": 6676,
+    "synopsis": "Enquanto espalham sua fé pela cidade, as irmãs Barnes e Paxton batem na porta errada e acabam presas na casa do diabólico Sr. Reed, um homem misterioso. Elas são forçadas a participar de um jogo perturbador que desafia sua fé e põe em xeque tudo o que acreditam.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "homem_aranha": {
+    "name": "Homem-Aranha",
+    "slug": "homem_aranha",
+    "duration": 7272,
+    "synopsis": "Peter Parker é um jovem estudioso que vive com seus tios, Ben e May, desde que seus pais faleceram. Peter tem dificuldade em se relacionar com seus colegas, por ser tímido e por eles o considerarem um nerd. Até que, em uma demonstração científica, um acidente inesperado faz com que uma aranha modificada geneticamente pique Peter. A partir de então seu corpo é quimicamente alterado pela picada da aranha.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "homem_aranha_2": {
+    "name": "Homem-Aranha 2",
+    "slug": "homem_aranha_2",
+    "duration": 8148,
+    "synopsis": "Dois anos se passaram desde que o tranquilo Peter Parker separou-se do grande amor de sua vida, Mary Jane Watson, e decidiu assumir o compromisso e a responsabilidade de seguir sendo o Homem-Aranha. Peter enfrenta novos desafios enquanto aprende a lidar com \"seu dom e sua maldição\", tentando desesperadamente harmonizar suas duas identidades: A do super-herói aracnídeo, o Homem-Aranha, e a do estudante universitário.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "homem_aranha_3": {
+    "name": "Homem-Aranha 3",
+    "slug": "homem_aranha_3",
+    "duration": 8351,
+    "synopsis": "O relacionamento entre Peter Parker e Mary Jane parece estar dando certo, mas outros problemas começam a surgir. A roupa de Homem-Aranha torna-se preta e acaba controlando Peter, que apesar de aumentar seus poderes, revela o lado obscuro de sua personalidade. Os vilões Venon e Homem-Areia tentam destruir o super-herói.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "homem_aranha_de_volta_ao_lar": {
+    "name": "Homem-Aranha: De Volta ao Lar",
+    "slug": "homem_aranha_de_volta_ao_lar",
+    "duration": 8008,
+    "synopsis": "Depois de atuar ao lado dos Vingadores, chegou a hora do pequeno Peter Parker voltar para casa e para a sua vida, já não mais tão normal. Lutando diariamente contra pequenos crimes nas redondezas, ele pensa ter encontrado a missão de sua vida quando o terrível vilão Abutre surge amedrontando a cidade. O problema é que a tarefa não será tão fácil como ele imaginava.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "homem_aranha_longe_de_casa": {
+    "name": "Homem-Aranha: Longe de Casa",
+    "slug": "homem_aranha_longe_de_casa",
+    "duration": 7764,
+    "synopsis": "Peter Parker está em uma viagem de duas semanas pela Europa, ao lado de seus amigos de colégio, quando é surpreendido pela visita de Nick Fury. Convocado para mais uma missão heroica, ele precisa enfrentar vários vilões que surgem em cidades-símbolo do continente, como Londres, Paris e Veneza, e também a aparição do enigmático Mysterio.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "homem_aranha_sem_volta_para_casa": {
+    "name": "Homem-Aranha: Sem Volta Para Casa",
+    "slug": "homem_aranha_sem_volta_para_casa",
+    "duration": 9416,
+    "synopsis": "Peter Parker é desmascarado e não consegue mais separar sua vida normal dos grandes riscos de ser um super-herói. Quando ele pede ajuda ao Doutor Estranho, os riscos se tornam ainda mais perigosos, e o forçam a descobrir o que realmente significa ser o Homem-Aranha...",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "homem_de_ferro": {
+    "name": "Homem de Ferro",
+    "slug": "homem_de_ferro",
+    "duration": 7562,
+    "synopsis": "Tony Stark é um industrial bilionário, que também é um brilhante inventor. Ao ser sequestrado ele é obrigado por terroristas a construir uma arma devastadora mas, ao invés disto, constrói uma armadura de alta tecnologia que permite que fuja de seu cativeiro. A partir de então ele passa a usá-la para combater o crime, sob o alter ego do Homem de Ferro.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "homem_de_ferro_2": {
+    "name": "Homem de Ferro 2",
+    "slug": "homem_de_ferro_2",
+    "duration": 7479,
+    "synopsis": "Em um mundo ciente da existência do Homem de Ferro, o inventor bilionário Tony Stark sofre pressão de todos os lados para compartilhar sua tecnologia com as forças armadas. Ele resiste para divulgar os segredos de sua inigualável armadura, com medo de que estas informações caiam nas mãos erradas.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "hora_do_pesadelo": {
+    "name": "A Hora do Pesadelo",
+    "slug": "hora_do_pesadelo",
+    "duration": 5479,
+    "synopsis": "Um grupo de adolescentes tem pesadelos horríveis, onde são atacados por um homem deformado com garras de aço. Ele apenas aparece durante o sono e, para escapar, é preciso acordar. Os crimes vão ocorrendo seguidamente, até que se descobre que o ser misterioso é na verdade Freddy Krueger, um homem que molestou crianças na rua Elm e que foi queimado vivo pela vizinhança. Agora Krueger pode retornar para se vingar daqueles que o mataram, através do sono.",
+    "tags": [
+      "terror"
+    ],
+    "_review": true
+  },
+  "ilha_do_medo": {
+    "name": "Ilha do Medo",
+    "slug": "ilha_do_medo",
+    "duration": 8285,
+    "synopsis": "No verão de 1954, os agentes judiciais Teddy Daniels (DiCaprio) e Chuck Aule (Ruffalo) foram designados para uma ilha remota do porto de Boston para investigar o desaparecimento de uma perigosa assassina (Mortimer) que estava reclusa no hospital psiquiátrico Ashecliffe, um centro penitenciário para criminosos perturbados dirigido pelo sinistro médico John Cawley. (Kingsley). Logo eles descobrem que o centro guarda muitos segredos e que a ilha esconde algo mais perigoso que os pacientes.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "inu_yasha_o_castelo_das_ilusoes": {
+    "name": "InuYasha 2: O Castelo das Ilusões Dentro do Espelho",
+    "slug": "inu_yasha_o_castelo_das_ilusoes",
+    "duration": 5945,
+    "synopsis": "Com seu maior inimigo supostamente derrotado, InuYasha e seus amigos retornam à rotina do dia-a-dia. Mas a paz é logo abalada pela chegada de um novo adversário.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "it_a_coisa_capitulo_dois": {
+    "name": "IT: Capítulo Dois",
+    "slug": "it_a_coisa_capitulo_dois",
+    "duration": 10162,
+    "synopsis": "Vinte e sete anos após o Clube dos Otários derrotar Pennywise, It está de volta. Agora adultos Os Otários seguiram com suas vidas, mas com os recentes desaparecimentos em Derry, Mike resolve reunir o grupo novamente. Perturbados pelo passado, eles precisam vencer seus medos para destruir Pennywise, que está ainda mais perigoso, de uma vez por todas.",
+    "tags": [
+      "drama",
+      "suspense",
+      "terror"
+    ]
+  },
+  "jogos_mortais": {
+    "name": "Jogos Mortais",
+    "slug": "jogos_mortais",
+    "duration": 6172,
+    "synopsis": "Dois homens acordam acorrentados em um banheiro como prisioneiros de um assassino em série que leva suas vítimas a situações limítrofes em um jogo macabro. Para sobreviver, eles terão de desvendar juntos as peças desse quebra-cabeças doentio.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "john_wick_capitulo_3": {
+    "name": "John Wick 3: Parabellum",
+    "slug": "john_wick_capitulo_3",
+    "duration": 7846,
+    "synopsis": "Após assassinar o chefe da máfia Santino D'Antonio no Hotel Continental, John Wick passa a ser perseguido pelos membros da Alta Cúpula sob a recompensa de U$14 milhões. Agora, ele precisa unir forças com antigos parceiros que o ajudaram no passado enquanto luta por sua sobrevivência.",
+    "tags": [
+      "acao",
+      "suspense"
+    ]
+  },
+  "john_wick_capitulo_4": {
+    "name": "John Wick 4: Baba Yaga",
+    "slug": "john_wick_capitulo_4",
+    "duration": 10158,
+    "synopsis": "Com o preço por sua cabeça cada vez maior, John Wick leva sua luta contra a alta mesa global enquanto procura os jogadores mais poderosos do submundo, de Nova York a Paris, de Osaka a Berlim.",
+    "tags": [
+      "acao",
+      "suspense"
+    ]
+  },
+  "jujutsu_kaisen_0": {
+    "name": "Jujutsu Kaisen 0: O Filme",
+    "slug": "jujutsu_kaisen_0",
+    "duration": 6295,
+    "synopsis": "Quando Yuta Okkotsu era pequeno, sua amiga Rika Orimoto morreu num acidente de trânsito, bem na sua frente. Ela se tornou uma aparição, assombrando o jovem e atormentando a sua vida, até o dia em que Satoru Gojo, um feiticeiro Jujutsu, o convida para se matricular no Colégio Jujutsu. Junto com seus novos colegas de sala: Maki Zen'in, Toge Inumaki e Panda, Yuta encontra a coragem para perseverar. Enquanto isso, Suguru Geto, um vil manipulador de maldições que foi expulso do colégio por massacrar inocentes, põe em prática seu plano: lançar mil maldições em Shinjuku e em Kyoto e exterminar todos os não-feiticeiros, criando um paraíso para feiticeiros Jujutsu. Será que Yuta será capaz de impedir Geto? E o que acontecerá quando ele se livrar da maldição da Rika?",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "jumanji": {
+    "name": "Jumanji: Próxima Fase",
+    "slug": "jumanji",
+    "duration": 6246,
+    "synopsis": "A turma está de volta, mas o jogo mudou. Quando voltam para Jumanji para resgatar um amigo, descobrem que nada do que esperavam. Com mais ação e surpresas, os jogadores terão que desbravar partes desconhecidas e inexploradas, dos desertos áridos até montanhas de neve, para escapar.",
+    "tags": [
+      "aventura",
+      "comedia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "juntos": {
+    "name": "Juntos",
+    "slug": "juntos",
+    "duration": 6096,
+    "synopsis": "O que poderia ser uma oportunidade para recomeçar logo se transforma em um verdadeiro pesadelo, quando uma força sobrenatural começa a corromper sua relação, suas mentes e seus corpos. À medida que se afastam de tudo o que conheciam, o casal descobre que, para permanecerem juntos, terão que enfrentar um horror muito maior do que o que os separava.",
+    "tags": [
+      "romance",
+      "terror"
+    ],
+    "_review": true
+  },
+  "jurassic_park": {
+    "name": "Jurassic Park: O Parque dos Dinossauros",
+    "slug": "jurassic_park",
+    "duration": 7588,
+    "synopsis": "Um parque construído por um milionário tem dinossauros diversos como habitantes, extintos a sessenta e cinco milhões de anos. Isto é possível por ter sido encontrado um inseto fossilizado, que tinha sugado sangue destes dinossauros, de onde pôde-se isolar o DNA, o código químico da vida e, a partir deste ponto, recriá-los em laboratório. Mas, o que parecia ser um sonho se torna um pesadelo, quando a experiência sai do controle de seus criadores.",
+    "tags": [
+      "aventura",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "kill_bill_vol_1": {
+    "name": "Kill Bill: Volume 1",
+    "slug": "kill_bill_vol_1",
+    "duration": 6670,
+    "synopsis": "A ex-assassina conhecida apenas como \"A Noiva\" acorda de um coma de quatro anos decidida a se vingar de Bill, seu ex-amante e chefe, que tentou matá-la no dia do casamento. Ela está motivada a acertar as contas com cada uma das pessoas envolvidas com a perda da filha, da festa de casamento e dos quatro anos da sua vida. Na jornada, \"A Noiva\" é submetida a dores físicas agoniantes ao enfrentar a inescrupulosa gangue de Bill, o Esquadrão Assassino de Víboras Mortais.",
+    "tags": [
+      "acao",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "kill_bill_vol_2": {
+    "name": "Kill Bill: Volume 2",
+    "slug": "kill_bill_vol_2",
+    "duration": 8243,
+    "synopsis": "Após ser traída por Bill e seu antigo grupo, a Noiva assassina fica à beira da morte por 4 anos. Após despertar do coma, ela vai atrás de cada um dos seus antigos companheiros para matá-los. Na segunda parte dessa busca por vingança, a noiva vai continuar sua procura por Bill, atacando os últimos dois sobreviventes do grupo: Budd e Elle Driver . O confronto com seu antigo mestre, e mandante da sua morte, vai revelar novas surpresas para a assassina.",
+    "tags": [
+      "acao",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "kung_fusao": {
+    "name": "Kung-Fusão",
+    "slug": "kung_fusao",
+    "duration": 5966,
+    "synopsis": "Em uma cidade controlada pela gangue Axe, o ladrão de segunda categoria Sing quer desesperadamente se tornar um membro. Ele vai para um cortiço comandado por excêntricos senhorios que se revelam mestres do kung -fu disfarçados. As ações de Sing eventualmente acabam provocando um explosivo confronto de kung-fu entre a gangue Axe e os senhorios. Apenas um lado irá vencer e apenas um herói irá emergir como o maior mestre do kung-fu de todos.",
+    "tags": [
+      "acao",
+      "comedia",
+      "fantasia",
+      "suspense"
+    ]
+  },
+  "liga_da_justica": {
+    "name": "Liga da Justiça",
+    "slug": "liga_da_justica",
+    "duration": 14528,
+    "synopsis": "Impulsionado pela restauração de sua fé na humanidade e inspirado pelo ato altruísta do Superman, Bruce Wayne convoca sua nova aliada Diana Prince para o combate contra um inimigo ainda maior, recém-despertado. Juntos, Batman e Mulher-Maravilha buscam e recrutam com agilidade um time de meta-humanos, mas mesmo com a formação da liga de heróis sem precedentes, poderá ser tarde demais para salvar o planeta de um catastrófico ataque.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "lilo_e_stitch": {
+    "name": "Lilo & Stitch",
+    "slug": "lilo_e_stitch",
+    "duration": 5113,
+    "synopsis": "Lilo é uma garotinha de cinco anos que ama cuidar de animais. Um dia ela adota um cachorro e decide chamá-lo de Stitch. O que ela não sabe é que Stitch é um alienígena e um dos criminosos mais perigosos da galáxia. Agora, para escapar de seus captores que ainda o persegue, Stitch decide se passar por um cachorro comum, criando com o tempo um laço de amizade com Lilo.",
+    "tags": [
+      "animacao",
+      "comedia",
+      "familia"
+    ]
+  },
+  "logan": {
+    "name": "Logan",
+    "slug": "logan",
+    "duration": 8243,
+    "synopsis": "Em um futuro próximo, um cansado Logan cuida do doente Professor Xavier em um esconderijo na fronteira mexicana. Mas as tentativas de Logan de se esconder do mundo e de seu legado são interrompidas com a chegada de uma jovem mutante, perseguida por forças sombrias.",
+    "tags": [
+      "acao",
+      "drama",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "lucy": {
+    "name": "Lucy",
+    "slug": "lucy",
+    "duration": 5360,
+    "synopsis": "Quando a inocente jovem Lucy (Scarlett Johansson) aceita transportar drogas dentro do seu estômago, ela não conhece muito bem os riscos que corre. Por acaso, ela acaba absorvendo as drogas, e um efeito inesperado acontece: Lucy ganha poderes sobre-humanos, incluindo a telecinesia, a ausência de dor e a capacidade de adquirir conhecimento instantaneamente.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "machete": {
+    "name": "Machete",
+    "slug": "machete",
+    "duration": 6299,
+    "synopsis": "Machete (Danny Trejo) é um ex agente federal mexicano e foi contratado por um homem misterioso (Jeff Fahey) para assassinar um importante político americano. Mas ele também se tornou alvo de outro matador e agora o que parecia ser uma simples e rentável missão, transformou-se num sanguinária trama de conspiração contra o povo mexicano. Machete não vai deixar por menos, quer vingança e para isso conta com seu velho amigo \"O Padre\" (Cheech Marin).",
+    "tags": [
+      "acao",
+      "comedia",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "mad_max_estrada_da_furia": {
+    "name": "Mad Max: Estrada da Fúria",
+    "slug": "mad_max_estrada_da_furia",
+    "duration": 7223,
+    "synopsis": "Em um mundo apocalíptico, Max Rockatansky acredita que a melhor forma de sobreviver é não depender de ninguém. Porém, após ser capturado pelo tirano Immortan Joe e seus rebeldes, Max se vê no meio de uma guerra mortal, iniciada pela imperatriz Furiosa que tenta salvar um grupo de garotas. Também tentando fugir, Max aceita ajudar Furiosa. Dessa vez, o tirano Joe está ainda mais implacável pois teve algo insubstituível roubado.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica"
+    ]
+  },
+  "matrix": {
+    "name": "Matrix",
+    "slug": "matrix",
+    "duration": 8202,
+    "synopsis": "O jovem programador Thomas Anderson é atormentado por estranhos pesadelos em que está sempre conectado por cabos a um imenso sistema de computadores do futuro. À medida que o sonho se repete, ele começa a desconfiar da realidade. Thomas conhece os misteriosos Morpheus e Trinity e descobre que é vítima de um sistema inteligente e artificial chamado Matrix, que manipula a mente das pessoas e cria a ilusão de um mundo real enquanto usa os cérebros e corpos dos indivíduos para produzir energia.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "matrix_reloaded": {
+    "name": "Matrix Reloaded",
+    "slug": "matrix_reloaded",
+    "duration": 8220,
+    "synopsis": "Após derrotar as máquinas em seu combate inicial, Neo ainda vive na Nabucodonosor ao lado de Morpheus, Trinity e Link, o novo tripulante da nave. As máquinas estão realizando uma grande ofensiva contra Zion, onde 250 mil delas escavam rumo à cidade e podem alcançá-la em poucos dias. A Nabucodonosor é convocada para retornar a Zion e participar da reunião que definirá o contra-ataque para salvar a humanidade da extinção. Entretanto, um recado enviado pelo Oráculo faz com que Neo retorne à Matrix.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "matrix_revolutions": {
+    "name": "Matrix Revolutions",
+    "slug": "matrix_revolutions",
+    "duration": 7752,
+    "synopsis": "Após enfrentar os sentinelas no mundo real, Neo, a maior esperança da humanidade, está preso entre a Matrix e a realidade. A maioria da população do planeta permanece em um estado de suspensão da realidade virtual. Os poucos humanos que estão cientes das duras realidades tentam desesperadamente afastar as máquinas a tempo de Neo escapar e salvar o dia. Mas as coisas pioram quando o poderoso programa de computador, Agente Smith, aparece na forma humana.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "megamente": {
+    "name": "Megamente",
+    "slug": "megamente",
+    "duration": 5735,
+    "synopsis": "Tudo o que vilão Megamente mais queria era eliminar seu adversário Metro Man e assim dominar a cidade de Metro City. Só que para isso era necessário um plano ainda mais diabólico do que todos já tentados anteriormente. Um dia, com a ajuda de Criado e após sequestrar a repórter Rosane Rocha, o malvado consegue o inimaginável, para ele e para todos: dar um sumiço no herói. A única coisa que ele não contava era que sua vida se tornaria tão chata a ponto de ele inventar um herói para combater.",
+    "tags": [
+      "acao",
+      "animacao",
+      "comedia",
+      "familia",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "memories_magnetic_rose": {
+    "name": "Memories",
+    "slug": "memories_magnetic_rose",
+    "duration": 2661,
+    "synopsis": "Três histórias seguem viajantes espaciais no mundo das memórias: um fantasma assombra uma espaçonave, um homem que emite vapores mortais e um canhão gigante que dispara indiscriminadamente contra inimigos desconhecidos.",
+    "tags": [
+      "anime",
+      "fantasia",
+      "ficcao_cientifica"
+    ]
+  },
+  "minority_report_a_nova_lei": {
+    "name": "Minority Report: A Nova Lei",
+    "slug": "minority_report_a_nova_lei",
+    "duration": 8710,
+    "synopsis": "Não há crimes em Washington D.C. há seis anos, graças a impressionante tecnologia que identifica os assassinos antes que eles possam cometer seus crimes. Mas quando o próprio chefe da Divisão de Pré-Crime é acusado de um futuro assassinato, ele tem apenas 36 horas para descobrir quem está querendo destruí-lo ou tornar-se-á uma vítima do sistema \"perfeito\" que ele ajudou a criar.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "mississipi_em_chamas": {
+    "name": "Mississipi em Chamas",
+    "slug": "mississipi_em_chamas",
+    "duration": 7620,
+    "synopsis": "Quando um grupo de trabalhadores de direitos civis desaparecem em uma cidade pequena do Mississippi, os agentes do FBI Alan Ward e Rupert Anderson são enviados para investigar. As autoridades locais se recusam a cooperar e a comunidade afro-americana tem medo de ajudar. A situação se torna cada vez mais difícil e a abordagem direta é abandonada a favor de uma mais agressiva.",
+    "tags": [
+      "drama",
+      "suspense"
+    ]
+  },
+  "mobile_suit_gundam_thunderbolt_bandit_flower": {
+    "name": "Mobile Suit Gundam Thunderbolt: Bandit Flower",
+    "slug": "mobile_suit_gundam_thunderbolt_bandit_flower",
+    "duration": 5398,
+    "synopsis": "Sete meses depois que a Guerra de Um Ano acabou, os restantes da reforma do Principado de Zeon na República de Zeon continuam a lutar. Daryl tinha pilotado o robô Psycho Zaku no final da guerra no Setor Thunderbolt, onde a frota da Irmandade Moore foi aniquilada. Depois de perder o Psycho Zaku, Daryl desce à Terra e assume uma posição de inteligência para juntar informações sobre a Aliança dos Mares do Sul, um grupo militar dentro da Federação Terrestre. Io, que enfrentou Daryl, é selecionado para pilotar o robô protótipo Atlas Gundam e vai em direção à Terra.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica",
+      "guerra"
+    ]
+  },
+  "mobile_suit_gundam_thunderbolt_december_sky": {
+    "name": "Mobile Suit Gundam Thunderbolt: December Sky",
+    "slug": "mobile_suit_gundam_thunderbolt_december_sky",
+    "duration": 4183,
+    "synopsis": "",
+    "tags": [
+      "acao",
+      "anime",
+      "drama",
+      "ficcao_cientifica",
+      "guerra"
+    ]
+  },
+  "mononoke_2_as_cinzas_da_ira": {
+    "name": "Mononoke - O Filme: Capítulo 2 - As Cinzas da Ira",
+    "slug": "mononoke_2_as_cinzas_da_ira",
+    "duration": 4567,
+    "synopsis": "O Boticário está de volta, e o harém de Edo enfrenta mais uma crise, com brigas familiares, tumultos internos e muita inveja, que dão origem a um espírito raivoso.",
+    "tags": [
+      "anime",
+      "fantasia",
+      "suspense"
+    ]
+  },
+  "mortal_kombat": {
+    "name": "Mortal Kombat",
+    "slug": "mortal_kombat",
+    "duration": 6085,
+    "synopsis": "Escolhidos cuidadosamente e levados até uma misteriosa ilha, três guerreiros, verdadeiros mestres das artes marciais, terão que enfrentar estranhos e perigosos inimigos para defender o futuro do planeta Terra. Eles são os representantes da humanidade naquela que será a definitiva batalha do Bem contra o Mal, um torneio audacioso e fatal, o combate do milênio: Mortal Kombat.",
+    "tags": [
+      "acao",
+      "fantasia"
+    ]
+  },
+  "mulan": {
+    "name": "Mulan",
+    "slug": "mulan",
+    "duration": 5270,
+    "synopsis": "Na antiga China, durante a guerra, todos os homens são convocados para lutar. Mas, um pobre velho, que pela idade não poderia mais lutar, descobre que sua filha Mulan toma o seu lugar, vestindo-se como homem e permanecendo em segredo. Se isso for descoberto, o castigo será severo. Agora, durante a guerra, Mulan ganha a proteção de um pequeno dragão, cuja missão é cuidar para que ela volte a salvo.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "familia"
+    ],
+    "_review": true
+  },
+  "naruto_a_grande_missao_salvar_a_princesa_da_neve": {
+    "name": "Naruto: O Confronto Ninja no País da Neve",
+    "slug": "naruto_a_grande_missao_salvar_a_princesa_da_neve",
+    "duration": 4958,
+    "synopsis": "Naruto e seus amigos precisam acompanhar uma atriz famosa em uma viagem importante, mas acabam encontrando perigosos ninjas pelo caminho.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "comedia"
+    ]
+  },
+  "nausicaa_do_vale_do_vento": {
+    "name": "Nausicaä do Vale do Vento",
+    "slug": "nausicaa_do_vale_do_vento",
+    "duration": 7045,
+    "synopsis": "Após os Sete Dias de Fogo, uma guerra que destruiu a civilização humana e a maior parte do ecossistema da Terra, surge uma floresta que exala gases venenosos. Apenas insetos e seres conhecidos como Ohms vivem por lá. Nausicaä, filha do rei do Vale do Vento, tem o estranho poder de conseguir sentir o que a floresta sente e se vê obrigada a sair em uma jornada para tentar evitar outra guerra devastadora.",
+    "tags": [
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "neon_genesis_evangelion_the_end_of_evangelion": {
+    "name": "Neon Genesis Evangelion: O Fim do Evangelho",
+    "slug": "neon_genesis_evangelion_the_end_of_evangelion",
+    "duration": 5226,
+    "synopsis": "Um final alternativo para a série de anime \"Neon Genesis Evangelion\". Em The End of Evangelion, A SEELE ordena um ataque à NERV para destruir os EVAs antes que Gendo consiga provocar o Terceiro Impacto e a união das almas humanas.",
+    "tags": [
+      "anime",
+      "drama",
+      "fantasia",
+      "ficcao_cientifica"
+    ]
+  },
+  "noite_do_espantalho": {
+    "name": "Noite do Espantalho",
+    "slug": "noite_do_espantalho",
+    "duration": 5815,
+    "synopsis": "Por acreditarem que Bubba Ritter é culpado pela morte de uma menina, quatro homens o perseguem e acabam matando-o. Ao descobrirem que ele havia salvado a menina de ser morta por um cachorro, eles encobrem seu crime como legitima defesa. Por falta de provas, são absolvidos no julgamento. Porém, alguém começa a persegui-los e matá-los, um a um.",
+    "tags": [
+      "terror"
+    ]
+  },
+  "o_animal": {
+    "name": "Animal",
+    "slug": "o_animal",
+    "duration": 5004,
+    "synopsis": "Marvin Mage é um fracote que sempre sonhou em ser um policial mas nunca teve físico para tal profissão. Sua vida era um completo fiasco até sofrer um grave acidente automobilístico, que quase o matou. Para salvar sua vida, um cientista decidiu por fazer uma inovadora cirurgia, que reconstruía seu corpo com órgãos de animais. A experiência dá certo e a partir de então Marvin fica famoso e se torna um superpolicial. Porém, logo os novos órgãos fazem com que Marvin passe a ter instintos animais, que se manifestam nas piores horas e das maneiras mais bizarras possíveis.",
+    "tags": [
+      "comedia",
+      "ficcao_cientifica"
+    ]
+  },
+  "o_cao_e_a_raposa": {
+    "name": "O Cão e a Raposa",
+    "slug": "o_cao_e_a_raposa",
+    "duration": 4963,
+    "synopsis": "Uma raposa e um cão crescem juntos como amigos, mas descobrem aos poucos que são inimigos na ordem natural das coisas. Quando adultos, põe a amizade em jogo.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "drama",
+      "familia"
+    ],
+    "_review": true
+  },
+  "o_chamado": {
+    "name": "O Chamado",
+    "slug": "o_chamado",
+    "duration": 6918,
+    "synopsis": "Rachel Keller é uma jornalista que decide investigar a misteriosa morte de sua sobrinha. Ela percebe a relação da morte dela e de várias outras mortes com um estranho vídeo, que faz com que todas as pessoas que o assistam morram exatamente sete dias depois. Intrigada com a história, ela agora precisa descobrir um meio que impeça que a profecia se realize, já que ela e seu filho assistiram ao vídeo.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "o_chamado_2": {
+    "name": "O Chamado 2",
+    "slug": "o_chamado_2",
+    "duration": 6602,
+    "synopsis": "Seis meses após os eventos que aterrorizaram Rachel Keller (Naomi Watts) e seu filho Aidan (David Dorfman), os dois tentam deixar para trás as lembranças de Samara (Daveigh Chase) e sua fita de vídeo amaldiçoada. Rachel e Aidan se mudam de Seattle para a pequena comunidade litorânea de Astoria, no estado de Oregon, onde pretendem recomeçar a vida. Porém, após a ocorrência de um crime local que tem uma fita de vídeo envolvida, Samara retorna para reiniciar seu ciclo de mortes.",
+    "tags": [
+      "drama",
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "o_corcunda_de_notre_dame": {
+    "name": "O Corcunda de Notre Dame",
+    "slug": "o_corcunda_de_notre_dame",
+    "duration": 5450,
+    "synopsis": "Quasimodo, um corcunda, vive uma vida isolada. Ele toca os sinos da Catedral de Notre Dame e seu mestre, Claude Frollo, o Ministro da Justiça, não o deixa sair. Um dia, ele escapa para um festival na cidade, onde conhece a encantadora Esmeralda, uma cigana. Quando ele é atormentado e ridicularizado pelos soldados, a mando de Frollo, ela o resgata. No entanto, Esmeralda se vê em perigo pelos planos de Frollo e pede ajuda a Quasímodo. Será que Quasímodo conseguirá ajudar Esmeralda e salvar Páris e Notre Dame da ira de Frollo?",
+    "tags": [
+      "animacao",
+      "drama",
+      "familia"
+    ],
+    "_review": true
+  },
+  "o_corvo": {
+    "name": "O Corvo",
+    "slug": "o_corvo",
+    "duration": 6116,
+    "synopsis": "O roqueiro Eric Draven está morto... Mas, estranhamente, ele ainda vive. Ele ainda não pode descansar em paz. Não enquanto os vermes responsáveis por sua morte e também pelo assassinato de sua noiva permanecerem vivos. Assim, Draven retorna de seu túmulo para submeter seus matadores à uma implacável vingança. E ele não está sozinho. Um amedrontador corvo do outro mundo guia Draven em sua jornada.",
+    "tags": [
+      "acao",
+      "fantasia",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "o_enigma_de_outro_mundo": {
+    "name": "O Enigma de Outro Mundo",
+    "slug": "o_enigma_de_outro_mundo",
+    "duration": 6515,
+    "synopsis": "Na remota Antártida, um grupo de cientistas americanos é perturbado em sua base quando, de um helicóptero, alguém atira em um cão do acampamento. À medida que socorrem o cão baleado, o bicho começa a atacar os cientistas e os outros cachorros e logo eles descobrem que o animal pode assumir a forma de suas vítimas. Isto significa que membros da equipe podem ser mortos e a cópia assumir o lugar deles. Com isso, um piloto e um médico precisam capturar a fera antes que seja tarde demais.",
+    "tags": [
+      "ficcao_cientifica",
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "o_estranho_mundo_de_jack": {
+    "name": "O Estranho Mundo de Jack",
+    "slug": "o_estranho_mundo_de_jack",
+    "duration": 4599,
+    "synopsis": "Jack Skellington, o Rei das Abóboras, se cansa de fazer o Dia das Bruxas todos os anos e deixa os limites da cidade. Por acaso, acaba atravessando o portal do Natal, onde vê a alegria do espírito natalino. Ao retornar para a Cidade do Halloween, sem ter compreendido o que viu, ele começa a convencer os cidadãos a sequestrarem o Papai Noel e fazerem seu próprio Natal. Apesar de sua leal namorada Sally ser contra, o Papai Noel é capturado e os fatos mostrarão que Sally estava certa o tempo todo.",
+    "tags": [
+      "animacao",
+      "familia",
+      "fantasia"
+    ]
+  },
+  "o_exorcista": {
+    "name": "O Exorcista",
+    "slug": "o_exorcista",
+    "duration": 7364,
+    "synopsis": "Em Georgetown, Washington, uma atriz vai gradativamente tomando consciência que a sua filha de doze anos está tendo um comportamento completamente assustador. Deste modo, ela pede ajuda a um padre, que também um psiquiatra, e este chega a conclusão de que a garota está possuída pelo demônio. Ele solicita então a ajuda de um segundo sacerdote, especialista em exorcismo, para tentar livrar a menina desta terrível possessão.",
+    "tags": [
+      "drama",
+      "terror"
+    ],
+    "_review": true
+  },
+  "o_experimento_de_aprisionamento_de_stanford": {
+    "name": "O Experimento de Aprisionamento de Stanford",
+    "slug": "o_experimento_de_aprisionamento_de_stanford",
+    "duration": 7313,
+    "synopsis": "Voluntários passam duas semanas na prisão para uma experiência. O objetivo é estudar como os seres humanos agem em cativeiro e como os papéis sociais afetam seu comportamento.",
+    "tags": [
+      "drama",
+      "suspense"
+    ]
+  },
+  "o_exterminador_do_futuro": {
+    "name": "O Exterminador do Futuro",
+    "slug": "o_exterminador_do_futuro",
+    "duration": 6442,
+    "synopsis": "Em um futuro próximo, a guerra entre humanos e máquinas foi iniciada. Com a tecnologia a seu dispor, um plano inusitado é arquitetado pelas máquinas ao enviar para o passado um andróide com a missão de matar a mãe daquele que viria a se transformar num líder e seu pior inimigo. Contudo, os humanos também conseguem enviar seu representante para proteger a mulher e tentar garantir o futuro da humanidade.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "o_exterminador_do_futuro_2": {
+    "name": "O Exterminador do Futuro 2: O Julgamento Final",
+    "slug": "o_exterminador_do_futuro_2",
+    "duration": 8228,
+    "synopsis": "O jovem John Connor é a chave para a vitória da civilização sobre uma rebelião de robôs do futuro. No entanto, ele torna-se alvo de T-1000, um exterminador que pode assumir a forma que desejar e que foi enviado do futuro para matá-lo. Outro exterminador, o renovado T-800, também é enviado de volta ao passado para proteger o garoto. Quando John e sua mãe embarcam na fuga com T-800, o menino cria um vínculo forte e inesperado com o robô.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "o_farol": {
+    "name": "O Farol",
+    "slug": "o_farol",
+    "duration": 6550,
+    "synopsis": "Início do século XX. Thomas Wake, responsável pelo farol de uma ilha isolada, contrata o jovem Ephraim Winslow para substituir o ajudante anterior e colaborar nas tarefas diárias. No entanto, o acesso ao farol é mantido fechado ao novato, que se torna cada vez mais curioso com este espaço privado. Enquanto os dois homens se conhecem e se provocam, Ephraim fica obcecado em descobrir o que acontece naquele espaço fechado, ao mesmo tempo em que fenômenos estranhos começam a acontecer ao seu redor.",
+    "tags": [
+      "drama",
+      "fantasia",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "o_grande_truque": {
+    "name": "O Grande Truque",
+    "slug": "o_grande_truque",
+    "duration": 7819,
+    "synopsis": "No século 19, em Londres, dois amigos ilusionistas e mágicos, Alfred Borden e Rupert Angier, acabam construindo uma rivalidade, uma batalha por supremacia, que se estende ao longo dos anos e que se transforma em obsessão, cujos resultados serão inevitavelmente trágicos.",
+    "tags": [
+      "drama",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "o_hobbit_a_batalha_dos_cinco_exercitos": {
+    "name": "O Hobbit: A Batalha dos Cinco Exércitos",
+    "slug": "o_hobbit_a_batalha_dos_cinco_exercitos",
+    "duration": 9843,
+    "synopsis": "O dragão Smaug lança sua fúria ardente contra a Cidade do Lago que fica próxima da montanha de Erebor. Bard consegue derrotá-lo, mas, rapidamente, sem a ameaça do dragão, inicia-se uma batalha pelo controle de Erebor e sua riqueza. Os anões, liderados por Thorin, adentram a montanha e estão dispostos a impedir a entrada de elfos, anões e orcs. Bilbo Bolseiro e Gandalf tentam impedir a guerra.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "o_hobbit_a_desolacao_de_smaug": {
+    "name": "O Hobbit: A Desolação de Smaug",
+    "slug": "o_hobbit_a_desolacao_de_smaug",
+    "duration": 11195,
+    "synopsis": "Ao lado de um grupo de anões e de Gandalf, Bilbo segue em direção à Montanha Solitária, onde deverá ajudar seus companheiros a retomar a Pedra de Arken. O problema é que o artefato está perdido em meio a um tesouro protegido pelo temido dragão Smaug.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "o_hobbit_uma_jornada_inesperada": {
+    "name": "O Hobbit: Uma Jornada Inesperada",
+    "slug": "o_hobbit_uma_jornada_inesperada",
+    "duration": 10950,
+    "synopsis": "Como a maioria dos hobbits, Bilbo Bolseiro leva uma vida tranquila até o dia em que recebe uma missão do mago Gandalf. Acompanhado por um grupo de anões, ele parte numa jornada até a Montanha Solitária para libertar o Reino de Erebor do dragão Smaug.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "o_homem_de_aco": {
+    "name": "O Homem de Aço",
+    "slug": "o_homem_de_aco",
+    "duration": 8583,
+    "synopsis": "Um garoto descobre que não é deste planeta e que tem poderes extraordinários. Quando se torna adolescente, viaja para descobrir de onde veio e para o quê foi enviado a fazer. Mas o herói nele deve emergir se quiser salvar o mundo da aniquilação e se tornar o símbolo de esperança para toda a humanidade.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "o_iluminado": {
+    "name": "O Iluminado",
+    "slug": "o_iluminado",
+    "duration": 8624,
+    "synopsis": "Durante o inverno, um homem é contratado para ficar como vigia em um hotel no Colorado e vai para lá com a esposa e seu filho. Porém, o contínuo isolamento começa a lhe causar problemas mentais sérios e ele vai se tornado cada vez mais agressivo e perigoso, ao mesmo tempo que seu filho passa a ter visões de acontecimentos ocorridos no passado, que também foram causados pelo isolamento excessivo.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "o_jogo_da_imitacao": {
+    "name": "O Jogo da Imitação",
+    "slug": "o_jogo_da_imitacao",
+    "duration": 6854,
+    "synopsis": "Em 1939, a recém-criada agência de inteligência britânica MI6 recruta Alan Turing, um aluno da Universidade de Cambridge, para entender códigos nazistas, incluindo o \"Enigma\", que criptógrafos acreditavam ser inquebrável. A equipe de Turing, incluindo Joan Clarke, analisa as mensagens de \"Enigma\", enquanto ele constrói uma máquina para decifrá-las.",
+    "tags": [
+      "drama",
+      "guerra",
+      "suspense"
+    ]
+  },
+  "o_maskara": {
+    "name": "O Máskara",
+    "slug": "o_maskara",
+    "duration": 6075,
+    "synopsis": "Em Edge City vive Stanley Ipkiss, um cara decente que trabalha em um banco, mas é socialmente desajeitado e sem muito sucesso com as mulheres. Após um dos piores dias da sua vida, ele acha no mar a estranha máscara de Loki, um deus escandinavo. Quando Stanley coloca a máscara, se transforma em \"O Máskara\", um ser com o rosto verde que possui a coragem para fazer as coisas mais arriscadas e divertidas que Stanley receia fazer, inclusive flertar com Tina Carlyle, a bela e sensual cantora que se apresenta no Coco Bongo, a discoteca do momento. O Máskara tem velocidade sobre-humana e um humor não-convencional e, enquanto isto, o gângster Dorian Tyrrell, que namora Tina, se esforça para destruir o Máskara e se apoderar da máscara para usar seus poderes para o mal.",
+    "tags": [
+      "comedia",
+      "fantasia",
+      "romance",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "o_pacto_dos_lobos": {
+    "name": "O Pacto dos Lobos",
+    "slug": "o_pacto_dos_lobos",
+    "duration": 9053,
+    "synopsis": "Em 1765, durante o reinado de Luís XV, uma misteriosa criatura traz pânico e terror em uma província rural da França. Chamada de a Besta de Gevaudan, ela atacava crianças e mulheres há meses e ninguém era capaz de prevenir suas ações, vê-la com nitidez ou sequer capturá-la. Desesperado em pôr um fim na situação, o rei decide então enviar ao local o renomado biólogo Gregóire de Fronsac. Entretanto, Gregóire terá não apenas que lutar contra o monstro mas também contra a ignorância, a conspiração e a intolerância local, recebendo o apoio de duas mulheres, uma aristocrata e uma prostituta.",
+    "tags": [
+      "acao",
+      "aventura",
+      "terror"
+    ]
+  },
+  "o_palido_olho_azul": {
+    "name": "O Pálido Olho Azul",
+    "slug": "o_palido_olho_azul",
+    "duration": 7808,
+    "synopsis": "Um detetive experiente investiga uma série de assassinatos na Academia Militar dos EUA em West Point em 1830. Ele é auxiliado em sua investigação por um jovem cadete inteligente e ansioso chamado Edgar Allan Poe, que se tornará um dos autores e escritores mais influentes da América. o criador do gênero detetive.",
+    "tags": [
+      "suspense",
+      "terror"
+    ]
+  },
+  "o_poderoso_chefao": {
+    "name": "O Poderoso Chefão",
+    "slug": "o_poderoso_chefao",
+    "duration": 10528,
+    "synopsis": "Em 1945, Don Corleone é o chefe de uma mafiosa família italiana de Nova York. Ele costuma apadrinhar várias pessoas, realizando importantes favores para elas, em troca de favores futuros. Com a chegada das drogas, as famílias começam uma disputa pelo promissor mercado. Quando Corleone se recusa a facilitar a entrada dos narcóticos na cidade, não oferecendo ajuda política e policial, sua família começa a sofrer atentados para que mudem de posição. É nessa complicada época que Michael, um herói de guerra nunca envolvido nos negócios da família, vê a necessidade de proteger o seu pai e tudo o que ele construiu ao longo dos anos.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "o_poderoso_chefao_parte_2": {
+    "name": "O Poderoso Chefão: Parte II",
+    "slug": "o_poderoso_chefao_parte_2",
+    "duration": 12034,
+    "synopsis": "Após a máfia matar sua família, o jovem Vito foge da sua cidade na Sicília e vai para a América. Vito luta para manter sua família. Ele mata Black Hand Fanucci, que exigia dos comerciantes uma parte dos seus ganhos. Com a morte de Fanucci, o poderio de Vito cresce, mas sua família é o que mais importa para ele. Agora baseado no Lago Tahoe, Michael planeja fazer incursões em Las Vegas e Havana instalando negócios ligados ao lazer, mas descobre que aliados como Hyman Roth estão tentando matá-lo.",
+    "tags": [
+      "drama",
+      "suspense"
+    ]
+  },
+  "o_poderoso_chefao_parte_3": {
+    "name": "O Poderoso Chefão: Parte III",
+    "slug": "o_poderoso_chefao_parte_3",
+    "duration": 9702,
+    "synopsis": "Don Michael Corleone está envelhecendo e, com a ajuda do sobrinho Vicente Mancini, busca a legitimação dos interesses da família, em Nova York e na Itália, antes de sua morte. Mas seu protegido não está só interessado em parte do império da família. Ele também deseja a filha de Michael, Mary.",
+    "tags": [
+      "drama",
+      "suspense"
+    ]
+  },
+  "o_predestinado": {
+    "name": "O Predestinado",
+    "slug": "o_predestinado",
+    "duration": 5869,
+    "synopsis": "Um agente temporal conhecido como \"bartender\" encara sua última missão após anos de viagens no tempo caçando criminosos e executando a lei. O desafio final será finalmente capturar seu inimigo mais desafiador, o homem que há muito o intriga e ludibria.",
+    "tags": [
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "o_rei_leao": {
+    "name": "O Rei Leão",
+    "slug": "o_rei_leao",
+    "duration": 5304,
+    "synopsis": "Mufasa, o Rei Leão, e a rainha Sarabi apresentam ao reino o herdeiro do trono, Simba. O recém-nascido recebe a bênção do sábio babuíno Rafiki, mas ao crescer é envolvido nas artimanhas de seu tio Scar, o invejoso e maquiavélico irmão de Mufasa, que planeja livrar-se do sobrinho e herdar o trono.",
+    "tags": [
+      "animacao",
+      "drama",
+      "familia"
+    ],
+    "_review": true
+  },
+  "o_resgate_do_soldado_ryan": {
+    "name": "O Resgate do Soldado Ryan",
+    "slug": "o_resgate_do_soldado_ryan",
+    "duration": 10167,
+    "synopsis": "Ao desembarcar na Normandia, no dia 6 de junho de 1944, o capitão Miller recebe a missão de comandar um grupo do segundo batalhão para o resgate do soldado James Ryan, caçula de quatro irmãos, dentre os quais três morreram em combate. Por ordens do chefe George C. Marshall, eles precisam procurar o soldado e garantir o seu retorno, com vida, para casa.",
+    "tags": [
+      "drama",
+      "guerra"
+    ]
+  },
+  "o_retorno_da_mumia": {
+    "name": "O Retorno da Múmia",
+    "slug": "o_retorno_da_mumia",
+    "duration": 7773,
+    "synopsis": "Rick e Evelyn O'Connell estão morando na Londres de 1935, onde criam o filho. Quando uma série de eventos revela o corpo de Imhotep ressuscitado, os O'Connell iniciam uma corrida desesperada para salvar o mundo do mal e resgatar o filho antes que seja tarde demais.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "o_segredo_do_abismo": {
+    "name": "O Segredo do Abismo",
+    "slug": "o_segredo_do_abismo",
+    "duration": 8417,
+    "synopsis": "Um submarino para de funcionar e deixa 156 tripulantes presos no fundo do oceano. Com um furacão se aproximando, a única saída é que cientistas de uma plataforma de petróleo façam o resgate. Numa corrida contra o relógio, os salvadores embarcam numa experiência surpreendente pelo desconhecido.",
+    "tags": [
+      "aventura",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "o_senhor_dos_aneis_a_sociedade_do_anel": {
+    "name": "O Senhor dos Anéis: A Sociedade do Anel",
+    "slug": "o_senhor_dos_aneis_a_sociedade_do_anel",
+    "duration": 13691,
+    "synopsis": "O hobbit Frodo herda a missão de salvar a Terra-Média do perverso Sauron. Ele precisa conduzir o Um Anel até a Montanha da Perdição e destruí-lo para sempre e, para isso, conta com a aliança de oito bravos companheiros.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "o_senhor_dos_aneis_as_duas_torres": {
+    "name": "O Senhor dos Anéis: As Duas Torres",
+    "slug": "o_senhor_dos_aneis_as_duas_torres",
+    "duration": 14125,
+    "synopsis": "Após a captura de Merry e Pippy pelos orcs, a Sociedade do Anel é dissolvida. Frodo e Sam seguem sua jornada rumo à Montanha da Perdição para destruir o anel e descobrem que estão sendo perseguidos pelo misterioso Gollum. Enquanto isso, Aragorn, o elfo e arqueiro Legolas e o anão Gimli partem para resgatar os hobbits sequestrados e chegam ao reino de Rohan, onde o rei Theoden foi vítima de uma maldição mortal de Saruman.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "o_senhor_dos_aneis_o_retorno_do_rei": {
+    "name": "O Senhor dos Anéis: O Retorno do Rei",
+    "slug": "o_senhor_dos_aneis_o_retorno_do_rei",
+    "duration": 15791,
+    "synopsis": "O confronto final entre as forças do bem e do mal que lutam pelo controle do futuro da Terra Média se aproxima. Sauron planeja um grande ataque a Minas Tirith, capital de Gondor, o que faz com que Gandalf e Pippin partam para o local na intenção de ajudar a resistência. Um exército é reunido por Theoden em Rohan, em mais uma tentativa de deter as forças de Sauron. Enquanto isso, Frodo, Sam e Gollum seguem sua viagem rumo à Montanha da Perdição para destruir o anel.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "o_sexto_sentido": {
+    "name": "O Sexto Sentido",
+    "slug": "o_sexto_sentido",
+    "duration": 6443,
+    "synopsis": "Dr. Malcolm Crowe é um conceituado psicólogo infantil, que vive atormentado pela terrível lembrança de um jovem paciente que ele não foi capaz de ajudar. Quando ele encontra Cole Sear, um garoto de 8 anos assustado e confuso, com um problema similar, Dr. Crowe procura redimir seu erro do passado, fazendo tudo que pode pelo menino. Apesar disso, Malcolm não está preparado para descobrir a verdade que aterroriza Cole.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "o_show_de_truman": {
+    "name": "O Show de Truman: O Show da Vida",
+    "slug": "o_show_de_truman",
+    "duration": 6174,
+    "synopsis": "Truman Burbank é um pacato vendedor de seguros que leva um vida simples com sua esposa Meryl Burbank. Porém algumas coisas ao seu redor fazem com que ele passe a estranhar sua cidade, seus supostos amigos e até sua mulher. Após conhecer a misteriosa Lauren, ele fica intrigado e acaba descobrindo que toda sua vida foi monitorada por câmeras e transmitida em rede nacional.",
+    "tags": [
+      "comedia",
+      "drama"
+    ]
+  },
+  "o_tumulo_dos_vagalumes": {
+    "name": "O Túmulo dos Vagalumes",
+    "slug": "o_tumulo_dos_vagalumes",
+    "duration": 5312,
+    "synopsis": "A história gira em torno da vida do jovem Seita e sua irmã mais nova, Setsuko. Enquanto seu pai combate os americanos em alto-mar, Seita e Setsuko vivem com a mãe, sempre às voltas com os constantes alertas de ataques aéreos. Após perderem a mãe num intenso bombardeio, Seita e Setsuko são obrigados a amadurecer rapidamente e enfrentar situações difíceis e penosas... ainda assim, fazem de tudo para encontrar alegria e satisfação nas menores coisas, como um banho de mar ou observando vagalumes à noite. Mas a fome crescente, as doenças e a insensibilidade dos adultos tornam a vida de ambos cada vez mais dura, e as perspectivas para o futuro ficam cada vez mais sombrias...",
+    "tags": [
+      "anime",
+      "drama"
+    ],
+    "_review": true
+  },
+  "o_vingador_do_futuro": {
+    "name": "O Vingador do Futuro",
+    "slug": "o_vingador_do_futuro",
+    "duration": 6796,
+    "synopsis": "No ano de 2084, o operário Doug Quaid recorre a um implante de memória para poder simular uma viagem a Marte. Mas algo sai errado e ele começa a se lembrar de quem realmente era e de fatos que, até então, desconhecia. Agora, Quaid quer vingança contra aqueles que o enganaram.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "one_piece_barao_omatsuri_e_a_ilha_secreta": {
+    "name": "One Piece: Baron Omatsuri and the Secret Island",
+    "slug": "one_piece_barao_omatsuri_e_a_ilha_secreta",
+    "duration": 5485,
+    "synopsis": "A tripulação do Chapéu de Palha recebe um convite para uma ilha resort na Grand Line, administrada pelo Barão Omatsuri. Luffy decide aproveitar a oportunidade para descansar e relaxar. No entanto, ao chegarem à ilha, eles são obrigados a participar de competições que exigem a união do bando. Porém, há algo misterioso no ar, todos começam a brigar entre si. Robin, Chopper e Luffy investigam separadamente o segredo por trás da ilha do Barão Omatsuri.",
+    "tags": [
+      "acao",
+      "anime",
+      "comedia",
+      "suspense"
+    ]
+  },
+  "os_caca_fantasmas": {
+    "name": "Os Caça-Fantasmas",
+    "slug": "os_caca_fantasmas",
+    "duration": 6308,
+    "synopsis": "Em Nova York, Peter Venkman, Ray Stantz e Egon Spengler são três cientistas do departamento de psicologia da Universidade de Columbia que se dedicam ao estudo de casos paranormais. Quando a subvenção termina, eles são despedidos e Venkman sugere que abram um negócio próprio, a exterminadora de fantasmas Ghostbusters. Inicialmente eles só têm despesas e nenhum cliente, mas eis que surge Dana Barrett, uma violoncelista que teve uma experiência assustadora em seu apartamento.",
+    "tags": [
+      "comedia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "os_incriveis": {
+    "name": "Os Incríveis",
+    "slug": "os_incriveis",
+    "duration": 6926,
+    "synopsis": "Beto Pêra e sua mulher Helena estavam entre os maiores super-heróis do mundo, salvando inúmeras vidas e combatendo o mal diariamente. Quinze anos depois, eles foram forçados a adotar novas identidades e a mudar-se para o subúrbio, onde vivem como cidadãos comuns com seus três filhos, Violeta, Flecha e Zezé. Louco para voltar à ação, Beto tem a sua chance quando uma misteriosa ligação o intima a comparecer a uma ilha distante para receber uma missão ultra-secreta. Ele logo descobre que só uma família inteira de super-heróis será capaz de salvar o mundo e impedir sua total destruição.",
+    "tags": [
+      "acao",
+      "animacao",
+      "aventura",
+      "familia"
+    ],
+    "_review": true
+  },
+  "os_outros": {
+    "name": "Os Outros",
+    "slug": "os_outros",
+    "duration": 6256,
+    "synopsis": "Grace Stewart vive em uma casa velha com seus dois filhos e os criados. Uma condição rara das crianças, que são fotossensíveis, faz com que eles vivam na escuridão, algo que complica a rotina diária de todos. Acontece que coisas esquisitas têm acontecido na casa e Grace começa a suspeitar que sua casa é assombrada.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "os_suspeitos": {
+    "name": "Os Suspeitos",
+    "slug": "os_suspeitos",
+    "duration": 9191,
+    "synopsis": "Um detetive interroga um dos únicos sobreviventes de uma explosão no cais que provocou dezenas de mortes. O suspeito conta uma história sobre os eventos que levaram ele e mais quatro criminosos ao local do crime, deixando dúvidas sobre a verdade.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "os_vingadores": {
+    "name": "Os Vingadores: The Avengers",
+    "slug": "os_vingadores",
+    "duration": 8575,
+    "synopsis": "Loki, o irmão de Thor, ganha acesso ao poder ilimitado do cubo cósmico ao roubá-lo de dentro das instalações da S.H.I.E.L.D. Nick Fury, o diretor desta agência internacional que mantém a paz, logo reúne os únicos super-heróis que serão capazes de defender a Terra de ameaças sem precedentes. Homem de Ferro, Capitão América, Hulk, Thor, Viúva Negra e Gavião Arqueiro formam o time dos sonhos de Fury, mas eles precisam aprender a colocar os egos de lado e agir como um grupo em prol da humanidade.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "os_vingadores_era_de_ultron": {
+    "name": "Vingadores: Era de Ultron",
+    "slug": "os_vingadores_era_de_ultron",
+    "duration": 8479,
+    "synopsis": "Ao tentar proteger o planeta de ameaças, Tony Stark constrói um sistema de inteligência artificial que cuidaria da paz mundial. O projeto acaba dando errado e gera o nascimento do Ultron. Com o destino da Terra em jogo, os Vingadores terão que se unir para mais uma vez salvar a raça humana da extinção.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "os_vingadores_guerra_infinita": {
+    "name": "Vingadores: Guerra Infinita",
+    "slug": "os_vingadores_guerra_infinita",
+    "duration": 8961,
+    "synopsis": "Homem de Ferro, Thor, Hulk e os Vingadores se unem para combater seu inimigo mais poderoso, o maligno Thanos. Em uma missão para coletar todas as seis pedras infinitas, Thanos planeja usá-las para infligir sua vontade maléfica sobre a realidade.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "os_vingadores_ultimato": {
+    "name": "Vingadores: Ultimato",
+    "slug": "os_vingadores_ultimato",
+    "duration": 10907,
+    "synopsis": "Após os eventos devastadores de \"Vingadores: Guerra Infinita\", o universo está em ruínas devido aos esforços do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, os Vingadores devem se reunir mais uma vez a fim de desfazer as ações de Thanos e restaurar a ordem no universo de uma vez por todas, não importando as consequências.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "patlabor_2_o_filme": {
+    "name": "Patlabor 2 - O Filme",
+    "slug": "patlabor_2_o_filme",
+    "duration": 6811,
+    "synopsis": "Uma unidade da polícia japonesa que usa robôs antropomórficos gigantes (chamados Labors) está envolvida em uma disputa política entre as autoridades civis e militares quando um ato terrorista é atribuído a um jato da Força Aérea. Com a ajuda de um agente do governo, a equipe se aproxima de um líder terrorista para impedir que as coisas saiam do controle quando os militares são forçados a impor a lei marcial.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "patlabor_o_filme": {
+    "name": "Patlabor: O Filme",
+    "slug": "patlabor_o_filme",
+    "duration": 5944,
+    "synopsis": "Um suicídio misterioso e uma série de fugas de robôs não tripulados provocam uma investigação da polícia sobre o suspeito software a bordo de milhares de robôs industriais em torno de Tóquio.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "perfect_blue": {
+    "name": "Perfect Blue",
+    "slug": "perfect_blue",
+    "duration": 4907,
+    "synopsis": "Mima Kirigoe é membro de uma banda de música pop japonesa (J-Pop), chamada \"CHAM!\", que decide deixar a banda para se dedicar à carreira de atriz. Alguns fãs ficam descontentes com a repentina mudança de carreira, pois Mima, sendo um ídolo pop, é vista como uma menina inocente e angelical. Conforme avança em sua nova carreira, Mima mergulha em um intenso drama psicológico no qual fantasia e realidade se confundem colocando em dúvida sua ética moral.",
+    "tags": [
+      "anime",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "peter_pan": {
+    "name": "Peter Pan",
+    "slug": "peter_pan",
+    "duration": 4606,
+    "synopsis": "Deixando o conforto e segurança de seus lares, Wendy, Miguel e João seguem Peter Pan para um mundo mágico onde a infância dura para sempre, a Terra do Nunca. Mas logo as crianças descobrem que precisarão confrontar o terrível Capitão Gancho, um maquiavélico pirata que quer se livrar de uma vez por todas de Peter.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "pinoquio": {
+    "name": "Pinóquio",
+    "slug": "pinoquio",
+    "duration": 5264,
+    "synopsis": "Gepeto é um carpinteiro solitário que, um dia, resolve fazer um boneco de madeira para lhe fazer companhia. Durante a noite, a Fada Azul dá vida ao boneco, que passa a se chamar Pinóquio. Ansioso para se tornar um menino de verdade, Pinóquio se mete em várias confusões, apesar dos constantes avisos de seu amigo Grilo Falante. O boneco tem uma particularidade: sempre que mente seu nariz cresce. Até o dia em que precisa resgatar seu criador, quando ele fica preso na barriga de uma baleia.",
+    "tags": [
+      "animacao",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "piratas_do_caribe_a_maldicao_do_perola_negra": {
+    "name": "Piratas do Caribe: A Maldição do Pérola Negra",
+    "slug": "piratas_do_caribe_a_maldicao_do_perola_negra",
+    "duration": 8018,
+    "synopsis": "O pirata Jack Sparrow tem seu navio saqueado e roubado pelo capitão Barbossa e sua tripulação. Com o navio de Sparrow, Barbossa invade a cidade de Port Royal, levando consigo Elizabeth Swann, filha do governador. Para recuperar sua embarcação, Sparrow recebe a ajuda de Will Turner, um grande amigo de Elizabeth. Eles desbravam os mares em direção à misteriosa Ilha da Morte, tentando impedir que os piratas-esqueleto derramem o sangue de Elizabeth para desfazer a maldição que os assola.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "piratas_do_caribe_navegando_em_aguas_misteriosas": {
+    "name": "Piratas do Caribe: Navegando em Águas Misteriosas",
+    "slug": "piratas_do_caribe_navegando_em_aguas_misteriosas",
+    "duration": 7674,
+    "synopsis": "O passado do capitão Jack Sparrow volta a alcançá-lo quando ele cruza com Angelica, uma bonita pirata que Jack, um dia, amou e depois abandonou. Ela, então, o força a acompanhá-la ao navio Vingança da Rainha Ana, do famoso Barba Negra. Junto com uma tripulação de zumbis, o trio parte em busca da lendária Fonte da Juventude. Mas o rival de Jack, Barbossa, também cobiça a fonte, assim como um navio espanhol.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "piratas_do_caribe_no_fim_do_mundo": {
+    "name": "Piratas do Caribe: No Fim do Mundo",
+    "slug": "piratas_do_caribe_no_fim_do_mundo",
+    "duration": 9541,
+    "synopsis": "Will Turner e Elizabeth Swann unem forças com o Capitão Barbossa para libertarem Jack Sparrow da prisão de Davy Jones. Enquanto isso, a tripulação do barco fantasma O Holandês Voador causa estragos nos Sete Mares. Os amigos devem navegar através de águas perigosas para enfrentarem o pirata chinês São Feng e, finalmente, eles devem escolher em que lado ficar na batalha, pois a vida do pirata está em jogo.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "piratas_do_caribe_o_bau_da_morte": {
+    "name": "Piratas do Caribe: O Baú da Morte",
+    "slug": "piratas_do_caribe_o_bau_da_morte",
+    "duration": 8493,
+    "synopsis": "Will e Elizabeth estão prestes a se casar quando o lendário pirata Davy Jones, comandante do invencível navio assombrado O Holandês Voador, aparece para cobrar uma dívida do capitão Jack Sparrow, amigo do casal. A única chance de Sparrow se livrar de uma maldição de Jones é encontrando o baú da morte.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "pokemon_2000": {
+    "name": "Pokémon: O Filme 2000 - O Poder de Um",
+    "slug": "pokemon_2000",
+    "duration": 4845,
+    "synopsis": "Ash, treinador de pokémon, e seus companheiros têm a difícil tarefa de restaurar o equilíbrio das forças naturais na Terra para impedir que uma grande catástrofe aconteça. Para isso, precisam recuperar três pokémon que estão nas mãos de um vilão.",
+    "tags": [
+      "anime",
+      "aventura",
+      "familia",
+      "fantasia",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "pokemon_mewtwo_contra-ataca": {
+    "name": "Pokémon: O Filme",
+    "slug": "pokemon_mewtwo_contra-ataca",
+    "duration": 4475,
+    "synopsis": "Cientistas trabalham para criar o mais forte e poderoso pokémon de todo o planeta. Seus esforços têm resultado quando Mewtwo, um pokémon de poderes psíquicos, ganha vida. Só que a criatura se rebela, destrói o laboratório em que foi criado e resolve por convocar uma batalha contra os maiores treinadores de pokémons para poder conquistar o planeta.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "familia",
+      "fantasia"
+    ]
+  },
+  "poltergeist": {
+    "name": "Poltergeist: O Fenômeno",
+    "slug": "poltergeist",
+    "duration": 6866,
+    "synopsis": "\"Eles estão aqui\". E parecem amistosos no começo, tentando equilibrar cadeiras na cozinha da casa da família Freenlings, num subúrbio americano. Então, as coisas tornam-se tenebrosas. Uma tempestade rompe, o ataque de uma árvore, a pequena Carol Anne Freeling desaparece num espectro sinistro. E assim que sua família confronta uma reação em cadeia de horror e luta para trazer sua caçula de volta, alguma outra coisa está aqui também: um novo marco nas histórias de fantasmas em Hollywood.",
+    "tags": [
+      "terror"
+    ],
+    "_review": true
+  },
+  "possuida": {
+    "name": "Possuída",
+    "slug": "possuida",
+    "duration": 6489,
+    "synopsis": "Entediadas com as coisas da adolescência, as irmãs Ginger e Brigitte procuram algo que provoque um pouco de agito em suas vidas. Só que elas conseguem muito mais do que esperavam quando Ginger é atacada por uma fera selvagem, que lhe causa uma incrível metamorfose. Uma força terrível rapidamente se apodera de Ginger, ameaçando destruir o laço que une as irmãs e todas as pessoas em torno delas. Na medida em que Ginger se transforma numa horrível fera sedenta por sangue, Brigitte luta para libertá-la das garras do demônio, mas seu comportamento selvagem se torna cada vez mais incontrolável.",
+    "tags": [
+      "drama",
+      "fantasia",
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "possuida_2": {
+    "name": "Possuída 2: Força Incontrolável",
+    "slug": "possuida_2",
+    "duration": 5654,
+    "synopsis": "Brigitte conta com uma droga para controlar sua licantropia. Confundida com uma viciada, ela é internada numa clínica de reabilitação para adolescentes e precisa garantir o fornecimento da droga. Para piorar a situação, outro lobisomem a persegue.",
+    "tags": [
+      "drama",
+      "fantasia",
+      "suspense",
+      "terror"
+    ]
+  },
+  "power_rangers_o_filme": {
+    "name": "Power Rangers: O Filme",
+    "slug": "power_rangers_o_filme",
+    "duration": 5739,
+    "synopsis": "Depois que uma equipe de construção acidentalmente quebrou um ovo gigante que aprisionou o maníaco Ivan Ooze durante séculos, os Power Rangers preparam-se para enfrentar seu mais formidável inimigo, o vingativo Ooze, o qual mata seu idoso mentor Zordon e, com ele, a fonte de energia dos Rangers. Atordoado pela morte de Zordon, os Rangers lutam para conter Ooze sem a ajuda dos Zords, os robôs gigantes mecânicos com quem eles sempre contaram na batalha.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "predador": {
+    "name": "O Predador",
+    "slug": "predador",
+    "duration": 6394,
+    "synopsis": "O major Alan \"Dutch\" Schaefer lidera uma equipe de resgate em uma selva da América Central, para tentar encontrar um ministro estrangeiro e funcionários do governo que saíram da rota e se perderam. O exército acredita que eles estejam nas mãos de guerrilheiros, mas o que eles não imaginam é que a floresta esconde uma ameaça mortal, um ser de outro planeta, fortemente armado, que sente enorme prazer em matar.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "predador_a_cacada": {
+    "name": "O Predador: A Caçada",
+    "slug": "predador_a_cacada",
+    "duration": 5974,
+    "synopsis": "Ambientado há 300 anos na Nação Comanche, esta é a história de Naru, uma guerreira destemida e hábil, criada na sombra dos lendários caçadores que habitam as Grandes Planícies. Quando um perigo ameaça seu povo, ela parte para protegê-los. Porém, sua presa é um predador alienígena altamente evoluído munido com armas tecnologicamente avançadas.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "psicopata_americano": {
+    "name": "Psicopata Americano",
+    "slug": "psicopata_americano",
+    "duration": 6122,
+    "synopsis": "Em Nova York, em 1987, o belo jovem profissional Patrick Bateman tem uma segunda vida como um horrível assassino em série durante a noite. O elenco é formado pelo detetive, a noiva, a amante, o colega de trabalho e a secretária. Esta é uma comédia de humor seco que examina os elementos que transformam um homem em um monstro.",
+    "tags": [
+      "drama",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "psycho_pass_providence": {
+    "name": "PSYCHO-PASS: Providence",
+    "slug": "psycho_pass_providence",
+    "duration": 7207,
+    "synopsis": "Em janeiro de 2118, a Inspetora-Chefe do Departamento de Investigação Criminal, Akane Tsunemori, recebe um relatório de um incidente em um navio estrangeiro: o corpo da professora Milicia Stronskaya foi encontrado. Por trás do incidente está um grupo conhecido como os \"Peacebreakers\", uma organização paramilitar estrangeira e uma nova ameaça externa que está atrás de documentos de pesquisa da professora conhecidos como \"Documento Stronskaya\". Juntamente com Shinya Kogami, um ex-fugitivo do Departamento de Investigação Criminal, Akane enfrenta um caso que rapidamente fica mais intenso do que ela jamais imaginou. Os Documentos Stronskaya podem revelar uma verdade que abalaria o governo japonês e o Sistema Sibyl até o âmago.",
+    "tags": [
+      "anime",
+      "suspense"
+    ]
+  },
+  "psycho_pass_the_movie": {
+    "name": "Psycho-Pass: O Filme",
+    "slug": "psycho_pass_the_movie",
+    "duration": 6822,
+    "synopsis": "No ano 2116, o governo japonês começa a exportar o “Sistema Sybil” e seus drones não tripulados para vários países em crise em todo o mundo. Um país no meio de uma guerra civil, SEAUn (União dos Países do Leste Asiático) utiliza o Sybil como um experimento.  Com o novo sistema, a cidade costeira de Shambala Float alcança paz e a segurança temporária. Mas quando terroristas de SEAUn são enviados para o Japão e atacam o sistema central de Sybil por dentro, um policial de Shambala Float, Tsunemori, viaja para  investigar o incidente. No Japão ele procura entender a verdadeira justiça neste novo território.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "quarteto_fantastico": {
+    "name": "Quarteto Fantástico",
+    "slug": "quarteto_fantastico",
+    "duration": 5999,
+    "synopsis": "O cientista Reed Richards convence seu arrogante colega Victor von Doom a financiar seus experimentos com energia cósmica. Na estação espacial Von Doom, a tripulação, incluindo o astronauta Ben Grimm, a pesquisadora Sue Storm e o piloto Johnny Storm, é exposta a uma tempestade cósmica misteriosa que dá superpoderes a eles. Eles tentam lidar com suas transformações enquanto o detestável von Doom jura vingança.",
+    "tags": [
+      "acao",
+      "fantasia",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "quarteto_fantastico_primeiros_passos": {
+    "name": "Quarteto Fantástico: Primeiros Passos",
+    "slug": "quarteto_fantastico_primeiros_passos",
+    "duration": 6875,
+    "synopsis": "No vibrante cenário de um mundo retrofuturista inspirado nos anos 1960, a Primeira Família da Marvel é forçada a equilibrar seus papéis como heróis com a força de seus laços familiares, enquanto defendem a Terra de um deus espacial voraz chamado Galactus e sua enigmática arauta, a Surfista Prateada.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "rambo_programado_para_matar": {
+    "name": "Rambo: Programado Para Matar",
+    "slug": "rambo_programado_para_matar",
+    "duration": 5605,
+    "synopsis": "Quando o ex-Boina Verde John Rambo é assediado pelas autoridades locais e preso por vadiagem, ele é forçado a fugir para as montanhas e travar uma guerra crescente de um homem só contra seus perseguidores.",
+    "tags": [
+      "acao",
+      "aventura",
+      "guerra",
+      "suspense"
+    ]
+  },
+  "rec": {
+    "name": "[REC]",
+    "slug": "rec",
+    "duration": 4707,
+    "synopsis": "Ao longo de uma noite, uma repórter e seu cameraman acompanham um grupo de bombeiros chamados para resgatar uma mulher presa em um edifício, com resultados apavorantes. Antes de se darem conta, moradores, ajudantes e equipe de resgate são trancados dentro do edifício devido a um vírus desconhecido.",
+    "tags": [
+      "suspense",
+      "terror"
+    ]
+  },
+  "requiem_para_um_sonho": {
+    "name": "Réquiem para um Sonho",
+    "slug": "requiem_para_um_sonho",
+    "duration": 6091,
+    "synopsis": "Sara Goldfarb é uma viúva aposentada que vive em um pequeno apartamento. Ela passa a maior parte do tempo assistindo à TV, especialmente a um programa específico de autoajuda. Ela tem a ilusão de superar sua atual existência monótona sendo convidada para esse programa. Seu filho, Harry, é viciado em drogas, mas junto com seu amigo Tyrone tem visões de se tornar um grande traficante de drogas. A namorada de Harry, Marion, poderia ser designer de moda ou artista, mas é arrastada para o mundo das drogas de Harry. Enquanto isso, Sara desenvolveu seu próprio vício. Ela quer desesperadamente perder peso e, por isso, entra em um curso intensivo que envolve o consumo de pílulas, pílulas essas que se revelam muito viciantes e prejudiciais ao seu estado mental.",
+    "tags": [
+      "drama",
+      "suspense"
+    ]
+  },
+  "ringu": {
+    "name": "Ringu",
+    "slug": "ringu",
+    "duration": 5726,
+    "synopsis": "",
+    "tags": [
+      "suspense",
+      "terror"
+    ]
+  },
+  "robos": {
+    "name": "Robôs",
+    "slug": "robos",
+    "duration": 5388,
+    "synopsis": "Rodney Lataria é um robô que tem um dom para inventar máquinas, que trabalha com seu pai lavando pratos. Sonhando em conhecer seu ídolo, o Grande Soldador, Rodney decide partir em uma viagem rumo a Robópolis. Porém, ao chegar na cidade, ele percebe que sua busca será mais difícil do que imaginava. Logo Rodney se torna amigo dos Enferrujados, um grupo de robôs de rua que sabe se virar e que acaba por abrigá-lo. Tentando encontrar o Grande Soldador e mantendo seu ideal em fazer um mundo melhor, ele enfrenta situações que podem pôr em risco a própria existência de Robópolis.",
+    "tags": [
+      "animacao",
+      "comedia",
+      "familia",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "rocky_III_o_desafio_supremo": {
+    "name": "Rocky III: O Desafio Supremo",
+    "slug": "rocky_III_o_desafio_supremo",
+    "duration": 5975,
+    "synopsis": "Depois de ter sido derrotado pelo arrogante Clubber Lang, Rocky Balboa decide reconquistar o título de campeão de pesos pesados e se prepara para uma revanche. Para treinar, o lutador pede a ajuda de seu antigo adversário, Apollo Creed.",
+    "tags": [
+      "acao",
+      "drama"
+    ]
+  },
+  "rocky_II_a_revanche": {
+    "name": "Rocky II: A Revanche",
+    "slug": "rocky_II_a_revanche",
+    "duration": 7150,
+    "synopsis": "Após a luta contra Apollo Creed, Rocky promete à sua esposa largar os ringues. Mas os fãs de boxe insistem em uma revanche entre os dois pugilistas. Sem dinheiro, Rocky se vê obrigado a aceitar o desafio e recebe a benção da esposa para lutar. Agora o lutador deve se preparar para o combate do século e decide treinar intensamente, sonhando apenas em terminar a luta sem ser nocauteado pelo campeão.",
+    "tags": [
+      "drama"
+    ]
+  },
+  "rocky_IV": {
+    "name": "Rocky IV",
+    "slug": "rocky_IV",
+    "duration": 5490,
+    "synopsis": "Após Apollo morrer em uma luta contra Drago, um invencível lutador russo, Rocky decide ir até a União Soviética para enfrentá-lo e vingar o amigo.",
+    "tags": [
+      "drama"
+    ],
+    "_review": true
+  },
+  "rocky_V": {
+    "name": "Rocky V",
+    "slug": "rocky_V",
+    "duration": 6250,
+    "synopsis": "Na luta com Drago, o lutador russo, Rocky acabou recebendo uma lesão permanente. Assim é forçado a se retirar do boxe e, para piorar as coisas, descobre que seu contador roubou sua fortuna. Sem dinheiro e não podendo voltar a lutar, ele começa a treinar um jovem que promete ser um grande lutador. Mas seu trabalhado não é terminado, pois um empresário atrai o jovem pugilista com um alto salário, mas mestre e aluno ainda vão se reencontrar como rivais.",
+    "tags": [
+      "drama"
+    ],
+    "_review": true
+  },
+  "rocky_um_lutador": {
+    "name": "Rocky: Um Lutador",
+    "slug": "rocky_um_lutador",
+    "duration": 7176,
+    "synopsis": "Rocky Balboa, um pequeno boxeador da classe trabalhadora da Filadélfia, é arbitrariamente escolhido para lutar contra o campeão dos pesos pesados, Apollo Creed, quando o adversário do invicto lutador agendado para a luta é ferido. Durante o treinamento com o mal-humorado Mickey Goldmill, Rocky timidamente começa um relacionamento com Adrian, a invisível irmã de Paulie, seu amigo empacotador de carne.",
+    "tags": [
+      "drama"
+    ]
+  },
+  "rua_do_medo_parte_1": {
+    "name": "Rua do Medo: 1994 - Parte 1",
+    "slug": "rua_do_medo_parte_1",
+    "duration": 6430,
+    "synopsis": "Depois de uma série de assassinatos brutais, um grupo de adolescentes enfrenta uma força maligna que aterroriza a cidade há séculos. Bem-vindos a Shadyside.",
+    "tags": [
+      "suspense",
+      "terror"
+    ]
+  },
+  "rua_do_medo_parte_2": {
+    "name": "Rua do Medo: 1978 - Parte 2",
+    "slug": "rua_do_medo_parte_2",
+    "duration": 6554,
+    "synopsis": "Na cidade amaldiçoada de Shadyside, uma onda de assassinatos aterroriza o Acampamento Nightwing, transformando as férias em uma luta pela sobrevivência.",
+    "tags": [
+      "suspense",
+      "terror"
+    ],
+    "_review": true
+  },
+  "rua_do_medo_parte_3": {
+    "name": "Rua do Medo: 1666 – Parte 3",
+    "slug": "rua_do_medo_parte_3",
+    "duration": 6740,
+    "synopsis": "De volta a 1666, Deena descobre a verdade sobre Sarah Fier. Em 1994, os amigos lutam para sobreviver e pelo futuro de Shadyside.",
+    "tags": [
+      "suspense",
+      "terror"
+    ]
+  },
+  "samurai_x_o_filme": {
+    "name": "Samurai X: O Filme",
+    "slug": "samurai_x_o_filme",
+    "duration": 5455,
+    "synopsis": "Kenshin se mete em uma briga de marinheiros para ajudar uma garota e conhece Shigure Takimi, e aqui tem início sua nova aventura. Kenshin e seus amigos tentam devolver a sanidade a um homem amargurado pela perda de um grande amigo, Gentatsu, que foi assassinado pelo lendário Hitokiri Battousai.\r Shigure só pensa em honrar os companheiros que morreram tentando derrubar o corrompido governo Meiji, e parece não se importar em sacrificar os jovens que o seguem, na tentativa de assassinar um emissário do governo inglês, para causar uma crise internacional e provocar um golpe de estado. Shigure acaba confrontando-se com Kenshin, e torna-se juiz, júri e executor, logo que vê o mesmo golpe que matou Gentatsu surgindo das mãos de Kenshin.\r Numa seqüência final de lutas surge todo um sentimento de arrependimento e carinho, que faz com que ambos perdoem-se, mas outros planos estão esperando os dois novos companheiros.",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ]
+  },
+  "scooby_doo": {
+    "name": "Scooby-Doo: O Filme",
+    "slug": "scooby_doo",
+    "duration": 5189,
+    "synopsis": "Dois anos depois de separarem-se após resolverem seu último caso, a equipe da Mystery Inc. une-se para investigar estranhos acontecimentos em um parque mal-assombrado chamado Spook Island. A atração parece assombrar jovens visitantes de maneiras muito estranhas, mas cabe a Scooby, Salsicha e todo o grupo desvendar o mistério.",
+    "tags": [
+      "aventura",
+      "comedia",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "seven_os_sete_crimes_capitais": {
+    "name": "Seven - Os Sete Crimes Capitais",
+    "slug": "seven_os_sete_crimes_capitais",
+    "duration": 7610,
+    "synopsis": "Quando, a ponto de se aposentar, o detetive William Somerset aborda o último caso com a ajuda do recém-transferido David Mills, eles descobrem uma série de assassinatos. Logo percebem que estão lidando com um assassino que tem como alvo pessoas que ele acredita representar os sete pecados capitais.",
+    "tags": [
+      "suspense"
+    ]
+  },
+  "shrek": {
+    "name": "Shrek",
+    "slug": "shrek",
+    "duration": 5406,
+    "synopsis": "Há muito tempo, em um pântano muito remoto, vivia um ogro feroz chamado Shrek. Um dia, sua solidão é interrompida por uma invasão de personagens surpreendentes. Há pequenos ratos cegos em sua comida, um enorme e péssimo lobo em sua cama, três porquinhos sem teto e outros seres que foram deportados de suas terras pelo maligno lorde Farquaad. Para salvar seu território, Shrek faz um pacto com Farquaad e parte em uma jornada para fazer a linda princesa Fiona concordar em ser a noiva do Senhor. Em uma missão tão importante, ele é acompanhado por um burro divertido, pronto para fazer qualquer coisa por Shrek: tudo, exceto ficar em silêncio.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "comedia",
+      "familia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "space_adventure_cobra": {
+    "name": "Space Adventure Cobra",
+    "slug": "space_adventure_cobra",
+    "duration": 5948,
+    "synopsis": "Em um universo de planetas desabitados, governos corruptos agem como sindicatos do crime e a Federação de Justiça das Galáxias Unidas bota a prêmio as cabeças dos bandidos mais perigosos. A maior recompensa vai para quem capturar Cobra, um golpista cujo braço esquerdo oculta uma devastadora arma. Considerado morto por dois anos, ele deixa seu retiro após conhecer a linda caçadora de recompensas Jane Flower – uma decisão que o coloca em conflito direto com uma organização criminosa.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "spriggan": {
+    "name": "Spriggan",
+    "slug": "spriggan",
+    "duration": 5431,
+    "synopsis": "Spriggan é um longa-metragem baseado no mangá de 11 edições de Hiroshi Takashige e Ryoji Minagawa. Dirigido por Katsuhiro Otomo (Akira, Steamboy). Um artefato chamado Arca de noé foi encontrado nas montanhas, esse artefato tem o poder de elevar seu portador ao status de Deus e varrer a humanidade da face da terra. Yu Ominae pode parecer um jovem normal de 16 anos, com um aspecto inocente e rosto de menino. Mas Yu esconde um passado sombrio e assustador. Esse jovem é o Spriggan número um da ARCAM (agente de elite). Movido pelo desejo, desespero, e lembranças confusas, ele é o agente dos agentes",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "steamboy": {
+    "name": "Steamboy",
+    "slug": "steamboy",
+    "duration": 7573,
+    "synopsis": "Ray Steam é um jovem inventor que recebe de seu avô, pelos Correios, uma estranha bola de metal conhecida como Steam Ball. Esta incrível invenção comporta uma nova espécie de energia, que tem a capacidade de suprir uma nação inteira. Ao tentar proteger a esfera da inescrupulosa Fundação O'Hara, Ray descobre aos poucos os fantásticos poderes que a bola possui.",
+    "tags": [
+      "anime",
+      "fantasia",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "street_fighter": {
+    "name": "Street Fighter: A Última Batalha",
+    "slug": "street_fighter",
+    "duration": 6089,
+    "synopsis": "No Sudeste Asiático, um general sequestra 63 delegados da ONU e exige um resgate milionário. O coronel Guile e a agente da Inteligência Britânica Cammy tentam resolver a situação, mas seus planos são ameaçados por uma repórter atrás de vingança.",
+    "tags": [
+      "acao",
+      "aventura",
+      "comedia",
+      "suspense"
+    ]
+  },
+  "street_fighter_2_o_filme": {
+    "name": "Street Fighter II: O Filme",
+    "slug": "street_fighter_2_o_filme",
+    "duration": 6086,
+    "synopsis": "Bison, o lider da organização criminosa Shadaloo quer conquistar o mundo. Assim ele manda seus capangas atrás de lutadores que possam servi-lo como escravos. Bison captura o grande lutador americano Ken Masters, onde Bison faz uma lavagem cerebral em Ken, obrigando-o a ser seu servo, enfrentando até mesmo seu amigo Ryu, um dos maiores artistas marciais do planeta.",
+    "tags": [
+      "acao",
+      "anime"
+    ]
+  },
+  "super_heroi": {
+    "name": "Super-Herói: O Filme",
+    "slug": "super_heroi",
+    "duration": 4950,
+    "synopsis": "Rick Riker é um estudante comum do colegial. Porém, ao ser mordido por uma libélula geneticamente modificada ganha superpoderes. Agora sua missão é proteger a cidade das mãos do malvado Hourglass, que suga a vida de suas vítimas.",
+    "tags": [
+      "acao",
+      "comedia",
+      "ficcao_cientifica"
+    ],
+    "_review": true
+  },
+  "supercop_police_story_3": {
+    "name": "Police Story 3: Supercop",
+    "slug": "supercop_police_story_3",
+    "duration": 5790,
+    "synopsis": "Chan Ka Kui, um policial de Hong Kong, é enviado disfarçado à China, Tailândia e Malásia para acabar com um grupo internacional de tráfico de drogas. Para cumprir tal missão, Chan ganha a companhia da policial Jessica Yang.",
+    "tags": [
+      "acao",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "tartarugas_ninja_2": {
+    "name": "As Tartarugas Ninja II: O Segredo do Ooze",
+    "slug": "tartarugas_ninja_2",
+    "duration": 5303,
+    "synopsis": "As Tartarugas Ninja estão procurando um novo lugar para morar nos esgotos de Nova York, quando encontram integrantes do clã Foot, liderado por Destruidor. É quando eles descobrem o Ooze, a substância que transformou as próprias Tartarugas Ninja. O Destruidor usa este material para criar dois novos capangas, Tokka e Rahzar, e os envia para provocar destruições na cidade. Com a ajuda da jornalista April O'Neill, do professor Jordan Perry e do entregador de pizza Keno, as Tartarugas Ninja precisam detê-los.",
+    "tags": [
+      "acao",
+      "aventura",
+      "comedia",
+      "familia",
+      "ficcao_cientifica"
+    ]
+  },
+  "tarzan": {
+    "name": "Tarzan",
+    "slug": "tarzan",
+    "duration": 5302,
+    "synopsis": "Um bebê perde os pais na selva. Órfão e sozinho, ele é encontrado por uma macaca que o cria como se fosse seu próprio filho. Tarzan cresce pensando ser um gorila, agindo e vivendo como tal. Quando uma equipe de pesquisadores chega à floresta, o rapaz percebe que é igual a eles. Tarzan encontra a bela Jane correndo perigo e a salva, apaixonando-se por ela. Ele se vê dividido entre o desejo de estar com gente da sua espécie e a lealdade com a família de gorilas que o criou.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "familia"
+    ],
+    "_review": true
+  },
+  "terror_em_silent_hill": {
+    "name": "Terror em Silent Hill",
+    "slug": "terror_em_silent_hill",
+    "duration": 7534,
+    "synopsis": "Rose, uma mãe desesperada leva sua filha adotiva, Sharon, para a cidade de Silent Hill na tentativa de curá-la de seu sofrimento. Após um violento acidente de carro, Sharon desaparece e Rose começa sua busca desesperada para recuperá-la. Ela entra em uma neblina de cinzas e vai de encontro ao terrível segredo da cidade. Perseguida por grotescas criaturas deformadas e outras pessoas da cidade presas em um permanente purgatório, Rose começa a desvendar a verdade por trás do apocalíptico desastre que queimou a cidade há 30 anos.",
+    "tags": [
+      "suspense",
+      "terror"
+    ]
+  },
+  "the_flash": {
+    "name": "The Flash",
+    "slug": "the_flash",
+    "duration": 8643,
+    "synopsis": "Os mundos colidem quando Barry Allen usa seus superpoderes para viajar no tempo e mudar os acontecimentos do passado. Mas a tentativa de salvar sua família altera inadvertidamente o futuro.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "thor": {
+    "name": "Thor",
+    "slug": "thor",
+    "duration": 6891,
+    "synopsis": "Como filho de Odin, rei dos deuses nórdicos, Thor logo herdará o trono de Asgard de seu idoso pai. Porém, no dia de sua coroação, Thor reage com brutalidade quando os inimigos dos deuses entram no palácio violando o tratado. Como punição, Odin manda Thor para a Terra. Enquanto seu irmão Loki conspira em Asgard, Thor, agora sem seus poderes, enfrenta sua maior ameaça.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "thor_ragnarok": {
+    "name": "Thor: Ragnarok",
+    "slug": "thor_ragnarok",
+    "duration": 7831,
+    "synopsis": "Thor está preso do outro lado do universo. Ele precisa correr contra o tempo para voltar a Asgard e parar Ragnarok, a destruição de seu mundo, que está nas mãos da poderosa e implacável vilã Hela.",
+    "tags": [
+      "acao",
+      "comedia",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "todo_mundo_em_panico": {
+    "name": "Todo Mundo em Pânico",
+    "slug": "todo_mundo_em_panico",
+    "duration": 5308,
+    "synopsis": "Depois do assassinato de uma bela colega de classe, um grupo de adolescentes desorientados descobre que há um assassino entre eles. A heroína Cindy Campbell e a sua turma de amigos mauricinhos e patricinhas, tentam se proteger do perigo... Mas uma reporter irritante, Gail Hailstorm, simplesmente não os deixa em paz! Parece familiar? Talvez sim, mas essa história repleta de reviravoltas e surpresas horripilantes e humor ultrajante extrapola no gênero de horror e ação.",
+    "tags": [
+      "comedia"
+    ],
+    "_review": true
+  },
+  "todo_mundo_em_panico_2": {
+    "name": "Todo Mundo em Pânico 2",
+    "slug": "todo_mundo_em_panico_2",
+    "duration": 4947,
+    "synopsis": "Brincando com o terror, o professor Oldman e Dwight seu assistente, preparam um final de semana hilariante e super especial. Um experiência sobre exorcismo, onde Cindy e \"aquele\" grupo de jovens malucos e assustados deverão ficar sem dormir. A incrível arapuca terá lugar na \"Casa do Inferno\", um casarão mal-assombrado afastado da cidade, e onde não falta nem o repulsivo mordono sempre presente nas melhores histórias de terror. Como alvos desta comédia escrachada, encontramos \"O Exorcista\", \"Poltergeist\", \"A Casa da Colina\", \"Revelação\" e até mesmo \"As Panteras\" e \"Missão Impossível 2\". Agora muito mais engraçado. Imperdível!",
+    "tags": [
+      "comedia"
+    ]
+  },
+  "todo_mundo_em_panico_3": {
+    "name": "Todo Mundo em Pânico 3",
+    "slug": "todo_mundo_em_panico_3",
+    "duration": 5141,
+    "synopsis": "Tudo começa quando a apresentadora de telejornal Cindy Campbell descobre uma série de terríveis acontecimentos que ameaçam o planeta, envolvendo invasores extraterrestres, vídeos assassinos, assustadores círculos de plantações, profecias sobre o Escolhido, crianças com olhares sinistros, rappers brancos ambiciosos e até mesmo uma discussão com Michael Jackson.",
+    "tags": [
+      "comedia"
+    ]
+  },
+  "todo_poderoso": {
+    "name": "Todo Poderoso",
+    "slug": "todo_poderoso",
+    "duration": 6061,
+    "synopsis": "Apesar de sua popularidade e do amor de sua namorada, o repórter Bruce Nolan continua achando o mundo injusto. Depois de viver o pior dia de sua existência, Bruce evoca Deus com toda a raiva do mundo. Aos gritos, diz que Deus além de arruinar sua vida, ainda por cima, não cuida direito da humanidade. Então Deus, responde e concede ao jornalista todo o Seu poder.",
+    "tags": [
+      "comedia",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "toy_story": {
+    "name": "Toy Story: Um Mundo de Aventuras",
+    "slug": "toy_story",
+    "duration": 4864,
+    "synopsis": "Buzz Lightyear é o novo e sofisticado astronauta de brinquedo do garoto Andy. Buzz não imaginava que encontraria um rival: Woody, um cowboy de brinquedo que, dominado pelo ciúme, acredita ter perdido um lugar precioso no coração do seu dono. Os dois brinquedos vivem brigando até que vão parar nas garras do vizinho, um verdadeiro destruidor de brinquedos. Agora, mais do que nunca, Buzz e Woody precisam precisam se unir para escapar do perigo. Com a ajuda de seus amigos da caixa de brinquedos, eles vão viver uma incrível aventura.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "comedia",
+      "familia"
+    ],
+    "_review": true
+  },
+  "toy_story_2": {
+    "name": "Toy Story 2",
+    "slug": "toy_story_2",
+    "duration": 5546,
+    "synopsis": "Quando Andy viaja para um acampamento de verão, Woody é sequestrado por Al, um ambiocioso colecionador, que precisa do brinquedo favorito de Andy para completar sua coleção da Gangue do Rodeio. Junto com Jessie, Bala no Alvo e Mineiro, Woody corre o risco de ter que passar o resto de sua vida em exposição num museu. Agora, Buzz, Sr. Cabeça de Batata, Porquinho, Rex e Slinky terão que salvar seu amigo e trazê-lo de volta à vida de brinquedos.",
+    "tags": [
+      "animacao",
+      "comedia",
+      "familia"
+    ],
+    "_review": true
+  },
+  "troia": {
+    "name": "Tróia",
+    "slug": "troia",
+    "duration": 11763,
+    "synopsis": "Quando Páris, o príncipe de Troia, se apaixona por Helena, rainha de Esparta, o rei inicia uma guerra de anos entre os dois reinos. Para vencer, Esparta conta com Aquiles, um guerreiro lendário que comanda um exército próprio.",
+    "tags": [
+      "acao",
+      "guerra"
+    ],
+    "_review": true
+  },
+  "tron_o_legado": {
+    "name": "Tron: O Legado",
+    "slug": "tron_o_legado",
+    "duration": 7509,
+    "synopsis": "Quando Flynn, o maior criador de videogames do planeta, envia uma mensagem de um incrível mundo digital, seu filho descobre o caminho e embarca numa jornada pessoal para salvar seu pai desaparecido há anos. Com a ajuda da destemida guerreira Quorra, pai e filho se aventuram num universo cibernético incrível e travam a batalha definitiva do bem x mal.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica"
+    ]
+  },
+  "tropas_estelares": {
+    "name": "Tropas Estelares",
+    "slug": "tropas_estelares",
+    "duration": 7778,
+    "synopsis": "Em um futuro distante, a Terra está em guerra contra uma raça de insetos gigantes alienígenas. Pouco se sabe sobre eles, exceto que têm a intenção de eliminar toda forma de vida humana. Mas houve um tempo, antes da guerra, em que a Infantaria Móvel viajava para planetas distantes a fim de combater os insetos, inimigos implacáveis, com apenas uma missão: garantir a sobrevivência de sua espécie a qualquer custo.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "twister": {
+    "name": "Twister",
+    "slug": "twister",
+    "duration": 6785,
+    "synopsis": "Em Oklahoma está se anunciando uma tempestade que não acontece há décadas e dois grupos de cientistas rivais planejam entrar para a história colocando sensores no tornado, para que estas informações possam ir até um computador e, assim, seja possível prever sua chegada com maior antecedência. Mas para colocar os sensores, é necessário ficar o mais próximo possível do tornado e torcer para que os sensores sejam sugados pela tempestade. Em uma das equipes está uma jovem (Helen Hunt) obcecada por tal idéia, pois em 1969 ela viu o pai ser sugado por uma tempestade e atualmente ela planeja conseguir seu intento ou morrer tentando.",
+    "tags": [
+      "acao",
+      "aventura",
+      "drama"
+    ],
+    "_review": true
+  },
+  "um_gigolo_por_acidente": {
+    "name": "Um Gigolô Europeu por Acidente",
+    "slug": "um_gigolo_por_acidente",
+    "duration": 5309,
+    "synopsis": "Vários gigolôs europeus são assassinados e as suspeitas recaem sobre T.J. Hicks, o cafetão de Deuce Bigalow. Ele, então, vai à Europa para tentar limpar o nome do amigo. Lá, ele tem que lutar contra o sindicato local, além de “enfrentar” mais uma lista de clientes anormais, como Eva, que sofre de uma séria desordem obsessivo-compulsiva.",
+    "tags": [
+      "comedia"
+    ]
+  },
+  "um_maluco_no_golfe": {
+    "name": "Um Maluco no Golfe",
+    "slug": "um_maluco_no_golfe",
+    "duration": 5516,
+    "synopsis": "Happy Gilmore quer ser um jogador profissional de hóquei, mas acaba descobrindo que tem um talento muito especial para jogar golfe. O satírico e desbocado atleta acaba ganhando dinheiro suficiente para poder ajudar a sua avó, que está prestes a perder a casa por falta de pagamento de impostos. O problema é que esse maluco se torna um herói improvável para o esporte, o que desagrada bastante os golfistas, tão educados e elegantes.",
+    "tags": [
+      "comedia"
+    ],
+    "_review": true
+  },
+  "v_de_vinganca": {
+    "name": "V de Vingança",
+    "slug": "v_de_vinganca",
+    "duration": 7951,
+    "synopsis": "Após uma guerra mundial, a Inglaterra é ocupada por um governo fascista e vive sob um regime totalitário. Na luta pela liberdade, um vigilante, conhecido apenas como V, utiliza-se de táticas terroristas para enfrentar os opressores da sociedade. V salva uma jovem chamada Evey da polícia secreta e encontra nela uma nova aliada em busca de liberdade e justiça para o seu país.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica",
+      "suspense"
+    ],
+    "_review": true
+  },
+  "vampire_hunter_d": {
+    "name": "Vampire Hunter D",
+    "slug": "vampire_hunter_d",
+    "duration": 4834,
+    "synopsis": "10.000 anos no futuro, o mundo se tornou um lugar muito diferente; os monstros vagam livremente pela terra e as pessoas, embora equipadas com armas de alta tecnologia e cavalos cibernéticos, vivem uma vida humilde mais adequada aos séculos passados. A história se concentra em uma pequena aldeia atormentada por ataques de monstros e vivendo sob a sombra do governo do conde Magnus Lee, um poderoso lorde vampiro que governou a terra por milhares de anos. Quando uma jovem é mordida pelo Conde e escolhida como seu brinquedo, ela procura a ajuda de um silencioso e estranho nômade, D. Acontece que D é um dos melhores caçadores de vampiros do mundo e ele decide exterminar os muitos lacaios de Magnus Lee e pôr fim ao domínio do Conde.",
+    "tags": [
+      "anime",
+      "fantasia",
+      "terror"
+    ],
+    "_review": true
+  },
+  "van_helsing_o_cacador_de_monstros": {
+    "name": "Van Helsing: O Caçador de Monstros",
+    "slug": "van_helsing_o_cacador_de_monstros",
+    "duration": 7892,
+    "synopsis": "O famoso caçador de monstros Van Helsing é enviado à Transilvânia para ajudar os últimos da linhagem Valerious a derrotar o Conde Drácula. Anna Valerious revela que Drácula formou uma aliança profana com o monstro do Dr. Frankenstein e está determinado a lançar uma maldição secular sobre sua família.",
+    "tags": [
+      "acao",
+      "aventura",
+      "terror"
+    ]
+  },
+  "vida_de_inseto": {
+    "name": "Vida de Inseto",
+    "slug": "vida_de_inseto",
+    "duration": 5694,
+    "synopsis": "Flik é uma formiga cheia de ideias que, em nome dos \"insetos oprimidos de todo o mundo\", precisa contratar guerreiros para defender sua colônia de um faminto bando de gafanhotos liderado por Hopper. Mas quando descobrem que o exército de insetos é na verdade um fracassado grupo de atores de um circo de pulgas, o cenário está armado para divertidas confusões... com estes improváveis heróis.",
+    "tags": [
+      "animacao",
+      "aventura",
+      "comedia",
+      "familia"
+    ]
+  },
+  "watchmen_o_filme": {
+    "name": "Watchmen: O Filme",
+    "slug": "watchmen_o_filme",
+    "duration": 9726,
+    "synopsis": "Quando um ex-herói é assassinado, Rorschach reúne antigos vigilantes aposentados para investigar. Juntos descobrem uma vasta conspiração ligada ao passado do grupo que ameaça não apenas suas vidas, mas o futuro da humanidade.",
+    "tags": [
+      "acao",
+      "ficcao_cientifica",
+      "super_herois",
+      "suspense"
+    ]
+  },
+  "willow": {
+    "name": "Willow - Na Terra da Magia",
+    "slug": "willow",
+    "duration": 7553,
+    "synopsis": "Numa terra mística onde o mágico é real, vive Willow Ufgood, um pequeno fazendeiro Nelwin que sonha em ser um feiticeiro. Willow se torna guardião de um bebê pertencente aos Daikinis, guerreiros temidos pelos Nelwin. De acordo com a profecia, a criança deverá destruir a malvada feiticeira Bavmorda e acabar com seu reinado de terror, a menos que a bruxa possa destruir a criança primeiro. Willow começa uma perigosa e fabulosa jornada para manter a criança a salvo, junto a dois duendes, um guerreiro rebelado e um feiticeiro bondoso.",
+    "tags": [
+      "acao",
+      "aventura",
+      "fantasia"
+    ],
+    "_review": true
+  },
+  "x_men": {
+    "name": "X-Men: Apocalipse",
+    "slug": "x_men",
+    "duration": 6266,
+    "synopsis": "Apocalipse, o primeiro mutante de todos, consegue retornar à vida após milhares de anos. Agora, ele sai à procura de seguidores para dominar o mundo. Caberá aos X-Men se unirem para impedir os planos do vilão e evitar uma catástofre mundial.",
+    "tags": [
+      "acao",
+      "fantasia",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "x_men_2": {
+    "name": "X-Men 2",
+    "slug": "x_men_2",
+    "duration": 8027,
+    "synopsis": "Stryker, um ex-comandante perverso do exército, tem a chave para o passado de Wolverine e o futuro dos X-Men. Esta ameaça reacende a chamada para um ato de registro mutante. Stryker inicia um ataque à mansão e escola do Professor Xavier. Depois de escapar de sua cela de plástico, Magneto propõe uma parceria com Xavier e os X-Men para combater esse novo inimigo que ambos têm em comum.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ],
+    "_review": true
+  },
+  "x_men_3_o_confronto_final": {
+    "name": "X-Men: O Confronto Final",
+    "slug": "x_men_3_o_confronto_final",
+    "duration": 6245,
+    "synopsis": "A descoberta de uma cura para as mutações leva os mutantes a um ponto decisivo. Eles podem escolher entre abandonar seus poderes e se tornarem humanos ou continuar com os poderes e permanecerem excluídos. Uma batalha é travada entre os simpatizantes de Charles Xavier, que prega a tolerância, e os seguidores de Magneto, que defende a sobrevivência dos mais fortes.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois",
+      "suspense"
+    ]
+  },
+  "x_men_apocalipse": {
+    "name": "X-Men: Apocalipse",
+    "slug": "x_men_apocalipse",
+    "duration": 8637,
+    "synopsis": "Apocalipse, o primeiro mutante de todos, consegue retornar à vida após milhares de anos. Agora, ele sai à procura de seguidores para dominar o mundo. Caberá aos X-Men se unirem para impedir os planos do vilão e evitar uma catástofre mundial.",
+    "tags": [
+      "acao",
+      "fantasia",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "x_men_dias_de_um_futuro_esquecido": {
+    "name": "X-Men: Dias de um Futuro Esquecido",
+    "slug": "x_men_dias_de_um_futuro_esquecido",
+    "duration": 8926,
+    "synopsis": "O Dr. Bolivar Trask acredita que os mutantes são uma ameaça para a humanidade. Ele desenvolve gigantescos robôs chamados Sentinelas, que perseguem impiedosamente os mutantes. Os poucos sobreviventes precisam viver escondidos. Wolverine viaja no tempo para procurar os jovens Xavier e Magneto e impedir que eles sejam caçados e aniquilados no futuro.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "x_men_primeira_classe": {
+    "name": "X-Men: Primeira Classe",
+    "slug": "x_men_primeira_classe",
+    "duration": 7903,
+    "synopsis": "No início dos anos 1960, durante o auge da Guerra Fria, um mutante chamado Charles Xavier conhece um mutante chamado Erik Lehnsherr. Apesar de suas origens muito diferentes - Charles cresceu em uma família rica enquanto Erik perdeu seus pais em Auschwitz -, os dois se tornam grandes amigos. Enquanto o mundo oscila à beira de uma guerra nuclear, Charles e Erik unem forças com outros mutantes para salvar a humanidade. No entanto, um acontecimento separa os dois amigos.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "yu_yu_hakusho_invasores_do_inferno": {
+    "name": "Yu Yu Hakusho: Invasores do Inferno",
+    "slug": "yu_yu_hakusho_invasores_do_inferno",
+    "duration": 5588,
+    "synopsis": "O Mundo Espiritual é atacado por uma forte enchente, arrasando com o lugar, causada por Yakumo, o rei de Meikai, um mundo paralelo ao Mundo Espiritual, que deixou de existir graças ao poder do Rei Enma. Botan então foge ferida para o mundo dos humanos com o objeto que é preciso para Meikai retornar. Yakumo consegue sequestrar Botan, então Yusuke, Kuwabara, Hiei e Kurama vão a luta, para salvar Botan e a Terra.",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ]
+  },
+  "zathura_uma_aventura_espacial": {
+    "name": "Zathura: Uma Aventura Espacial",
+    "slug": "zathura_uma_aventura_espacial",
+    "duration": 6080,
+    "synopsis": "Dois irmãos briguentos são lançados em pleno espaço sideral enquanto jogavam um misterioso jogo que acharam no porão de sua casa velha. Em sua fantástica jornada, eles se juntam a um astronauta perdido e têm que sobreviver a chuva de meteoros, alienígenas hostis parecidos com lagartos, um furioso robô movido a jato e a uma batalha de nave espacial intergaláctica. A não ser que eles terminem o jogo e encontrem o planeta Zathura, eles podem ficar presos no espaço para sempre.",
+    "tags": [
+      "aventura",
+      "familia",
+      "ficcao_cientifica"
+    ]
+  },
+  "IT_1990": {
+    "name": "It: Uma Obra-Prima do Medo",
+    "slug": "IT_1990",
+    "duration": 11245,
+    "synopsis": "Derry é uma pacata cidade que foi aterrorizada por um ser conhecido como A Coisa, um demônio que pode se transformar em um palhaço e se alimentar dos medos das crianças, suas principais vítimas. Um grupo de sete crianças conseguiram derrotá-lo no passado, mas 30 anos depois A Coisa reaparece na cidade. Assim, os sete amigos se juntam novamente para combater essa apavorante ameaça, pois eles juraram fazer isso caso esse ser maligno voltasse. Porém, este juramento pode custar suas vidas.",
+    "tags": [
+      "drama",
+      "fantasia",
+      "ficcao_cientifica",
+      "suspense"
+    ]
+  },
+  "mononoke_1_o_fantasma_na_chuva": {
+    "name": "Mononoke - O Filme: O Fantasma na Chuva",
+    "slug": "mononoke_1_o_fantasma_na_chuva",
+    "duration": 5474,
+    "synopsis": "Duas recém-chegadas ao Ōoku descobrem intrigas políticas, rivalidades e um espírito vingativo que só pode ser derrotado por um boticário viajante.",
+    "tags": [
+      "anime",
+      "fantasia",
+      "suspense"
+    ]
+  },
+  "o_homem_de_palha_1972": {
+    "name": "O Homem de Palha",
+    "slug": "o_homem_de_palha_1972",
+    "duration": 5649,
+    "synopsis": "O Sgt. Howie investiga o desaparecimento de uma criança na ilha escocesa de Summerisle. Um cristão conservador, ele fica incomodado com os rituais pagãos e o comportamento sexual dos moradores, principalmente de Willow, filha do magistrado. Sua investigação mergulha nos costumes peculiares da ilha.",
+    "tags": [
+      "terror"
+    ]
+  },
+  "persona_3_parte_1": {
+    "name": "Persona 3 the Movie: #1 Spring of Birth",
+    "slug": "persona_3_parte_1",
+    "duration": 5912,
+    "synopsis": "Criaturas terríveis espreitam na escuridão, atacando aqueles que se aventuram na hora oculta que se encontra entre um dia e outro — a Hora Negra. Um clube escolar secreto conhecido como SEES defende a humanidade de horrores e desastres enquanto trabalha para resolver o mistério da Hora Negra de uma vez por todas.",
+    "tags": [
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "persona_3_parte_2": {
+    "name": "Persona 3 the Movie: #2 Midsummer Knight's Dream",
+    "slug": "persona_3_parte_2",
+    "duration": 5898,
+    "synopsis": "Depois de perceber o valor da vida e a importância de seus próprios aliados, Makoto finalmente recuperou o sorriso. Ele se vê aprendendo mais sobre esses companheiros e se aproximando deles. Makoto deseja que tudo continue como está. No entanto, pouco a pouco, as peças e as pessoas da nova e feliz vida de Makoto começam a se desintegrar.",
+    "tags": [
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "persona_3_parte_3": {
+    "name": "Persona 3 the Movie: #3 Falling Down",
+    "slug": "persona_3_parte_3",
+    "duration": 5228,
+    "synopsis": "À medida que a estação muda para o outono, Makoto e os outros membros da S.E.E.S. aproximam-se cada vez mais do fim das suas batalhas contra as Sombras. Através das batalhas, alguns têm de enfrentar a morte de amigos e familiares, outros têm de perceber quais são as coisas preciosas que devem ser protegidas e outros ainda têm de encontrar significado nos conflitos que ocorreram.",
+    "tags": [
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "persona_3_parte_4": {
+    "name": "Persona 3 the Movie: #4 Winter of Rebirth",
+    "slug": "persona_3_parte_4",
+    "duration": 6328,
+    "synopsis": "Conhecer a morte, contemplar a morte, enfrentar a morte. Makoto e seus aliados amadureceram através dos muitos encontros e despedidas que viveram. Sua luta pode não ser pelo bem do mundo, mas por eles mesmos. Mesmo assim, eles continuaram lutando, acreditando que dias de paz os aguardam no final da batalha.",
+    "tags": [
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "ranma_meio_grande_a_aventura_na_china": {
+    "name": "Ranma 1/2: A Grande Aventura na China",
+    "slug": "ranma_meio_grande_a_aventura_na_china",
+    "duration": 4451,
+    "synopsis": "Há muitos anos que tudo anda bem na residência Tendo quando de repente, uma menina chinesa chamada Lychee aparece, para se vingar de Happosai por causa de uma promessa quebrada no seu nascimento. As coisas pioram quando Kirin junto com os Sete Deuses da Sorte aparecem e sequestram Akane para tomar como sua esposa. Ranma e sua turma devem viajar para Nekonron, na China, e salvar Akane de se casar com Kirin.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "comedia",
+      "romance"
+    ]
+  },
+  "sakura_card_captors_viagem_a_honk_kong": {
+    "name": "Sakura Card Captors: O Filme",
+    "slug": "sakura_card_captors_viagem_a_honk_kong",
+    "duration": 0,
+    "synopsis": "Sakura ganha uma viagem para Hong Kong, para quatro pessoas. Como Fujitaka teria uma viagem de negócios, ela vai com Toya, Yukito, Tomoyo e Kero, escondido. Então Sakura começa a ter estranhos sonhos, sentir estranhas presenças e descobrir uma história interessante sobre o passado do Mago Clow. Em Hong Kong, Sakura conhece a mãe de Shaoran, dona de incríveis poderes, que a ajuda a descobrir o motivo de sua viagem.",
+    "tags": [
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "slayers_o_filme": {
+    "name": "Slayers: The Motion Picture",
+    "slug": "slayers_o_filme",
+    "duration": 3884,
+    "synopsis": "Atormentada por um sonho recorrente, a mestra ladra e feiticeira Lina Inverse descobre o mal antigo e os amantes cruelmente separados. Arrastada para um vórtice do tempo, ela deve lutar para restaurar a história ao seu curso correto. o poder do feitiço Escravo do Dragão falha enquanto ela tenta mudar o passado e salvar o futuro!",
+    "tags": [
+      "anime",
+      "aventura",
+      "comedia",
+      "fantasia"
+    ]
+  },
+  "steins_gate_o_filme": {
+    "name": "Steins;Gate The Movie – Load Region of Déjà Vu",
+    "slug": "steins_gate_o_filme",
+    "duration": 5409,
+    "synopsis": "O filme se passa um ano depois dos eventos na série de TV. Depois de passar por uma jornada meticulosa através de várias “Linhas de Mundo” devido à invenção do “D-Mail”, Okabe Rintarou finalmente chegou à linha de mundo de “Steins Gate”, onde nenhum de seus amigos morreram e o futuro dominado pela SERN não existe. No entanto, logo Rintarou começa a sentir os efeitos colaterais de suas viagens através de várias linhas de mundo, e isso leva ao desaparecimento de sua existência. Como apenas Makise Kurisu se lembra dele através de um déjà vu, cabe à ela encontrar uma maneira de trazer Rintarou de volta.",
+    "tags": [
+      "anime",
+      "drama",
+      "ficcao_cientifica"
+    ]
+  },
+  "superman_2025": {
+    "name": "Superman",
+    "slug": "superman_2025",
+    "duration": 7763,
+    "synopsis": "Superman, um jovem repórter de Metrópolis, embarca em uma jornada para reconciliar sua herança kryptoniana com sua criação humana como Clark Kent.",
+    "tags": [
+      "acao",
+      "aventura",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "vampire_hunter_d_sede_de_sangue": {
+    "name": "Vampire Hunter D: Bloodlust",
+    "slug": "vampire_hunter_d_sede_de_sangue",
+    "duration": 6111,
+    "synopsis": "Nascido de mãe humana e pai vampiro, \"D\" vive entre a luz e a escuridão num mundo à beira do abismo. \"D\" é contratado para rastrear Meier Link, um vampiro poderoso que sequestrou uma garota humana, Charlotte Elbourne. As ordens de \"D\" são claras: encontre Charlotte a qualquer custo e traga-a de volta. Mas, pela primeira vez, “D” enfrenta concorrentes sérios, os Irmãos Markus, também contratados para o mesmo fim. \"D\" deve interceptar Meier e superar adversários poderosos em uma corrida mortal contra o tempo.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "fantasia",
+      "ficcao_cientifica",
+      "terror"
+    ]
+  },
+  "attack_on_titan_I_arco_e_flecha_carmesin": {
+    "name": "Attack on Titan: O Arco e Flecha Escarlate",
+    "slug": "attack_on_titan_I_arco_e_flecha_carmesin",
+    "duration": 7121,
+    "synopsis": "Uma história de coragem e vingança. E a única oportunidade que a humanidade para recuperar sua liberdade. À beira da extinção, os poucos sobreviventes vivem em pequenas cidades dentro das muralhas que os protegem dos Titãs: seres gigantes que devoram humanos. Depois de 100 anos de paz, aparecem o Titã Colossal e o Titã Blindado. Os Titãs conseguem entrar na cidade e promover um massacre.",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "fantasia"
+    ]
+  },
+  "code_geass_IV_ressurection": {
+    "name": "Code Geass: Lelouch of the Re;surrection",
+    "slug": "code_geass_IV_ressurection",
+    "duration": 0,
+    "synopsis": "A história se passa vários anos após o plano “Zero Requiem” de Lelouch. Ele sacrificou sua vida para salvar o mundo e proteger aqueles que amava. O dia em que Lelouch vi Brittannia caiu foi o dia em que este mundo devastado pela guerra encontrou a paz. Agora, enquanto seus amigos trabalham para manter a paz, um ataque terrorista pode colocar tudo em risco. Será que o brilhante estrategista conseguirá enganar a morte e salvar todos? Ou será que o legado de Lelouch terminará aqui?",
+    "tags": [
+      "anime",
+      "ficcao_cientifica",
+      "guerra",
+      "suspense"
+    ]
+  },
+  "chainsaw_man_filme_1": {
+    "name": "Chainsaw Man - A Compilação: Parte I",
+    "slug": "chainsaw_man_filme_1",
+    "duration": 7179,
+    "synopsis": "Relembrando a primeira metade de Chainsaw Man, e dando uma olhada no dia a dia de Denji, Aki, Power e Himeno!",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ]
+  },
+  "chainsaw_man_filme_2": {
+    "name": "Chainsaw Man - A Compilação: Parte II",
+    "slug": "chainsaw_man_filme_2",
+    "duration": 5712,
+    "synopsis": "Continuação do compilado de episódios e umas curiosidades sobre a Power!",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ]
+  },
+  "code_geass_IV_ressurrection": {
+    "name": "Code Geass: Lelouch of the Re;surrection",
+    "slug": "code_geass_IV_ressurrection",
+    "duration": 6789,
+    "synopsis": "A história se passa vários anos após o plano “Zero Requiem” de Lelouch. Ele sacrificou sua vida para salvar o mundo e proteger aqueles que amava. O dia em que Lelouch vi Brittannia caiu foi o dia em que este mundo devastado pela guerra encontrou a paz. Agora, enquanto seus amigos trabalham para manter a paz, um ataque terrorista pode colocar tudo em risco. Será que o brilhante estrategista conseguirá enganar a morte e salvar todos? Ou será que o legado de Lelouch terminará aqui?",
+    "tags": [
+      "anime",
+      "ficcao_cientifica",
+      "guerra",
+      "suspense"
+    ]
+  },
+  "de_volta_para_o_futuro_3": {
+    "name": "De Volta para o Futuro III",
+    "slug": "de_volta_para_o_futuro_3",
+    "duration": 7098,
+    "synopsis": "Presos em 1955 depois de um estranho estouro de luz, McFly tem que viajar para o ano de 1885 para resgatar Doc Brown de uma morte prematura. Depois de sobreviver a um ataque de índios hostis e de moradores da cidade nada amigáveis, McFly encontra Doc Brown. Mas com Doc apaixonado pela charmosa Clara Clayton, está nas mãos de McFly conseguir tirá-los do velho oeste e voltar para o futuro.",
+    "tags": [
+      "aventura",
+      "comedia",
+      "ficcao_cientifica"
+    ]
+  },
+  "dead_pool_e_wolverine": {
+    "name": "Deadpool & Wolverine",
+    "slug": "dead_pool_e_wolverine",
+    "duration": 7667,
+    "synopsis": "Um apático Wade Wilson trabalha duro na vida civil. Seus dias como mercenário moralmente flexível, Deadpool, ficaram para trás. Quando seu planeta enfrenta uma ameaça, Wade deve relutantemente vestir-se novamente com um ainda mais relutante... relutante? Mais relutante? Ele deve convencer um Wolverine relutante em... Porra. As sinopses são tão estúpidas.",
+    "tags": [
+      "acao",
+      "comedia",
+      "ficcao_cientifica",
+      "super_herois"
+    ]
+  },
+  "digimon_o_filme_2000": {
+    "name": "Digimon: O Filme",
+    "slug": "digimon_o_filme_2000",
+    "duration": 5076,
+    "synopsis": "Um grupo de crianças transportado para o DigiMundo, onde conhece um grupo de monstros digitais chamado Digimon, com os quais se unem para combater o mal. Entretanto, Diabormon, um Digimon maligno, cria um vírus de internet que destrói dados do sistema de defesa dos Estados Unidos, no intuito de causar o envio de um míssil para o território japonês. Para evitar o desastre, todos os habitantes do DigiMundo se unem para salvar o mundo real e também seu próprio mundo.",
+    "tags": [
+      "anime",
+      "familia",
+      "fantasia",
+      "ficcao_cientifica"
+    ]
+  },
+  "dragon_ball_z_furia_do_dragao": {
+    "name": "Dragon Ball Z: O Ataque do Dragão",
+    "slug": "dragon_ball_z_furia_do_dragao",
+    "duration": 3107,
+    "synopsis": "Os Guerreiros Z encontram uma misteriosa caixa de música que ninguém consegue abrir. Para descobrir o que há dentro, eles recorrem ao poder das Esferas do Dragão. Quando finalmente a caixa é aberta, surge Tapion, um guerreiro que havia se selado ali dentro junto com um terrível monstro chamado Hildegarn. Agora, cabe a Goku dominar uma nova técnica para enfrentar e derrotar essa poderosa ameaça.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ]
+  },
+  "dragon_ball_z_o_retorno_da_fusao": {
+    "name": "Dragon Ball Z: Uma Nova Fusão",
+    "slug": "dragon_ball_z_o_retorno_da_fusao",
+    "duration": 3042,
+    "synopsis": "Sem prestar atenção ao seu trabalho, um jovem demônio permite que a máquina de purificação maligna transborde e exploda, transformando-o no infame monstro Janemba. Goku e Vegeta tentam derrotar o monstro sozinhos, mas percebem que sua única opção é a fusão.",
+    "tags": [
+      "acao",
+      "anime",
+      "ficcao_cientifica"
+    ]
+  },
+  "dungeons_e_dragons_honra_entre_rebeldes": {
+    "name": "Dungeons & Dragons: Honra Entre Rebeldes",
+    "slug": "dungeons_e_dragons_honra_entre_rebeldes",
+    "duration": 8158,
+    "synopsis": "Um ladrão charmoso e um grupo de aventureiros improváveis empreendem um assalto épico para recuperar uma relíquia perdida, mas as coisas dão perigosamente errado quando eles entram em conflito com as pessoas erradas.",
+    "tags": [
+      "aventura",
+      "comedia",
+      "fantasia"
+    ]
+  },
+  "ghost_in_the_shell_2017": {
+    "name": "A Vigilante do Amanhã: Ghost in the Shell",
+    "slug": "ghost_in_the_shell_2017",
+    "duration": 6416,
+    "synopsis": "Num mundo pós 2029, cérebros se fundem facilmente a computadores e a tecnologia está em todos os lugares. Motoko Kusanagi é uma ciborgue com experiência militar que comanda um esquadrão de elite especializado em combater crimes cibernéticos.",
+    "tags": [
+      "acao",
+      "drama",
+      "ficcao_cientifica"
+    ]
+  },
+  "it_a_coisa_capitulo_um": {
+    "name": "It: A Coisa",
+    "slug": "it_a_coisa_capitulo_um",
+    "duration": 8082,
+    "synopsis": "Na cidade de Derry, no Maine, sete jovens se juntam para combater uma criatura sobrenatural que está assombrando a sua cidade por séculos. Chamado de Pennywise – O Palhaço Dançarino, a Coisa é um monstro de força absoluta que toma a forma dos medos mais horrorosos das pessoas. Ameaçados por seus piores pesadelos, a única maneira dos jovens amigos sobreviverem à Coisa é se continuarem juntos.",
+    "tags": [
+      "drama",
+      "suspense",
+      "terror"
+    ]
+  },
+  "john_wick_capitulo_1": {
+    "name": "John Wick - De Volta ao Jogo",
+    "slug": "john_wick_capitulo_1",
+    "duration": 6072,
+    "synopsis": "John Wick é um lendário assassino de aluguel aposentado, lidando com o luto após perder o grande amor de sua vida. Quando um gângster invade sua casa, mata seu cachorro e rouba seu carro, ele é forçado a voltar à ativa e inicia sua vingança.",
+    "tags": [
+      "acao",
+      "suspense"
+    ]
+  },
+  "john_wick_capitulo_2": {
+    "name": "John Wick: Um Novo Dia para Matar",
+    "slug": "john_wick_capitulo_2",
+    "duration": 7343,
+    "synopsis": "O lendário John Wick é forçado a deixar a aposentadoria em função de um criminoso que conspira para tomar o controle de um clã de assassinos internacionais. Por causa de um pacto de sangue, John Wick viaja para Roma, com o objetivo de ajudar um velho amigo a derrubar a organização internacional secreta, perigosa e mortal de assassinos procurados em todo o mundo.",
+    "tags": [
+      "acao",
+      "suspense"
+    ]
+  },
+  "jujutsu_kaisen_inventario_oculto_e_morte_prematura": {
+    "name": "JUJUTSU KAISEN: Hidden Inventory / Premature Death - The Movie",
+    "slug": "jujutsu_kaisen_inventario_oculto_e_morte_prematura",
+    "duration": 6613,
+    "synopsis": "Gojo e Geto devem proteger Riko Amanai, marcada como o sacrifício do Star Plasma Vessel. Caçados por cultistas e usuários de maldições, esses poderosos feiticeiros enfrentam uma missão que testará seus limites e moldará seu futuro",
+    "tags": [
+      "acao",
+      "anime"
+    ]
+  },
+  "samurai_x_confianca_e_traicao": {
+    "name": "Samurai X: Trust & Betrayal",
+    "slug": "samurai_x_confianca_e_traicao",
+    "duration": 1736,
+    "synopsis": "",
+    "tags": [
+      "acao",
+      "anime",
+      "aventura",
+      "drama"
+    ]
+  },
+  "fatal_fury_a_vinganca": {
+    "name": "Fatal Fury 2: O Desafio de Krauser",
+    "slug": "fatal_fury_a_vinganca",
+    "duration": 4268,
+    "synopsis": "Depois de derrotar Geese Howard, o lendário lutador Terry Bogard fica cara a cara com guerreiro alemão Wolfgang Krauser, e sofre uma derrota humilhante. Deprimido por sua derrota, Terry vagueia por todo o país, desperdiçando sua vida em bebedeiras. Apenas um garoto chamado Tony pode convencer Terry a voltar para as suas vitórias, conquistar seus medos, e mais uma vez enfrentar Krauser.",
+    "tags": [
+      "acao",
+      "anime"
+    ]
+  },
+  "fatal_fury_o_rei_dos_lutadores": {
+    "name": "Fatal Fury: Rei dos Lutadores",
+    "slug": "fatal_fury_o_rei_dos_lutadores",
+    "duration": 2766,
+    "synopsis": "Dez anos após a morte de seu pai adotivo, os irmãos Terry e Andy Bogard voltam para Southtown para fazer vingança ao senhor do crime Geese Howard. Eles se unem ao campeão de muai-thai Joe Higashi e participam do torneio ”The King of Fighters”, na esperança de enfrentar Geese e lhe dar a sua merecida derrota.",
+    "tags": [
+      "acao",
+      "anime"
+    ]
+  },
+  "fatal_fury_o_filme": {
+    "name": "Fatal Fury 3: A Fúria",
+    "slug": "fatal_fury_o_filme",
+    "duration": 5777,
+    "synopsis": "O jovem milionário Laocorn Gaudeamus está em uma cruzada para recuperar seis peças de uma armadura, que dizem dar ao usuário o poder de Marte, o lendário Deus da Guerra. Temendo que seu irmão gêmeo está lentamente a perder sua sanidade, com cada peça de armadura que ele recolhe, Sulia corre para Terry, Andy, Joe e Mai para formar a sua própria cruzada global para impedir Laocorn de abrir uma caixa de Pandora potencial e liberar uma forma incontrolável de destruição.",
+    "tags": [
+      "acao",
+      "anime",
+      "fantasia"
+    ]
+  }
+}

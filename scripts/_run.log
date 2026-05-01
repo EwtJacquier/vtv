@@ -1,0 +1,670 @@
+Collected 332 unique slugs from channels/
+[1/332] 12_macacos  query='12 macacos'
+    ok  'Os 12 Macacos'  tags=['ficcao_cientifica', 'suspense']  cover=ok
+[2/332] 2001_uma_odisseia_no_espaco  query='2001 uma odisseia no espaco'
+    ok  '2001: Uma Odisséia no Espaço'  tags=['aventura', 'ficcao_cientifica', 'suspense']  cover=ok
+[3/332] 8_milimetros  query='8 milimetros'
+    ok  '8mm 2: Oito Milímetros 2'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[4/332] IT_1990  query='IT 1990'
+    ! no TMDB match
+[5/332] a_bela_e_a_fera  query='a bela e a fera'
+    ok  'A Bela e a Fera'  tags=['familia', 'fantasia', 'romance']  cover=ok [REVIEW]
+[6/332] a_bruxa  query='a bruxa'
+    ok  'A Bruxa'  tags=['terror']  cover=ok [REVIEW]
+[7/332] a_bruxa_de_blair  query='a bruxa de blair'
+    ok  'A Bruxa de Blair'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[8/332] a_chave_mestra  query='a chave mestra'
+    ok  'A Chave Mestra'  tags=['drama', 'suspense', 'terror']  cover=ok
+[9/332] a_criada  query='a criada'
+    ok  'A Criada'  tags=['drama', 'romance', 'suspense']  cover=ok [REVIEW]
+[10/332] a_dama_e_o_vagabundo  query='a dama e o vagabundo'
+    ok  'A Dama e o Vagabundo'  tags=['animacao', 'aventura', 'comedia', 'familia', 'romance']  cover=ok [REVIEW]
+[11/332] a_empregada  query='a empregada'
+    ok  'A Empregada'  tags=['suspense']  cover=ok [REVIEW]
+[12/332] a_era_do_gelo  query='a era do gelo'
+    ok  'A Era do Gelo'  tags=['animacao', 'aventura', 'comedia', 'familia']  cover=ok [REVIEW]
+[13/332] a_espera_de_um_milagre  query='a espera de um milagre'
+    ok  'À Espera de um Milagre'  tags=['drama', 'fantasia', 'suspense']  cover=ok
+[14/332] a_fantastica_fabrica_de_chocolates  query='a fantastica fabrica de chocolates'
+    ok  'Tom e Jerry: A Fantástica Fábrica de Chocolates'  tags=['animacao', 'aventura', 'comedia', 'familia', 'fantasia']  cover=ok
+[15/332] a_fuga_das_galinhas  query='a fuga das galinhas'
+    ok  'A Fuga das Galinhas'  tags=['animacao', 'comedia', 'familia']  cover=ok [REVIEW]
+[16/332] a_hora_do_acerto  query='a hora do acerto'
+    ok  'A Hora do Acerto'  tags=['acao', 'drama', 'suspense']  cover=ok
+[17/332] a_lenda_do_cavaleiro_sem_cabeca  query='a lenda do cavaleiro sem cabeca'
+    ok  'A Lenda do Cavaleiro Sem Cabeça'  tags=['fantasia', 'suspense', 'terror']  cover=ok [REVIEW]
+[18/332] a_lenda_do_cavaleiro_verde  query='a lenda do cavaleiro verde'
+    ok  'A Lenda do Cavaleiro Verde'  tags=['aventura', 'drama', 'fantasia']  cover=ok
+[19/332] a_mumia  query='a mumia'
+    ok  'A Múmia'  tags=['acao', 'aventura', 'fantasia']  cover=ok [REVIEW]
+[20/332] a_mumia_tumba_do_imperador_dragao  query='a mumia tumba do imperador dragao'
+    ok  'A Múmia - Tumba do Imperador Dragão'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[21/332] a_nova_onda_do_imperador  query='a nova onda do imperador'
+    ok  'A Nova Onda do Imperador'  tags=['animacao', 'aventura', 'comedia', 'familia', 'fantasia']  cover=ok [REVIEW]
+[22/332] a_origem  query='a origem'
+    ok  'A Origem'  tags=['acao', 'aventura', 'ficcao_cientifica']  cover=ok [REVIEW]
+[23/332] a_pequena_sereia  query='a pequena sereia'
+    ok  'A Pequena Sereia'  tags=['animacao', 'familia', 'fantasia']  cover=ok [REVIEW]
+[24/332] a_primeira_profecia  query='a primeira profecia'
+    ok  'A Primeira Profecia'  tags=['terror']  cover=ok
+[25/332] a_princesa_mononoke  query='a princesa mononoke'
+    ok  'Princesa Mononoke'  tags=['anime', 'aventura', 'fantasia']  cover=ok
+[26/332] a_propria_carne  query='a propria carne'
+    ok  'A Própria Carne'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[27/332] a_substancia  query='a substancia'
+    ok  'A Substância'  tags=['drama', 'ficcao_cientifica', 'terror']  cover=ok [REVIEW]
+[28/332] a_viagem_de_chihiro  query='a viagem de chihiro'
+    ok  'A Viagem de Chihiro'  tags=['anime', 'familia', 'fantasia']  cover=ok [REVIEW]
+[29/332] a_vila  query='a vila'
+    ok  'A Vila'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[30/332] air_o_filme  query='air o filme'
+    ok  'Air: O Filme'  tags=['anime', 'fantasia', 'romance']  cover=ok [REVIEW]
+[31/332] ajuste_final  query='ajuste final'
+    ok  'Ajuste Final'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[32/332] akira  query='akira'
+    ok  'Akira'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok [REVIEW]
+[33/332] aladdin  query='aladdin'
+    ok  'Aladdin'  tags=['animacao', 'aventura', 'familia', 'fantasia', 'romance']  cover=ok [REVIEW]
+[34/332] aladdin_e_os_40_ladroes  query='aladdin e os 40 ladroes'
+    ok  'Aladdin e os 40 Ladrões'  tags=['animacao', 'aventura', 'familia']  cover=ok
+[35/332] alien_o_oitavo_passageiro  query='alien o oitavo passageiro'
+    ok  'Alien: O Oitavo Passageiro'  tags=['ficcao_cientifica', 'terror']  cover=ok
+[36/332] alita_parte_1  query='alita parte 1'
+    ! no TMDB match
+[37/332] alita_parte_2  query='alita parte 2'
+    ! no TMDB match
+[38/332] angels_egg  query='angels egg'
+    ok  "Angel's Egg"  tags=['anime', 'fantasia', 'suspense']  cover=ok [REVIEW]
+[39/332] anjos_da_noite  query='anjos da noite'
+    ok  'Anjos da Noite'  tags=['comedia', 'drama']  cover=ok [REVIEW]
+[40/332] anjos_da_noite_a_evolucao  query='anjos da noite a evolucao'
+    ok  'Anjos da Noite: A Evolução'  tags=['acao', 'fantasia', 'suspense']  cover=ok
+[41/332] armadura_de_deus  query='armadura de deus'
+    ok  'Armadura de Deus'  tags=['acao', 'aventura', 'comedia']  cover=ok [REVIEW]
+[42/332] as_branquelas  query='as branquelas'
+    ok  'As Branquelas'  tags=['comedia', 'suspense']  cover=ok [REVIEW]
+[43/332] attack_on_titan_II_asas_da_liberdade  query='attack on titan II asas da liberdade'
+    ok  'Attack on Titan - Parte 2: Asas da Liberadade'  tags=['acao', 'anime', 'aventura', 'fantasia']  cover=ok
+[44/332] attack_on_titan_I_arco_e_flecha_carmesin  query='attack on titan I arco e flecha carmesin'
+    ! no TMDB match
+[45/332] bater_ou_correr  query='bater ou correr'
+    ok  'Bater ou Correr'  tags=['acao', 'aventura', 'comedia']  cover=ok [REVIEW]
+[46/332] bater_ou_correr_em_londres  query='bater ou correr em londres'
+    ok  'Bater ou Correr em Londres'  tags=['acao', 'aventura', 'comedia']  cover=ok
+[47/332] batman_2022  query='batman 2022'
+    ok  'Batman'  tags=['super_herois', 'suspense']  cover=ok
+[48/332] batman_a_mascara_do_fantasma  query='batman a mascara do fantasma'
+    ok  'Batman: A Máscara do Fantasma'  tags=['acao', 'animacao', 'drama', 'romance', 'super_herois', 'suspense']  cover=ok
+[49/332] batman_begins  query='batman begins'
+    ok  'Batman Begins'  tags=['acao', 'drama', 'super_herois', 'suspense']  cover=ok [REVIEW]
+[50/332] batman_do_futuro_o_retorno_do_coringa  query='batman do futuro o retorno do coringa'
+    ok  'Batman do Futuro: O Retorno do Coringa'  tags=['acao', 'animacao', 'ficcao_cientifica', 'super_herois', 'suspense']  cover=ok
+[51/332] batman_o_cavaleiro_das_trevas  query='batman o cavaleiro das trevas'
+    ok  'Batman: O Cavaleiro das Trevas'  tags=['acao', 'super_herois', 'suspense']  cover=ok [REVIEW]
+[52/332] batman_o_cavaleiro_das_trevas_ressurge  query='batman o cavaleiro das trevas ressurge'
+    ok  'Batman: O Cavaleiro das Trevas Ressurge'  tags=['acao', 'drama', 'super_herois', 'suspense']  cover=ok
+[53/332] batman_vs_superman  query='batman vs superman'
+    ok  'Batman vs Superman: A Origem da Justiça'  tags=['acao', 'aventura', 'fantasia', 'super_herois']  cover=ok [REVIEW]
+[54/332] blade_runner_2049  query='blade runner 2049'
+    ok  'Blade Runner 2049'  tags=['drama', 'ficcao_cientifica']  cover=ok [REVIEW]
+[55/332] branca_de_neve_e_os_sete_anoes  query='branca de neve e os sete anoes'
+    ok  'Branca de Neve e os Sete Anões'  tags=['animacao', 'familia', 'fantasia']  cover=ok [REVIEW]
+[56/332] brilho_eterno_de_uma_mente_sem_lembrancas  query='brilho eterno de uma mente sem lembrancas'
+    ok  'Brilho Eterno de uma Mente sem Lembranças'  tags=['drama', 'ficcao_cientifica', 'romance']  cover=ok
+[57/332] capitao_america_guerra_civil  query='capitao america guerra civil'
+    ok  'Capitão América: Guerra Civil'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[58/332] capitao_america_o_primeiro_vingador  query='capitao america o primeiro vingador'
+    ok  'Capitão América: O Primeiro Vingador'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[59/332] capitao_america_o_soldado_invernal  query='capitao america o soldado invernal'
+    ok  'Capitão América: O Soldado Invernal'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[60/332] casshan_parte_1  query='casshan parte 1'
+    ! no TMDB match
+[61/332] casshan_parte_2  query='casshan parte 2'
+    ! no TMDB match
+[62/332] casshan_parte_3  query='casshan parte 3'
+    ! no TMDB match
+[63/332] casshan_parte_4  query='casshan parte 4'
+    ! no TMDB match
+[64/332] cavaleiros_do_zodiaco_o_prologo_do_ceu  query='cavaleiros do zodiaco o prologo do ceu'
+    ok  'Os Cavaleiros do Zodíaco: Prólogo do Céu'  tags=['anime', 'fantasia']  cover=ok
+[65/332] cavaleiros_do_zodiaco_os_defensores_de_atena  query='cavaleiros do zodiaco os defensores de atena'
+    ok  'Os Cavaleiros do Zodíaco: A Lenda dos Defensores de Atena'  tags=['acao', 'anime', 'fantasia']  cover=ok
+[66/332] chainsaw_man_arco_da_reze  query='chainsaw man arco da reze'
+    ok  'Chainsaw Man – O Filme: Arco da Reze'  tags=['acao', 'anime', 'fantasia', 'romance']  cover=ok
+[67/332] chainsaw_man_filme_1  query='chainsaw man filme 1'
+    ! no TMDB match
+[68/332] chainsaw_man_filme_2  query='chainsaw man filme 2'
+    ! no TMDB match
+[69/332] cidade_dos_sonhos  query='cidade dos sonhos'
+    ok  'Cidade dos Sonhos'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[70/332] click  query='click'
+    ok  'Click'  tags=['comedia', 'drama', 'fantasia']  cover=ok [REVIEW]
+[71/332] code_geass_III_glorification  query='code geass III glorification'
+    ok  'Code Geass: Lelouch da Rebelião III - Glorificação'  tags=['acao', 'anime', 'drama', 'ficcao_cientifica']  cover=ok
+[72/332] code_geass_II_transgression  query='code geass II transgression'
+    ok  'Code Geass: Lelouch da Rebelião II - Transgressão'  tags=['acao', 'anime', 'drama', 'ficcao_cientifica']  cover=ok
+[73/332] code_geass_IV_ressurrection  query='code geass IV ressurrection'
+    ! no TMDB match
+[74/332] code_geass_I_initiation  query='code geass I initiation'
+    ok  'Code Geass: Lelouch da Rebelião I - Iniciação'  tags=['acao', 'anime', 'drama', 'ficcao_cientifica']  cover=ok
+[75/332] conan  query='conan'
+    ok  'Conan, o Bárbaro'  tags=['acao', 'aventura', 'fantasia']  cover=ok [REVIEW]
+[76/332] constantine  query='constantine'
+    ok  'Constantine'  tags=['acao', 'fantasia', 'terror']  cover=ok [REVIEW]
+[77/332] contato  query='contato'
+    ok  'Contato'  tags=['drama', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[78/332] coracao_satanico  query='coracao satanico'
+    ok  'Coração Satânico'  tags=['suspense', 'terror']  cover=ok
+[79/332] coraline  query='coraline'
+    ok  'Coraline e o Mundo Secreto'  tags=['animacao', 'familia', 'fantasia']  cover=ok [REVIEW]
+[80/332] corpo_fechado  query='corpo fechado'
+    ok  'Corpo Fechado'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[81/332] cowboy_bebop_o_filme  query='cowboy bebop o filme'
+    ok  'Cowboy Bebop: O Filme'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok
+[82/332] cruzada  query='cruzada'
+    ok  'Cruzada'  tags=['acao', 'aventura', 'drama', 'guerra']  cover=ok [REVIEW]
+[83/332] darkstalkers_parte_1_o_retorno_dos_darkstalkers  query='darkstalkers parte 1 o retorno dos darkstalkers'
+    ! no TMDB match
+[84/332] darkstalkers_parte_2_sangue_e_poder  query='darkstalkers parte 2 sangue e poder'
+    ! no TMDB match
+[85/332] darkstalkers_parte_3_a_chegada_de_pyron  query='darkstalkers parte 3 a chegada de pyron'
+    ! no TMDB match
+[86/332] darkstalkers_parte_4_por_quem_eles_lutam  query='darkstalkers parte 4 por quem eles lutam'
+    ! no TMDB match
+[87/332] de_olhos_bem_fechados  query='de olhos bem fechados'
+    ok  'De Olhos Bem Fechados'  tags=['drama', 'suspense']  cover=ok
+[88/332] de_volta_para_o_futuro  query='de volta para o futuro'
+    ok  'De Volta para o Futuro'  tags=['aventura', 'comedia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[89/332] de_volta_para_o_futuro_2  query='de volta para o futuro 2'
+    ok  'De Volta para o Futuro II'  tags=['aventura', 'comedia', 'ficcao_cientifica']  cover=ok
+[90/332] de_voltar_para_o_futuro_3  query='de voltar para o futuro 3'
+    ! no TMDB match
+[91/332] dead_pool_e_wolverine  query='dead pool e wolverine'
+    ! no TMDB match
+[92/332] death_note_visions_of_a_god  query='death note visions of a god'
+    ok  'Death Note Relight 1: A Versão do Shinigami'  tags=['anime', 'drama', 'fantasia', 'suspense']  cover=ok
+[93/332] demon_slayer_mugen_train  query='demon slayer mugen train'
+    ok  'Demon Slayer: Mugen Train - O Filme'  tags=['acao', 'anime', 'fantasia']  cover=ok [REVIEW]
+[94/332] digimon_o_filme_2000  query='digimon o filme 2000'
+    ! no TMDB match
+[95/332] django_livre  query='django livre'
+    ok  'Django Livre'  tags=['drama']  cover=ok
+[96/332] donnie_darko  query='donnie darko'
+    ok  'Donnie Darko'  tags=['drama', 'fantasia', 'suspense']  cover=ok [REVIEW]
+[97/332] doutor_estranho  query='doutor estranho'
+    ok  'Doutor Estranho'  tags=['acao', 'aventura', 'fantasia', 'super_herois']  cover=ok [REVIEW]
+[98/332] doutor_sono  query='doutor sono'
+    ok  'Doutor Sono'  tags=['fantasia', 'terror']  cover=ok
+[99/332] dragon_ball_a_lenda_de_shen_long  query='dragon ball a lenda de shen long'
+    ok  'Dragon Ball: A Lenda de Shenlong'  tags=['acao', 'anime', 'aventura', 'comedia', 'fantasia', 'ficcao_cientifica']  cover=ok
+[100/332] dragon_ball_super_broly  query='dragon ball super broly'
+    ok  'Dragon Ball Super: Broly'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok [REVIEW]
+[101/332] dragon_ball_z_a_batalha_nos_dois_mundos  query='dragon ball z a batalha nos dois mundos'
+    ok  'Dragon Ball Z: A Batalha nos Dois Mundos'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok
+[102/332] dragon_ball_z_broly_o_lendario_super_saiyajin  query='dragon ball z broly o lendario super saiyajin'
+    ok  'Dragon Ball Z: O Poder Invencível'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok [REVIEW]
+[103/332] dragon_ball_z_cooler_uma_vinganca_para_freeza  query='dragon ball z cooler uma vinganca para freeza'
+    ok  'Dragon Ball Z: Uma Vingança Para Freeza'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok
+[104/332] dragon_ball_z_furia_do_dragao  query='dragon ball z furia do dragao'
+    ! no TMDB match
+[105/332] dragon_ball_z_guerreiros_do_futuro  query='dragon ball z guerreiros do futuro'
+    ok  'Dragon Ball Z: Gohan e Trunks, os Guerreiros do Futuro'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok
+[106/332] dragon_ball_z_o_pai_de_goku  query='dragon ball z o pai de goku'
+    ok  'Dragon Ball Z: Bardock, O Pai de Goku'  tags=['acao', 'anime', 'drama', 'fantasia', 'ficcao_cientifica']  cover=ok
+[107/332] dragon_ball_z_o_retorno_da_fusao  query='dragon ball z o retorno da fusao'
+    ! no TMDB match
+[108/332] duna_parte_1  query='duna parte 1'
+    ok  'Duna'  tags=['aventura', 'ficcao_cientifica']  cover=ok
+[109/332] duna_parte_2  query='duna parte 2'
+    ok  'Duna: Parte Dois'  tags=['aventura', 'ficcao_cientifica']  cover=ok
+[110/332] dungeons_e_dragons_honra_entre_rebeldes  query='dungeons e dragons honra entre rebeldes'
+    ! no TMDB match
+[111/332] efeito_borboleta  query='efeito borboleta'
+    ok  'Efeito Borboleta'  tags=['ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[112/332] entrevista_com_o_vampiro  query='entrevista com o vampiro'
+    ok  'Entrevista com o Vampiro'  tags=['drama', 'fantasia', 'terror']  cover=ok
+[113/332] espiritos_a_morte_esta_ao_seu_lado  query='espiritos a morte esta ao seu lado'
+    ok  'Espíritos: A Morte Esta Ao Seu Lado'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[114/332] fantasia  query='fantasia'
+    ok  'Fantasia'  tags=['animacao', 'familia', 'fantasia']  cover=ok [REVIEW]
+[115/332] fatal_fury_a_vinganca  query='fatal fury a vinganca'
+    ! no TMDB match
+[116/332] fatal_fury_o_filme  query='fatal fury o filme'
+    ! no TMDB match
+[117/332] fatal_fury_o_rei_dos_lutadores  query='fatal fury o rei dos lutadores'
+    ! no TMDB match
+[118/332] fate_stay_night_heavens_feel_I  query='fate stay night heavens feel I'
+    ok  "Fate/stay night: Heaven's Feel I. Presage Flower"  tags=['acao', 'anime', 'drama', 'fantasia', 'romance']  cover=ok [REVIEW]
+[119/332] fate_stay_night_heavens_feel_II  query='fate stay night heavens feel II'
+    ok  "Fate/stay night: Heaven's Feel II. Lost Butterfly"  tags=['acao', 'anime', 'drama', 'fantasia', 'romance']  cover=ok [REVIEW]
+[120/332] fate_stay_night_heavens_feel_III  query='fate stay night heavens feel III'
+    ok  "Fate/stay night: Heaven's Feel III. Spring Song"  tags=['acao', 'anime', 'drama', 'fantasia', 'romance']  cover=ok
+[121/332] feriado_sangrento  query='feriado sangrento'
+    ok  'Feriado Sangrento'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[122/332] final_fantasy_7_advent_children  query='final fantasy 7 advent children'
+    ok  'Final Fantasy VII: Advent Children'  tags=['acao', 'anime', 'aventura', 'fantasia', 'ficcao_cientifica']  cover=ok
+[123/332] final_fantasy_7_last_order  query='final fantasy 7 last order'
+    ok  'Final Fantasy VII: Last Order'  tags=['acao', 'anime', 'aventura', 'drama', 'fantasia', 'ficcao_cientifica']  cover=ok
+[124/332] fragmentado  query='fragmentado'
+    ok  'Fragmentado'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[125/332] fullmetal_alchemist_aco_contra_chamas  query='fullmetal alchemist aco contra chamas'
+    ! no TMDB match
+[126/332] fullmetal_alchemist_mae  query='fullmetal alchemist mae'
+    ! no TMDB match
+[127/332] ghost_in_the_shell_1995  query='ghost in the shell 1995'
+    ok  'Ghost in the Shell: O Fantasma do Futuro'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok
+[128/332] ghost_in_the_shell_2017  query='ghost in the shell 2017'
+    ! no TMDB match
+[129/332] gladiador  query='gladiador'
+    ok  'Gladiador'  tags=['acao', 'aventura', 'drama']  cover=ok [REVIEW]
+[130/332] guardioes_da_galaxia  query='guardioes da galaxia'
+    ok  'Guardiões da Galáxia'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[131/332] guardioes_da_galaxia_vol_2  query='guardioes da galaxia vol 2'
+    ok  'Guardiões da Galáxia - Vol. 2'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[132/332] guardioes_da_galaxia_vol_3  query='guardioes da galaxia vol 3'
+    ok  'Guardiões da Galáxia: Vol. 3'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[133/332] harry_potter_e_a_camara_secreta  query='harry potter e a camara secreta'
+    ok  'Harry Potter e a Câmara Secreta'  tags=['aventura', 'fantasia']  cover=ok
+[134/332] harry_potter_e_a_ordem_da_fenix  query='harry potter e a ordem da fenix'
+    ok  'Harry Potter e a Ordem da Fênix'  tags=['aventura', 'fantasia']  cover=ok
+[135/332] harry_potter_e_a_pedra_filosofal  query='harry potter e a pedra filosofal'
+    ok  'Harry Potter e a Pedra Filosofal'  tags=['aventura', 'fantasia']  cover=ok
+[136/332] harry_potter_e_as_reliquias_da_morte_parte_1  query='harry potter e as reliquias da morte parte 1'
+    ok  'Harry Potter e as Relíquias da Morte - Parte 1'  tags=['aventura', 'fantasia']  cover=ok
+[137/332] harry_potter_e_as_reliquias_da_morte_parte_2  query='harry potter e as reliquias da morte parte 2'
+    ok  'Harry Potter e as Relíquias da Morte - Parte 2'  tags=['aventura', 'fantasia']  cover=ok
+[138/332] harry_potter_e_o_calice_de_fogo  query='harry potter e o calice de fogo'
+    ok  'Harry Potter e o Cálice de Fogo'  tags=['aventura', 'fantasia']  cover=ok
+[139/332] harry_potter_e_o_enigma_do_principe  query='harry potter e o enigma do principe'
+    ok  'Harry Potter e o Enigma do Príncipe'  tags=['aventura', 'fantasia']  cover=ok
+[140/332] harry_potter_e_o_prisioneiro_de_azkaban  query='harry potter e o prisioneiro de azkaban'
+    ok  'Harry Potter e o Prisioneiro de Azkaban'  tags=['aventura', 'fantasia']  cover=ok
+[141/332] hercules  query='hercules'
+    ok  'Hércules'  tags=['animacao', 'aventura', 'comedia', 'familia', 'fantasia', 'romance']  cover=ok [REVIEW]
+[142/332] herege  query='herege'
+    ok  'Herege'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[143/332] homem_aranha  query='homem aranha'
+    ok  'Homem-Aranha'  tags=['acao', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[144/332] homem_aranha_2  query='homem aranha 2'
+    ok  'Homem-Aranha 2'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[145/332] homem_aranha_3  query='homem aranha 3'
+    ok  'Homem-Aranha 3'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[146/332] homem_aranha_de_volta_ao_lar  query='homem aranha de volta ao lar'
+    ok  'Homem-Aranha: De Volta ao Lar'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[147/332] homem_aranha_longe_de_casa  query='homem aranha longe de casa'
+    ok  'Homem-Aranha: Longe de Casa'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[148/332] homem_aranha_sem_volta_para_casa  query='homem aranha sem volta para casa'
+    ok  'Homem-Aranha: Sem Volta Para Casa'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[149/332] homem_de_ferro  query='homem de ferro'
+    ok  'Homem de Ferro'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[150/332] homem_de_ferro_2  query='homem de ferro 2'
+    ok  'Homem de Ferro 2'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[151/332] hora_do_pesadelo  query='hora do pesadelo'
+    ok  'A Hora do Pesadelo'  tags=['terror']  cover=ok [REVIEW]
+[152/332] ilha_do_medo  query='ilha do medo'
+    ok  'Ilha do Medo'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[153/332] inu_yasha_o_castelo_das_ilusoes  query='inu yasha o castelo das ilusoes'
+    ok  'InuYasha 2: O Castelo das Ilusões Dentro do Espelho'  tags=['acao', 'anime', 'aventura', 'fantasia']  cover=ok
+[154/332] it_a_coisa_capitulo_dois  query='it a coisa capitulo dois'
+    ok  'IT: Capítulo Dois'  tags=['drama', 'suspense', 'terror']  cover=ok
+[155/332] it_a_coisa_capitulo_um  query='it a coisa capitulo um'
+    ! no TMDB match
+[156/332] jogos_mortais  query='jogos mortais'
+    ok  'Jogos Mortais'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[157/332] john_wick_capitulo_1  query='john wick capitulo 1'
+    ! no TMDB match
+[158/332] john_wick_capitulo_2  query='john wick capitulo 2'
+    ! no TMDB match
+[159/332] john_wick_capitulo_3  query='john wick capitulo 3'
+    ok  'John Wick 3: Parabellum'  tags=['acao', 'suspense']  cover=ok
+[160/332] john_wick_capitulo_4  query='john wick capitulo 4'
+    ok  'John Wick 4: Baba Yaga'  tags=['acao', 'suspense']  cover=ok
+[161/332] jujutsu_kaisen_0  query='jujutsu kaisen 0'
+    ok  'Jujutsu Kaisen 0: O Filme'  tags=['acao', 'anime', 'fantasia']  cover=ok [REVIEW]
+[162/332] jujutsu_kaisen_inventario_oculto_e_morte_prematura  query='jujutsu kaisen inventario oculto e morte prematura'
+    ! no TMDB match
+[163/332] jumanji  query='jumanji'
+    ok  'Jumanji: Próxima Fase'  tags=['aventura', 'comedia', 'fantasia']  cover=ok [REVIEW]
+[164/332] juntos  query='juntos'
+    ok  'Juntos'  tags=['romance', 'terror']  cover=ok [REVIEW]
+[165/332] jurassic_park  query='jurassic park'
+    ok  'Jurassic Park: O Parque dos Dinossauros'  tags=['aventura', 'ficcao_cientifica']  cover=ok [REVIEW]
+[166/332] kill_bill_vol_1  query='kill bill vol 1'
+    ok  'Kill Bill: Volume 1'  tags=['acao', 'suspense']  cover=ok [REVIEW]
+[167/332] kill_bill_vol_2  query='kill bill vol 2'
+    ok  'Kill Bill: Volume 2'  tags=['acao', 'suspense']  cover=ok [REVIEW]
+[168/332] kung_fusao  query='kung fusao'
+    ok  'Kung-Fusão'  tags=['acao', 'comedia', 'fantasia', 'suspense']  cover=ok
+[169/332] kuroko_no_basket_III_atravessando_a_porta  query='kuroko no basket III atravessando a porta'
+    ! no TMDB match
+[170/332] kuroko_no_basket_II_alem_das_lagrimas  query='kuroko no basket II alem das lagrimas'
+    ! no TMDB match
+[171/332] kuroko_no_basket_IV_o_ultimo_jogo  query='kuroko no basket IV o ultimo jogo'
+    ! no TMDB match
+[172/332] kuroko_no_basket_I_sombra_e_luz  query='kuroko no basket I sombra e luz'
+    ! no TMDB match
+[173/332] liga_da_justica  query='liga da justica'
+    ok  'Liga da Justiça'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[174/332] lilo_e_stitch  query='lilo e stitch'
+    ok  'Lilo & Stitch'  tags=['comedia', 'familia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[175/332] logan  query='logan'
+    ok  'Logan'  tags=['acao', 'drama', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[176/332] lucy  query='lucy'
+    ok  'Lucy'  tags=['acao', 'ficcao_cientifica']  cover=ok [REVIEW]
+[177/332] machete  query='machete'
+    ok  'Machete'  tags=['acao', 'comedia', 'suspense']  cover=ok [REVIEW]
+[178/332] mad_max_estrada_da_furia  query='mad max estrada da furia'
+    ok  'Mad Max: Estrada da Fúria'  tags=['acao', 'aventura', 'ficcao_cientifica']  cover=ok
+[179/332] matrix  query='matrix'
+    ok  'Matrix'  tags=['acao', 'ficcao_cientifica']  cover=ok [REVIEW]
+[180/332] matrix_reloaded  query='matrix reloaded'
+    ok  'Matrix Reloaded'  tags=['acao', 'aventura', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[181/332] matrix_revolutions  query='matrix revolutions'
+    ok  'Matrix Revolutions'  tags=['acao', 'aventura', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[182/332] megamente  query='megamente'
+    ok  'Megamente'  tags=['acao', 'animacao', 'comedia', 'familia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[183/332] memories_magnetic_rose  query='memories magnetic rose'
+    ok  'Memories'  tags=['anime', 'fantasia', 'ficcao_cientifica']  cover=ok
+[184/332] minority_report_a_nova_lei  query='minority report a nova lei'
+    ok  'Minority Report: A Nova Lei'  tags=['acao', 'ficcao_cientifica', 'suspense']  cover=ok
+[185/332] mississipi_em_chamas  query='mississipi em chamas'
+    ok  'Mississipi em Chamas'  tags=['drama', 'suspense']  cover=ok
+[186/332] mobile_suit_gundam_thunderbolt_bandit_flower  query='mobile suit gundam thunderbolt bandit flower'
+    ok  'Mobile Suit Gundam Thunderbolt: Bandit Flower'  tags=['acao', 'anime', 'ficcao_cientifica', 'guerra']  cover=ok
+[187/332] mobile_suit_gundam_thunderbolt_december_sky  query='mobile suit gundam thunderbolt december sky'
+    ok  '機動戦士ガンダム サンダーボルト DECEMBER SKY'  tags=['acao', 'anime', 'drama', 'ficcao_cientifica', 'guerra']  cover=ok
+[188/332] mononoke_1_o_fantasma_na_chuva  query='mononoke 1 o fantasma na chuva'
+    ! no TMDB match
+[189/332] mononoke_2_as_cinzas_da_ira  query='mononoke 2 as cinzas da ira'
+    ok  'Mononoke - O Filme: Capítulo 2 - As Cinzas da Ira'  tags=['anime', 'fantasia', 'suspense']  cover=ok
+[190/332] mortal_kombat  query='mortal kombat'
+    ok  'Mortal Kombat 2'  tags=['acao', 'aventura', 'fantasia']  cover=ok [REVIEW]
+[191/332] mulan  query='mulan'
+    ok  'Mulan'  tags=['animacao', 'aventura', 'familia']  cover=ok [REVIEW]
+[192/332] naruto_a_grande_missao_salvar_a_princesa_da_neve  query='naruto a grande missao salvar a princesa da neve'
+    ok  'Naruto: O Confronto Ninja no País da Neve'  tags=['acao', 'anime', 'aventura', 'comedia']  cover=ok
+[193/332] nausicaa_do_vale_do_vento  query='nausicaa do vale do vento'
+    ok  'Nausicaä do Vale do Vento'  tags=['anime', 'aventura', 'fantasia']  cover=ok
+[194/332] neon_genesis_evangelion_the_end_of_evangelion  query='neon genesis evangelion the end of evangelion'
+    ok  'Neon Genesis Evangelion: O Fim do Evangelho'  tags=['anime', 'drama', 'fantasia', 'ficcao_cientifica']  cover=ok
+[195/332] noite_do_espantalho  query='noite do espantalho'
+    ok  'A Noite do Espantalho'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[196/332] o_animal  query='o animal'
+    ok  'O Zelador Animal'  tags=['comedia', 'familia', 'romance']  cover=ok [REVIEW]
+[197/332] o_cao_e_a_raposa  query='o cao e a raposa'
+    ok  'O Cão e a Raposa'  tags=['animacao', 'aventura', 'drama', 'familia']  cover=ok [REVIEW]
+[198/332] o_chamado  query='o chamado'
+    ok  'O Chamado'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[199/332] o_chamado_2  query='o chamado 2'
+    ok  'O Chamado 2'  tags=['drama', 'suspense', 'terror']  cover=ok [REVIEW]
+[200/332] o_corcunda_de_notre_dame  query='o corcunda de notre dame'
+    ok  'O Corcunda de Notre Dame'  tags=['animacao', 'drama', 'familia']  cover=ok [REVIEW]
+[201/332] o_corvo  query='o corvo'
+    ok  'O Corvo'  tags=['acao', 'fantasia', 'suspense']  cover=ok [REVIEW]
+[202/332] o_enigma_de_outro_mundo  query='o enigma de outro mundo'
+    ok  'O Enigma de Outro Mundo'  tags=['ficcao_cientifica', 'suspense', 'terror']  cover=ok [REVIEW]
+[203/332] o_estranho_mundo_de_jack  query='o estranho mundo de jack'
+    ok  'O Estranho Mundo de Jack'  tags=['animacao', 'familia', 'fantasia']  cover=ok
+[204/332] o_exorcista  query='o exorcista'
+    ok  'O Exorcista'  tags=['drama', 'terror']  cover=ok [REVIEW]
+[205/332] o_experimento_de_aprisionamento_de_stanford  query='o experimento de aprisionamento de stanford'
+    ok  'O Experimento de Aprisionamento de Stanford'  tags=['drama', 'suspense']  cover=ok
+[206/332] o_exterminador_do_futuro  query='o exterminador do futuro'
+    ok  'O Exterminador do Futuro'  tags=['acao', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[207/332] o_exterminador_do_futuro_2  query='o exterminador do futuro 2'
+    ok  'O Exterminador do Futuro 2: O Julgamento Final'  tags=['acao', 'ficcao_cientifica', 'suspense']  cover=ok
+[208/332] o_farol  query='o farol'
+    ok  'O Farol'  tags=['drama', 'fantasia', 'suspense']  cover=ok [REVIEW]
+[209/332] o_grande_truque  query='o grande truque'
+    ok  'O Grande Truque'  tags=['drama', 'ficcao_cientifica', 'suspense']  cover=ok
+[210/332] o_hobbit_a_batalha_dos_cinco_exercitos  query='o hobbit a batalha dos cinco exercitos'
+    ok  'O Hobbit: A Batalha dos Cinco Exércitos'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[211/332] o_hobbit_a_desolacao_de_smaug  query='o hobbit a desolacao de smaug'
+    ok  'O Hobbit: A Desolação de Smaug'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[212/332] o_hobbit_uma_jornada_inesperada  query='o hobbit uma jornada inesperada'
+    ok  'O Hobbit: Uma Jornada Inesperada'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[213/332] o_homem_de_aco  query='o homem de aco'
+    ok  'O Homem de Aço'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[214/332] o_homem_de_palha_1972  query='o homem de palha 1972'
+    ! no TMDB match
+[215/332] o_iluminado  query='o iluminado'
+    ok  'O Iluminado'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[216/332] o_jogo_da_imitacao  query='o jogo da imitacao'
+    ok  'O Jogo da Imitação'  tags=['drama', 'guerra', 'suspense']  cover=ok
+[217/332] o_maskara  query='o maskara'
+    ok  'O Máskara'  tags=['comedia', 'fantasia', 'romance', 'suspense']  cover=ok [REVIEW]
+[218/332] o_pacto_dos_lobos  query='o pacto dos lobos'
+    ok  'O Pacto dos Lobos'  tags=['acao', 'aventura', 'terror']  cover=ok
+[219/332] o_palido_olho_azul  query='o palido olho azul'
+    ok  'O Pálido Olho Azul'  tags=['suspense', 'terror']  cover=ok
+[220/332] o_poderoso_chefao  query='o poderoso chefao'
+    ok  'O Poderoso Chefão'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[221/332] o_poderoso_chefao_parte_2  query='o poderoso chefao parte 2'
+    ok  'O Poderoso Chefão: Parte II'  tags=['drama', 'suspense']  cover=ok
+[222/332] o_poderoso_chefao_parte_3  query='o poderoso chefao parte 3'
+    ok  'O Poderoso Chefão: Parte III'  tags=['drama', 'suspense']  cover=ok
+[223/332] o_predestinado  query='o predestinado'
+    ok  'O Predestinado'  tags=['ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[224/332] o_rei_leao  query='o rei leao'
+    ok  'O Rei Leão'  tags=['animacao', 'drama', 'familia']  cover=ok [REVIEW]
+[225/332] o_resgate_do_soldado_ryan  query='o resgate do soldado ryan'
+    ok  'O Resgate do Soldado Ryan'  tags=['drama', 'guerra']  cover=ok
+[226/332] o_retorno_da_mumia  query='o retorno da mumia'
+    ok  'O Retorno da Múmia'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[227/332] o_segredo_do_abismo  query='o segredo do abismo'
+    ok  'O Segredo do Abismo'  tags=['aventura', 'ficcao_cientifica', 'suspense']  cover=ok
+[228/332] o_senhor_dos_aneis_a_sociedade_do_anel  query='o senhor dos aneis a sociedade do anel'
+    ok  'O Senhor dos Anéis: A Sociedade do Anel'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[229/332] o_senhor_dos_aneis_as_duas_torres  query='o senhor dos aneis as duas torres'
+    ok  'O Senhor dos Anéis: As Duas Torres'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[230/332] o_senhor_dos_aneis_o_retorno_do_rei  query='o senhor dos aneis o retorno do rei'
+    ok  'O Senhor dos Anéis: O Retorno do Rei'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[231/332] o_sexto_sentido  query='o sexto sentido'
+    ok  'O Sexto Sentido'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[232/332] o_show_de_truman  query='o show de truman'
+    ok  'O Show de Truman: O Show da Vida'  tags=['comedia', 'drama']  cover=ok
+[233/332] o_tumulo_dos_vagalumes  query='o tumulo dos vagalumes'
+    ok  'O Túmulo dos Vagalumes'  tags=['anime', 'drama']  cover=ok [REVIEW]
+[234/332] o_vingador_do_futuro  query='o vingador do futuro'
+    ok  'O Vingador do Futuro'  tags=['acao', 'aventura', 'ficcao_cientifica']  cover=ok [REVIEW]
+[235/332] one_piece_barao_omatsuri_e_a_ilha_secreta  query='one piece barao omatsuri e a ilha secreta'
+    ok  'One Piece: Baron Omatsuri and the Secret Island'  tags=['acao', 'anime', 'comedia', 'suspense']  cover=ok
+[236/332] os_caca_fantasmas  query='os caca fantasmas'
+    ok  'Os Caça-Fantasmas'  tags=['comedia', 'fantasia']  cover=ok [REVIEW]
+[237/332] os_incriveis  query='os incriveis'
+    ok  'Os Incríveis'  tags=['acao', 'animacao', 'aventura', 'familia']  cover=ok [REVIEW]
+[238/332] os_outros  query='os outros'
+    ok  'Os Outros'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[239/332] os_suspeitos  query='os suspeitos'
+    ok  'Os Suspeitos'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[240/332] os_vingadores  query='os vingadores'
+    ok  'Os Vingadores: The Avengers'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[241/332] os_vingadores_era_de_ultron  query='os vingadores era de ultron'
+    ok  'Vingadores: Era de Ultron'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[242/332] os_vingadores_guerra_infinita  query='os vingadores guerra infinita'
+    ok  'Vingadores: Guerra Infinita'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[243/332] os_vingadores_ultimato  query='os vingadores ultimato'
+    ok  'Vingadores: Ultimato'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[244/332] patlabor_2_o_filme  query='patlabor 2 o filme'
+    ok  'Patlabor 2 - O Filme'  tags=['acao', 'anime', 'ficcao_cientifica', 'suspense']  cover=ok
+[245/332] patlabor_o_filme  query='patlabor o filme'
+    ok  'Patlabor: O Filme'  tags=['acao', 'anime', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[246/332] perfect_blue  query='perfect blue'
+    ok  'Perfect Blue'  tags=['anime', 'suspense']  cover=ok [REVIEW]
+[247/332] persona_3_parte_1  query='persona 3 parte 1'
+    ! no TMDB match
+[248/332] persona_3_parte_2  query='persona 3 parte 2'
+    ! no TMDB match
+[249/332] persona_3_parte_3  query='persona 3 parte 3'
+    ! no TMDB match
+[250/332] persona_3_parte_4  query='persona 3 parte 4'
+    ! no TMDB match
+[251/332] peter_pan  query='peter pan'
+    ok  'Peter Pan'  tags=['animacao', 'aventura', 'familia', 'fantasia']  cover=ok [REVIEW]
+[252/332] pinoquio  query='pinoquio'
+    ok  'Pinóquio'  tags=['animacao', 'familia', 'fantasia']  cover=ok [REVIEW]
+[253/332] piratas_do_caribe_a_maldicao_do_perola_negra  query='piratas do caribe a maldicao do perola negra'
+    ok  'Piratas do Caribe: A Maldição do Pérola Negra'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[254/332] piratas_do_caribe_navegando_em_aguas_misteriosas  query='piratas do caribe navegando em aguas misteriosas'
+    ok  'Piratas do Caribe: Navegando em Águas Misteriosas'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[255/332] piratas_do_caribe_no_fim_do_mundo  query='piratas do caribe no fim do mundo'
+    ok  'Piratas do Caribe: No Fim do Mundo'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[256/332] piratas_do_caribe_o_bau_da_morte  query='piratas do caribe o bau da morte'
+    ok  'Piratas do Caribe: O Baú da Morte'  tags=['acao', 'aventura', 'fantasia']  cover=ok
+[257/332] pokemon_2000  query='pokemon 2000'
+    ok  'Pokémon: O Filme 2000 - O Poder de Um'  tags=['anime', 'aventura', 'familia', 'fantasia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[258/332] pokemon_mewtwo_contra-ataca  query='pokemon mewtwo contra-ataca'
+    ok  'Pokémon, o Filme: Mewtwo Contra-Ataca - Evolução'  tags=['acao', 'anime', 'aventura', 'familia', 'fantasia']  cover=ok [REVIEW]
+[259/332] poltergeist  query='poltergeist'
+    ok  'Poltergeist: O Fenômeno'  tags=['terror']  cover=ok [REVIEW]
+[260/332] possuida  query='possuida'
+    ok  'Possuída'  tags=['drama', 'fantasia', 'suspense', 'terror']  cover=ok [REVIEW]
+[261/332] possuida_2  query='possuida 2'
+    ok  'Possuída 2: Força Incontrolável'  tags=['drama', 'fantasia', 'suspense', 'terror']  cover=ok
+[262/332] power_rangers_o_filme  query='power rangers o filme'
+    ok  'Power Rangers: O Filme'  tags=['acao', 'aventura', 'fantasia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[263/332] predador  query='predador'
+    ok  'O Jogo do Predador'  tags=['acao', 'suspense']  cover=ok [REVIEW]
+[264/332] predador_a_cacada  query='predador a cacada'
+    ok  'O Predador: A Caçada'  tags=['acao', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[265/332] psicopata_americano  query='psicopata americano'
+    ok  'Psicopata Americano'  tags=['drama', 'suspense']  cover=ok [REVIEW]
+[266/332] psycho_pass_providence  query='psycho pass providence'
+    ok  'PSYCHO-PASS: Providence'  tags=['anime', 'suspense']  cover=ok
+[267/332] psycho_pass_the_movie  query='psycho pass the movie'
+    ok  'Psycho-Pass: O Filme'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok [REVIEW]
+[268/332] quarteto_fantastico  query='quarteto fantastico'
+    ok  'Quarteto Fantástico: Primeiros Passos'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[269/332] quarteto_fantastico_primeiros_passos  query='quarteto fantastico primeiros passos'
+    ok  'Quarteto Fantástico: Primeiros Passos'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[270/332] rambo_programado_para_matar  query='rambo programado para matar'
+    ok  'Rambo: Programado Para Matar'  tags=['acao', 'aventura', 'guerra', 'suspense']  cover=ok
+[271/332] ranma_meio_grande_a_aventura_na_china  query='ranma meio grande a aventura na china'
+    ! no TMDB match
+[272/332] rec  query='rec'
+    ok  '[REC] 4: Apocalipse'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[273/332] requiem_para_um_sonho  query='requiem para um sonho'
+    ok  'Réquiem para um Sonho'  tags=['drama', 'suspense']  cover=ok
+[274/332] ringu  query='ringu'
+    ok  'Ringu'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[275/332] robos  query='robos'
+    ok  'Robôs'  tags=['animacao', 'comedia', 'familia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[276/332] rocky_III_o_desafio_supremo  query='rocky III o desafio supremo'
+    ok  'Rocky III: O Desafio Supremo'  tags=['acao', 'drama']  cover=ok
+[277/332] rocky_II_a_revanche  query='rocky II a revanche'
+    ok  'Rocky II: A Revanche'  tags=['drama']  cover=ok
+[278/332] rocky_IV  query='rocky IV'
+    ok  'Rocky IV'  tags=['drama']  cover=ok [REVIEW]
+[279/332] rocky_V  query='rocky V'
+    ok  'Rocky V'  tags=['drama']  cover=ok [REVIEW]
+[280/332] rocky_um_lutador  query='rocky um lutador'
+    ok  'Rocky: Um Lutador'  tags=['drama']  cover=ok
+[281/332] rua_do_medo_parte_1  query='rua do medo parte 1'
+    ok  'Rua do Medo: 1994 - Parte 1'  tags=['suspense', 'terror']  cover=ok
+[282/332] rua_do_medo_parte_2  query='rua do medo parte 2'
+    ok  'Rua do Medo: 1978 - Parte 2'  tags=['suspense', 'terror']  cover=ok [REVIEW]
+[283/332] rua_do_medo_parte_3  query='rua do medo parte 3'
+    ok  'Rua do Medo: 1666 – Parte 3'  tags=['suspense', 'terror']  cover=ok
+[284/332] sakura_card_captors_viagem_a_hong_kong  query='sakura card captors viagem a hong kong'
+    ! no TMDB match
+[285/332] samurai_x_confianca_e_traicao  query='samurai x confianca e traicao'
+    ! no TMDB match
+[286/332] samurai_x_o_filme  query='samurai x o filme'
+    ok  'Samurai X: O Filme'  tags=['acao', 'aventura', 'fantasia', 'guerra']  cover=ok [REVIEW]
+[287/332] scooby_doo  query='scooby doo'
+    ok  'Scooby-Doo: O Filme'  tags=['aventura', 'comedia', 'suspense']  cover=ok [REVIEW]
+[288/332] seven_os_sete_crimes_capitais  query='seven os sete crimes capitais'
+    ok  'Seven - Os Sete Crimes Capitais'  tags=['suspense']  cover=ok
+[289/332] shrek  query='shrek'
+    ok  'Shrek'  tags=['animacao', 'aventura', 'comedia', 'familia', 'fantasia']  cover=ok [REVIEW]
+[290/332] slayers_o_filme  query='slayers o filme'
+    ! no TMDB match
+[291/332] space_adventure_cobra  query='space adventure cobra'
+    ok  'Space Adventure Cobra'  tags=['acao', 'anime', 'aventura', 'ficcao_cientifica']  cover=ok [REVIEW]
+[292/332] spriggan  query='spriggan'
+    ok  'Spriggan'  tags=['acao', 'anime', 'ficcao_cientifica']  cover=ok [REVIEW]
+[293/332] steamboy  query='steamboy'
+    ok  'Steamboy'  tags=['anime', 'fantasia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[294/332] steins_gate_o_filme  query='steins gate o filme'
+    ! no TMDB match
+[295/332] street_fighter  query='street fighter'
+    ok  'Street Fighter'  tags=['acao', 'comedia', 'fantasia']  cover=ok [REVIEW]
+[296/332] street_fighter_2_o_filme  query='street fighter 2 o filme'
+    ok  'Street Fighter II: O Filme'  tags=['acao', 'anime']  cover=ok
+[297/332] super_heroi  query='super heroi'
+    ok  'Super-Herói: O Filme'  tags=['acao', 'comedia', 'ficcao_cientifica']  cover=ok [REVIEW]
+[298/332] supercop_police_story_3  query='supercop police story 3'
+    ok  'Police Story 3: Supercop'  tags=['acao', 'suspense']  cover=ok [REVIEW]
+[299/332] superman_2025  query='superman 2025'
+    ! no TMDB match
+[300/332] tartarugas_ninja_2  query='tartarugas ninja 2'
+    ok  'As Tartarugas Ninja - Perdidas em Nova Jersey'  tags=['acao', 'animacao', 'aventura', 'comedia', 'familia']  cover=ok [REVIEW]
+[301/332] tarzan  query='tarzan'
+    ok  'Tarzan'  tags=['animacao', 'aventura', 'familia']  cover=ok [REVIEW]
+[302/332] terror_em_silent_hill  query='terror em silent hill'
+    ok  'Terror em Silent Hill: Regresso Para o Inferno'  tags=['drama', 'suspense', 'terror']  cover=ok [REVIEW]
+[303/332] the_flash  query='the flash'
+    ok  'The Flash'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[304/332] thor  query='thor'
+    ok  'Thor'  tags=['acao', 'aventura', 'fantasia', 'super_herois']  cover=ok [REVIEW]
+[305/332] thor_ragnarok  query='thor ragnarok'
+    ok  'Thor: Ragnarok'  tags=['acao', 'comedia', 'ficcao_cientifica', 'super_herois']  cover=ok
+[306/332] todo_mundo_em_panico  query='todo mundo em panico'
+    ok  'Todo Mundo em Pânico'  tags=['comedia']  cover=ok [REVIEW]
+[307/332] todo_mundo_em_panico_2  query='todo mundo em panico 2'
+    ok  'Todo Mundo em Pânico 2'  tags=['comedia']  cover=ok
+[308/332] todo_mundo_em_panico_3  query='todo mundo em panico 3'
+    ok  'Todo Mundo em Pânico 3'  tags=['comedia']  cover=ok
+[309/332] todo_poderoso  query='todo poderoso'
+    ok  'Todo Poderoso'  tags=['comedia', 'fantasia']  cover=ok [REVIEW]
+[310/332] toy_story  query='toy story'
+    ok  'Toy Story: Um Mundo de Aventuras'  tags=['animacao', 'aventura', 'comedia', 'familia']  cover=ok [REVIEW]
+[311/332] toy_story_2  query='toy story 2'
+    ok  'Toy Story 2'  tags=['animacao', 'comedia', 'familia']  cover=ok [REVIEW]
+[312/332] troia  query='troia'
+    ok  'Tróia'  tags=['acao', 'guerra']  cover=ok [REVIEW]
+[313/332] tron_o_legado  query='tron o legado'
+    ok  'Tron: O Legado'  tags=['acao', 'aventura', 'ficcao_cientifica']  cover=ok
+[314/332] tropas_estelares  query='tropas estelares'
+    ok  'Tropas Estelares'  tags=['acao', 'aventura', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[315/332] twister  query='twister'
+    ok  'Twister'  tags=['acao', 'aventura', 'drama']  cover=ok [REVIEW]
+[316/332] um_gigolo_por_acidente  query='um gigolo por acidente'
+    ok  'Um Gigolô Europeu por Acidente'  tags=['comedia']  cover=ok
+[317/332] um_maluco_no_golfe  query='um maluco no golfe'
+    ok  'Um Maluco no Golfe'  tags=['comedia']  cover=ok [REVIEW]
+[318/332] v_de_vinganca  query='v de vinganca'
+    ok  'V de Vingança'  tags=['acao', 'ficcao_cientifica', 'suspense']  cover=ok [REVIEW]
+[319/332] vampire_hunter_d  query='vampire hunter d'
+    ok  'Vampire Hunter D'  tags=['anime', 'fantasia', 'terror']  cover=ok [REVIEW]
+[320/332] vampire_hunter_d_sede_de_sangue  query='vampire hunter d sede de sangue'
+    ! no TMDB match
+[321/332] van_helsing_o_cacador_de_monstros  query='van helsing o cacador de monstros'
+    ok  'Van Helsing: O Caçador de Monstros'  tags=['acao', 'aventura', 'terror']  cover=ok
+[322/332] vida_de_inseto  query='vida de inseto'
+    ok  'Vida de Inseto'  tags=['animacao', 'aventura', 'comedia', 'familia']  cover=ok
+[323/332] watchmen_o_filme  query='watchmen o filme'
+    ok  'Watchmen: O Filme'  tags=['acao', 'ficcao_cientifica', 'super_herois', 'suspense']  cover=ok
+[324/332] willow  query='willow'
+    ok  'Willow - Na Terra da Magia'  tags=['acao', 'aventura', 'fantasia']  cover=ok [REVIEW]
+[325/332] x_men  query='x men'
+    ok  'X-Men: Apocalipse'  tags=['acao', 'fantasia', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[326/332] x_men_2  query='x men 2'
+    ok  'X-Men 2'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok [REVIEW]
+[327/332] x_men_3_o_confronto_final  query='x men 3 o confronto final'
+    ok  'X-Men: O Confronto Final'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois', 'suspense']  cover=ok
+[328/332] x_men_apocalipse  query='x men apocalipse'
+    ok  'X-Men: Apocalipse'  tags=['acao', 'fantasia', 'ficcao_cientifica', 'super_herois']  cover=ok
+[329/332] x_men_dias_de_um_futuro_esquecido  query='x men dias de um futuro esquecido'
+    ok  'X-Men: Dias de um Futuro Esquecido'  tags=['acao', 'aventura', 'ficcao_cientifica', 'super_herois']  cover=ok
+[330/332] x_men_primeira_classe  query='x men primeira classe'
+    ok  'X-Men: Primeira Classe 35mm Especial'  tags=['documentario', 'super_herois']  cover=ok [REVIEW]
+[331/332] yu_yu_hakusho_invasores_do_inferno  query='yu yu hakusho invasores do inferno'
+    ok  'Yu Yu Hakusho: Invasores do Inferno'  tags=['acao', 'anime', 'fantasia']  cover=ok
+[332/332] zathura_uma_aventura_espacial  query='zathura uma aventura espacial'
+    ok  'Zathura: Uma Aventura Espacial'  tags=['aventura', 'familia', 'ficcao_cientifica']  cover=ok
+
+Processed: 332
+New/updated entries: 284
+Failures: 48
+  -> details in /home/ewerton/projects/vtv/scripts/_failed.txt

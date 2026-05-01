@@ -1,6 +1,6 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-24",
+  "cycle_start": "2026-01-23",
   "dia_1": [
     {
       "start": "12:00",
@@ -26,6 +26,14 @@
     {
       "id": "rambo_programado_para_matar",
       "duration": 5605
+    },
+    {
+      "id": "todo_mundo_em_panico_3",
+      "duration": 5141
+    },
+    {
+      "id": "as_branquelas",
+      "duration": 6890
     }
   ],
   "dia_2": [
@@ -33,6 +41,18 @@
       "start": "12:00",
       "id": "twister",
       "duration": 6785
+    },
+    {
+      "id": "tropas_estelares",
+      "duration": 7778
+    },
+    {
+      "id": "de_volta_para_o_futuro",
+      "duration": 6962
+    },
+    {
+      "id": "um_gigolo_por_acidente",
+      "duration": 5309
     },
     {
       "id": "o_show_de_truman",
@@ -43,12 +63,12 @@
       "duration": 7620
     },
     {
-      "id": "tropas_estelares",
-      "duration": 7778
+      "id": "mortal_kombat",
+      "duration": 6085
     },
     {
-      "id": "de_volta_para_o_futuro",
-      "duration": 6962
+      "id": "rambo_programado_para_matar",
+      "duration": 5605
     }
   ],
   "dia_3": [
@@ -70,16 +90,20 @@
       "duration": 6862
     },
     {
-      "id": "de_volta_para_o_futuro_2",
-      "duration": 6483
-    },
-    {
       "id": "os_caca_fantasmas",
       "duration": 6308
     },
     {
       "id": "a_espera_de_um_milagre",
       "duration": 11316
+    },
+    {
+      "id": "o_show_de_truman",
+      "duration": 6174
+    },
+    {
+      "id": "mississipi_em_chamas",
+      "duration": 7620
     }
   ],
   "dia_4": [
@@ -87,6 +111,10 @@
       "start": "12:00",
       "id": "supercop_police_story_3",
       "duration": 5790
+    },
+    {
+      "id": "armadura_de_deus",
+      "duration": 5919
     },
     {
       "id": "a_hora_do_acerto",
@@ -101,8 +129,16 @@
       "duration": 7588
     },
     {
-      "id": "de_voltar_para_o_futuro_3",
-      "duration": 7098
+      "id": "click",
+      "duration": 6451
+    },
+    {
+      "id": "os_caca_fantasmas",
+      "duration": 6308
+    },
+    {
+      "id": "a_espera_de_um_milagre",
+      "duration": 11316
     }
   ],
   "dia_5": [
@@ -118,6 +154,49 @@
     {
       "id": "predador",
       "duration": 6394
+    },
+    {
+      "id": "ajuste_final",
+      "duration": 6892
+    },
+    {
+      "id": "rocky_um_lutador",
+      "duration": 7176
+    },
+    {
+      "id": "jurassic_park",
+      "duration": 7588
+    },
+    {
+      "id": "click",
+      "duration": 6451
+    }
+  ],
+  "dia_6": [
+    {
+      "start": "12:00",
+      "id": "o_animal",
+      "duration": 5004
+    },
+    {
+      "id": "super_heroi",
+      "duration": 4950
+    },
+    {
+      "id": "todo_mundo_em_panico",
+      "duration": 5308
+    },
+    {
+      "id": "todo_mundo_em_panico_2",
+      "duration": 4947
+    },
+    {
+      "id": "todo_mundo_em_panico_3",
+      "duration": 5141
+    },
+    {
+      "id": "as_branquelas",
+      "duration": 6890
     },
     {
       "id": "ajuste_final",

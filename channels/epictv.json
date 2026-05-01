@@ -1,6 +1,6 @@
 {
   "timezone": "America/Sao_Paulo",
-  "cycle_start": "2026-01-26",
+  "cycle_start": "2026-01-29",
   "dia_1": [
     {
       "id": "duna_parte_1",
@@ -23,6 +23,14 @@
     {
       "id": "o_senhor_dos_aneis_a_sociedade_do_anel",
       "duration": 13691
+    },
+    {
+      "id": "o_hobbit_a_batalha_dos_cinco_exercitos",
+      "duration": 9843
+    },
+    {
+      "id": "willow",
+      "duration": 7553
     }
   ],
   "dia_2": [
@@ -47,6 +55,14 @@
     {
       "id": "o_senhor_dos_aneis_as_duas_torres",
       "duration": 14125
+    },
+    {
+      "id": "django_livre",
+      "duration": 9923
+    },
+    {
+      "id": "o_senhor_dos_aneis_a_sociedade_do_anel",
+      "duration": 13691
     }
   ],
   "dia_3": [
@@ -71,6 +87,14 @@
     {
       "id": "o_senhor_dos_aneis_o_retorno_do_rei",
       "duration": 15791
+    },
+    {
+      "id": "troia",
+      "duration": 11763
+    },
+    {
+      "id": "o_senhor_dos_aneis_as_duas_torres",
+      "duration": 14125
     }
   ],
   "dia_4": [
@@ -95,6 +119,14 @@
     {
       "id": "o_hobbit_uma_jornada_inesperada",
       "duration": 10950
+    },
+    {
+      "id": "cruzada",
+      "duration": 8666
+    },
+    {
+      "id": "o_senhor_dos_aneis_o_retorno_do_rei",
+      "duration": 15791
     }
   ],
   "dia_5": [
@@ -110,6 +142,14 @@
     {
       "id": "o_hobbit_a_desolacao_de_smaug",
       "duration": 11195
+    },
+    {
+      "id": "duna_parte_2",
+      "duration": 9947
+    },
+    {
+      "id": "o_hobbit_uma_jornada_inesperada",
+      "duration": 10950
     }
   ],
   "dia_6": [
@@ -126,6 +166,14 @@
       "start": "18:00",
       "id": "o_hobbit_a_batalha_dos_cinco_exercitos",
       "duration": 9843
+    },
+    {
+      "id": "willow",
+      "duration": 7553
+    },
+    {
+      "id": "a_lenda_do_cavaleiro_verde",
+      "duration": 7787
     }
   ]
 }

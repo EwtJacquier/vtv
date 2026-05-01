@@ -46,6 +46,14 @@
     {
       "id": "aladdin_e_os_40_ladroes",
       "duration": 4894
+    },
+    {
+      "id": "mulan",
+      "duration": 5270
+    },
+    {
+      "id": "lilo_e_stitch",
+      "duration": 5113
     }
   ],
   "dia_2": [
@@ -89,6 +97,14 @@
     {
       "id": "tarzan",
       "duration": 5302
+    },
+    {
+      "id": "aladdin",
+      "duration": 5440
+    },
+    {
+      "id": "aladdin_e_os_40_ladroes",
+      "duration": 4894
     }
   ],
   "dia_3": [
@@ -132,8 +148,15 @@
     {
       "id": "robos",
       "duration": 5388
+    },
+    {
+      "id": "lilo_e_stitch",
+      "duration": 5113
+    },
+    {
+      "id": "tarzan",
+      "duration": 5302
     }
-    
   ],
   "dia_4": [
     {
@@ -172,6 +195,14 @@
     {
       "id": "scooby_doo",
       "duration": 5189
+    },
+    {
+      "id": "a_fuga_das_galinhas",
+      "duration": 5068
+    },
+    {
+      "id": "robos",
+      "duration": 5388
     }
   ],
   "dia_5": [
@@ -203,6 +234,14 @@
     {
       "id": "a_fantastica_fabrica_de_chocolates",
       "duration": 6923
+    },
+    {
+      "id": "shrek",
+      "duration": 5406
+    },
+    {
+      "id": "scooby_doo",
+      "duration": 5189
     }
   ],
   "dia_6": [
@@ -218,6 +257,14 @@
     {
       "id": "a_fantastica_fabrica_de_chocolates",
       "duration": 6923
+    },
+    {
+      "id": "coraline",
+      "duration": 6032
+    },
+    {
+      "id": "o_estranho_mundo_de_jack",
+      "duration": 4599
     },
     {
       "id": "branca_de_neve_e_os_sete_anoes",
@@ -240,8 +287,43 @@
       "duration": 5450
     },
     {
+      "id": "zathura_uma_aventura_espacial",
+      "duration": 6080
+    },
+    {
+      "id": "a_fantastica_fabrica_de_chocolates",
+      "duration": 6923
+    }
+  ],
+  "dia_7": [
+    {
+      "start": "11:00",
+      "id": "a_pequena_sereia",
+      "duration": 4969
+    },
+    {
       "id": "a_bela_e_a_fera",
       "duration": 5505
+    },
+    {
+      "id": "mulan",
+      "duration": 5270
+    },
+    {
+      "id": "lilo_e_stitch",
+      "duration": 5113
+    },
+    {
+      "id": "a_dama_e_o_vagabundo",
+      "duration": 4584
+    },
+    {
+      "id": "o_corcunda_de_notre_dame",
+      "duration": 5450
+    },
+    {
+      "id": "a_era_do_gelo",
+      "duration": 4870
     }
   ]
 }

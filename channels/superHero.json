@@ -14,6 +14,14 @@
     {
       "id": "x_men_3_o_confronto_final",
       "duration": 6245
+    },
+    {
+      "id": "dead_pool_e_wolverine",
+      "duration": 7667
+    },
+    {
+      "id": "watchmen_o_filme",
+      "duration": 9726
     }
   ],
   "dia_2": [
@@ -29,6 +37,14 @@
     {
       "id": "homem_aranha_3",
       "duration": 8351
+    },
+    {
+      "id": "x_men_2",
+      "duration": 8027
+    },
+    {
+      "id": "x_men_3_o_confronto_final",
+      "duration": 6245
     }
   ],
   "dia_3": [
@@ -48,6 +64,14 @@
     {
       "id": "homem_de_ferro_2",
       "duration": 7479
+    },
+    {
+      "id": "homem_aranha_2",
+      "duration": 8148
+    },
+    {
+      "id": "homem_aranha_3",
+      "duration": 8351
     }
   ],
   "dia_4": [
@@ -67,6 +91,14 @@
     {
       "id": "guardioes_da_galaxia",
       "duration": 7251
+    },
+    {
+      "id": "homem_de_ferro",
+      "duration": 7562
+    },
+    {
+      "id": "homem_de_ferro_2",
+      "duration": 7479
     }
   ],
   "dia_5": [
@@ -86,13 +118,21 @@
     {
       "id": "doutor_estranho",
       "duration": 6899
+    },
+    {
+      "id": "capitao_america_o_soldado_invernal",
+      "duration": 8154
+    },
+    {
+      "id": "guardioes_da_galaxia",
+      "duration": 7251
     }
   ],
   "dia_6": [
     {
       "start": "13:00",
       "id": "guardioes_da_galaxia_vol_2",
-      "duration": 8146
+      "duration": 7824
     },
     {
       "id": "thor_ragnarok",
@@ -105,6 +145,14 @@
     {
       "id": "os_vingadores_ultimato",
       "duration": 10907
+    },
+    {
+      "id": "capitao_america_guerra_civil",
+      "duration": 8862
+    },
+    {
+      "id": "doutor_estranho",
+      "duration": 6899
     }
   ],
   "dia_7": [
@@ -115,11 +163,19 @@
     },
     {
       "id": "guardioes_da_galaxia_vol_2",
-      "duration": 8146
+      "duration": 7824
     },
     {
       "id": "guardioes_da_galaxia_vol_3",
       "duration": 9002
+    },
+    {
+      "id": "os_vingadores_guerra_infinita",
+      "duration": 8961
+    },
+    {
+      "id": "os_vingadores_ultimato",
+      "duration": 10907
     }
   ],
   "dia_8": [
@@ -139,6 +195,14 @@
     {
       "id": "homem_aranha_sem_volta_para_casa",
       "duration": 9416
+    },
+    {
+      "id": "guardioes_da_galaxia_vol_2",
+      "duration": 7824
+    },
+    {
+      "id": "guardioes_da_galaxia_vol_3",
+      "duration": 9002
     }
   ],
   "dia_9": [
@@ -158,6 +222,14 @@
     {
       "id": "liga_da_justica",
       "duration": 14528
+    },
+    {
+      "id": "homem_aranha_longe_de_casa",
+      "duration": 7764
+    },
+    {
+      "id": "homem_aranha_sem_volta_para_casa",
+      "duration": 9416
     }
   ],
   "dia_10": [
@@ -173,6 +245,14 @@
     {
       "id": "batman_o_cavaleiro_das_trevas_ressurge",
       "duration": 9873
+    },
+    {
+      "id": "batman_vs_superman",
+      "duration": 10952
+    },
+    {
+      "id": "liga_da_justica",
+      "duration": 14528
     }
   ],
   "dia_11": [
@@ -188,6 +268,14 @@
     {
       "id": "x_men_apocalipse",
       "duration": 8637
+    },
+    {
+      "id": "batman_o_cavaleiro_das_trevas",
+      "duration": 9133
+    },
+    {
+      "id": "batman_o_cavaleiro_das_trevas_ressurge",
+      "duration": 9873
     }
   ],
   "dia_12": [
@@ -211,6 +299,14 @@
     {
       "id": "batman_do_futuro_o_retorno_do_coringa",
       "duration": 4604
+    },
+    {
+      "id": "x_men_dias_de_um_futuro_esquecido",
+      "duration": 8926
+    },
+    {
+      "id": "x_men_apocalipse",
+      "duration": 8637
     }
   ],
   "dia_13": [
@@ -230,6 +326,14 @@
     {
       "id": "watchmen_o_filme",
       "duration": 9726
+    },
+    {
+      "id": "batman_a_mascara_do_fantasma",
+      "duration": 4587
+    },
+    {
+      "id": "batman_do_futuro_o_retorno_do_coringa",
+      "duration": 4604
     }
   ]
 }

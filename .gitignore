@@ -4,3 +4,5 @@ movies/*
 __pycache__/*
 *.srt
 *.sup
+.env
+scripts/_failed.txt

@@ -285,7 +285,9 @@ def choose_encode_mode(video_codec: str | None) -> str:
     if has_encoder(enc_text, "h264_qsv"):
         options.append(("qsv", "GPU Intel Quick Sync (h264_qsv) — rápido"))
     if has_encoder(enc_text, "h264_amf"):
-        options.append(("amf", "GPU AMD AMF (h264_amf) — rápido"))
+        options.append(("amf", "GPU AMD AMF (h264_amf) — rápido (Windows)"))
+    if has_encoder(enc_text, "h264_vaapi"):
+        options.append(("vaapi", "GPU AMD/Intel VAAPI (h264_vaapi) — rápido (Linux)"))
 
     # COPY só faz sentido se o vídeo já for H.264 (ou às vezes HEVC com player, mas browser costuma sofrer).
     if video_codec == "h264":
@@ -383,6 +385,47 @@ def main():
     print("\n== AUDIO (escolha a faixa dublada) ==")
     chosen_audio = pick_stream(audio_streams, "Escolha o AUDIO [0..]: ")
     assert chosen_audio is not None
+
+    # Áudio secundário (de outro arquivo)
+    secondary_audio_path = None
+    secondary_audio_stream = None
+    secondary_audio_ss = 0.0
+    secondary_audio_delay = 0.0
+
+    print("\n== ÁUDIO SECUNDÁRIO ==")
+    use_secondary = input("Usar áudio de outro arquivo? [s/N]: ").strip().lower()
+    if use_secondary == "s":
+        sec_path = input("Caminho do arquivo (vídeo ou áudio): ").strip()
+        if os.path.isfile(sec_path):
+            sec_meta = ffprobe_meta(sec_path)
+            sec_audio_streams = [s for s in sec_meta.get("streams", []) if s.get("codec_type") == "audio"]
+            if sec_audio_streams:
+                print("\nFaixas de áudio disponíveis:")
+                secondary_audio_stream = pick_stream(sec_audio_streams, "Escolha o ÁUDIO secundário [0..]: ")
+                if secondary_audio_stream:
+                    secondary_audio_path = sec_path
+                    print(f"→ Áudio secundário: {Path(sec_path).name}")
+
+                    ss_input = input("Pular quantos segundos do início do áudio secundário? (ex: 10, 1:30) [padrão 0]: ").strip()
+                    if ss_input:
+                        val = parse_timestamp(ss_input)
+                        if val is not None and val > 0:
+                            secondary_audio_ss = val
+                            print(f"→ Áudio secundário iniciará a partir de {val:.2f}s no arquivo")
+
+                    delay_input = input("Atrasar início do áudio em relação ao vídeo? (segundos, ex: 2.5) [padrão 0]: ").strip()
+                    if delay_input:
+                        try:
+                            delay_val = float(delay_input)
+                            if delay_val > 0:
+                                secondary_audio_delay = delay_val
+                                print(f"→ Áudio secundário atrasado {delay_val:.2f}s em relação ao vídeo")
+                        except ValueError:
+                            print("Valor inválido, sem atraso.")
+            else:
+                print("Nenhuma faixa de áudio encontrada no arquivo.")
+        else:
+            print("Arquivo não encontrado, usando áudio do vídeo principal.")
 
     # Detectar diferença de start_time entre vídeo e áudio usando timestamps reais dos packets
     print("\nAnalisando timestamps das streams...")
@@ -550,10 +593,10 @@ def main():
                 sub_margin_pct = 0
 
     # Segment time
-    segment_time = "4"
+    segment_time = "10"
 
-    # Encode mode: GPU NVENC como padrão
-    encode_mode = "nvenc"
+    # Encode mode: auto-detecção
+    encode_mode = choose_encode_mode(v_codec)
 
     # Qualidade GPU (CQ) padrão
     q = "28"
@@ -634,9 +677,16 @@ def main():
         print(f"Volume: {'+' if volume_db_val > 0 else ''}{volume_db_val}dB")
 
     use_cuda_decode = (encode_mode == "nvenc") and (not burn_sub)
+    use_vaapi_decode = (encode_mode == "vaapi") and (not burn_sub)
+    use_vaapi_encode = (encode_mode == "vaapi")
     cmd = ["ffmpeg", "-hide_banner", "-y"]
     if use_cuda_decode:
         cmd += ["-hwaccel", "cuda", "-hwaccel_output_format", "cuda"]
+    elif use_vaapi_decode:
+        cmd += ["-hwaccel", "vaapi", "-hwaccel_device", "/dev/dri/renderD128", "-hwaccel_output_format", "vaapi"]
+    elif use_vaapi_encode:
+        # VAAPI encode sem hwaccel decode (ex: com legendas) - precisa init_hw_device
+        cmd += ["-init_hw_device", "vaapi=va:/dev/dri/renderD128", "-filter_hw_device", "va"]
 
     #cmd += ["-threads", "6"]
 
@@ -648,6 +698,19 @@ def main():
         cmd += ["-ss", str(cut_start_sec)]
 
     cmd += ["-i", input_path]
+
+    # Input secundário de áudio (deve vir logo após o input principal)
+    if secondary_audio_path:
+        if secondary_audio_delay > 0:
+            cmd += ["-itsoffset", str(secondary_audio_delay)]
+        if secondary_audio_ss > 0:
+            cmd += ["-ss", str(secondary_audio_ss)]
+        cmd += ["-i", secondary_audio_path]
+
+    # Mapeamento de áudio: input 1 se secundário, 0 caso contrário
+    audio_input_idx = 1 if secondary_audio_path else 0
+    audio_stream_idx = secondary_audio_stream["index"] if secondary_audio_path else chosen_audio["index"]
+    audio_map = f"{audio_input_idx}:{audio_stream_idx}"
 
     # Monta filtros de vídeo (scale + legendas se necessário)
     vf_filters = []
@@ -662,6 +725,8 @@ def main():
         target_w, target_h = upscale_res
         if use_cuda_decode:
             vf_filters.append(f"scale_cuda={target_w}:{target_h}")
+        elif use_vaapi_decode:
+            vf_filters.append(f"scale_vaapi=w={target_w}:h={target_h}")
         else:
             vf_filters.append(f"scale={target_w}:{target_h}:flags=lanczos")
 
@@ -760,13 +825,33 @@ def main():
         else:
             vf_filters.append("scale_cuda=format=yuv420p")
 
+    # Com VAAPI decode + force_8bit, garantir conversão de formato na GPU
+    if use_vaapi_decode and force_8bit and not use_filter_complex:
+        has_scale_vaapi = any("scale_vaapi" in f for f in vf_filters)
+        if has_scale_vaapi:
+            vf_filters = [
+                f.replace("scale_vaapi=", "scale_vaapi=format=nv12:") if "scale_vaapi" in f else f
+                for f in vf_filters
+            ]
+        else:
+            vf_filters.append("scale_vaapi=format=nv12")
+
+    # VAAPI encode sem hwaccel decode (ex: com legendas) - precisa hwupload no final dos filtros
+    if use_vaapi_encode and not use_vaapi_decode and not use_filter_complex:
+        vf_filters.append("format=nv12")
+        vf_filters.append("hwupload")
+
+    # VAAPI encode com filter_complex (legendas de imagem) - precisa hwupload
+    if use_vaapi_encode and not use_vaapi_decode and use_filter_complex:
+        filter_complex_str = filter_complex_str.replace("[out]", ",format=nv12,hwupload[out]")
+
     # Aplica filtros e mapeamento
     if use_filter_complex:
         cmd += ["-filter_complex", filter_complex_str]
-        cmd += ["-map", "[out]", "-map", f"0:{chosen_audio['index']}"]
+        cmd += ["-map", "[out]", "-map", audio_map]
     else:
         # Mapeamento normal: vídeo + áudio
-        cmd += ["-map", "0:v:0", "-map", f"0:{chosen_audio['index']}"]
+        cmd += ["-map", "0:v:0", "-map", audio_map]
         # Só adiciona -vf se houver filtros (scale, subtitles)
         if vf_filters:
             cmd += ["-vf", ",".join(vf_filters)]
@@ -804,9 +889,22 @@ def main():
         cmd += ["-c:v", "h264_amf", "-quality", "quality"]
         # Nem sempre AMF aceita maxrate/bufsize do mesmo jeito; tentamos mesmo assim:
         cmd += ["-maxrate", str(maxrate), "-bufsize", str(bufsize)]
+    elif encode_mode == "vaapi":
+        # VAAPI: usar VBR com target (CQP ignora maxrate/bufsize, causando bitrate alto)
+        mr_val = float(maxrate.rstrip("M"))
+        target_br = f"{mr_val * 0.80:.1f}M"
+        cmd += ["-c:v", "h264_vaapi", "-profile:v", "high",
+                "-b:v", target_br,
+                "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
     else:
         cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", "25",
                 "-maxrate", str(maxrate), "-bufsize", str(bufsize)]
+
+    # GOP fixo: keyframe a cada segment_time segundos (garante corte preciso dos segmentos HLS)
+    if encode_mode != "copy":
+        fps = v_fps or 24
+        gop = int(fps * int(segment_time))
+        cmd += ["-g", str(gop), "-keyint_min", str(gop)]
 
     # Áudio: sempre AAC estéreo (compatível com browsers/MSE)
     cmd += ["-c:a", "aac", "-ac", "2", "-b:a", a_bitrate]

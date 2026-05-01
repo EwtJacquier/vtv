@@ -7,8 +7,8 @@ const CHANNELS_PATH = '/channels';
 const HLS_PATH = '/movies_hls';
 
 // Horário de início e fim da programação diária
-const SCHEDULE_START_HOUR = 7;  // 07:00
-const SCHEDULE_END_HOUR = 4;    // 04:00 (do próximo dia)
+const SCHEDULE_START_HOUR = 10;  // 07:00
+const SCHEDULE_END_HOUR = 9;    // 04:00 (do próximo dia)
 
 let currentChannel = null;
 let channelData = null;

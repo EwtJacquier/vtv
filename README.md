@@ -2,6 +2,13 @@
 python3 server.py
 cloudflared tunnel run vtv
 
+## SERVICES
+sudo systemctl start vtv-server vtv-cloudflared
+sudo systemctl stop vtv-server vtv-cloudflared
+
+## LOG
+journalctl -u vtv-server -f
+
 ## TO CONVERT VIDEO
 python3 conversor.py /home/ewerton/Downloads/
 

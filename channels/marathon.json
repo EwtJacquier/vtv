@@ -18,6 +18,14 @@
     {
       "id": "harry_potter_e_o_calice_de_fogo",
       "duration": 9425
+    },
+    {
+      "id": "john_wick_capitulo_3",
+      "duration": 7846
+    },
+    {
+      "id": "john_wick_capitulo_4",
+      "duration": 10158
     }
   ],
   "dia_2": [
@@ -37,6 +45,14 @@
     {
       "id": "harry_potter_e_as_reliquias_da_morte_parte_2",
       "duration": 7827
+    },
+    {
+      "id": "harry_potter_e_o_prisioneiro_de_azkaban",
+      "duration": 8507
+    },
+    {
+      "id": "harry_potter_e_o_calice_de_fogo",
+      "duration": 9425
     }
   ],
   "dia_3": [
@@ -52,6 +68,14 @@
     {
       "id": "o_hobbit_a_batalha_dos_cinco_exercitos",
       "duration": 9843
+    },
+    {
+      "id": "harry_potter_e_as_reliquias_da_morte_parte_1",
+      "duration": 8765
+    },
+    {
+      "id": "harry_potter_e_as_reliquias_da_morte_parte_2",
+      "duration": 7827
     }
   ],
   "dia_4": [
@@ -67,6 +91,14 @@
     {
       "id": "o_senhor_dos_aneis_o_retorno_do_rei",
       "duration": 15797
+    },
+    {
+      "id": "o_hobbit_a_desolacao_de_smaug",
+      "duration": 11195
+    },
+    {
+      "id": "o_hobbit_a_batalha_dos_cinco_exercitos",
+      "duration": 9843
     }
   ],
   "dia_5": [
@@ -86,6 +118,14 @@
     {
       "id": "piratas_do_caribe_navegando_em_aguas_misteriosas",
       "duration": 7674
+    },
+    {
+      "id": "o_senhor_dos_aneis_as_duas_torres",
+      "duration": 14124
+    },
+    {
+      "id": "o_senhor_dos_aneis_o_retorno_do_rei",
+      "duration": 15797
     }
   ],
   "dia_6": [
@@ -101,6 +141,14 @@
     {
       "id": "o_poderoso_chefao_parte_3",
       "duration": 9702
+    },
+    {
+      "id": "piratas_do_caribe_no_fim_do_mundo",
+      "duration": 9541
+    },
+    {
+      "id": "piratas_do_caribe_navegando_em_aguas_misteriosas",
+      "duration": 7674
     }
   ],
   "dia_7": [
@@ -114,8 +162,16 @@
       "duration": 6483
     },
     {
-      "id": "de_voltar_para_o_futuro_3",
+      "id": "de_volta_para_o_futuro_3",
       "duration": 7098
+    },
+    {
+      "id": "o_poderoso_chefao_parte_2",
+      "duration": 12034
+    },
+    {
+      "id": "o_poderoso_chefao_parte_3",
+      "duration": 9702
     }
   ],
   "dia_8": [
@@ -131,6 +187,14 @@
     {
       "id": "matrix_revolutions",
       "duration": 7752
+    },
+    {
+      "id": "de_volta_para_o_futuro_2",
+      "duration": 6483
+    },
+    {
+      "id": "de_volta_para_o_futuro_3",
+      "duration": 7098
     }
   ],
   "dia_9": [
@@ -146,6 +210,14 @@
     {
       "id": "a_mumia_tumba_do_imperador_dragao",
       "duration": 6700
+    },
+    {
+      "id": "matrix_reloaded",
+      "duration": 8220
+    },
+    {
+      "id": "matrix_revolutions",
+      "duration": 7752
     }
   ],
   "dia_10": [
@@ -169,11 +241,54 @@
     {
       "id": "rocky_V",
       "duration": 6250
+    },
+    {
+      "id": "o_retorno_da_mumia",
+      "duration": 7773
+    },
+    {
+      "id": "a_mumia_tumba_do_imperador_dragao",
+      "duration": 6700
     }
   ],
   "dia_11": [
     {
       "start": "17:00",
+      "id": "duna_parte_1",
+      "duration": 9325
+    },
+    {
+      "id": "duna_parte_2",
+      "duration": 9947
+    },
+    {
+      "id": "rocky_IV",
+      "duration": 5490
+    },
+    {
+      "id": "rocky_V",
+      "duration": 6250
+    }
+  ],
+  "dia_12": [
+    {
+      "id": "john_wick_capitulo_1",
+      "duration": 6072,
+      "start": "15:00"
+    },
+    {
+      "id": "john_wick_capitulo_2",
+      "duration": 7343
+    },
+    {
+      "id": "john_wick_capitulo_3",
+      "duration": 7846
+    },
+    {
+      "id": "john_wick_capitulo_4",
+      "duration": 10158
+    },
+    {
       "id": "duna_parte_1",
       "duration": 9325
     },

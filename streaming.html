@@ -109,7 +109,7 @@
             gap: 0.5rem;
             justify-content: center;
             padding: 0 2rem 1rem;
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -135,90 +135,100 @@
             color: #fff;
         }
 
-        .channel-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-            margin-top: 0.5rem;
-        }
-
-        .channel-tag {
-            font-size: 0.65rem;
-            padding: 0.15rem 0.4rem;
-            border-radius: 8px;
-            background: rgba(102, 126, 234, 0.3);
-            color: rgba(255, 255, 255, 0.8);
+        .filter-section-label {
+            width: 100%;
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.15rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .movies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             padding: 1rem 2rem 3rem;
-            max-width: 1600px;
+            max-width: 2200px;
             margin: 0 auto;
         }
 
         .movie-card {
+            display: flex;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
             cursor: pointer;
             text-decoration: none;
             color: inherit;
+            min-height: 280px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .movie-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(118, 75, 162, 0.4);
         }
 
-        .movie-thumb {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .movie-poster {
+            position: relative;
+            flex: 0 0 190px;
+            background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+            overflow: hidden;
         }
 
-        .movie-thumb img {
+        .movie-poster img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        .movie-thumb.no-thumb {
-            background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+        .movie-poster.no-cover {
+            background: linear-gradient(135deg, rgba(220, 130, 70, 0.18) 0%, rgba(140, 60, 30, 0.18) 100%);
         }
 
-        .movie-thumb.no-thumb::after {
+        .movie-poster.no-cover::after {
             content: '🎬';
-            font-size: 3rem;
-            opacity: 0.3;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            opacity: 0.35;
         }
 
-        .movie-info {
-            padding: 1rem;
+        .movie-poster.no-cover::before {
+            content: 'SEM CAPA';
+            position: absolute;
+            bottom: 0.9rem;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.7rem;
+            color: rgba(255, 200, 150, 0.95);
+            letter-spacing: 0.2rem;
+            font-weight: 700;
+            z-index: 1;
         }
 
-        .movie-title {
-            font-size: 0.95rem;
-            font-weight: 500;
-            line-height: 1.4;
-            text-transform: capitalize;
+        .movie-card:has(.movie-poster.no-cover) {
+            border-color: rgba(255, 150, 100, 0.35);
+        }
+
+        .movie-card:has(.movie-poster.no-cover):hover {
+            border-color: rgba(255, 150, 100, 0.6);
         }
 
         .play-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
             display: flex;
             align-items: center;
@@ -227,44 +237,154 @@
             transition: opacity 0.3s;
         }
 
-        .movie-thumb-container {
-            position: relative;
-        }
-
         .movie-card:hover .play-overlay {
             opacity: 1;
         }
 
         .play-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
+        }
+
+        .movie-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.25rem 1.4rem;
+            min-width: 0;
+        }
+
+        .movie-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 0.6rem;
+            color: #fff;
+        }
+
+        .movie-synopsis {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.8rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .movie-synopsis.empty {
+            color: rgba(255, 255, 255, 0.35);
+            font-style: italic;
+        }
+
+        .movie-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .movie-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.25) 0%, rgba(118, 75, 162, 0.25) 100%);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(118, 75, 162, 0.35);
+            letter-spacing: 0.02rem;
+        }
+
+        .movie-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 0.7rem;
+            gap: 0.5rem;
+        }
+
+        .movie-duration {
+            white-space: nowrap;
+        }
+
+        .movie-badge-cc,
+        .movie-badge-dub {
+            font-size: 0.65rem;
+            padding: 0.18rem 0.55rem;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .movie-badge-cc {
+            background: rgba(255, 200, 100, 0.12);
+            color: rgba(255, 210, 130, 0.95);
+            border-color: rgba(255, 200, 100, 0.4);
+        }
+
+        .movie-badge-dub {
+            background: rgba(102, 200, 140, 0.12);
+            color: rgba(140, 220, 170, 0.95);
+            border-color: rgba(102, 200, 140, 0.4);
         }
 
         .loading {
             text-align: center;
             padding: 3rem;
             color: rgba(255, 255, 255, 0.5);
+            grid-column: 1 / -1;
         }
 
         .error {
             text-align: center;
             padding: 3rem;
             color: #764ba2;
+            grid-column: 1 / -1;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 1200px) {
             .movies-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .movies-grid {
+                grid-template-columns: 1fr;
                 gap: 1rem;
                 padding: 1rem;
+            }
+
+            .movie-card {
+                min-height: auto;
+            }
+
+            .movie-poster {
+                flex: 0 0 130px;
+            }
+
+            .movie-content {
+                padding: 1rem;
+            }
+
+            .movie-title {
+                font-size: 1rem;
+            }
+
+            .movie-synopsis {
+                -webkit-line-clamp: 3;
+                font-size: 0.8rem;
             }
 
             header h1 {
                 font-size: 1.5rem;
                 letter-spacing: 0.3rem;
-            }
-
-            .movie-title {
-                font-size: 0.85rem;
             }
         }
     </style>
@@ -292,8 +412,10 @@
     </div>
 
     <script>
-        const MOVIES_DIR = './movies_hls';
+        const COVERS_DIR = './covers';
         const CHANNELS_DIR = './channels';
+        const DB_PATH = './db.json';
+        const TAGS_PATH = './tags.json';
 
         const CHANNEL_FILES = [
             'afterDark', 'animetv', 'epictv', 'hokkaido',
@@ -301,8 +423,10 @@
         ];
 
         let movies = [];
-        let allChannels = [];
-        let activeFilter = null;
+        let allTags = [];
+        let tagsMap = {};
+        let activeTag = null;
+        const CACHE_BUST = Date.now();
 
         function formatTitle(id) {
             return id
@@ -310,12 +434,17 @@
                 .replace(/\b\w/g, c => c.toUpperCase());
         }
 
-        function formatChannelName(filename) {
-            return filename
-                .replace(/([A-Z])/g, ' $1')
-                .replace(/^\s/, '')
-                .replace(/\b\w/g, c => c.toUpperCase())
-                .trim();
+        function formatDuration(sec) {
+            if (!sec || sec < 60) return '';
+            const h = Math.floor(sec / 3600);
+            const m = Math.round((sec % 3600) / 60);
+            if (h && m) return `${h}h ${m}min`;
+            if (h) return `${h}h`;
+            return `${m}min`;
+        }
+
+        function tagLabel(slug) {
+            return tagsMap[slug] || slug;
         }
 
         function createMovieCard(movie) {
@@ -326,24 +455,37 @@
             card.className = 'movie-card';
             card.href = `${playerPage}?movie=${encodeURIComponent(movie.id)}`;
 
-            const thumbUrl = `${MOVIES_DIR}/${movie.id}/thumb.jpg`;
-            const tagsHtml = movie.channels.map(ch =>
-                `<span class="channel-tag">${formatChannelName(ch)}</span>`
+            const coverUrl = `${COVERS_DIR}/${movie.id}.jpg?v=${CACHE_BUST}`;
+            const synopsis = movie.synopsis
+                ? movie.synopsis
+                : 'Sinopse não disponível.';
+            const synopsisClass = movie.synopsis ? '' : ' empty';
+
+            const tagsHtml = (movie.tags || []).map(t =>
+                `<span class="movie-tag">${tagLabel(t)}</span>`
             ).join('');
 
+            const duration = formatDuration(movie.duration);
+            const audioBadge = movie.channels.includes('hokkaido')
+                ? '<span class="movie-badge-cc">Legendado</span>'
+                : '<span class="movie-badge-dub">Dublado</span>';
+
             card.innerHTML = `
-                <div class="movie-thumb-container">
-                    <div class="movie-thumb">
-                        <img src="${thumbUrl}" alt="${movie.title}" loading="lazy"
-                             onerror="this.parentElement.classList.add('no-thumb'); this.remove();">
-                    </div>
+                <div class="movie-poster">
+                    <img src="${coverUrl}" alt="" loading="lazy"
+                         onerror="this.parentElement.classList.add('no-cover'); this.remove();">
                     <div class="play-overlay">
                         <span class="play-icon">▶</span>
                     </div>
                 </div>
-                <div class="movie-info">
+                <div class="movie-content">
                     <div class="movie-title">${movie.title}</div>
-                    <div class="channel-tags">${tagsHtml}</div>
+                    ${tagsHtml ? `<div class="movie-tags">${tagsHtml}</div>` : ''}
+                    <div class="movie-synopsis${synopsisClass}">${synopsis}</div>
+                    <div class="movie-meta">
+                        <span class="movie-duration">${duration || '—'}</span>
+                        ${audioBadge}
+                    </div>
                 </div>
             `;
 
@@ -368,7 +510,7 @@
             return text
                 .toLowerCase()
                 .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[̀-ͯ]/g, '')
                 .replace(/ç/g, 'c')
                 .replace(/ñ/g, 'n');
         }
@@ -379,14 +521,15 @@
 
             let filtered = movies;
 
-            if (activeFilter) {
-                filtered = filtered.filter(m => m.channels.includes(activeFilter));
+            if (activeTag) {
+                filtered = filtered.filter(m => (m.tags || []).includes(activeTag));
             }
 
             if (normalizedQuery) {
                 filtered = filtered.filter(movie =>
                     normalizeText(movie.title).includes(normalizedQuery) ||
-                    normalizeText(movie.id).includes(normalizedQuery)
+                    normalizeText(movie.id).includes(normalizedQuery) ||
+                    normalizeText(movie.synopsis || '').includes(normalizedQuery)
                 );
             }
 
@@ -407,22 +550,23 @@
             container.innerHTML = '';
 
             const allBtn = document.createElement('button');
-            allBtn.className = 'filter-btn' + (activeFilter === null ? ' active' : '');
+            allBtn.className = 'filter-btn' + (activeTag === null ? ' active' : '');
             allBtn.textContent = `Todos (${movies.length})`;
             allBtn.addEventListener('click', () => {
-                activeFilter = null;
+                activeTag = null;
                 renderFilters();
                 updateView();
             });
             container.appendChild(allBtn);
 
-            allChannels.forEach(ch => {
-                const count = movies.filter(m => m.channels.includes(ch)).length;
+            allTags.forEach(tag => {
+                const count = movies.filter(m => (m.tags || []).includes(tag)).length;
+                if (!count) return;
                 const btn = document.createElement('button');
-                btn.className = 'filter-btn' + (activeFilter === ch ? ' active' : '');
-                btn.textContent = `${formatChannelName(ch)} (${count})`;
+                btn.className = 'filter-btn' + (activeTag === tag ? ' active' : '');
+                btn.textContent = `${tagLabel(tag)} (${count})`;
                 btn.addEventListener('click', () => {
-                    activeFilter = activeFilter === ch ? null : ch;
+                    activeTag = activeTag === tag ? null : tag;
                     renderFilters();
                     updateView();
                 });
@@ -430,44 +574,60 @@
             });
         }
 
+        async function loadJSON(path) {
+            try {
+                const res = await fetch(`${path}?v=` + Date.now());
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (e) {
+                console.warn(`Falha ao carregar ${path}:`, e);
+                return null;
+            }
+        }
+
         async function loadMovies() {
             try {
                 const movieMap = {};
 
-                const fetches = CHANNEL_FILES.map(async (chName) => {
-                    try {
-                        const res = await fetch(`${CHANNELS_DIR}/${chName}.json?v=`+Date.now());
-                        if (!res.ok) return;
-                        const data = await res.json();
+                const [db, tagsJson] = await Promise.all([
+                    loadJSON(DB_PATH),
+                    loadJSON(TAGS_PATH),
+                ]);
+                tagsMap = tagsJson || {};
 
-                        for (const key of Object.keys(data)) {
-                            if (!key.startsWith('dia_')) continue;
-                            for (const entry of data[key]) {
-                                if (!entry.id) continue;
-                                if (!movieMap[entry.id]) {
-                                    movieMap[entry.id] = {
-                                        id: entry.id,
-                                        title: formatTitle(entry.id),
-                                        channels: []
-                                    };
-                                }
-                                if (!movieMap[entry.id].channels.includes(chName)) {
-                                    movieMap[entry.id].channels.push(chName);
-                                }
+                const channelFetches = CHANNEL_FILES.map(async (chName) => {
+                    const data = await loadJSON(`${CHANNELS_DIR}/${chName}.json`);
+                    if (!data) return;
+
+                    for (const key of Object.keys(data)) {
+                        if (!key.startsWith('dia_')) continue;
+                        for (const entry of data[key]) {
+                            if (!entry.id) continue;
+                            if (!movieMap[entry.id]) {
+                                const meta = (db && db[entry.id]) || null;
+                                movieMap[entry.id] = {
+                                    id: entry.id,
+                                    title: meta?.name || formatTitle(entry.id),
+                                    synopsis: meta?.synopsis || '',
+                                    tags: meta?.tags || [],
+                                    duration: meta?.duration || entry.duration || 0,
+                                    channels: []
+                                };
+                            }
+                            if (!movieMap[entry.id].channels.includes(chName)) {
+                                movieMap[entry.id].channels.push(chName);
                             }
                         }
-                    } catch (e) {
-                        console.warn(`Erro ao carregar canal ${chName}:`, e);
                     }
                 });
 
-                await Promise.all(fetches);
+                await Promise.all(channelFetches);
 
                 movies = Object.values(movieMap);
-                movies.sort((a, b) => a.title.localeCompare(b.title));
+                movies.sort((a, b) => a.title.localeCompare(b.title, 'pt-BR'));
 
-                allChannels = [...new Set(movies.flatMap(m => m.channels))].sort((a, b) =>
-                    formatChannelName(a).localeCompare(formatChannelName(b))
+                allTags = [...new Set(movies.flatMap(m => m.tags || []))].sort((a, b) =>
+                    tagLabel(a).localeCompare(tagLabel(b), 'pt-BR')
                 );
 
                 renderFilters();
@@ -484,7 +644,6 @@
 
         const enhancedCheckbox = document.getElementById('useEnhanced');
         enhancedCheckbox.checked = localStorage.getItem('vtv_useEnhanced') === 'true';
-
         enhancedCheckbox.addEventListener('change', () => {
             localStorage.setItem('vtv_useEnhanced', enhancedCheckbox.checked);
             updateView();
